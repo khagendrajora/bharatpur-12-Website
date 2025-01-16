@@ -1,0 +1,373 @@
+import {
+  faBars,
+  faChevronDown,
+  faEnvelope,
+  faLocationDot,
+  faPhone,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
+import { LanguageSelector } from "../LanguageSelector";
+import { Link, useLocation } from "react-router";
+
+export const NavBar = () => {
+  const [isMenu, setIsMenu] = useState(false);
+  const [aboutUsMenu, setAboutUsMenu] = useState(false);
+  const [newsMenu, setNewsMenu] = useState(false);
+  const [aboutUsMenuSmall, setAboutUsMenuSmall] = useState(false);
+  const [newsMenuSmall, setNewsMenuSmall] = useState(false);
+  const location = useLocation();
+
+  const works = () => {
+    const work = document.getElementById("works");
+    if (work) {
+      window.scrollTo({
+        top: work.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const isActive = (path: string) =>
+    location.pathname === path || location.pathname.startsWith(path + "/");
+  // const { t } = useTranslation();
+
+  return (
+    <>
+      <div className={`flex w-full items-center justify-between bg-white `}>
+        <div className="flex gap-2 items-center p-4">
+          <img
+            src="/logo1.jpeg"
+            alt="logo"
+            className="w-[100px] sm:min-w-[150px]  h-auto"
+          />
+          <h1 className="text-xs flex justifu-center flex-col gap-3">
+            <span className="text-red-500 text-[15px] sm:text-[25px] lg:text-[20px] font-bold">
+              भरतपुर&nbsp;महानगरपालिका
+            </span>{" "}
+            <span className="text-blue-500 text-[15x] font-bold">
+              वडा नं. १२, चितवन, नेपाल{" "}
+            </span>
+          </h1>
+          {/* <img src="/logoname.png" alt="logo" className="w-[100px] h-auto" /> */}
+        </div>
+        <div className="lg:flex flex-col hidden w-full ">
+          <div className="bg-blue-500 flex justify-between p-3 text-white w-full">
+            <div className="flex gap-5 ">
+              <h1 className="md:text-sm text-xs flex items-center ">
+                <FontAwesomeIcon
+                  icon={faLocationDot}
+                  className="me-1 hover:scale-105 cursor-pointer text-red-500"
+                />
+                भरतपुर&nbsp;नगरपालिका
+              </h1>
+              <div className="md:text-sm text-xs flex items-center">
+                <FontAwesomeIcon
+                  icon={faEnvelope}
+                  className="me-1 hover:scale-105 cursor-pointer text-red-500"
+                />
+                Bharatpur@gmail.com
+              </div>
+            </div>
+            <div className="flex w-full justify-end text-black">
+              <LanguageSelector />
+            </div>
+          </div>
+          <div className="w-full p-2 flex gap-4 justify-between">
+            <ul className="list-none text-xs lg:text-sm p-2 flex w-full gap-5 text-slate-500 md:gap-4 xl:gap-10 items-center font-semibold">
+              <Link
+                to="/"
+                className={`hover:text-black cursor-pointer ${
+                  isActive("/") ? "text-black" : ""
+                }`}
+              >
+                गृहपृष्ठ
+              </Link>
+              <li
+                className={`hover:text-black cursor-pointer relative ${
+                  isActive("/aboutus") ||
+                  isActive("/toleintro") ||
+                  isActive("/wardintro")
+                    ? "text-black"
+                    : ""
+                }`}
+                onMouseEnter={() => setAboutUsMenu(true)}
+                onMouseLeave={() => setAboutUsMenu(false)}
+                onClick={() => setAboutUsMenu(true)}
+              >
+                हाम्रो&nbsp;बारेमा
+                {aboutUsMenu && (
+                  <div
+                    className="bg-white z-10  absolute text-sm w-[200px] text-slate-600"
+                    onMouseEnter={() => setAboutUsMenu(true)}
+                    onMouseLeave={() => setAboutUsMenu(false)}
+                  >
+                    <ul className="flex flex-col pt-5 ">
+                      <li className="hover:bg-gray-100 p-3">
+                        <Link to="/aboutus" className="cursor-pointer  ">
+                          परिचय
+                        </Link>
+                      </li>
+                      <hr />
+                      <li className="hover:bg-gray-100 p-3">
+                        <Link to="/wardintro" className="cursor-pointer ">
+                          वडाको&nbsp;विवरण
+                        </Link>
+                      </li>
+                      <hr />
+                      <li className="hover:bg-gray-100 p-3">
+                        <Link to="/toleintro" className="cursor-pointer ">
+                          टाेली
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </li>
+              <li className="hover:text-black cursor-pointer" onClick={works}>
+                हाम्रो&nbsp;काम
+              </li>
+              <li className="hover:text-black cursor-pointer">प्रकाशन</li>
+              <li
+                className={`hover:text-black cursor-pointer relative ${
+                  isActive("/notices") ||
+                  isActive("/news") ||
+                  isActive("/photoes") ||
+                  isActive("/videos")
+                    ? "text-black"
+                    : ""
+                }`}
+                onMouseEnter={() => setNewsMenu(true)}
+                onMouseLeave={() => setNewsMenu(false)}
+                onClick={() => setNewsMenu(!aboutUsMenu)}
+              >
+                अपडेट
+                {newsMenu && (
+                  <div
+                    className="bg-white z-10  absolute text-sm w-[200px] text-slate-600"
+                    onMouseEnter={() => setNewsMenu(true)}
+                    onMouseLeave={() => setNewsMenu(false)}
+                  >
+                    <ul className="flex flex-col pt-5">
+                      <li className="hover:bg-gray-100 p-3">
+                        <Link to="/notices" className="cursor-pointer ">
+                          सूचना
+                        </Link>
+                      </li>
+                      <hr />
+                      <li className="hover:bg-gray-100 p-3">
+                        <Link to="/news" className="cursor-pointer">
+                          समाचार
+                        </Link>
+                      </li>
+                      <hr />
+                      <li className="hover:bg-gray-100 p-3">
+                        <Link to="/photoes" className="cursor-pointer">
+                          फोटो
+                        </Link>
+                      </li>
+                      <hr />
+                      <li className="hover:bg-gray-100 p-3">
+                        <Link to="/videos" className="cursor-pointer">
+                          भिडियो
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </li>
+              <li>
+                <Link to="/contact" className="hover:text-black cursor-pointer">
+                  सम्पर्क
+                </Link>
+              </li>
+              <button>
+                <Link
+                  to=""
+                  className="hover:text-black text-white bg-red-500 cursor-pointer p-2 rounded-full"
+                >
+                  प्रोफाइल
+                </Link>
+              </button>
+            </ul>
+            <div className="flex  items-center  me-1">
+              <h1 className="md:text-sm text-xs flex flex-row items-center h-fit">
+                <FontAwesomeIcon
+                  icon={faPhone}
+                  shake
+                  className="me-1 hover:scale-105 cursor-pointer text-red-600"
+                />
+                &nbsp;सम्पर्क:&nbsp;9803030780
+              </h1>
+              {/* <div className="flex w-full justify-end text-black">
+                <LanguageSelector />
+              </div> */}
+            </div>
+          </div>
+        </div>
+        {isMenu && (
+          <div
+            className={` absolute lg:hidden  bg-blue-500 ps-8 p-2 w-1/3 min-w-[200px]  z-10 top-[1px] left-0 t transition-all overflow-hidden duration-5000 ease-linear ${
+              isMenu ? "w-1/3 min-w-[200px]" : "w-0"
+            }`}
+          >
+            <div className="flex justify-end">
+              <FontAwesomeIcon
+                icon={faXmark}
+                size="xl"
+                className="cursor-pointer"
+                style={{ color: "#fafcff" }}
+                onClick={() => setIsMenu(!isMenu)}
+              />
+            </div>
+            <ul className="list-none h-screen text-xl  mt-10 flex w-full flex-col gap-5 text-white md:gap-10 font-semibold">
+              <Link to="/" className="hover:text-black cursor-pointer">
+                गृहपृष्ठ
+              </Link>
+              <li
+                className="hover:text-black cursor-pointer flex justify-between  items-center "
+                onClick={() => setAboutUsMenuSmall(!aboutUsMenuSmall)}
+              >
+                हाम्रो&nbsp;बारेमा
+                <FontAwesomeIcon
+                  icon={faChevronDown}
+                  style={{ color: "#ebecf0" }}
+                />
+              </li>
+              <li className={`${aboutUsMenuSmall ? "block" : "hidden"}`}>
+                {aboutUsMenuSmall && (
+                  <div className="text-white text-sm text-center">
+                    <ul className="flex flex-col gap-4 ">
+                      <Link
+                        to="/aboutus"
+                        className="cursor-pointer hover:text-black"
+                      >
+                        परिचय
+                      </Link>
+                      <Link
+                        to="/wardintro"
+                        className="cursor-pointer hover:text-black"
+                      >
+                        वडाको&nbsp;विवरण
+                      </Link>
+                      <Link
+                        to="/toleintro"
+                        className="cursor-pointer hover:text-black"
+                      >
+                        टाेली
+                      </Link>
+                    </ul>
+                  </div>
+                )}
+              </li>
+
+              <li className="hover:text-black cursor-pointer">
+                {" "}
+                हाम्रो&nbsp;काम
+              </li>
+              <li
+                className="hover:text-black cursor-pointer flex justify-between items-center"
+                onClick={() => setNewsMenuSmall(!newsMenuSmall)}
+              >
+                प्रकाशन
+                <FontAwesomeIcon
+                  icon={faChevronDown}
+                  className="t"
+                  style={{ color: "#ebecf0" }}
+                />
+              </li>
+              <li className={`${newsMenuSmall ? "block" : "hidden"}`}>
+                {newsMenuSmall && (
+                  <div className="text-white text-sm text-center">
+                    <ul className="flex flex-col gap-4">
+                      <Link
+                        to="/notices"
+                        className="cursor-pointer hover:text-black"
+                      >
+                        सूचना
+                      </Link>
+
+                      <Link
+                        to="/news"
+                        className="cursor-pointer hover:text-black"
+                      >
+                        समाचार
+                      </Link>
+                      <Link
+                        to="/photoes"
+                        className="cursor-pointer hover:text-black"
+                      >
+                        फोटो
+                      </Link>
+                      <Link
+                        to="/videos"
+                        className="cursor-pointer hover:text-black"
+                      >
+                        भिडियो
+                      </Link>
+                    </ul>
+                  </div>
+                )}
+              </li>
+              <Link to="/contact" className="hover:text-black cursor-pointer">
+                सम्पर्क
+              </Link>
+            </ul>
+          </div>
+        )}
+
+        <div className="lg:hidden p-[1px] cursor-pointer">
+          <div onClick={() => setIsMenu(!isMenu)}>
+            <FontAwesomeIcon
+              icon={faBars}
+              size="2xl"
+              style={{ color: "#005eff" }}
+            />
+          </div>
+        </div>
+      </div>
+      {/* <div className="flex flex-col w-full">
+          <div className=" bg-blue-500  text-white border-t-2 shadow-md flex justify-between w-full"></div>
+          <div className="bg-[#504a48] text-white">
+            <div className="flex justify-center">
+              <div className="p-1 w-11/12 z-0">
+                <div className="flex items-center gap-3">
+                  <span className="text-sm font-bold z-0">News</span>
+                  <div className="marquee-container w-11/12">
+                    <span className="marquee cursor-pointer">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Rem dolor modi odit eius, deleniti voluptati
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> */}
+      {/* </div> */}
+      {/* <style>
+        {`
+
+           .marquee-container {
+            overflow: hidden; 
+            white-space: nowrap;
+            position: relative; 
+          }
+            .marquee { 
+            display: inline-block;
+            animation: marqueeAnimation 20s linear infinite;
+        } 
+          @keyframes marqueeAnimation {
+            0% {
+              transform: translateX(-100%); 
+            }
+            100% {
+              transform: translateX(100%); 
+            }
+          }
+        `}
+      </style> */}
+    </>
+  );
+};
