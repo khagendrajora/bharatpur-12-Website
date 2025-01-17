@@ -56,8 +56,8 @@ export const WorkDone = () => {
           थप पढ्नुहोस्
         </button>
       </div> */}
-      <div className=" md:w-11/12 w-full mx-auto -mt-52 p-5">
-        <div className="flex justify-center flex-wrap gap-16  w-full ">
+      <div className=" md:w-10/12 w-full mx-auto -mt-52 p-5">
+        <div className="flex justify-center flex-wrap gap-y-8 gap-x-1  w-full ">
           {images.map((image, index) => (
             <div
               key={index}

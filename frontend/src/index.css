@@ -1,3 +1,22 @@
+.scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+    /* For Chrome, Safari, and Opera */
+}
+
+.scrollbar-hidden {
+    -ms-overflow-style: none;
+    /* For Internet Explorer and Edge */
+    scrollbar-width: none;
+    /* For Firefox */
+}
+@supports (-webkit-overflow-scrolling: touch) {
+    .bg-fixed-ios {
+        background-attachment: scroll;
+    }
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+

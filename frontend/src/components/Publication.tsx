@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export const Publication = () => {
   return (
     <>
-      <div className="bg-[url('/hill.jpg')] bg-cover bg-center bg-fixed h-[500px]  opacity-10 z-0"></div>
+      <div className="bg-[url('/hill.jpg')] bg-cover bg-center bg-fixed bg-fixed-ios h-[500px]  opacity-10 z-0"></div>
       <div className=" flex flex-wrap justify-between z-10 bg-white -mt-40  w-full">
         <div className="w-full md:w-2/3 p-5">
           <div className="flex  flex-col md:w-3/4 w-full mx-auto">

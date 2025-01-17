@@ -16,35 +16,40 @@ export const WardIntro = () => {
             className="w-full h-[400px]  object-cover"
           />
           <h1 className="absolute inset-0 justify-center items-center flex text-white font-bold text-shadow text-4xl md:text-7xl">
-            Ward Introduction
+            वडाको&nbsp;विवरण
           </h1>
         </div>
 
-        <div className="flex flex-row text-slate-600 flex-wrap justify-center p-10 mx-auto md:w-3/4 ">
-          <div className="flex flex-wrap gap-4 md:w-11/12 p-5">
+        <div className="flex  md:w-11/12 flex-wrap justify-center mx-auto  p-5 xl:p-14 ">
+          <div className="">
             <img
               src="/hero.jpg"
               alt="logo"
-              className="flex mx-auto md:mx-0 object-cover min-w-[250px] sm:max-w-[400px] "
+              className="flex mx-auto w-[600px] 2xl:h-[500px] object-cover"
             />
-            <div className="text-justify">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos
-              pariatur, enim reprehenderit quod, maxime aperiam fugiat
-              voluptatibus nobis officiis velit veniam! Dicta necessitatibus
-              maxime sunt ipsum cum nisi, eaque omnis?
-            </div>
+          </div>
+          <div className="text-gray-600 p-3 leading-9 w-full lg:w-1/2  text-justify">
+            खोकना पूर्व गाउँ विकास समिति (VDC) हो जुन छिमेकी गाविसा बुंगमती,
+            छाम्पी, दुकुछाप र सानिबुसँग गाभिएर नेपालको बागमती अञ्चलको ललितपुर
+            जिल्लाको कार्यविनायक नगरपालिका गठन गरिएको छ। 1991 को नेपाली जनगणना
+            को समयमा, खोकना 4258 को जनसंख्या 699 व्यक्तिगत घरहरु मा बसोबास थियो।
+            2011 को नेपाली जनगणना अनुसार, 1056 व्यक्तिगत घरहरु मा बसोबास गर्ने
+            4927 को जनसंख्या थियो।. खोकना, एउटा परम्परागत र सानो नेवारी गाउँ,
+            जुन काठमाण्डौबाट करिब ८ किलोमिटर दक्षिणमा (पाटनको बाहिरी भागमा)
+            पर्छ। खोकना प्राचीनकालदेखि नै तोरीको तेल उत्पादनका लागि प्रख्यात छ ।
+            राणा प्रधानमन्त्री चन्द्र शमशेरको पालामा सन् १९११ मा विद्युतले
+            जलाउने नेपालको पहिलो सहर पनि थियो ।
           </div>
         </div>
         <div className="flex flex-col text-slate-600 gap-4 md:w-3/4 mx-auto  mt-20 p-5  w-3/4">
-          <h1 className="font-bold">Ward Introduction</h1>
+          <h1 className="font-bold"> वडाको&nbsp;विवरण</h1>
           <p className="text-justify">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia ut
-            ullam sunt eos corporis, eum possimus voluptate labore cumque odit
-            quisquam enim inventore quidem animi ea sed. Officia, veritatis
-            natus?
+            खोकना पूर्व गाउँ विकास समिति (VDC) हो जुन छिमेकी गाविसा बुंगमती,
+            छाम्पी, दुकुछाप र सानिबुसँग गाभिएर नेपालको बागमती अञ्चलको ललितपुर
+            जिल्लाको कार्यविनायक नगरपालिका गठन गरिएको छ।
           </p>
-          <div>
-            <h1 className="font-bold">Ward Introduction</h1>
+          <div className="mt-10">
+            <h1 className="font-bold">बास्तरवाद&nbsp;जानकारी</h1>
             <div className={`flex flex-wrap`}>
               <button
                 className={`px-4 p-1 border  ${

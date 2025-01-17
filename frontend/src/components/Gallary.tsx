@@ -9,35 +9,41 @@ export const Gallary = () => {
       alt: "Hero Image 2",
       title: "बृद्ध",
       color: "bg-gradient-to-r from-cyan-300 to-blue-600",
+      value: "१०%",
     },
     {
       src: "/hero-6.jpg",
       alt: "Hero Image 1",
       title: "जेष्ठ नागरिक",
       color: "bg-gradient-to-r from-lime-300 to-lime-600",
+      value: "१०%",
     },
     {
       src: "/hero-2.jpg",
       alt: "Hero Image 3",
       title: "अधिबैसे",
       color: "bg-gradient-to-r from-amber-300 to-amber-600",
+      value: "४०%",
     },
     {
       src: "/hero-3.jpg",
       alt: "Hero Image 1",
       title: "युवा",
+      value: "१५%",
       color: "bg-gradient-to-r from-teal-300 to-teal-600",
     },
     {
       src: "/hero-3.jpg",
       alt: "Hero Image 1",
       title: "बालबालिका",
+      value: "५%",
       color: "bg-gradient-to-r from-cyan-300 to-blue-600",
     },
     {
       src: "/hero-3.jpg",
       alt: "Hero Image 1",
       title: "शिशु",
+      value: "३०%",
       color: "bg-gradient-to-r from-cyan-300 to-blue-600",
     },
   ];
@@ -91,7 +97,7 @@ export const Gallary = () => {
                   className="w-full bg-cover object-cover "
                 /> */}
                 <div className="absolute text-center text-white font-bold w-full top-1/3">
-                  {image.title}
+                  {image.title}&nbsp; &nbsp;{image.value}
                 </div>
                 {/* <button className="absolute top-1/2 text-xs lg:text-xl font-semibold left-[40%] text-white  bg-red-500 hover:bg-blue-500 p-2 rounded">
                   थप पढ्नुहोस्

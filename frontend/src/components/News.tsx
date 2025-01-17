@@ -17,12 +17,12 @@ export const News = () => {
           </div>
         </div>
         <div className="flex w-full md:w-3/4 justify-end my-7">
-          <button className="border-2 border-blue-500 hover:bg-blue-500 text-xs rounded-full px-3 p-2 font-semibold">
+          <button className="border-2 border-blue-500 text-xs hover:bg-blue-500  rounded-full px-3 p-2 font-semibold">
             थप पढ्नुहोस्
           </button>
         </div>
 
-        <div className="flex justify-center flex-wrap gap-16 w-full md:w-11/12 ">
+        <div className="flex justify-center flex-wrap gap-y-8 gap-x-1 w-full md:w-10/12 ">
           {images.map((image, index) => (
             <div
               key={index}

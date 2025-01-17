@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export const Footer = () => {
   return (
     <>
-      <div className=" bg-blue-500 w-full relative flex flex-col justify-center items-center text-white ">
+      <div className=" bg-blue-500 w-full relative flex flex-col justify-center items-center text-white p-12">
         <div className="bg-[url('/footerimage.jpg')]  absolute inset-0 bg-cover bg-center opacity-5 z-0 pointer-events-none"></div>
         <div className="flex relative z-10 flex-wrap justify-center lg:px-20 md:justify-between gap-5 items-center p-3 w-full">
           <h1 className="text-xs relative flex justify-center flex-col gap-5 p-5">
@@ -82,11 +82,10 @@ export const Footer = () => {
             <h1>Bharatpur@gmail.com</h1>
           </div>
         </div>
-
-        <div className="text-xs p-3 bg-sky-950 w-full text-center">
-          Copyright © २०८० भरतपुर नगरपालिका वडा नं ७ Website by DigiSoft
-          Developers
-        </div>
+      </div>
+      <div className="text-xs p-3 bg-sky-950 w-full text-center">
+        Copyright © २०८० भरतपुर नगरपालिका वडा नं ७ Website by DigiSoft
+        Developers
       </div>
     </>
   );
