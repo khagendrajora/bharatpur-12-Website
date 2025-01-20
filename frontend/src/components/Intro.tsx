@@ -4,10 +4,36 @@ import "slick-carousel/slick/slick-theme.css";
 
 export const Intro = () => {
   const images = [
-    { src: "/hero.jpg", alt: "Hero Image 1", heading: "नाम" },
-    { src: "/hero.jpg", alt: "Hero Image 2", heading: "नाम" },
-    { src: "/hero.jpg", alt: "Hero Image 3", heading: "नाम" },
-    { src: "/hero.jpg", alt: "Hero Image 4", heading: "नाम" },
+    {
+      src: "/hero.jpg",
+      alt: "Hero Image 1",
+      name: "लेख राज पन्त",
+      post: "अध्यक्ष",
+    },
+    {
+      src: "/hero.jpg",
+      alt: "Hero Image 2",
+      name: "जमुना ढुंगाना ",
+      post: "महिला सदस्य",
+    },
+    {
+      src: "/hero.jpg",
+      alt: "Hero Image 3",
+      name: "	मिरा नेपाली ",
+      post: "द. महिला सदस्य",
+    },
+    {
+      src: "/hero.jpg",
+      alt: "Hero Image 4",
+      name: "	बिर बहादुर स्याङतान",
+      post: "सदस्य",
+    },
+    {
+      src: "/hero.jpg",
+      alt: "Hero Image 4",
+      name: "संजय कुमार थापा",
+      post: "सदस्य",
+    },
   ];
   const settings = {
     dots: true,
@@ -36,7 +62,7 @@ export const Intro = () => {
               विद्युतले जलाउने नेपालको पहिलो सहर पनि थियो ।
             </div>
             <div className="flex justify-start">
-              <button className="border-2 hover:bg-blue-500 rounded-full p-5 font-semibold">
+              <button className="border-2 bg-[#245fb9] text-white hover:bg-white hover:text-[#245fb9]  p-3 font-medium">
                 थप पढ्नुहोस्
               </button>
             </div>
@@ -53,8 +79,10 @@ export const Intro = () => {
                     />
 
                     <div className=" z-10 text-center absolute -bottom-1 left-7 rounded-lg bg-white p-3 w-3/4 ">
-                      <h1 className="font-semibold">{image.heading}</h1>
-                      <h1 className="font-normal text-slate-500 text-xs">पद</h1>
+                      <h1 className="font-semibold">{image.name}</h1>
+                      <h1 className="font-normal text-slate-500 text-xs">
+                        {image.post}
+                      </h1>
                     </div>
                   </div>
                 </>

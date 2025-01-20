@@ -21,14 +21,14 @@ export const LanguageSelector = () => {
               key={lan.code}
               onClick={() => changeLanguage(lan.code)}
             >
-              <button className="flex items-center w-fit text-sm  hover:underline">
+              <button className="flex items-center w-fit  hover:underline">
                 {lan.code === "en" ? (
                   <>
                     <img
                       src="/englishflag.png"
                       className="w-7 hover:scale-110"
                     />
-                    <div className="text-white text-2xl">|</div>
+                    {/* <div className="text-white text-2xl"></div> */}
                   </>
                 ) : (
                   <img src="/flagicon.png" className="w-7 hover:scale-110" />

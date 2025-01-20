@@ -10,6 +10,7 @@ import { NoticesPage } from "./Pages/NoticesPage";
 // import { PhotoesPage } from "./Pages/PhotoesPage";
 import { GallaryPage } from "./Pages/GallaryPage";
 import { ContactPage } from "./Pages/ContactPage";
+import { Dashboard } from "./Pages/Profile/Dashboard";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             {/* <Route path="photoes" element={<PhotoesPage />} /> */}
             <Route path="videos" element={<GallaryPage />} />
             <Route path="contact" element={<ContactPage />} />
+            <Route path="dashboard" element={<Dashboard />} />
           </Route>
         </Routes>
       </BrowserRouter>

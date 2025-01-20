@@ -23,7 +23,7 @@ export const WardIntro = () => {
         <div className="flex  md:w-11/12 flex-wrap justify-center mx-auto  p-5 xl:p-14 ">
           <div className="">
             <img
-              src="/hero.jpg"
+              src="/bharatpur.jpg"
               alt="logo"
               className="flex mx-auto w-[600px] 2xl:h-[500px] object-cover"
             />
@@ -41,7 +41,7 @@ export const WardIntro = () => {
             जलाउने नेपालको पहिलो सहर पनि थियो ।
           </div>
         </div>
-        <div className="flex flex-col text-slate-600 gap-4 md:w-3/4 mx-auto  mt-20 p-5  w-3/4">
+        <div className="flex flex-col text-black gap-4 md:w-3/4 mx-auto  mt-20 p-5  w-3/4">
           <h1 className="font-bold"> वडाको&nbsp;विवरण</h1>
           <p className="text-justify">
             खोकना पूर्व गाउँ विकास समिति (VDC) हो जुन छिमेकी गाविसा बुंगमती,
@@ -53,7 +53,7 @@ export const WardIntro = () => {
             <div className={`flex flex-wrap`}>
               <button
                 className={`px-4 p-1 border  ${
-                  table === "table1" ? "bg-blue-400" : "bg-white"
+                  table === "table1" ? "bg-[#245fb9]" : "bg-white"
                 }
             `}
                 onClick={() => setTable("table1")}
@@ -62,7 +62,7 @@ export const WardIntro = () => {
               </button>
               <button
                 className={`px-4 p-1 border  ${
-                  table === "table2" ? "bg-blue-400" : "bg-white"
+                  table === "table2" ? "bg-[#245fb9]" : "bg-white"
                 }
             `}
                 onClick={() => setTable("table2")}
@@ -71,7 +71,7 @@ export const WardIntro = () => {
               </button>
               <button
                 className={`px-4 p-1 border  ${
-                  table === "table3" ? "bg-blue-400" : "bg-white"
+                  table === "table3" ? "bg-[#245fb9]" : "bg-white"
                 }
             `}
                 onClick={() => setTable("table3")}
@@ -80,7 +80,7 @@ export const WardIntro = () => {
               </button>
               <button
                 className={`px-4 p-1 border  ${
-                  table === "table4" ? "bg-blue-400" : "bg-white"
+                  table === "table4" ? "bg-[#245fb9]" : "bg-white"
                 }
             `}
                 onClick={() => setTable("table4")}

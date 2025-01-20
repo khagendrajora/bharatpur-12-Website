@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { LanguageSelector } from "../LanguageSelector";
 import { Link, useLocation } from "react-router";
+import { useTranslation } from "react-i18next";
 
 export const NavBar = () => {
   const [isMenu, setIsMenu] = useState(false);
@@ -31,12 +32,13 @@ export const NavBar = () => {
 
   const isActive = (path: string) =>
     location.pathname === path || location.pathname.startsWith(path + "/");
-  // const { t } = useTranslation();
+
+  const { t } = useTranslation();
 
   return (
     <>
-      <div className={`flex w-full items-center justify-between bg-white `}>
-        <div className="flex gap-2 items-center p-4">
+      <div className={`flex w-full  justify-between bg-white `}>
+        <div className="flex gap-2 items-center p-2 px-4">
           <img
             src="/logo1.jpeg"
             alt="logo"
@@ -53,14 +55,14 @@ export const NavBar = () => {
           {/* <img src="/logoname.png" alt="logo" className="w-[100px] h-auto" /> */}
         </div>
         <div className="lg:flex flex-col hidden w-full ">
-          <div className="bg-blue-500 flex justify-between p-3 text-white w-full">
-            <div className="flex gap-5 ">
-              <h1 className="md:text-sm text-xs flex items-center ">
+          <div className="bg-[#245fb9] flex justify-between p-[4px] text-white w-full">
+            <div className="flex  ">
+              <h1 className="md:text-sm text-xs min-w-[160px] flex items-center ">
                 <FontAwesomeIcon
                   icon={faLocationDot}
                   className="me-1 hover:scale-105 cursor-pointer text-red-500"
                 />
-                भरतपुर&nbsp;नगरपालिका
+                {t("navbar.name")}
               </h1>
               <div className="md:text-sm text-xs flex items-center">
                 <FontAwesomeIcon
@@ -82,7 +84,7 @@ export const NavBar = () => {
                   isActive("/") ? "text-black" : ""
                 }`}
               >
-                गृहपृष्ठ
+                <li>{t("navbar.key1")}</li>
               </Link>
               <li
                 className={`hover:text-black cursor-pointer relative ${
@@ -96,39 +98,43 @@ export const NavBar = () => {
                 onMouseLeave={() => setAboutUsMenu(false)}
                 onClick={() => setAboutUsMenu(true)}
               >
-                हाम्रो&nbsp;बारेमा
+                {t("navbar.key2.key")}
                 {aboutUsMenu && (
                   <div
-                    className="bg-white z-10  absolute text-sm w-[200px] text-slate-600"
+                    className="bg-white z-10 absolute text-sm w-[200px] text-slate-600"
                     onMouseEnter={() => setAboutUsMenu(true)}
                     onMouseLeave={() => setAboutUsMenu(false)}
                   >
                     <ul className="flex flex-col pt-5 ">
-                      <li className="hover:bg-gray-100 p-3">
-                        <Link to="/aboutus" className="cursor-pointer  ">
-                          परिचय
-                        </Link>
-                      </li>
+                      <Link to="/aboutus" className="hover:bg-gray-100 p-3">
+                        <li className="cursor-pointer  ">
+                          {t("navbar.key2.subKey.key1")}
+                        </li>
+                      </Link>
                       <hr />
-                      <li className="hover:bg-gray-100 p-3">
-                        <Link to="/wardintro" className="cursor-pointer ">
-                          वडाको&nbsp;विवरण
-                        </Link>
-                      </li>
+                      <Link to="/wardintro" className="hover:bg-gray-100 p-3">
+                        <li className="cursor-pointer ">
+                          {" "}
+                          {t("navbar.key2.subKey.key2")}
+                        </li>
+                      </Link>
                       <hr />
-                      <li className="hover:bg-gray-100 p-3">
-                        <Link to="/toleintro" className="cursor-pointer ">
-                          टाेली
-                        </Link>
-                      </li>
+                      <Link to="/toleintro" className="hover:bg-gray-100 p-3">
+                        <li className="cursor-pointer ">
+                          {" "}
+                          {t("navbar.key2.subKey.key3")}
+                        </li>
+                      </Link>
                     </ul>
                   </div>
                 )}
               </li>
               <li className="hover:text-black cursor-pointer" onClick={works}>
-                हाम्रो&nbsp;काम
+                {t("navbar.key3")}
               </li>
-              <li className="hover:text-black cursor-pointer">प्रकाशन</li>
+              <li className="hover:text-black cursor-pointer">
+                {t("navbar.key4")}
+              </li>
               <li
                 className={`hover:text-black cursor-pointer relative ${
                   isActive("/notices") ||
@@ -142,7 +148,7 @@ export const NavBar = () => {
                 onMouseLeave={() => setNewsMenu(false)}
                 onClick={() => setNewsMenu(!aboutUsMenu)}
               >
-                अपडेट
+                {t("navbar.key5.key")}
                 {newsMenu && (
                   <div
                     className="bg-white z-10  absolute text-sm w-[200px] text-slate-600"
@@ -150,44 +156,44 @@ export const NavBar = () => {
                     onMouseLeave={() => setNewsMenu(false)}
                   >
                     <ul className="flex flex-col pt-5">
-                      <li className="hover:bg-gray-100 p-3">
-                        <Link to="/notices" className="cursor-pointer ">
-                          सूचना
-                        </Link>
-                      </li>
+                      <Link to="/notices" className="hover:bg-gray-100 p-3">
+                        <li className="cursor-pointer ">
+                          {t("navbar.key5.subKey.key1")}
+                        </li>
+                      </Link>
                       <hr />
-                      <li className="hover:bg-gray-100 p-3">
-                        <Link to="/news" className="cursor-pointer">
-                          समाचार
-                        </Link>
-                      </li>
+                      <Link to="/news" className="hover:bg-gray-100 p-3">
+                        <li className="cursor-pointer">
+                          {t("navbar.key5.subKey.key2")}
+                        </li>
+                      </Link>
                       <hr />
-                      <li className="hover:bg-gray-100 p-3">
-                        <Link to="/photoes" className="cursor-pointer">
-                          फोटो
-                        </Link>
-                      </li>
+                      <Link to="" className="hover:bg-gray-100 p-3">
+                        <li className="cursor-pointer">
+                          {t("navbar.key5.subKey.key3")}
+                        </li>
+                      </Link>
                       <hr />
-                      <li className="hover:bg-gray-100 p-3">
-                        <Link to="/videos" className="cursor-pointer">
-                          भिडियो
-                        </Link>
-                      </li>
+                      <Link to="/videos" className="hover:bg-gray-100 p-3">
+                        <li className="cursor-pointer">
+                          {t("navbar.key5.subKey.key4")}
+                        </li>
+                      </Link>
                     </ul>
                   </div>
                 )}
               </li>
               <li>
-                <Link to="/contact" className="hover:text-black cursor-pointer">
-                  सम्पर्क
+                <Link to="/contact" className="hover:text-black cursor-auto">
+                  {t("navbar.key6")}
                 </Link>
               </li>
               <button>
                 <Link
-                  to=""
-                  className="hover:text-black text-white bg-red-500 cursor-pointer p-2 rounded-full"
+                  to="/dashboard"
+                  className="hover:bg-red-600 px-4 cursor-pointer text-white font-bold text-md bg-red-500  p-2 rounded-full"
                 >
-                  प्रोफाइल
+                  {t("navbar.key7")}
                 </Link>
               </button>
             </ul>
@@ -198,7 +204,7 @@ export const NavBar = () => {
                   shake
                   className="me-1 hover:scale-105 cursor-pointer text-red-600"
                 />
-                &nbsp;सम्पर्क:&nbsp;9803030780
+                &nbsp;{t("navbar.contact")}:&nbsp;9803030780
               </h1>
               {/* <div className="flex w-full justify-end text-black">
                 <LanguageSelector />
@@ -317,7 +323,7 @@ export const NavBar = () => {
           </div>
         )}
 
-        <div className="lg:hidden p-[1px] cursor-pointer">
+        <div className="lg:hidden p-[1px] flex items-center cursor-pointer">
           <div onClick={() => setIsMenu(!isMenu)}>
             <FontAwesomeIcon
               icon={faBars}

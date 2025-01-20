@@ -1,5 +1,6 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Link } from "react-router";
 // import Slider from "react-slick";
 
 export const Gallary = () => {
@@ -77,32 +78,33 @@ export const Gallary = () => {
   // };
   return (
     <>
-      <div className=" p-5 ">
-        {" "}
-        <div className="flex justify-end md:w-3/4 mx-auto">
-          <button className="border-2 border-blue-500 text-xs hover:bg-blue-500 rounded-full p-2 font-semibold">
-            थप पढ्नुहोस्
-          </button>
+      <div className=" p-5 py-14 relative">
+        <div className="bg-[url('/river2.jpg')]  absolute inset-0 bg-cover bg-center opacity-10 z-0 pointer-events-none"></div>
+        <div className="flex relative justify-end w-11/12 mx-auto">
+          <Link to="/dashboard">
+            <button className="border-2 bg-[#245fb9] text-white hover:bg-white hover:text-[#245fb9] p-3 font-medium">
+              थप पढ्नुहोस्
+            </button>
+          </Link>
         </div>
-        <div className="w-full flex flex-wrap justify-center  gap-10">
+        <div className="flex flex-wrap gap-8 mt-10 justify-center text-white p-5">
           {images.map((image, index) => (
             <>
               <div
                 key={index}
-                className={`relative w-full cursor-pointer hover:scale-110 duration-500 sm:w-1/3 lg:w-1/4 min-h-[100px]  z-10 mt-4 rounded-md ${image.color} border-black`}
+                className={`relative ${image.color} p-5 shadow-xl rounded-lg flex cursor-pointer flex-col gap-4 min-w-[250px] max-w-[250px] justify-center${image.color} border-black`}
               >
-                {/* <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="w-full bg-cover object-cover "
-                /> */}
-                <div className="absolute text-center text-white font-bold w-full top-1/3">
-                  {image.title}&nbsp; &nbsp;{image.value}
+                {/* <div className="absolute text-center text-white font-bold w-full "> */}
+                {/* <div className="bg-blue-500 p-5 shadow-xl rounded-lg flex cursor-pointer flex-col gap-4 min-w-[300px] max-w-[300px] justify-center"> */}
+                <h1>{image.value}</h1>
+                <div className="w-full bg-gray-500 rounded-full h-1 dark:bg-gray-700">
+                  <div className="bg-white h-1 rounded-full w-[50%]"></div>
                 </div>
-                {/* <button className="absolute top-1/2 text-xs lg:text-xl font-semibold left-[40%] text-white  bg-red-500 hover:bg-blue-500 p-2 rounded">
-                  थप पढ्नुहोस्
-                </button> */}
+                <h3>{image.title}</h3>
+                <span>(६० बर्ष देखि ७० बर्ष)</span>
               </div>
+              {/* </div> */}
+              {/* </div> */}
             </>
           ))}
         </div>

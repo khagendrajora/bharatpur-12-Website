@@ -6,7 +6,7 @@ import ReviewPrart from "../components/ReviewPrart";
 export const PAgeLayout = () => {
   return (
     <>
-      <div className="bg-zinc-100">
+      <div className="">
         <NavBar />
         <Outlet />
         <ReviewPrart />

@@ -16,7 +16,7 @@ export const AboutUs = () => {
         <div className="flex flex-row md:w-11/12  flex-wrap justify-center mx-auto  p-5 xl:p-14 ">
           <div className="">
             <img
-              src="/hero.jpg"
+              src="/bharatpur.jpg"
               alt="logo"
               className="flex mx-auto w-[600px] xl:h-[500px] object-cover"
             />
@@ -37,7 +37,7 @@ export const AboutUs = () => {
               प्रख्यात छ । राणा प्रधानमन्त्री चन्द्र शमशेरको पालामा सन् १९११ मा
               विद्युतले जलाउने नेपालको पहिलो सहर पनि थियो ।
             </p>
-            <button className="p-2 rounded-sm bg-blue-500 hover:bg-blue-600 text-white w-fit">
+            <button className="border-2 w-fit bg-[#245fb9] text-white hover:bg-white hover:text-[#245fb9] p-3 font-medium">
               थाप&nbsp;जानकारी
             </button>
           </div>

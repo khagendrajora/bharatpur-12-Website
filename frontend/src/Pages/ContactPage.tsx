@@ -96,7 +96,7 @@ export const ContactPage = () => {
           <div className="w-full  md:min-w-[400px] max-w-[500px]">
             <form
               // onSubmit={}
-              className="flex w-full flex-col text-black rounded-md items-center lg:gap-y-4 bg-blue-800 mb-10  gap-5 p-4"
+              className="flex w-full flex-col text-black rounded-md items-center lg:gap-y-4 bg-[#245fb9] mb-10  gap-5 p-4"
             >
               <div className="w-full space-y-2">
                 <label className="font-semibold">नाम</label>

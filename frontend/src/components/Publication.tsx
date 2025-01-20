@@ -4,23 +4,62 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export const Publication = () => {
   return (
     <>
-      <div className="bg-[url('/hill.jpg')] bg-cover bg-center bg-fixed bg-fixed-ios h-[500px]  opacity-10 z-0"></div>
-      <div className=" flex flex-wrap justify-between z-10 bg-white -mt-40  w-full">
-        <div className="w-full md:w-2/3 p-5">
-          <div className="flex  flex-col md:w-3/4 w-full mx-auto">
-            <h1 className="text-gray-500">हाम्रो&nbsp;बारेमा</h1>
-            <h1 className="text-6xl font-bold">प्रकाशन</h1>
-            <div className="p-5 mt-5 bg-blue-500 rounded-lg w-fit flex gap-3 items-center">
-              <div className="p-5 bg-blue-500 font-bold text-center border rounded-full w-fit text-white">
-                आश्विन <br></br>१०
+      {/* <div className="relative h-[500px]"> */}
+      {/* <div className="absolute inset-0 bg-[url('/hill.jpg')] bg-cover bg-center text-center bg-fixed opacity-20"></div> */}
+      {/* <div className="relative z-10 flex items-center h-1/2 justify-center ">
+          <div className="text-xl sm:text-3xl md:text-5xl text-center font-bold font-mono p-2 bg-gradient-to-r from-red-600 to-blue-900  text-transparent bg-clip-text">
+            भरतपुर
+            <br /> <br />
+            अन्वेषण गर्नुहोस्, अनुभव गर्नुहोस्, रमाइलो गर्नुहोस्
+          </div>
+        </div> */}
+      {/* </div> */}
+
+      <div className=" flex flex-wrap justify-between  h-[600px]  w-full">
+        <div className=" p-5 w-full md:w-2/3 py-14 relative">
+          <div className="bg-[url('/bharatpur.jpg')]  absolute inset-0 bg-cover bg-center opacity-15 z-0 pointer-events-none"></div>
+          <div className="w-full relative md:w-11/12 py-5 ">
+            <div className="flex  flex-col md:w-3/4 w-full mx-auto">
+              <h1 className="text-gray-500">हाम्रो&nbsp;बारेमा</h1>
+              <h1 className="text-6xl font-bold">प्रकाशन</h1>
+              <div className="p-5 mt-5 mx-auto  bg-white  rounded-lg w-fit flex gap-3 items-center">
+                <div className="p-5 bg-[#245fb9] font-bold text-center border rounded-full w-fit text-white">
+                  आश्विन <br></br>१०
+                </div>
+                <div className="flex flex-col">
+                  <h1 className="font-bold text-xl">
+                    वार्षिक प्रगति समीक्षाको प्रतिवेदन (आ.व. ०७२।७३)
+                  </h1>
+                  <h1 className="cursor-pointer flex  items-center gap-3 text-black">
+                    डाउनलोड गर्नुहोस् <FontAwesomeIcon icon={faArrowRight} />
+                  </h1>
+                </div>
               </div>
-              <div className="flex flex-col">
-                <h1 className="font-bold">
-                  वार्षिक प्रगति समीक्षाको प्रतिवेदन (आ.व. ०७२।७३)
-                </h1>
-                <h1 className="cursor-pointer flex  items-center gap-3 text-gray-300">
-                  डाउनलोड गर्नुहोस् <FontAwesomeIcon icon={faArrowRight} />
-                </h1>
+              <div className="p-5 mt-5 mx-auto bg-white border rounded-lg w-fit flex gap-3 items-center">
+                <div className="p-5 bg-[#245fb9] font-bold text-center border rounded-full w-fit text-white">
+                  आश्विन <br></br>१०
+                </div>
+                <div className="flex flex-col">
+                  <h1 className="font-bold text-xl">
+                    वार्षिक प्रगति समीक्षाको प्रतिवेदन (आ.व. ०७२।७३)
+                  </h1>
+                  <h1 className="cursor-pointer flex  items-center gap-3 text-black">
+                    डाउनलोड गर्नुहोस् <FontAwesomeIcon icon={faArrowRight} />
+                  </h1>
+                </div>
+              </div>
+              <div className="p-5 mt-5 mx-auto bg-white border rounded-lg w-fit flex gap-3 items-center">
+                <div className="p-5 bg-[#245fb9] font-bold text-center border rounded-full w-fit text-white">
+                  आश्विन <br></br>१०
+                </div>
+                <div className="flex flex-col">
+                  <h1 className="font-bold text-xl">
+                    वार्षिक प्रगति समीक्षाको प्रतिवेदन (आ.व. ०७२।७३)
+                  </h1>
+                  <h1 className="cursor-pointer flex  items-center gap-3 text-black">
+                    डाउनलोड गर्नुहोस् <FontAwesomeIcon icon={faArrowRight} />
+                  </h1>
+                </div>
               </div>
             </div>
           </div>

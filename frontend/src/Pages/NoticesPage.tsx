@@ -17,7 +17,7 @@ export const NoticesPage = () => {
         </div>
         <div className="flex flex-wrap justify-center p-12 gap-4 mx-auto ">
           <div className="flex gap-2 w-full sm:w-3/4 md:w-1/2 lg:w-1/3 shadow-lg p-5 rounded-lg border">
-            <div className="bg-blue-700 p-5 text-white font-medium flex justify-center items-center">
+            <div className="bg-[#245fb9] p-5 text-white font-medium flex justify-center items-center">
               भाद्र १०
             </div>
             <div className="flex flex-col gap-3">
@@ -32,7 +32,7 @@ export const NoticesPage = () => {
             </div>
           </div>
           <div className="flex gap-2 w-full sm:w-3/4 md:w-1/2 lg:w-1/3 shadow-lg p-5 rounded-lg border">
-            <div className="bg-blue-700 p-5 text-white font-medium flex justify-center items-center">
+            <div className="bg-[#245fb9] p-5 text-white font-medium flex justify-center items-center">
               भाद्र १०
             </div>
             <div className="flex flex-col gap-3">
@@ -46,7 +46,7 @@ export const NoticesPage = () => {
             </div>
           </div>
           <div className="flex gap-2 w-full sm:w-3/4 md:w-1/2 lg:w-1/3 shadow-lg p-5 rounded-lg border">
-            <div className="bg-blue-700 p-5 text-white font-medium flex justify-center items-center">
+            <div className="bg-[#245fb9] p-5 text-white font-medium flex justify-center items-center">
               आश्विन १
             </div>
             <div className="flex flex-col gap-3">
@@ -60,7 +60,7 @@ export const NoticesPage = () => {
             </div>
           </div>
           <div className="flex gap-2 w-full sm:w-3/4 md:w-1/2 lg:w-1/3 shadow-lg p-5 rounded-lg border">
-            <div className="bg-blue-700 p-5 text-white font-medium flex justify-center items-center">
+            <div className="bg-[#245fb9] p-5 text-white font-medium flex justify-center items-center">
               आश्विन १०
             </div>
             <div className="flex flex-col gap-3">

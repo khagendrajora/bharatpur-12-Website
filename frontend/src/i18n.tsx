@@ -11,15 +11,67 @@ i18next
     debug: true,
     lng: "np",
     returnObjects: true,
+    interpolation: { escapeValue: false },
     resources: {
       en: {
         translation: {
-          greeting: "Hello World",
+          navbar: {
+            name: "Bharatpur Nagarpalika",
+            contact: "Contact",
+            key1: "Home",
+            key2: {
+              key: "About us",
+              subKey: {
+                key1: "Introduction",
+                key2: "Ward Introduction",
+                key3: "Team",
+              },
+            },
+            key3: "Our Work",
+            key4: "Publication",
+            key5: {
+              key: "Updates",
+              subKey: {
+                key1: "Notice",
+                key2: "News",
+                key3: "Photo",
+                key4: "Video",
+              },
+            },
+            key6: "Contact",
+            key7: "Profile",
+          },
         },
       },
       np: {
         translation: {
-          greeting: "नमस्ते, संसार",
+          navbar: {
+            name: "भरतपुर नगरपालिका",
+            contact: "सम्पर्क",
+            key1: "गृहपृष्ठ",
+            key2: {
+              key: "हाम्रो बारेमा",
+              subKey: {
+                key1: "परिचय",
+                key2: "वडाको विवरण",
+                key3: "टाेली",
+              },
+            },
+            key3: " हाम्रो काम",
+            key4: "प्रकाशन",
+
+            key5: {
+              key: "अपडेट",
+              subKey: {
+                key1: "सूचना",
+                key2: "समाचार",
+                key3: "फोटो",
+                key4: "भिडियो",
+              },
+            },
+            key6: "सम्पर्क",
+            key7: "प्रोफाइल",
+          },
         },
       },
     },
