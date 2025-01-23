@@ -8,14 +8,14 @@ export const News = () => {
       title: "+2 उतिर्ण विद्यार्थीहरुलाई बधाई तथा शुभकामना कार्यक्रम",
     },
     {
-      src: "/hero.jpg",
+      src: "/bharatpur.jpg",
       alt: "Hero Image 2",
       month: "आश्विन",
       day: "१०",
       title: "ज्येष्ठ नागरिक दिवसको शुभ अवसरमा र्याली तथा कार्यक्रम -२०८०",
     },
     {
-      src: "/hero.jpg",
+      src: "/FlagNepal.gif",
       alt: "Hero Image 3",
       month: "भाद्र",
       day: "१०",
@@ -28,8 +28,8 @@ export const News = () => {
   return (
     <>
       <div className="p-5 py-14 relative">
-        <div className="bg-[url('/river2.jpg')]  absolute inset-0 bg-cover bg-center opacity-10 z-0 pointer-events-none"></div>
-        <div className="flex flex-col justify-center relative  mx-auto p-5 items-center  ">
+        <div className="bg-[url('/river2.jpg')] absolute inset-0 bg-cover bg-center opacity-10 z-0 pointer-events-none"></div>
+        <div className="flex flex-col justify-center relative  mx-auto p-5 items-center md:w-11/12 ">
           {/* <div className=" bg-[url('/bgnews.jpg')] absolute inset-0 bg-cover bg-center opacity-40 z-0 pointer-events-none"></div> */}
           <div className="flex relative justify-center w-3/4 items-center mx-auto z-10 ">
             <div className="flex flex-col">
@@ -51,15 +51,15 @@ export const News = () => {
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className=" mx-auto h-auto min-h-[400px] object-cover"
+                    className=" mx-auto h-auto min-h-[300px] xl:min-h-[400px] max-h-[300px] lg:max-h-[400px]  object-cover"
                   />
-                  <div className="bg-red-600 p-3 absolute right-5 w-20 top-0 text-center text-white font-bold">
+                  <div className="bg-red-600 p-3 absolute right-5 w-20 -top-4 text-center text-white font-bold">
                     {image.month}
                     <br></br>
                     {image.day}
                   </div>
                 </div>
-                <div className="flex flex-col  gap-2 p-3">
+                <div className="flex flex-col  gap-2 2xl:p-8 p-3 ">
                   <h1 className="font-semibold text-xl">{image.title}</h1>
                 </div>
                 <div>

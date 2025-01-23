@@ -78,7 +78,7 @@ export const Intro = () => {
                       className="h-[300px] object-cover"
                     />
 
-                    <div className=" z-10 text-center absolute -bottom-1 left-7 rounded-lg bg-white p-3 w-3/4 ">
+                    <div className=" z-10 text-center absolute bottom-1 left-7 rounded-lg bg-white p-3 w-3/4 ">
                       <h1 className="font-semibold">{image.name}</h1>
                       <h1 className="font-normal text-slate-500 text-xs">
                         {image.post}

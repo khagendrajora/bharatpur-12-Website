@@ -8,7 +8,7 @@ import { WorkDone } from "../components/WorkDone";
 export const LandingPage = () => {
   return (
     <>
-      <div className="w-full flex flex-col gap-10 overflow-x-hidden bg-zinc-100  ">
+      <div className="w-full scrollbar-hidden flex flex-col gap-10 overflow-x-hidden bg-zinc-100  ">
         <Hero />
         <Intro />
         <Gallary />

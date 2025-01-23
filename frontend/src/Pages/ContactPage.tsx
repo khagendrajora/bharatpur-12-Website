@@ -43,23 +43,23 @@ export const ContactPage = () => {
   // });
   return (
     <>
-      <div className="w-full">
+      <div className="w-full bg-[#f2f2f2]">
         <div className="w-full relative">
           <img
             src="/hero.jpg"
             alt="hero"
             className="w-full h-[400px]  object-cover"
           />
-          <h1 className="absolute inset-0 justify-center items-center flex text-white font-bold text-shadow text-4xl md:text-7xl">
+          <h1 className="absolute inset-0 font-sans justify-center items-center flex text-white   text-4xl md:text-7xl">
             सम्पर्क
           </h1>
         </div>
-        <div className="flex flex-row text-slate-600 flex-wrap justify-center xl:justify-e gap-x-[100px]  gap-y-10 p-10 mx-auto w-full md:w-3/4 ">
+        <div className="flex flex-row text-slate-600 flex-wrap justify-center xl:justify-e gap-x-[300px]  gap-y-10 p-10 mx-auto w-full  ">
           <div className="flex flex-col gap-12">
             <h1 className="text-4xl font-bold">
               हाम्रो&nbsp;सम्पर्कको&nbsp;लागि
             </h1>
-            <div className="flex flex-row items-center gap-5">
+            <div className="flex flex-row items-center gap-5 bg-white p-5 shadow-sm rounded-md">
               <FontAwesomeIcon
                 icon={faLocationPin}
                 size="xl"
@@ -70,7 +70,7 @@ export const ContactPage = () => {
                 <h1>भरतपुर</h1>
               </div>
             </div>
-            <div className="flex flex-row items-center gap-5">
+            <div className="flex flex-row items-center gap-5 bg-white p-5 shadow-sm rounded-md">
               <FontAwesomeIcon
                 icon={faPhone}
                 size="xl"
@@ -81,7 +81,7 @@ export const ContactPage = () => {
                 <h1>9812766153</h1>
               </div>
             </div>
-            <div className="flex flex-row items-center gap-5">
+            <div className="flex flex-row items-center gap-5 bg-white p-5 shadow-sm rounded-md">
               <FontAwesomeIcon
                 icon={faEnvelope}
                 size="xl"
@@ -96,7 +96,7 @@ export const ContactPage = () => {
           <div className="w-full  md:min-w-[400px] max-w-[500px]">
             <form
               // onSubmit={}
-              className="flex w-full flex-col text-black rounded-md items-center lg:gap-y-4 bg-[#245fb9] mb-10  gap-5 p-4"
+              className="flex w-full flex-col text-white rounded-md items-center lg:gap-y-4 bg-[#245fb9] mb-10  gap-5 p-4"
             >
               <div className="w-full space-y-2">
                 <label className="font-semibold">नाम</label>

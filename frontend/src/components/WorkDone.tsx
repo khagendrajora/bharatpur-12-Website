@@ -9,6 +9,17 @@ export const WorkDone = () => {
     { src: "/3.jpg", alt: "Hero Image 3" },
     { src: "/7.jpg", alt: "Hero Image 4" },
   ];
+  // useEffect(() => {
+  //   if (location.state?.scrollTo === "works") {
+  //     const work = document.getElementById("works");
+  //     if (work) {
+  //       window.scrollTo({
+  //         top: work.offsetTop,
+  //         behavior: "smooth",
+  //       });
+  //     }
+  //   }
+  // }, [location]);
 
   // const settings = {
   //   dots: true,
@@ -69,14 +80,14 @@ export const WorkDone = () => {
                 className=" mx-auto h-auto min-h-[400px] object-cover"
               />
 
-              <div className="text-blue-800 absolute flex bottom-0 right-0 w-3/4 text-center justify-between items-center font-semibold bg-white  p-2 py-2 ">
+              <div className=" absolute flex bottom-2 right- w-3/4 text-center justify-between items-center font-semibold bg-white  p-5 py-2 ">
                 <div className="text-start w-full space-y-2">
                   <h1 className="font-semibold">
                     ७६ बर्ष उमेर पुगेका जेष्ठ नागरिकहरुलाई सम्मान कार्यक्रम
                   </h1>
-                  <button className="border-2 text-blue-500 hover:bg-[#245fb9] hover:text-white p-2 rounded-full font-medium">
+                  {/* <button className="border-2 border-blue-500 text-blue-500 hover:bg-[#245fb9] hover:text-white p-2 rounded-full font-medium">
                     थप पढ्नुहोस्
-                  </button>
+                  </button> */}
                 </div>
                 {/* <button className="text-slate-500 text-xs">
                   {" "}

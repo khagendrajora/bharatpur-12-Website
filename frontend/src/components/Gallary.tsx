@@ -9,21 +9,21 @@ export const Gallary = () => {
       src: "/hero1.jpg",
       alt: "Hero Image 2",
       title: "बृद्ध",
-      color: "bg-gradient-to-r from-cyan-300 to-blue-600",
+      color: "bg-gradient-to-r from-cyan-400 to-blue-400",
       value: "१०%",
     },
     {
       src: "/hero-6.jpg",
       alt: "Hero Image 1",
       title: "जेष्ठ नागरिक",
-      color: "bg-gradient-to-r from-lime-300 to-lime-600",
+      color: "bg-gradient-to-r from-blue-400 to-cyan-500",
       value: "१०%",
     },
     {
       src: "/hero-2.jpg",
       alt: "Hero Image 3",
       title: "अधिबैसे",
-      color: "bg-gradient-to-r from-amber-300 to-amber-600",
+      color: "bg-gradient-to-r from-cyan-500 to-blue-500",
       value: "४०%",
     },
     {
@@ -31,21 +31,21 @@ export const Gallary = () => {
       alt: "Hero Image 1",
       title: "युवा",
       value: "१५%",
-      color: "bg-gradient-to-r from-teal-300 to-teal-600",
+      color: "bg-gradient-to-r from-blue-500 to-cyan-500",
     },
     {
       src: "/hero-3.jpg",
       alt: "Hero Image 1",
       title: "बालबालिका",
       value: "५%",
-      color: "bg-gradient-to-r from-cyan-300 to-blue-600",
+      color: "bg-gradient-to-r from-cyan-500 to-blue-500",
     },
     {
       src: "/hero-3.jpg",
       alt: "Hero Image 1",
       title: "शिशु",
       value: "३०%",
-      color: "bg-gradient-to-r from-cyan-300 to-blue-600",
+      color: "bg-gradient-to-r from-blue-500 to-cyan-500",
     },
   ];
 
@@ -80,13 +80,7 @@ export const Gallary = () => {
     <>
       <div className=" p-5 py-14 relative">
         <div className="bg-[url('/river2.jpg')]  absolute inset-0 bg-cover bg-center opacity-10 z-0 pointer-events-none"></div>
-        <div className="flex relative justify-end w-11/12 mx-auto">
-          <Link to="/dashboard">
-            <button className="border-2 bg-[#245fb9] text-white hover:bg-white hover:text-[#245fb9] p-3 font-medium">
-              थप पढ्नुहोस्
-            </button>
-          </Link>
-        </div>
+        <div className="flex relative justify-end w-11/12 mx-auto"></div>
         <div className="flex flex-wrap gap-8 mt-10 justify-center text-white p-5">
           {images.map((image, index) => (
             <>
@@ -107,6 +101,13 @@ export const Gallary = () => {
               {/* </div> */}
             </>
           ))}
+        </div>
+        <div className="flex  justify-center w-11/12 mx-auto mt-10">
+          <Link to="/dashboard">
+            <button className="border-2 bg-[#245fb9] text-white hover:bg-white hover:text-[#245fb9] p-3 font-medium">
+              थप पढ्नुहोस्
+            </button>
+          </Link>
         </div>
       </div>
     </>

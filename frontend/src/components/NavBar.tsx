@@ -9,7 +9,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { LanguageSelector } from "../LanguageSelector";
-import { Link, useLocation } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
 
 export const NavBar = () => {
@@ -19,6 +19,7 @@ export const NavBar = () => {
   const [aboutUsMenuSmall, setAboutUsMenuSmall] = useState(false);
   const [newsMenuSmall, setNewsMenuSmall] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const works = () => {
     const work = document.getElementById("works");
@@ -30,6 +31,19 @@ export const NavBar = () => {
     }
   };
 
+  const publication = () => {
+    navigate("/");
+    setTimeout(() => {
+      const publication = document.getElementById("publication");
+      if (publication) {
+        window.scrollTo({
+          top: publication.offsetTop,
+          behavior: "smooth",
+        });
+      }
+    }, 1000);
+  };
+
   const isActive = (path: string) =>
     location.pathname === path || location.pathname.startsWith(path + "/");
 
@@ -38,21 +52,27 @@ export const NavBar = () => {
   return (
     <>
       <div className={`flex w-full  justify-between bg-white `}>
-        <div className="flex gap-2 items-center p-2 px-4">
+        <div
+          className="flex gap-2 items-center p-2 px-4 cursor-pointer"
+          onClick={() => navigate("/")}
+        >
           <img
             src="/logo1.jpeg"
             alt="logo"
             className="w-[100px] sm:min-w-[150px]  h-auto"
           />
           <h1 className="text-xs flex justifu-center flex-col gap-3">
-            <span className="text-red-500 text-[15px] sm:text-[25px] lg:text-[20px] font-bold">
+            <img
+              src="/logoname.png"
+              className="sm:w-[300px] sm:h-[70px] w-[200px] h-[50px]"
+            />
+            {/* <span className"text-red-500 text-[15px] sm:text-[25px] lg:text-[20px] font-bold">
               भरतपुर&nbsp;महानगरपालिका
             </span>{" "}
             <span className="text-blue-500 text-[15x] font-bold">
               वडा नं. १२, चितवन, नेपाल{" "}
-            </span>
+            </span> */}
           </h1>
-          {/* <img src="/logoname.png" alt="logo" className="w-[100px] h-auto" /> */}
         </div>
         <div className="lg:flex flex-col hidden w-full ">
           <div className="bg-[#245fb9] flex justify-between p-[4px] text-white w-full">
@@ -60,6 +80,7 @@ export const NavBar = () => {
               <h1 className="md:text-sm text-xs min-w-[160px] flex items-center ">
                 <FontAwesomeIcon
                   icon={faLocationDot}
+                  size="lg"
                   className="me-1 hover:scale-105 cursor-pointer text-red-500"
                 />
                 {t("navbar.name")}
@@ -67,7 +88,8 @@ export const NavBar = () => {
               <div className="md:text-sm text-xs flex items-center">
                 <FontAwesomeIcon
                   icon={faEnvelope}
-                  className="me-1 hover:scale-105 cursor-pointer text-red-500"
+                  size="lg"
+                  className="me-1 hover:scale-105 cursor-pointer flex my-auto text-red-500"
                 />
                 Bharatpur@gmail.com
               </div>
@@ -129,10 +151,19 @@ export const NavBar = () => {
                   </div>
                 )}
               </li>
-              <li className="hover:text-black cursor-pointer" onClick={works}>
-                {t("navbar.key3")}
-              </li>
-              <li className="hover:text-black cursor-pointer">
+              <Link
+                to="/workdone"
+                className="hover:text-black cursor-pointer"
+                onClick={() => {
+                  works();
+                }}
+              >
+                <li>{t("navbar.key3")}</li>
+              </Link>
+              <li
+                className="hover:text-black cursor-pointer"
+                onClick={publication}
+              >
                 {t("navbar.key4")}
               </li>
               <li
@@ -184,7 +215,7 @@ export const NavBar = () => {
                 )}
               </li>
               <li>
-                <Link to="/contact" className="hover:text-black cursor-auto">
+                <Link to="/contact" className="hover:text-black cursor-pointer">
                   {t("navbar.key6")}
                 </Link>
               </li>
@@ -268,10 +299,10 @@ export const NavBar = () => {
                 )}
               </li>
 
-              <li className="hover:text-black cursor-pointer">
+              <Link to="/workdone" className="hover:text-black cursor-pointer">
                 {" "}
                 हाम्रो&nbsp;काम
-              </li>
+              </Link>
               <li
                 className="hover:text-black cursor-pointer flex justify-between items-center"
                 onClick={() => setNewsMenuSmall(!newsMenuSmall)}
@@ -300,16 +331,10 @@ export const NavBar = () => {
                       >
                         समाचार
                       </Link>
-                      <Link
-                        to="/photoes"
-                        className="cursor-pointer hover:text-black"
-                      >
+                      <Link to="" className="cursor-pointer hover:text-black">
                         फोटो
                       </Link>
-                      <Link
-                        to="/videos"
-                        className="cursor-pointer hover:text-black"
-                      >
+                      <Link to="" className="cursor-pointer hover:text-black">
                         भिडियो
                       </Link>
                     </ul>

@@ -13,8 +13,8 @@ import "slick-carousel/slick/slick-theme.css";
 
 export const Hero = () => {
   const images = [
-    { src: "/hero.jpg", alt: "Hero Image 1" },
     { src: "/bharatpur.jpg", alt: "Hero Image 2" },
+    { src: "/hero.jpg", alt: "Hero Image 1" },
     { src: "/6.jpg", alt: "Hero Image 3" },
     { src: "/hero-3.jpg", alt: "Hero Image 1" },
     { src: "/hero-6.jpg", alt: "Hero Image 2" },

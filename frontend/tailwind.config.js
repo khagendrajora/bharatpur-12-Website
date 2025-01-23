@@ -11,7 +11,11 @@ export default {
      }, 
      colors: {
         blues:"#003893"
-      }
+     },
+     fontFamily: {
+       title:["Saira Condensed", "serif"]
+     }
+     
     },
   },
   plugins: [],
