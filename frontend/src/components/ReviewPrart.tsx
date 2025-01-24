@@ -2,7 +2,7 @@ export default function ReviewPrart() {
   return (
     <>
       <div
-        className="w-full h-auto mt-20 lg:p-10 p-3"
+        className="w-full h-auto mt-2 lg:p-10 p-3"
         style={{
           backgroundImage: "url('/review.jpg')",
           backgroundSize: "cover",

@@ -16,8 +16,8 @@ export const WorkDonePage = () => {
             alt="hero"
             className="w-full h-[400px]  object-cover"
           />
-          <h1 className="absolute inset-0 font-bold justify-center items-center flex text-white  text-shadow text-4xl md:text-7xl">
-            हाम्रो&nbsp;काम
+          <h1 className="absolute  inset-0 font-bold justify-center items-center flex text-white  text-shadow text-4xl md:text-7xl">
+            <span className="">हाम्रो&nbsp;काम</span>
           </h1>
         </div>
         <div className=" md:w-10/12 w-full mx-auto  ">

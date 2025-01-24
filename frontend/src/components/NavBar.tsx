@@ -16,6 +16,7 @@ export const NavBar = () => {
   const [isMenu, setIsMenu] = useState(false);
   const [aboutUsMenu, setAboutUsMenu] = useState(false);
   const [newsMenu, setNewsMenu] = useState(false);
+  const [publication, setPublication] = useState(false);
   const [aboutUsMenuSmall, setAboutUsMenuSmall] = useState(false);
   const [newsMenuSmall, setNewsMenuSmall] = useState(false);
   const location = useLocation();
@@ -31,18 +32,18 @@ export const NavBar = () => {
     }
   };
 
-  const publication = () => {
-    navigate("/");
-    setTimeout(() => {
-      const publication = document.getElementById("publication");
-      if (publication) {
-        window.scrollTo({
-          top: publication.offsetTop,
-          behavior: "smooth",
-        });
-      }
-    }, 1000);
-  };
+  // const publication = () => {
+  //   navigate("/");
+  //   setTimeout(() => {
+  //     const publication = document.getElementById("publication");
+  //     if (publication) {
+  //       window.scrollTo({
+  //         top: publication.offsetTop,
+  //         behavior: "smooth",
+  //       });
+  //     }
+  //   }, 1000);
+  // };
 
   const isActive = (path: string) =>
     location.pathname === path || location.pathname.startsWith(path + "/");
@@ -51,7 +52,9 @@ export const NavBar = () => {
 
   return (
     <>
-      <div className={`flex w-full  justify-between bg-white `}>
+      <div
+        className={`flex w-full fixed z-50 justify-between shadow-lg bg-white `}
+      >
         <div
           className="flex gap-2 items-center p-2 px-4 cursor-pointer"
           onClick={() => navigate("/")}
@@ -64,14 +67,8 @@ export const NavBar = () => {
           <h1 className="text-xs flex justifu-center flex-col gap-3">
             <img
               src="/logoname.png"
-              className="sm:w-[300px] sm:h-[70px] w-[200px] h-[50px]"
+              className="sm:w-[250px]  sm:h-[65x] w-[200px] h-[50px]"
             />
-            {/* <span className"text-red-500 text-[15px] sm:text-[25px] lg:text-[20px] font-bold">
-              भरतपुर&nbsp;महानगरपालिका
-            </span>{" "}
-            <span className="text-blue-500 text-[15x] font-bold">
-              वडा नं. १२, चितवन, नेपाल{" "}
-            </span> */}
           </h1>
         </div>
         <div className="lg:flex flex-col hidden w-full ">
@@ -91,7 +88,7 @@ export const NavBar = () => {
                   size="lg"
                   className="me-1 hover:scale-105 cursor-pointer flex my-auto text-red-500"
                 />
-                Bharatpur@gmail.com
+                info@bharatpur12.org
               </div>
             </div>
             <div className="flex w-full justify-end text-black">
@@ -161,10 +158,46 @@ export const NavBar = () => {
                 <li>{t("navbar.key3")}</li>
               </Link>
               <li
-                className="hover:text-black cursor-pointer"
-                onClick={publication}
+                className="hover:text-black cursor-pointer relative"
+                // onClick={publication}
+                onMouseEnter={() => setPublication(true)}
+                onMouseLeave={() => setPublication(false)}
+                onClick={() => setPublication(!publication)}
               >
-                {t("navbar.key4")}
+                {t("navbar.key4.key")}
+                {publication && (
+                  <div
+                    className="bg-white z-10  absolute text-sm w-[200px] text-slate-600"
+                    onMouseEnter={() => setPublication(true)}
+                    onMouseLeave={() => setPublication(false)}
+                  >
+                    <ul className="flex flex-col pt-5">
+                      <Link to="/publication" className="hover:bg-gray-100 p-3">
+                        <li className="cursor-pointer ">
+                          {t("navbar.key4.subKey.key1")}
+                        </li>
+                      </Link>
+                      <hr />
+                      <Link to="" className="hover:bg-gray-100 p-3">
+                        <li className="cursor-pointer">
+                          {t("navbar.key4.subKey.key2")}
+                        </li>
+                      </Link>
+                      <hr />
+                      {/* <Link to="" className="hover:bg-gray-100 p-3">
+                        <li className="cursor-pointer">
+                          {t("navbar.key5.subKey.key3")}
+                        </li>
+                      </Link> */}
+                      {/* <hr /> */}
+                      {/* <Link to="/videos" className="hover:bg-gray-100 p-3">
+                        <li className="cursor-pointer">
+                          {t("navbar.key5.subKey.key4")}
+                        </li>
+                      </Link> */}
+                    </ul>
+                  </div>
+                )}
               </li>
               <li
                 className={`hover:text-black cursor-pointer relative ${
@@ -221,7 +254,8 @@ export const NavBar = () => {
               </li>
               <button>
                 <Link
-                  to="/dashboard"
+                  to="http://103.233.58.102/report"
+                  target="_blank"
                   className="hover:bg-red-600 px-4 cursor-pointer text-white font-bold text-md bg-red-500  p-2 rounded-full"
                 >
                   {t("navbar.key7")}

@@ -1,6 +1,3 @@
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 export const NewsPage = () => {
   const images = [
     {
@@ -64,7 +61,7 @@ export const NewsPage = () => {
                   </p>
                   <hr />
                   <button className="text-slate-400 p-2 hover:text-blue-600 flex flex-row gap-3 items-center">
-                    थप&nbsp;पढ्नुहोस् <FontAwesomeIcon icon={faArrowRight} />
+                    थप&nbsp;पढ्नुहोस्
                   </button>
                 </div>
               </div>

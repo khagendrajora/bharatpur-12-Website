@@ -3,9 +3,7 @@ import {
   faLocationPin,
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
-// import { useFormik } from "formik";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { contact } from "../Validation/Validation";
 
 export const ContactPage = () => {
   // const formik = useFormik({
@@ -59,7 +57,7 @@ export const ContactPage = () => {
             <h1 className="text-4xl font-bold">
               हाम्रो&nbsp;सम्पर्कको&nbsp;लागि
             </h1>
-            <div className="flex flex-row items-center gap-5 bg-white p-5 shadow-sm rounded-md">
+            <div className="flex flex-row items-center gap-5 bg-white p-5 border shadow-sm rounded-md">
               <FontAwesomeIcon
                 icon={faLocationPin}
                 size="xl"
@@ -67,10 +65,10 @@ export const ContactPage = () => {
               />
               <div className="flex flex-col ">
                 <h1 className="font-medium text-2xl">ठेगाना</h1>
-                <h1>भरतपुर</h1>
+                <h1>भरतपुर महानगरपालिका कार्यालय , वडा नं-१२, चितवन </h1>
               </div>
             </div>
-            <div className="flex flex-row items-center gap-5 bg-white p-5 shadow-sm rounded-md">
+            <div className="flex flex-row items-center gap-5 bg-white border p-5 shadow-sm rounded-md">
               <FontAwesomeIcon
                 icon={faPhone}
                 size="xl"
@@ -78,24 +76,24 @@ export const ContactPage = () => {
               />
               <div className="flex flex-col ">
                 <h1 className="font-medium text-2xl">फोन&nbsp;नम्बर</h1>
-                <h1>9812766153</h1>
+                <h1>‌‌+९७७-०५६-५११४६७,</h1>
               </div>
             </div>
-            <div className="flex flex-row items-center gap-5 bg-white p-5 shadow-sm rounded-md">
+            <div className="flex flex-row items-center gap-5 border bg-white p-5 shadow-sm rounded-md">
               <FontAwesomeIcon
                 icon={faEnvelope}
                 size="xl"
-                className="me-1 hover:scale-105 cursor-pointer text-red-600"
+                className="me-1 hover:scale-105 cursor-pointer border text-red-600"
               />
               <div className="flex flex-col ">
                 <h1 className="font-medium text-2xl">इमेल</h1>
-                <h1>bharatpur&gmail.com</h1>
+                <h1>info@bharatpur12.org</h1>
               </div>
             </div>
           </div>
-          <div className="w-full  md:min-w-[400px] max-w-[500px]">
+          {/* <div className="w-full  md:min-w-[400px] max-w-[500px]">
             <form
-              // onSubmit={}
+              onSubmit={}
               className="flex w-full flex-col text-white rounded-md items-center lg:gap-y-4 bg-[#245fb9] mb-10  gap-5 p-4"
             >
               <div className="w-full space-y-2">
@@ -105,42 +103,42 @@ export const ContactPage = () => {
                   name="name"
                   className="border border-slate-700 rounded-lg  p-2 lg:p-3 w-full"
                   placeholder="नाम"
-                  // value={formik.values.name.trim().toLowerCase()}
-                  // onChange={formik.handleChange}
-                  // onBlur={formik.handleBlur}
+                  value={formik.values.name.trim().toLowerCase()}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                 />
-                {/* {formik.touched.name && formik.errors.name && (
-                  <div className="text-red-500">{formik.errors.name}</div> */}
-                {/* )} */}
+                {formik.touched.name && formik.errors.name && (
+                  <div className="text-red-500">{formik.errors.name}</div>
+                )}
               </div>
               <div className="w-full space-y-2">
                 <label className="font-semibold">इमेल</label>
                 <input
                   type="email"
                   name="email"
-                  // value={formik.values.email.trim()}
+                  value={formik.values.email.trim()}
                   placeholder="इमेल"
                   className="border border-slate-700 rounded-lg p-2 lg:p-3 w-full "
-                  // onChange={formik.handleChange}
-                  // onBlur={formik.handleBlur}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                 />
-                {/* {formik.touched.email && formik.errors.email && (
+                {formik.touched.email && formik.errors.email && (
                   <div className="text-red-500">{formik.errors.email}</div>
-                )} */}
+                )}
               </div>
               <div className="w-full space-y-2">
                 <label className="font-semibold">सन्देश</label>
                 <textarea
                   name="message"
-                  // value={formik.values.message.trim()}
+                  value={formik.values.message.trim()}
                   placeholder="सन्देश"
                   className="border border-slate-700 rounded-lg p-2 lg:p-3 w-full "
-                  // onChange={formik.handleChange}
-                  // onBlur={formik.handleBlur}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                 />
-                {/* {formik.touched.message && formik.errors.message && (
+                {formik.touched.message && formik.errors.message && (
                   <div className="text-red-500">{formik.errors.message}</div>
-                )} */}
+                )}
               </div>
 
               <div className=" flex flex-col w-3/4 gap-4 max-w-96">
@@ -152,7 +150,7 @@ export const ContactPage = () => {
                 </button>
               </div>
             </form>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

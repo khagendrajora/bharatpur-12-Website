@@ -1,35 +1,37 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useNavigate } from "react-router";
 
 export const Intro = () => {
+  const navigate = useNavigate();
   const images = [
     {
-      src: "/hero.jpg",
+      src: "/lekhrajpanta.jpg",
       alt: "Hero Image 1",
       name: "लेख राज पन्त",
       post: "अध्यक्ष",
     },
     {
-      src: "/hero.jpg",
+      src: "/female.png",
       alt: "Hero Image 2",
       name: "जमुना ढुंगाना ",
       post: "महिला सदस्य",
     },
     {
-      src: "/hero.jpg",
+      src: "/female.png",
       alt: "Hero Image 3",
       name: "	मिरा नेपाली ",
       post: "द. महिला सदस्य",
     },
     {
-      src: "/hero.jpg",
+      src: "/male.png",
       alt: "Hero Image 4",
       name: "	बिर बहादुर स्याङतान",
       post: "सदस्य",
     },
     {
-      src: "/hero.jpg",
+      src: "/male.png",
       alt: "Hero Image 4",
       name: "संजय कुमार थापा",
       post: "सदस्य",
@@ -62,7 +64,10 @@ export const Intro = () => {
               विद्युतले जलाउने नेपालको पहिलो सहर पनि थियो ।
             </div>
             <div className="flex justify-start">
-              <button className="border-2 bg-[#245fb9] text-white hover:bg-white hover:text-[#245fb9]  p-3 font-medium">
+              <button
+                className="border-2 bg-[#245fb9] text-white hover:bg-white hover:text-[#245fb9]  p-3 font-medium"
+                onClick={() => navigate("/aboutus")}
+              >
                 थप पढ्नुहोस्
               </button>
             </div>
@@ -75,7 +80,7 @@ export const Intro = () => {
                     <img
                       src={image.src}
                       alt={image.alt}
-                      className="h-[300px] object-cover"
+                      className="h-[300px] w-full object-cover"
                     />
 
                     <div className=" z-10 text-center absolute bottom-1 left-7 rounded-lg bg-white p-3 w-3/4 ">

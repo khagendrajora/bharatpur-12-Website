@@ -1,12 +1,12 @@
-export const NoticesPage = () => {
+export const PublicationPage = () => {
   const images = [
     {
       src: "/hero.jpg",
       alt: "Hero Image 1",
-      month: "भाद्र",
+      month: "आश्विन",
       day: "१०",
       year: "२०८१",
-      title: "+2 उतिर्ण विद्यार्थीहरुलाई बधाई तथा शुभकामना कार्यक्रम",
+      title: "वार्षिक प्रगति समीक्षाको प्रतिवेदन (आ.व. ०७२।७३)",
     },
     {
       src: "/hero.jpg",
@@ -14,7 +14,7 @@ export const NoticesPage = () => {
       month: "आश्विन",
       day: "१०",
       year: "२०६२",
-      title: "ज्येष्ठ नागरिक दिवसको शुभ अवसरमा र्याली तथा कार्यक्रम -२०८०",
+      title: "वार्षिक प्रगति समीक्षाको प्रतिवेदन (आ.व. ०७२।७३)",
     },
     {
       src: "/hero.jpg",
@@ -22,12 +22,20 @@ export const NoticesPage = () => {
       month: "भाद्र",
       day: "१०",
       year: "२०७१",
-      title: "७६ बर्ष उमेर पुगेका जेष्ठ नागरिकहरुलाई सम्मान कार्यक्रम",
+      title: "वार्षिक प्रगति समीक्षाको प्रतिवेदन (आ.व. ०७२।७३)",
+    },
+    {
+      src: "/hero.jpg",
+      alt: "Hero Image 3",
+      month: "भाद्र",
+      day: "१०",
+      year: "२०७१",
+      title: "वार्षिक प्रगति समीक्षाको प्रतिवेदन (आ.व. ०७२।७३)",
     },
   ];
   return (
     <>
-      <div className="w-full">
+      <div className="w-full mb-16">
         <div className="w-full relative">
           <img
             src="/hero.jpg"
@@ -35,7 +43,7 @@ export const NoticesPage = () => {
             className="w-full h-[400px]  object-cover"
           />
           <h1 className="absolute inset-0  justify-center items-center flex text-white font-bold text-shadow text-4xl md:text-7xl">
-            सूचना
+            प्रकाशन
           </h1>
         </div>
 

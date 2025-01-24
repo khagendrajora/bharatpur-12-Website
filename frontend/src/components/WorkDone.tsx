@@ -1,5 +1,3 @@
-// import Slider from "react-slick";
-
 export const WorkDone = () => {
   const images = [
     { src: "/hero.jpg", alt: "Hero Image 1" },
@@ -9,47 +7,7 @@ export const WorkDone = () => {
     { src: "/3.jpg", alt: "Hero Image 3" },
     { src: "/7.jpg", alt: "Hero Image 4" },
   ];
-  // useEffect(() => {
-  //   if (location.state?.scrollTo === "works") {
-  //     const work = document.getElementById("works");
-  //     if (work) {
-  //       window.scrollTo({
-  //         top: work.offsetTop,
-  //         behavior: "smooth",
-  //       });
-  //     }
-  //   }
-  // }, [location]);
 
-  // const settings = {
-  //   dots: true,
-  //   infinite: true,
-  //   speed: 500,
-
-  //   slidesToShow: 2,
-  //   slidesToScroll: 1,
-  //   // autoplay: true,
-  //   autoplaySpeed: 5000,
-  //   cssEase: "linear",
-  //   rtl: true,
-  //   responsive: [
-  //     {
-  //       breakpoint: 1024,
-  //       settings: {
-  //         slidesToShow: 2,
-  //         slidesToScroll: 1,
-  //         dots: true,
-  //       },
-  //     },
-  //     {
-  //       breakpoint: 600,
-  //       settings: {
-  //         slidesToShow: 1,
-  //         slidesToScroll: 1,
-  //       },
-  //     },
-  //   ],
-  // };
   return (
     <>
       <div className="bg-[#245fb9] w-full md:mt-10 h-[300px]">
@@ -57,7 +15,7 @@ export const WorkDone = () => {
           <div className="flex justify-center w-3/4 items-center mx-auto ">
             <div className="flex flex-col">
               <h1 className="text-4xl font-bold text-white">हाम्रो काम</h1>
-              <p className="text-black text-center">हालको काम</p>
+              {/* <p className="text-black text-center">हालको काम</p> */}
             </div>
           </div>
         </div>
@@ -72,7 +30,7 @@ export const WorkDone = () => {
           {images.map((image, index) => (
             <div
               key={index}
-              className=" relative shadow-md bg-white md:w-1/2 lg:w-1/4 w-full sm:w-3/4"
+              className=" relative shadow-md bg-white md:w-1/2 lg:w-1/4 w-full sm:w-3/4 cursor-pointer"
             >
               <img
                 src={image.src}

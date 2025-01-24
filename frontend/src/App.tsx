@@ -12,6 +12,11 @@ import { GallaryPage } from "./Pages/GallaryPage";
 import { ContactPage } from "./Pages/ContactPage";
 import { Dashboard } from "./Pages/Profile/Dashboard";
 import { WorkDonePage } from "./Pages/WorkDonePage";
+import { PublicationPage } from "./Pages/PublicationPage";
+import { BudgetPage } from "./Pages/BudgetPage";
+import { ComplainPage } from "./Pages/ComplainPage";
+import { TaxPage } from "./Pages/TaxPage";
+import { NagrikPage } from "./Pages/NagrikPage";
 
 function App() {
   return (
@@ -26,6 +31,11 @@ function App() {
             <Route path="news" element={<NewsPage />} />
             <Route path="notices" element={<NoticesPage />} />
             {/* <Route path="photoes" element={<PhotoesPage />} /> */}
+            <Route path="budget" element={<BudgetPage />} />
+            <Route path="complain" element={<ComplainPage />} />
+            <Route path="taxpage" element={<TaxPage />} />
+            <Route path="nagrikpatra" element={<NagrikPage />} />
+            <Route path="publication" element={<PublicationPage />} />
             <Route path="videos" element={<GallaryPage />} />
             <Route path="workdone" element={<WorkDonePage />} />
             <Route path="contact" element={<ContactPage />} />

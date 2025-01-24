@@ -27,9 +27,9 @@ export const News = () => {
   ];
   return (
     <>
-      <div className="p-5 py-14 relative">
+      <div className=" py-1 relative">
         <div className="bg-[url('/river2.jpg')] absolute inset-0 bg-cover bg-center opacity-10 z-0 pointer-events-none"></div>
-        <div className="flex flex-col justify-center relative  mx-auto p-5 items-center md:w-11/12 ">
+        <div className="flex flex-col justify-center relative  mx-auto p-5 items-center md:w-10/12 ">
           {/* <div className=" bg-[url('/bgnews.jpg')] absolute inset-0 bg-cover bg-center opacity-40 z-0 pointer-events-none"></div> */}
           <div className="flex relative justify-center w-3/4 items-center mx-auto z-10 ">
             <div className="flex flex-col">
@@ -41,7 +41,7 @@ export const News = () => {
               थप पढ्नुहोस्
             </button>
           </div>
-          <div className="flex justify-center flex-wrap gap-7 p-2 ">
+          <div className="flex justify-center flex-wrap gap-9 p-2 ">
             {images.map((image, index) => (
               <div
                 key={index}
@@ -51,7 +51,7 @@ export const News = () => {
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className=" mx-auto h-auto min-h-[300px] xl:min-h-[400px] max-h-[300px] lg:max-h-[400px]  object-cover"
+                    className=" mx-auto h-auto min-h-[300px] xl:min-h-[350px] max-h-[350px] lg:max-h-[350px]  object-cover"
                   />
                   <div className="bg-red-600 p-3 absolute right-5 w-20 -top-4 text-center text-white font-bold">
                     {image.month}
