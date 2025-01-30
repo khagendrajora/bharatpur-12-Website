@@ -1,29 +1,35 @@
+import { useNavigate } from "react-router";
+
 export const NewsPage = () => {
+  const navigate = useNavigate();
   const images = [
     {
       src: "/hero.jpg",
       alt: "Hero Image 1",
       month: "भाद्र",
       day: "१",
+      key: "1",
+      year: "२०८१",
       title: "+2 उतिर्ण विद्यार्थीहरुलाई बधाई तथा शुभकामना कार्यक्रम",
     },
     {
       src: "/hero.jpg",
       alt: "Hero Image 2",
       month: "आश्विन",
+      key: "2",
       day: "१०",
+      year: "२०८१",
       title: "ज्येष्ठ नागरिक दिवसको शुभ अवसरमा र्याली तथा कार्यक्रम -२०८०",
     },
     {
       src: "/hero.jpg",
       alt: "Hero Image 3",
       month: "भाद्र",
+      key: "3",
       day: "१",
+      year: "२०७३",
       title: "७६ बर्ष उमेर पुगेका जेष्ठ नागरिकहरुलाई सम्मान कार्यक्रम",
     },
-    // { src: "/hero.jpg", alt: "Hero Image 1", month: "आश्विन ", day: "१०" },
-    // { src: "/hero.jpg", alt: "Hero Image 2", month: "भाद्र ", day: "१०" },
-    // { src: "/hero.jpg", alt: "Hero Image 3", month: "आश्विन ", day: "१०" },
   ];
   return (
     <>
@@ -60,7 +66,10 @@ export const NewsPage = () => {
                     {image.title}
                   </p>
                   <hr />
-                  <button className="text-slate-400 p-2 hover:text-blue-600 flex flex-row gap-3 items-center">
+                  <button
+                    className="text-slate-400 p-2 hover:text-blue-600 flex flex-row gap-3 items-center"
+                    onClick={() => navigate(`/newsdetail/${image.key}`)}
+                  >
                     थप&nbsp;पढ्नुहोस्
                   </button>
                 </div>

@@ -10,13 +10,17 @@ import { NoticesPage } from "./Pages/NoticesPage";
 // import { PhotoesPage } from "./Pages/PhotoesPage";
 import { GallaryPage } from "./Pages/GallaryPage";
 import { ContactPage } from "./Pages/ContactPage";
-import { Dashboard } from "./Pages/Profile/Dashboard";
+// import { Dashboard } from "./Pages/Profile/Dashboard";
 import { WorkDonePage } from "./Pages/WorkDonePage";
 import { PublicationPage } from "./Pages/PublicationPage";
 import { BudgetPage } from "./Pages/BudgetPage";
 import { ComplainPage } from "./Pages/ComplainPage";
 import { TaxPage } from "./Pages/TaxPage";
 import { NagrikPage } from "./Pages/NagrikPage";
+import { NewsDetailPage } from "./Pages/NewsDetailPage";
+import { WorkDetailPage } from "./Pages/WorkDetailPage";
+import { PublicationDetailPage } from "./Pages/PublicationDetailPage";
+import { NoticeDetailPage } from "./Pages/NoticeDetailPage";
 
 function App() {
   return (
@@ -39,7 +43,14 @@ function App() {
             <Route path="videos" element={<GallaryPage />} />
             <Route path="workdone" element={<WorkDonePage />} />
             <Route path="contact" element={<ContactPage />} />
-            <Route path="dashboard" element={<Dashboard />} />
+            {/* <Route path="dashboard" element={<Dashboard />} /> */}
+            <Route path="/newsdetail/:key" element={<NewsDetailPage />} />
+            <Route path="workdetail/:key" element={<WorkDetailPage />} />
+            <Route
+              path="publicationdetail/:key"
+              element={<PublicationDetailPage />}
+            />
+            <Route path="noticedetail/:key" element={<NoticeDetailPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

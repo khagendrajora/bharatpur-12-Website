@@ -1,11 +1,51 @@
+import { useNavigate } from "react-router";
+
 export const WorkDone = () => {
+  const navigate = useNavigate();
   const images = [
-    { src: "/hero.jpg", alt: "Hero Image 1" },
-    { src: "/1.jpg", alt: "Hero Image 2" },
-    { src: "/6.jpg", alt: "Hero Image 3" },
-    { src: "/4.jpg", alt: "Hero Image 4" },
-    { src: "/3.jpg", alt: "Hero Image 3" },
-    { src: "/7.jpg", alt: "Hero Image 4" },
+    {
+      src: "/hero.jpg",
+      alt: "Hero Image 1",
+      key: "1",
+      year: "२०८१",
+      title: "+2 उतिर्ण विद्यार्थीहरुलाई बधाई तथा शुभकामना कार्यक्रम",
+    },
+    {
+      src: "/1.jpg",
+      alt: "Hero Image 2",
+      key: "1",
+      year: "२०८१",
+      title: "+2 उतिर्ण विद्यार्थीहरुलाई बधाई तथा शुभकामना कार्यक्रम",
+    },
+    {
+      src: "/6.jpg",
+      alt: "Hero Image 3",
+      key: "1",
+      year: "२०८१",
+      title: "+2 उतिर्ण विद्यार्थीहरुलाई बधाई तथा शुभकामना कार्यक्रम",
+    },
+    {
+      src: "/4.jpg",
+      alt: "Hero Image 4",
+      key: "1",
+      year: "२०८१",
+      title: "+2 उतिर्ण विद्यार्थीहरुलाई बधाई तथा शुभकामना कार्यक्रम",
+    },
+    {
+      src: "/6.jpg",
+      alt: "Hero Image 4",
+      key: "1",
+      year: "२०८१",
+      title: "+2 उतिर्ण विद्यार्थीहरुलाई बधाई तथा शुभकामना कार्यक्रम",
+    },
+
+    {
+      src: "/7.jpg",
+      alt: "Hero Image 4",
+      key: "1",
+      year: "२०८१",
+      title: "+2 उतिर्ण विद्यार्थीहरुलाई बधाई तथा शुभकामना कार्यक्रम",
+    },
   ];
 
   return (
@@ -15,22 +55,18 @@ export const WorkDone = () => {
           <div className="flex justify-center w-3/4 items-center mx-auto ">
             <div className="flex flex-col">
               <h1 className="text-4xl font-bold text-white">हाम्रो काम</h1>
-              {/* <p className="text-black text-center">हालको काम</p> */}
             </div>
           </div>
         </div>
       </div>
-      {/* <div className="flex justify-end md:w-3/4 mx-auto -mt-60">
-        <button className="border border-black  hover:bg-blue-500 text-xs rounded-full px-3 p-2 font-semibold">
-          थप पढ्नुहोस्
-        </button>
-      </div> */}
+
       <div className=" md:w-10/12 w-full mx-auto -mt-52 ">
         <div className="flex justify-center flex-wrap gap-7 p-2 ">
           {images.map((image, index) => (
             <div
               key={index}
               className=" relative shadow-md bg-white md:w-1/2 lg:w-1/4 w-full sm:w-3/4 cursor-pointer"
+              onClick={() => navigate(`/workdetail/${image.key}`)}
             >
               <img
                 src={image.src}
@@ -43,20 +79,12 @@ export const WorkDone = () => {
                   <h1 className="font-semibold">
                     ७६ बर्ष उमेर पुगेका जेष्ठ नागरिकहरुलाई सम्मान कार्यक्रम
                   </h1>
-                  {/* <button className="border-2 border-blue-500 text-blue-500 hover:bg-[#245fb9] hover:text-white p-2 rounded-full font-medium">
-                    थप पढ्नुहोस्
-                  </button> */}
                 </div>
-                {/* <button className="text-slate-500 text-xs">
-                  {" "}
-                  थप&nbsp;पढ्नुहोस्
-                </button> */}
               </div>
             </div>
           ))}
         </div>
       </div>
-      {/* </div> */}
     </>
   );
 };

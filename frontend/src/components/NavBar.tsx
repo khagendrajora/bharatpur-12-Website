@@ -19,6 +19,7 @@ export const NavBar = () => {
   const [publication, setPublication] = useState(false);
   const [aboutUsMenuSmall, setAboutUsMenuSmall] = useState(false);
   const [newsMenuSmall, setNewsMenuSmall] = useState(false);
+  const [publicationSmall, setPublicationSmall] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -337,11 +338,42 @@ export const NavBar = () => {
                 {" "}
                 हाम्रो&nbsp;काम
               </Link>
+
+              <li
+                className="hover:text-black cursor-pointer flex justify-between items-center"
+                onClick={() => setPublicationSmall(!newsMenuSmall)}
+              >
+                स्रोत
+                <FontAwesomeIcon
+                  icon={faChevronDown}
+                  className="t"
+                  style={{ color: "#ebecf0" }}
+                />
+              </li>
+              <li className={`${publicationSmall ? "block" : "hidden"}`}>
+                {publicationSmall && (
+                  <div className="text-white text-sm text-center">
+                    <ul className="flex flex-col gap-4">
+                      <Link
+                        to="/publication"
+                        className="cursor-pointer hover:text-black"
+                      >
+                        प्रकाशन
+                      </Link>
+
+                      <Link to="" className="cursor-pointer hover:text-black">
+                        प्रतिवेदन
+                      </Link>
+                    </ul>
+                  </div>
+                )}
+              </li>
+
               <li
                 className="hover:text-black cursor-pointer flex justify-between items-center"
                 onClick={() => setNewsMenuSmall(!newsMenuSmall)}
               >
-                प्रकाशन
+                अपडेट
                 <FontAwesomeIcon
                   icon={faChevronDown}
                   className="t"

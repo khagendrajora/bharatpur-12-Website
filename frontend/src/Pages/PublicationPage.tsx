@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router";
+
 export const PublicationPage = () => {
+  const navigate = useNavigate();
   const images = [
     {
       src: "/hero.jpg",
@@ -6,6 +9,7 @@ export const PublicationPage = () => {
       month: "आश्विन",
       day: "१०",
       year: "२०८१",
+      key: "1",
       title: "वार्षिक प्रगति समीक्षाको प्रतिवेदन (आ.व. ०७२।७३)",
     },
     {
@@ -14,6 +18,7 @@ export const PublicationPage = () => {
       month: "आश्विन",
       day: "१०",
       year: "२०६२",
+      key: "2",
       title: "वार्षिक प्रगति समीक्षाको प्रतिवेदन (आ.व. ०७२।७३)",
     },
     {
@@ -22,6 +27,7 @@ export const PublicationPage = () => {
       month: "भाद्र",
       day: "१०",
       year: "२०७१",
+      key: "3",
       title: "वार्षिक प्रगति समीक्षाको प्रतिवेदन (आ.व. ०७२।७३)",
     },
     {
@@ -30,6 +36,7 @@ export const PublicationPage = () => {
       month: "भाद्र",
       day: "१०",
       year: "२०७१",
+      key: "4",
       title: "वार्षिक प्रगति समीक्षाको प्रतिवेदन (आ.व. ०७२।७३)",
     },
   ];
@@ -60,7 +67,10 @@ export const PublicationPage = () => {
               </div>
               <div className="flex flex-col h-full justify-between p-3 gap-3">
                 <p className=" ">{image.title}</p>
-                <button className="text-slate-400  hover:text-blue-500 flex flex-row gap-3">
+                <button
+                  className="text-slate-400  hover:text-blue-500 flex flex-row gap-3"
+                  onClick={() => navigate(`/publicationdetail/${image.key}`)}
+                >
                   थप&nbsp;पढ्नुहोस्
                 </button>
               </div>

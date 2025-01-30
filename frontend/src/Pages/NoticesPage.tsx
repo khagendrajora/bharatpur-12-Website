@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router";
+
 export const NoticesPage = () => {
+  const navigate = useNavigate();
   const images = [
     {
       src: "/hero.jpg",
@@ -6,6 +9,7 @@ export const NoticesPage = () => {
       month: "भाद्र",
       day: "१०",
       year: "२०८१",
+      key: "1",
       title: "+2 उतिर्ण विद्यार्थीहरुलाई बधाई तथा शुभकामना कार्यक्रम",
     },
     {
@@ -14,6 +18,7 @@ export const NoticesPage = () => {
       month: "आश्विन",
       day: "१०",
       year: "२०६२",
+      key: "2",
       title: "ज्येष्ठ नागरिक दिवसको शुभ अवसरमा र्याली तथा कार्यक्रम -२०८०",
     },
     {
@@ -22,6 +27,7 @@ export const NoticesPage = () => {
       month: "भाद्र",
       day: "१०",
       year: "२०७१",
+      key: "3",
       title: "७६ बर्ष उमेर पुगेका जेष्ठ नागरिकहरुलाई सम्मान कार्यक्रम",
     },
   ];
@@ -52,7 +58,10 @@ export const NoticesPage = () => {
               </div>
               <div className="flex flex-col h-full justify-between p-3 gap-3">
                 <p className=" ">{image.title}</p>
-                <button className="text-slate-400  hover:text-blue-500 flex flex-row gap-3">
+                <button
+                  className="text-slate-400  hover:text-blue-500 flex flex-row gap-3"
+                  onClick={() => navigate(`/noticedetail/${image.key}`)}
+                >
                   थप&nbsp;पढ्नुहोस्
                 </button>
               </div>
