@@ -50,8 +50,8 @@ export const WorkDone = () => {
 
   return (
     <>
-      <div className="bg-[#245fb9] w-full md:mt-10 h-[300px]">
-        <div className=" md:w-3/4 mt-3 w-full mx-auto p-5 " id="works">
+      <div className="bg-[#245fb9] w-full  h-[300px]">
+        <div className="md:w-3/4 mt-8 w-full mx-auto p-5 " id="works">
           <div className="flex justify-center w-3/4 items-center mx-auto ">
             <div className="flex flex-col">
               <h1 className="text-4xl font-bold text-white">हाम्रो काम</h1>
@@ -60,7 +60,7 @@ export const WorkDone = () => {
         </div>
       </div>
 
-      <div className=" md:w-10/12 w-full mx-auto -mt-52 ">
+      <div className=" md:w-10/12 w-full mx-auto -mt-40 ">
         <div className="flex justify-center flex-wrap gap-7 p-2 ">
           {images.map((image, index) => (
             <div

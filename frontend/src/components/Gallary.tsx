@@ -148,22 +148,22 @@ export const Gallary = () => {
   ];
   return (
     <>
-      <div className=" p-5 py-14 relative">
+      <div className="py-10 relative">
         <div className="bg-[url('/river2.jpg')]  absolute inset-0 bg-cover bg-center opacity-10 z-0 pointer-events-none"></div>
         <div className="flex relative justify-end w-11/12 mx-auto"></div>
-        <div className="flex  justify-end w-11/12 mx-auto mt-10">
+        <div className="flex justify-end w-11/12 mx-auto">
           <Link to="http://103.233.58.102/report" target="_blank">
-            <button className="border-2 bg-[#245fb9] text-white hover:bg-white hover:text-[#245fb9] p-3 font-medium">
+            <button className="hover:border-2 bg-[#245fb9] text-white hover:bg-white hover:text-[#245fb9] p-3 font-medium">
               थप पढ्नुहोस्
             </button>
           </Link>
         </div>
-        <div className="flex flex-wrap gap-8 mt-10 justify-center text-white p-5">
+        <div className="flex flex-wrap gap-14  justify-center text-white pt-14">
           {images.map((image, index) => (
             <>
               <div
                 key={index}
-                className={`relative ${image.color} p-5 shadow-xl rounded-lg flex cursor-pointer flex-col gap-4 min-w-[250px] max-w-[250px] justify-center${image.color} border-black`}
+                className={`relative ${image.color} p-5 shadow-sm flex cursor-pointer flex-col gap-4 min-w-[250px] max-w-[250px] justify-center${image.color} border-black`}
               >
                 <h1>{image.value}</h1>
                 <div className="w-full bg-gray-500 rounded-full h-1 dark:bg-gray-700">
@@ -175,12 +175,12 @@ export const Gallary = () => {
             </>
           ))}
         </div>
-        <div className="flex flex-wrap gap-9 mt-10 justify-center text-black">
+        <div className="flex flex-wrap gap-14 pt-10 justify-center text-black">
           {image.map((image, index) => (
             <>
               <div
                 key={index}
-                className={`relative ${image.color} p-5 shadow-xl  rounded-lg flex cursor-pointer flex-col gap-4 w-[530px]  justify-center  border-black`}
+                className={`relative ${image.color} p-5 shadow-sm   flex cursor-pointer flex-col gap-4 w-[555px]  justify-center  border-black`}
               >
                 <div className="flex justify-between">
                   <h3 className="font-semibold text-xl">{image.title}</h3>
@@ -195,12 +195,12 @@ export const Gallary = () => {
           ))}
         </div>
 
-        <div className="flex flex-wrap gap-9 mt-10 justify-center text-white">
+        <div className="flex flex-wrap gap-14 pt-10 justify-center text-white">
           {img.map((image, index) => (
             <>
               <div
                 key={index}
-                className={`relative ${image.color} p-5 shadow-xl rounded-lg flex cursor-pointer flex-col gap-4 w-[530px]  justify-center${image.color} border-black`}
+                className={`relative ${image.color} p-5 shadow-sm  flex cursor-pointer flex-col gap-4 w-[555px]  justify-center${image.color} border-black`}
               >
                 <div className="flex justify-between">
                   <h3 className="font-semibold text-xl">{image.title}</h3>

@@ -13,7 +13,9 @@ export default {
         blues:"#003893"
      },
      fontFamily: {
-       title:["Saira Condensed", "serif"]
+       title: ["Saira Condensed", "serif"],
+       gov:["Saira Condensed", "serif"]
+       
      }
      
     },

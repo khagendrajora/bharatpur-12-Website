@@ -33,22 +33,22 @@ export const News = () => {
   ];
   return (
     <>
-      <div className=" py-1 relative">
+      <div className=" py-10 relative">
         <div className="bg-[url('/river2.jpg')] absolute inset-0 bg-cover bg-center opacity-10 z-0 pointer-events-none"></div>
         <div className="flex flex-col justify-center relative  mx-auto p-5 items-center md:w-10/12 ">
-          <div className="flex relative justify-center w-3/4 items-center mx-auto z-10 ">
+          <div className="flex relative justify-center w-3/4 mb-10 items-center mx-auto z-10 ">
             <div className="flex flex-col">
               <h1 className="text-4xl font-bold">समाचार </h1>
             </div>
           </div>
-          <div className="flex w-full md:w-3/4 justify-end my-7">
+          {/* <div className="flex w-full md:w-3/4 justify-end my-7">
             <button
               className="border-2 bg-[#245fb9] text-white hover:bg-white hover:text-[#245fb9] p-3 font-medium"
               onClick={() => navigate("/news")}
             >
               थप पढ्नुहोस्
             </button>
-          </div>
+          </div> */}
           <div className="flex justify-center flex-wrap gap-9 p-2 ">
             {images.map((image, index) => (
               <div

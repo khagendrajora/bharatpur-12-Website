@@ -10,7 +10,7 @@ export const Footer = () => {
   return (
     <>
       <div className=" bg-[#245fb9] w-full relative flex flex-col  justify-center items-center text-white  min-h-[300px]">
-        <div className="bg-[url('/raino6.jpg')]  absolute inset-0 bg-cover bg-center opacity-15 z-0 pointer-events-none"></div>
+        <div className="bg-[url('/footer.jpg')]  absolute inset-0 bg-cover bg-center opacity-15 z-0 pointer-events-none"></div>
         <div className="flex relative z-10 flex-wrap lg:justify-center justify-between gap-16 2xl:gap-40 items-start p-10 w-full">
           <div className="flex flex-row gap-3">
             <div className="w-[80px] hidden lg:block">
