@@ -45,7 +45,7 @@ export const ToleIntro = () => {
   // ];
   return (
     <>
-      <div className="w-full">
+      <div className="w-full font-poppin">
         <div className="w-full relative">
           <img
             src="/hero.jpg"
@@ -56,7 +56,7 @@ export const ToleIntro = () => {
             टाेली
           </h1>
         </div>
-        <div className="flex flex-col w-full  flex-wrap justify-center p-16 mx-auto lg:w-3/4 ">
+        <div className="flex flex-col w-full  flex-wrap justify-center my-16 mx-auto lg:w-3/4 ">
           <div className="flex justify-center gap-7 flex-col text-center w-full lg:w-3/4 mx-auto">
             <div className="space-y-2">
               <h1>प्रतिनिधि</h1>
@@ -68,18 +68,18 @@ export const ToleIntro = () => {
                 className="h-[300px] w-[300px] mx-auto"
               />
               <div className="w-3/4 max-w-[250px] -mt-10 p-3 bg-white top-40 shadow-md  justify-center items-center mx-auto left-10  ">
-                <h1 className="font-bold"> लेख राज पन्त</h1>
+                <h1 className="font-bold">श्री लेख राज पन्त</h1>
                 <h1 className="">अध्यक्ष</h1>
                 <h1 className="">९८५५०५६४३८</h1>
               </div>
             </div>
           </div>
         </div>
-        <div className="flex w-full text-xs text-center sm:text-lg  justify-center flex-wrap mx-auto mt-10 lg:w-4/5">
+        <div className="flex w-full text-xs text-center sm:text-lg  justify-center flex-wrap mx-auto my-10 lg:w-4/5">
           <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[350px] mx-auto">
             <img src="/female.png" className="h-[300px] w-[300px] mx-auto " />
             <div className="w-3/4 max-w-[250px] -mt-10 p-3 bg-white top-40 shadow-md  justify-center items-center mx-auto left-10  ">
-              <h1 className="font-bold"> जमुना ढुंगाना </h1>
+              <h1 className="font-bold">श्री जमुना ढुंगाना </h1>
               <h1 className="">महिला सदस्य</h1>
               <h1 className="">९८४९०४६२६१</h1>
             </div>
@@ -87,7 +87,7 @@ export const ToleIntro = () => {
           <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[350px] mx-auto">
             <img src="/female.png" className="h-[300px] w-[300px] mx-auto" />
             <div className=" w-3/4 max-w-[250px] -mt-10 p-3 bg-white top-40 shadow-md  justify-center items-center mx-auto left-10  ">
-              <h1 className="font-bold">मिरा नेपाली </h1>
+              <h1 className="font-bold">श्री मिरा नेपाली </h1>
               <h1 className="">द. महिला सदस्य</h1>
               <h1 className="">९७४८४२९८९०</h1>
             </div>
@@ -95,7 +95,7 @@ export const ToleIntro = () => {
           <div className="w-11/12 lg:w-1/4 md:w-1/3  flex flex-col max-w-[350px] mx-auto">
             <img src="/male.png" className="h-[300px] w-[300px] mx-auto" />
             <div className="w-3/4 max-w-[250px] -mt-10 p-3 bg-white top-40 shadow-md  justify-center items-center mx-auto left-10  ">
-              <h1 className="font-bold"> बिर बहादुर स्याङतान</h1>
+              <h1 className="font-bold">श्री बिर बहादुर स्याङतान</h1>
               <h1 className="">सदस्य</h1>
               <h1 className="">९८४५०८६०९८</h1>
             </div>
@@ -103,19 +103,19 @@ export const ToleIntro = () => {
           <div className="w-11/12  lg:w-1/4 md:w-1/3  flex flex-col max-w-[350px] mx-auto ">
             <img src="/male.png" className="h-[300px] w-[300px] mx-auto" />
             <div className="w-3/4 max-w-[250px] -mt-10 p-3 bg-white top-40 shadow-md  justify-center items-center mx-auto left-10  ">
-              <h1 className="font-bold"> संजय कुमार थापा </h1>
+              <h1 className="font-bold">श्री संजय कुमार थापा </h1>
               <h1 className="">सदस्य</h1>
               <h1 className="">९८५५०५४७१७</h1>
             </div>
           </div>
         </div>
-        <div className="mx-auto text-center flex flex-col gap-20 mt-20 lg:w-4/5">
+        <div className="mx-auto text-center flex flex-col gap-20 my-16 lg:w-4/5">
           <h1 className="text-center  font-bold text-4xl">कर्मचारीका</h1>
           <div className="flex flex-wrap gap-5 justify-center ">
             <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[350px] mx-auto">
               <img src="/female.png" className="h-[300px] w-[300px] mx-auto" />
               <div className=" w-3/4 max-w-[250px] -mt-10 p-3 bg-white top-40 shadow-md  justify-center items-center mx-auto left-10  ">
-                <h1 className="font-bold"> बिष्णु माया आचार्य</h1>
+                <h1 className="font-bold">श्री बिष्णु माया आचार्य</h1>
                 <h1 className="">वडा सचिव</h1>
                 <h1 className="">९८४६५७०५२०</h1>
               </div>
@@ -123,7 +123,7 @@ export const ToleIntro = () => {
             <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[350px] mx-auto">
               <img src="/female.png" className="h-[300px] w-[300px] mx-auto" />
               <div className=" w-3/4 max-w-[250px] -mt-10 p-3 bg-white top-40 shadow-md  justify-center items-center mx-auto left-10  ">
-                <h1 className="font-bold">स्मिता श्रेष्ठ</h1>
+                <h1 className="font-bold">श्री स्मिता श्रेष्ठ</h1>
                 <h1 className="">इन्जिनियर</h1>
                 <h1 className="">९८४६५७२५९२</h1>
               </div>
@@ -131,7 +131,7 @@ export const ToleIntro = () => {
             <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[350px] mx-auto ">
               <img src="/female.png" className="h-[300px] w-[300px] mx-auto" />
               <div className=" w-3/4 max-w-[250px] -mt-10 p-3 bg-white top-40 shadow-md  justify-center items-center mx-auto left-10  ">
-                <h1 className="font-bold">खगेश्वरी पौडेल</h1>
+                <h1 className="font-bold">श्री खगेश्वरी पौडेल</h1>
                 <h1 className="">वरिष्ठ सहायक</h1>
                 <h1 className="">९८४८०५५८५२</h1>
               </div>
@@ -139,7 +139,7 @@ export const ToleIntro = () => {
             <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[350px] mx-auto">
               <img src="/male.png" className="h-[300px] w-[300px] mx-auto" />
               <div className=" w-3/4 max-w-[250px] -mt-10 p-3 bg-white top-40 shadow-md  justify-center items-center mx-auto left-10  ">
-                <h1 className="font-bold">आशिष सापकोटा</h1>
+                <h1 className="font-bold">श्री आशिष सापकोटा</h1>
                 <h1 className="">सब इन्जिनियर</h1>
                 <h1 className="">९८४५१७९०९९</h1>
               </div>
@@ -147,7 +147,7 @@ export const ToleIntro = () => {
             <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[350px] mx-auto">
               <img src="/female.png" className="h-[300px] w-[300px] mx-auto" />
               <div className=" w-3/4 max-w-[250px] -mt-10 p-3 bg-white top-40 shadow-md  justify-center items-center mx-auto left-10  ">
-                <h1 className="font-bold">अन्जना कंडेल</h1>
+                <h1 className="font-bold">श्री अन्जना कंडेल</h1>
                 <h1 className="">कम्प्युटर अपरेटर</h1>
                 <h1 className="">९८४५२०४६०६</h1>
               </div>
@@ -155,7 +155,7 @@ export const ToleIntro = () => {
             <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[350px] mx-auto">
               <img src="/female.png" className="h-[300px] w-[300px] mx-auto" />
               <div className=" w-3/4 max-w-[250px] -mt-10 p-3 bg-white top-40 shadow-md  justify-center items-center mx-auto left-10  ">
-                <h1 className="font-bold">शितल तमाङ</h1>
+                <h1 className="font-bold">श्री शितल तमाङ</h1>
                 <h1 className=""> सहायक कम्प्युटर अपरेटर</h1>
                 <h1 className="">९८१६२७७०९८</h1>
               </div>
@@ -163,7 +163,7 @@ export const ToleIntro = () => {
             <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[350px] mx-auto">
               <img src="/male.png" className="h-[300px] w-[300px] mx-auto" />
               <div className=" w-3/4 max-w-[250px] -mt-10 p-3 bg-white top-40 shadow-md  justify-center items-center mx-auto left-10  ">
-                <h1 className="font-bold">यकेन्द्र पन्त</h1>
+                <h1 className="font-bold">श्री यकेन्द्र पन्त</h1>
                 <h1 className="">अमिन</h1>
                 <h1 className="">९८६६८०३९९२</h1>
               </div>
@@ -171,7 +171,7 @@ export const ToleIntro = () => {
             <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[350px] mx-auto">
               <img src="/male.png" className="h-[300px] w-[300px] mx-auto" />
               <div className=" w-3/4 max-w-[250px] -mt-10 p-3 bg-white top-40 shadow-md  justify-center items-center mx-auto left-10  ">
-                <h1 className="font-bold"> कृष्ण बहादुर कुमाल</h1>
+                <h1 className="font-bold">श्री कृष्ण बहादुर कुमाल</h1>
                 <h1 className="">कार्यालय सहयोगी </h1>
                 <h1 className="">९८४५११२०४६</h1>
               </div>
@@ -179,7 +179,7 @@ export const ToleIntro = () => {
             <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[350px] mx-auto">
               <img src="/female.png" className="h-[300px] w-[300px] mx-auto" />
               <div className=" w-3/4 max-w-[250px] -mt-10 p-3 bg-white top-40 shadow-md  justify-center items-center mx-auto left-10  ">
-                <h1 className="font-bold">मञ्जु श्रेष्ठ</h1>
+                <h1 className="font-bold">श्री मञ्जु श्रेष्ठ</h1>
                 <h1 className="">कार्यालय सहयोगी </h1>
                 <h1 className=""></h1>
               </div>

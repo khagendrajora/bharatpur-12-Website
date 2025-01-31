@@ -42,7 +42,7 @@ export const PublicationPage = () => {
   ];
   return (
     <>
-      <div className="w-full mb-16">
+      <div className="w-full font-poppin mb-16">
         <div className="w-full relative">
           <img
             src="/hero.jpg"

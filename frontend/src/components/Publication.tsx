@@ -13,27 +13,14 @@ export const Publication = () => {
       {/* </div> */}
 
       <div
-        className=" flex flex-wrap  justify-between w-full me-10"
+        className=" flex flex-wrap font-poppin justify-between w-full"
         id="publication"
       >
-        <div className=" p-5 w-full  md:w-1/2 ">
-          <div className="w-full md:w-11/12  ">
-            <div className="flex flex-col items-center md:items-start md:w-3/4 w-full mx-auto">
+        <div className="py-14 w-full md:w-2/5">
+          <div className="w-full">
+            <div className="flex flex-col items-center md:items-start md:w-4/5 w-full mx-auto">
               <h1 className=" text-4xl font-bold">प्रकाशन</h1>
-              <div className="p-5 mt-7  border-4 bg-white  rounded-lg w-fit md:min-w-[300px] flex gap-3 items-center">
-                <div className="p-5 bg-[#245fb9] font-bold text-center border rounded-full w-fit text-white">
-                  आश्विन <br></br>१०
-                </div>
-                <div className="flex flex-col gap-1 ">
-                  <h1 className="font-bold lg:text-xl ">
-                    वार्षिक प्रगति समीक्षाको प्रतिवेदन (आ.व. ०७२।७३)
-                  </h1>
-                  <h1 className="cursor-pointer flex  items-center gap-3 text-slate-500 hover:text-blue-500">
-                    डाउनलोड गर्नुहोस्
-                  </h1>
-                </div>
-              </div>
-              <div className="p-5 mt-5 bg-white border-4 rounded-lg w-fit md:min-w-[300px] flex gap-3 items-center">
+              <div className="p-5 mt-7  border-4 bg-white  rounded-lg w-fit lg:min-w-[300px] max-w-[570px] flex gap-3 items-center">
                 <div className="p-5 bg-[#245fb9] font-bold text-center border rounded-full w-fit text-white">
                   आश्विन <br></br>१०
                 </div>
@@ -46,7 +33,21 @@ export const Publication = () => {
                   </h1>
                 </div>
               </div>
-              <div className="p-5 mt-5  bg-white border-4 rounded-lg w-fit md:min-w-[300px] flex gap-3 items-center">
+
+              <div className="p-5 mt-5 bg-white border-4 rounded-lg w-fit lg:min-w-[300px] max-w-[570px] flex gap-3 items-center">
+                <div className="p-5 bg-[#245fb9] font-bold text-center border rounded-full w-fit text-white">
+                  आश्विन <br></br>१०
+                </div>
+                <div className="flex flex-col gap-1">
+                  <h1 className="font-bold lg:text-xl">
+                    वार्षिक प्रगति समीक्षाको प्रतिवेदन (आ.व. ०७२।७३)
+                  </h1>
+                  <h1 className="cursor-pointer flex  items-center gap-3 text-slate-500 hover:text-blue-500">
+                    डाउनलोड गर्नुहोस्
+                  </h1>
+                </div>
+              </div>
+              <div className="p-5 mt-5  bg-white border-4 rounded-lg w-fit lg:min-w-[300px] max-w-[570px] flex gap-3 items-center">
                 <div className="p-5 bg-[#245fb9] font-bold text-center border rounded-full w-fit text-white">
                   आश्विन <br></br>१०
                 </div>
@@ -62,7 +63,7 @@ export const Publication = () => {
             </div>
           </div>
         </div>
-        <div className="w-full h-auto md:w-1/2 pe-5">
+        <div className="w-full h-auto md:w-3/5">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d172278.0772515662!2d84.24107640614274!3d27.65827846608394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3994fb37e078d531%3A0x973f22922ea702f7!2sBharatpur%2044200!5e1!3m2!1sen!2snp!4v1737023516357!5m2!1sen!2snp"
             style={{

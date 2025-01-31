@@ -105,7 +105,8 @@ export const Gallary = () => {
       alt: "Hero Image 2",
       title: "कुल जनसंख्या",
       count: "१000",
-      color: "bg-gradient-to-r from-amber-600 to-amber-400",
+      // color: "bg-gradient-to-r from-amber-600 to-amber-400",
+      color: "bg-sky-400",
       value: "१०%",
     },
     {
@@ -113,7 +114,8 @@ export const Gallary = () => {
       alt: "Hero Image 1",
       title: "कुल घरधुरी",
       count: "१000",
-      color: "bg-gradient-to-r from-blue-600 to-cyan-500",
+      // color: "bg-gradient-to-r from-blue-600 to-cyan-500",
+      color: "bg-green-500",
       value: "१०%",
     },
     {
@@ -121,7 +123,8 @@ export const Gallary = () => {
       alt: "Hero Image 3",
       title: "कुल घरसंख्या",
       count: "१000",
-      color: "bg-gradient-to-r from-pink-600 to-pink-500",
+      // color: "bg-gradient-to-r from-pink-600 to-pink-500",
+      color: "bg-blue-500",
       value: "४०%",
     },
     // {
@@ -148,17 +151,19 @@ export const Gallary = () => {
   ];
   return (
     <>
-      <div className="py-10 relative">
+      <div className="py-4 pb-20 relative font-poppin">
         <div className="bg-[url('/river2.jpg')]  absolute inset-0 bg-cover bg-center opacity-10 z-0 pointer-events-none"></div>
         <div className="flex relative justify-end w-11/12 mx-auto"></div>
         <div className="flex justify-end w-11/12 mx-auto">
-          <Link to="http://103.233.58.102/report" target="_blank">
-            <button className="hover:border-2 bg-[#245fb9] text-white hover:bg-white hover:text-[#245fb9] p-3 font-medium">
-              थप पढ्नुहोस्
-            </button>
+          <Link
+            to="http://103.233.58.102/report"
+            target="_blank"
+            className="hover:text-black text-[#245fb9] font-semibold "
+          >
+            थप पढ्नुहोस्
           </Link>
         </div>
-        <div className="flex flex-wrap gap-14  justify-center text-white pt-14">
+        <div className="flex flex-wrap gap-14  justify-center text-white mt-10">
           {images.map((image, index) => (
             <>
               <div
@@ -166,7 +171,7 @@ export const Gallary = () => {
                 className={`relative ${image.color} p-5 shadow-sm flex cursor-pointer flex-col gap-4 min-w-[250px] max-w-[250px] justify-center${image.color} border-black`}
               >
                 <h1>{image.value}</h1>
-                <div className="w-full bg-gray-500 rounded-full h-1 dark:bg-gray-700">
+                <div className="w-full bg-gray-600 rounded-full h-1 dark:bg-black">
                   <div className="bg-white h-1 rounded-full w-[50%]"></div>
                 </div>
                 <h3>{image.title}</h3>

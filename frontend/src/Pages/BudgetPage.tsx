@@ -1,7 +1,7 @@
 export const BudgetPage = () => {
   return (
     <>
-      <div className="w-full">
+      <div className="w-full font-poppin">
         <div className="w-full relative">
           <img
             src="/hero.jpg"
@@ -9,7 +9,7 @@ export const BudgetPage = () => {
             className="w-full h-[400px]  object-cover"
           />
           <h1 className="absolute inset-0 justify-center items-center flex text-white font-bold text-shadow text-4xl md:text-7xl">
-            हाम्रो&nbsp;बारेमा
+            बार्षिक&nbsp;बजेट
           </h1>
         </div>
         <div className="flex flex-row md:w-11/12  flex-wrap justify-center mx-auto  p-5 xl:p-14 ">

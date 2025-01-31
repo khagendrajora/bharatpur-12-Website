@@ -52,7 +52,7 @@ export const ContactPage = () => {
             सम्पर्क
           </h1>
         </div>
-        <div className="flex flex-row text-slate-600 flex-wrap justify-center xl:justify-e gap-x-[300px]  gap-y-10 p-10 mx-auto w-full  ">
+        <div className="flex  text-slate-600 flex-wrap justify-center xl:justify-e gap-x-[300px]  gap-y-10 p-10 mx-auto w-full  ">
           <div className="flex flex-col gap-12">
             <h1 className="text-4xl font-bold">
               हाम्रो&nbsp;सम्पर्कको&nbsp;लागि
@@ -90,6 +90,15 @@ export const ContactPage = () => {
                 <h1>info@bharatpur12.org</h1>
               </div>
             </div>
+          </div>
+          <div className="w-full h-auto md:w-1/2 pe-2">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d172278.0772515662!2d84.24107640614274!3d27.65827846608394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3994fb37e078d531%3A0x973f22922ea702f7!2sBharatpur%2044200!5e1!3m2!1sen!2snp!4v1737023516357!5m2!1sen!2snp"
+              style={{
+                width: "100%",
+                height: "100%",
+              }}
+            />
           </div>
           {/* <div className="w-full  md:min-w-[400px] max-w-[500px]">
             <form

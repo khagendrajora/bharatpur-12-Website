@@ -9,7 +9,7 @@ export const WorkDonePage = () => {
   ];
   return (
     <>
-      <div className="w-full flex flex-col gap-32">
+      <div className="w-full font-poppin flex flex-col ">
         <div className="w-full relative">
           <img
             src="/bharatpur.jpg"
@@ -20,7 +20,7 @@ export const WorkDonePage = () => {
             <span className="">हाम्रो&nbsp;काम</span>
           </h1>
         </div>
-        <div className=" md:w-10/12 w-full mx-auto  ">
+        <div className=" md:w-10/12 w-full  mx-auto my-12  ">
           <div className="flex justify-center flex-wrap gap-7 p-2 ">
             {images.map((image, index) => (
               <div

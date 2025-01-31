@@ -33,7 +33,7 @@ export const NoticesPage = () => {
   ];
   return (
     <>
-      <div className="w-full">
+      <div className="w-full font-poppin">
         <div className="w-full relative">
           <img
             src="/hero.jpg"
@@ -45,7 +45,7 @@ export const NoticesPage = () => {
           </h1>
         </div>
 
-        <div className="flex flex-wrap gap-4 sm:w-3/4 w-11/12 justify-center mt-20 mx-auto ">
+        <div className="flex flex-wrap gap-4 sm:w-3/4 w-11/12 justify-center my-12 mx-auto ">
           {images.map((image, index) => (
             <div
               key={index}

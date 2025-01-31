@@ -5,7 +5,7 @@ export const WardIntro = () => {
 
   return (
     <>
-      <div className="w-full">
+      <div className="w-full font-poppin">
         <div className="w-full relative">
           <img
             src="/hero.jpg"

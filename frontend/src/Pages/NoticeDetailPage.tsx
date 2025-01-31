@@ -47,7 +47,7 @@ export const NoticeDetailPage = () => {
 
   return (
     <>
-      <div className="w-full flex flex-col mb-[80px] md:gap-20 gap-10">
+      <div className="w-full font-poppin flex flex-col mb-[80px] md:gap-20 gap-10">
         {data ? (
           <>
             <div className="w-full relative">

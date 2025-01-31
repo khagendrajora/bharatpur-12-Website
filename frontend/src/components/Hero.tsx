@@ -1,8 +1,8 @@
 import {
   faArrowUpRightFromSquare,
-  faCreditCard,
   faFileCirclePlus,
   faMoneyBill,
+  faNoteSticky,
   faPhone,
   faSackDollar,
 } from "@fortawesome/free-solid-svg-icons";
@@ -57,9 +57,9 @@ export const Hero = () => {
             onClick={() => navigate("/complain")}
           >
             <FontAwesomeIcon
-              icon={faCreditCard}
-              style={{ color: "#f7f7f7" }}
+              icon={faNoteSticky}
               className="lg:h-8"
+              style={{ color: "#ffffff" }}
             />
             उजुरी
             <FontAwesomeIcon

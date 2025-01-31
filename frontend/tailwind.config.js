@@ -14,7 +14,8 @@ export default {
      },
      fontFamily: {
        title: ["Saira Condensed", "serif"],
-       gov:["Saira Condensed", "serif"]
+       gov: ["Saira Condensed", "serif"],
+       poppin:["Poppins", "serif"]
        
      }
      

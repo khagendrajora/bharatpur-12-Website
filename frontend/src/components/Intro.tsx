@@ -52,7 +52,7 @@ export const Intro = () => {
           <div className="flex flex-wrap justify-center  gap-10">
             <div className="flex flex-col gap-5 md:w-1/2">
               <div className="font-bold text-4xl">संक्षिप्त परिचय</div>
-              <div className="text-justify text-gray-500 font-normal font-gov text-[16px] leading-8">
+              <div className="text-justify text-gray-500 font-normal font-poppin text-[16px] leading-8">
                 खोकना पूर्व गाउँ विकास समिति (VDC) हो जुन छिमेकी गाविसा बुंगमती,
                 छाम्पी, दुकुछाप र सानिबुसँग गाभिएर नेपालको बागमती अञ्चलको
                 ललितपुर जिल्लाको कार्यविनायक नगरपालिका गठन गरिएको छ। 1991 को
@@ -67,7 +67,7 @@ export const Intro = () => {
               </div>
               <div className="flex justify-start">
                 <button
-                  className="hover:border-2 bg-[#245fb9] text-white hover:bg-white hover:text-[#245fb9]  p-3 font-medium"
+                  className="hover:border-1 bg-[#245fb9] text-white hover:bg-white hover:text-[#245fb9]  p-3 font-medium"
                   onClick={() => navigate("/aboutus")}
                 >
                   थप पढ्नुहोस्
@@ -86,7 +86,7 @@ export const Intro = () => {
                       />
 
                       <div className=" z-10 text-center absolute bottom-1 left-7 rounded-lg bg-white p-3 w-3/4 ">
-                        <h1 className="font-semibold">{image.name}</h1>
+                        <h1 className="font-semibold">श्री {image.name}</h1>
                         <h1 className="font-normal text-slate-500 text-xs">
                           {image.post}
                         </h1>

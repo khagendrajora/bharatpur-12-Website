@@ -50,7 +50,7 @@ export const WorkDone = () => {
 
   return (
     <>
-      <div className="bg-[#245fb9] w-full  h-[300px]">
+      <div className="bg-[#245fb9] w-full font-poppin  h-[300px]">
         <div className="md:w-3/4 mt-8 w-full mx-auto p-5 " id="works">
           <div className="flex justify-center w-3/4 items-center mx-auto ">
             <div className="flex flex-col">
@@ -60,7 +60,7 @@ export const WorkDone = () => {
         </div>
       </div>
 
-      <div className=" md:w-10/12 w-full mx-auto -mt-40 ">
+      <div className=" md:w-10/12 w-full pb-10 font-poppin  mx-auto -mt-40 ">
         <div className="flex justify-center flex-wrap gap-7 p-2 ">
           {images.map((image, index) => (
             <div
@@ -71,7 +71,7 @@ export const WorkDone = () => {
               <img
                 src={image.src}
                 alt={image.alt}
-                className=" mx-auto h-auto min-h-[400px] object-cover"
+                className=" mx-auto h-auto min-h-[380px] object-cover"
               />
 
               <div className=" absolute flex bottom-2 right- w-3/4 text-center justify-between items-center font-semibold bg-white  p-5 py-2 ">

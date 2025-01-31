@@ -9,46 +9,42 @@ export const Footer = () => {
   const offsetTop = 0;
   return (
     <>
-      <div className=" bg-[#245fb9] w-full relative flex flex-col  justify-center items-center text-white  min-h-[300px]">
+      <div className=" bg-[#245fb9] w-full relative flex flex-col font-poppin  justify-center items-center text-white  min-h-[280px]">
         <div className="bg-[url('/footer.jpg')]  absolute inset-0 bg-cover bg-center opacity-15 z-0 pointer-events-none"></div>
         <div className="flex relative z-10 flex-wrap lg:justify-center justify-between gap-16 2xl:gap-40 items-start p-10 w-full">
-          <div className="flex flex-row gap-3">
-            <div className="w-[80px] hidden lg:block">
-              <img src="/logo2.jpeg" className=" object-cover" />
+          <div className="flex flex-col text-white  text-start   bg-blue- opacity-90">
+            <h1 className="font-bold text-xl">ठेगाना</h1>
+            <hr className="w-[100px]" />
+            <div className="flex flex-col py-5 text-sm">
+              <h1>भरतपुर-१२, भरतपुर नगरपालिका, चितवन, नेपाल </h1>
             </div>
-            <h1 className="text-xs relative flex justify-center flex-col gap-5">
-              <span className=" text-[20px] sm:text-[20px] lg:text-2xl font-bold">
-                भरतपुर&nbsp;महानगरपालिका
-              </span>{" "}
-              <span className="text-white text-center text-[15x] lg:text-lg font-bold">
-                वडा नं. १२, चितवन, नेपाल{" "}
-              </span>
-            </h1>
           </div>
-          <div className="flex flex-col text-white  text-start gap-3  bg-blue- opacity-90">
-            <h1 className="font-bold text-xl">
-              <h1 className="">फोन</h1>
-              <hr />
-              <span className="text-sm">
-                +९७७ ०२३-५२०१४८ <br></br>+९७७ ०२३-५२००९५
-              </span>
-            </h1>
-          </div>
-
-          <div className="flex flex-col text-white  text-start gap-3  bg-blue- opacity-90">
-            <h1 className="font-bold text-xl">
-              <h1>फ्याक्स</h1>
-              <hr />
-              <span className="text-sm">+९७७ ०२३५२०७८१</span>
-            </h1>
-          </div>
-          <div className="flex flex-col text-white  text-start gap-3  bg-blue- opacity-90">
+          <div className="flex flex-col text-white  text-start   bg-blue- opacity-90">
             <h1 className="font-bold text-xl">सम्पर्क</h1>
             <hr className="w-[100px]" />
-            <div className="flex flex-col gap-5 text-sm">
-              <h1>इमेल : info@Bharatpur.gov.np , ito.Bharatpur@gmail.com</h1>
+            <div className="flex flex-col py-5 text-sm">
+              <h1>
+                ‌‌++९७७-५६-५९७००४<br></br>
+                ०५६-५११४६७{" "}
+              </h1>
+            </div>
+          </div>
+          <div className="flex flex-col text-white  text-start gap-3  bg-blue- opacity-90">
+            <h1 className="font-bold text-xl">
+              <h1>इमेल</h1>
+              <hr />
+              <div className="py-5">
+                <span className="text-sm"> info@bharatpur12.org</span>
+              </div>
+            </h1>
+          </div>
 
-              <div className="items-center  lg:text-lg flex gap-4">
+          <div className="flex flex-col text-white  text-start gap-3  bg-blue- opacity-90">
+            <h1 className="font-bold text-xl">
+              <h1 className="">सामाजिक सञ्जाल</h1>
+              <hr />
+
+              <div className="items-center py-5 lg:text-lg flex gap-4">
                 <FontAwesomeIcon
                   icon={faFacebook}
                   style={{ color: "#1996f5" }}
@@ -68,11 +64,11 @@ export const Footer = () => {
                   style={{ color: "#0a0a0a" }}
                 />
               </div>
-            </div>
+            </h1>
           </div>
         </div>
         <div>
-          <ul className="list-none h-fit text-xs lg:text-sm flex w-full justify-start gap-4 text-white md:gap-10 font-semibold">
+          <ul className="list-none h-fit text-xs  lg:text-sm flex w-full justify-start gap-4 text-white md:gap-10 font-semibold">
             <Link
               to="/"
               onClick={() => {
@@ -146,10 +142,10 @@ export const Footer = () => {
             </Link>
           </ul>
         </div>
-        <div className="text-sm bg-[#245fb9] p-10 w-full text-center">
-          Copyright © २०८१ भरतपुर नगरपालिका वडा नं १२ Website by DigiSoft
-          Developers
-        </div>
+      </div>
+      <div className="text-sm bg-blue-500  p-1 w-full text-center">
+        Copyright © २०८१ भरतपुर नगरपालिका वडा नं १२ Website by DigiSoft
+        Developers
       </div>
     </>
   );

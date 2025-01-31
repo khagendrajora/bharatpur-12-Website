@@ -1,7 +1,7 @@
 export const AboutUs = () => {
   return (
     <>
-      <div className="w-full">
+      <div className="w-full font-poppin">
         <div className="w-full relative">
           <img
             src="/hero.jpg"
@@ -13,7 +13,7 @@ export const AboutUs = () => {
           </h1>
         </div>
 
-        <div className="flex flex-row md:w-11/12  flex-wrap justify-center mx-auto  p-5 xl:p-14 ">
+        <div className="flex flex-row md:w-11/12  flex-wrap justify-center mx-auto my-5 p-5 xl:p-14 ">
           <div className="">
             <img
               src="/bharatpur.jpg"
@@ -22,7 +22,7 @@ export const AboutUs = () => {
             />
           </div>
           <div className="p-2 xl:p-5 lg:w-1/2  w-full flex flex-col gap-5">
-            <h1 className="lg:text-6xl sm:text-4xl text-2xl p-2 font-bold">
+            <h1 className="sm:text-4xl  text-2xl p-2 font-bold">
               संक्षिप्त परिचय
             </h1>
             <p className="text-gray-600 leading-10 text-justify font-normal ">

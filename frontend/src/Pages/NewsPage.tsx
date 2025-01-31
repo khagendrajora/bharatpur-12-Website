@@ -33,7 +33,7 @@ export const NewsPage = () => {
   ];
   return (
     <>
-      <div className="w-full flex flex-col gap-32">
+      <div className="w-full flex flex-col font-poppin gap-32">
         <div className="w-full relative">
           <img
             src="/hero.jpg"
@@ -61,7 +61,7 @@ export const NewsPage = () => {
                   <br></br>
                   {image.day}
                 </div>
-                <div className="flex flex-col gap-5 p-10">
+                <div className="flex flex-col gap-5 p-6 border">
                   <p className="text-xl font-bold leading-8  scrollbar-hidden">
                     {image.title}
                   </p>

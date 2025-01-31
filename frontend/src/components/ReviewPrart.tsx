@@ -2,7 +2,7 @@ export default function ReviewPrart() {
   return (
     <>
       <div
-        className="w-full h-auto mt-2 lg:p-10 p-3"
+        className="w-full h-auto font-poppin lg:py-10 p-3"
         style={{
           backgroundImage: "url('/review.jpg')",
           backgroundSize: "cover",
@@ -28,7 +28,7 @@ export default function ReviewPrart() {
               <img
                 src="/fblogo.png"
                 alt="hero"
-                className="w-20 h-auto rounded-full"
+                className="w-8 object-contain h-auto  rounded-full"
               />
               <div className="flex text-slate-500 relative flex-col justify-center">
                 <h1 className="text-start">Khagendra Singh Jora</h1>
@@ -47,7 +47,7 @@ export default function ReviewPrart() {
               <img
                 src="/googlelogo.png"
                 alt="hero"
-                className="w-20 h-auto rounded-full"
+                className="w-8 object-contain h-auto rounded-full"
               />
               <div className="flex text-slate-500 flex-col  justify-center">
                 <h1 className="text-start">Buddhi Dangol</h1>
