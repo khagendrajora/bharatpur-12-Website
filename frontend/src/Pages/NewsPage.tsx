@@ -33,7 +33,7 @@ export const NewsPage = () => {
   ];
   return (
     <>
-      <div className="w-full flex flex-col font-poppin gap-32">
+      <div className="w-full flex flex-col font-poppin">
         <div className="w-full relative">
           <img
             src="/hero.jpg"
@@ -44,7 +44,7 @@ export const NewsPage = () => {
             समाचार
           </h1>
         </div>
-        <div className="flex justify-center flex-wrap gap-7 p-2 ">
+        <div className="flex justify-center flex-wrap gap-7 py-10 ">
           {images.map((image, index) => (
             <>
               <div

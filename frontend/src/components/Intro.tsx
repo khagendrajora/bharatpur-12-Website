@@ -47,7 +47,7 @@ export const Intro = () => {
   };
   return (
     <>
-      <div className="bg-white">
+      <div className="bg-white py-10 md:py-0">
         <div className=" flex justify-center mx-auto lg:w-3/4 w-11/12 md:my-14 ">
           <div className="flex flex-wrap justify-center  gap-10">
             <div className="flex flex-col gap-5 md:w-1/2">

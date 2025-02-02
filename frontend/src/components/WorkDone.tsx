@@ -61,7 +61,7 @@ export const WorkDone = () => {
       </div>
 
       <div className=" md:w-10/12 w-full pb-10 font-poppin  mx-auto -mt-40 ">
-        <div className="flex justify-center flex-wrap gap-7 p-2 ">
+        <div className="flex justify-center flex-wrap gap-9 p-2 ">
           {images.map((image, index) => (
             <div
               key={index}

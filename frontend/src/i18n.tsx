@@ -28,7 +28,13 @@ i18next
               },
             },
             key3: "Our Work",
-            key4: "Publication",
+            key4: {
+              key: "Source",
+              subKey: {
+                key1: "Publication",
+                key2: "Report",
+              },
+            },
             key5: {
               key: "Updates",
               subKey: {

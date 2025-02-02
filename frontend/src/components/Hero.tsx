@@ -34,7 +34,7 @@ export const Hero = () => {
   };
   return (
     <>
-      <div className="w-full flex flex-col ">
+      <div className="w-full flex flex-col bg-white ">
         <Slider {...settings}>
           {images.map((image, index) => (
             <>
@@ -51,7 +51,7 @@ export const Hero = () => {
             </>
           ))}
         </Slider>
-        <div className="flex w-full flex-wrap z-10 -mt-[120px] min-h-[80px] lg:min-h-[120px] max-h-[200px] text-sm text-white font-semibold lg:text-lg justify-center ">
+        <div className="flex w-full flex-wrap z-10 lg:-mt-[120px] min-h-[80px] lg:min-h-[120px] max-h-[200px] text-sm text-white font-semibold lg:text-lg justify-center ">
           <div
             className="bg-[#2c84c7] lg:text-[20px] border  cursor-pointer min-w-[100px] w-1/5  p-5 flex justify-center lg:gap-6 gap-2 flex-wrap items-center"
             onClick={() => navigate("/complain")}

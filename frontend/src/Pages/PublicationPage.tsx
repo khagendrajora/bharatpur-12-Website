@@ -42,7 +42,7 @@ export const PublicationPage = () => {
   ];
   return (
     <>
-      <div className="w-full font-poppin mb-16">
+      <div className="w-full font-poppin">
         <div className="w-full relative">
           <img
             src="/hero.jpg"
@@ -54,11 +54,11 @@ export const PublicationPage = () => {
           </h1>
         </div>
 
-        <div className="flex flex-wrap gap-4 sm:w-3/4 w-11/12 justify-center mt-20 mx-auto ">
+        <div className="flex flex-wrap gap-4 sm:w-3/4 w-11/12 justify-center py-10 mx-auto ">
           {images.map((image, index) => (
             <div
               key={index}
-              className="flex gap-2 w-full  sm:w-3/4 md:w-2/5 border sm:p-5 px-1 md:py-5 "
+              className="flex gap-2 w-full  sm:w-3/4 md:w-2/5  border-2 sm:p-5 px-1 "
             >
               <div className="bg-[#ef4444]  p-5 w-[100px] md:h-[100px] text-white font-medium flex justify-center flex-col items-center gap-1">
                 <span>{image.day}</span>

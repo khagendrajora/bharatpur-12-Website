@@ -13,7 +13,7 @@ export const Publication = () => {
       {/* </div> */}
 
       <div
-        className=" flex flex-wrap font-poppin justify-between w-full"
+        className=" flex flex-wrap font-poppin justify-between bg-zinc-100 w-full"
         id="publication"
       >
         <div className="py-14 w-full md:w-2/5">

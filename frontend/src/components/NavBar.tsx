@@ -33,19 +33,6 @@ export const NavBar = () => {
     }
   };
 
-  // const publication = () => {
-  //   navigate("/");
-  //   setTimeout(() => {
-  //     const publication = document.getElementById("publication");
-  //     if (publication) {
-  //       window.scrollTo({
-  //         top: publication.offsetTop,
-  //         behavior: "smooth",
-  //       });
-  //     }
-  //   }, 1000);
-  // };
-
   const isActive = (path: string) =>
     location.pathname === path || location.pathname.startsWith(path + "/");
 
@@ -159,8 +146,9 @@ export const NavBar = () => {
                 <li>{t("navbar.key3")}</li>
               </Link>
               <li
-                className="hover:text-black cursor-pointer relative"
-                // onClick={publication}
+                className={`hover:text-black cursor-pointer relative ${
+                  isActive("/publication") ? "text-black" : ""
+                }`}
                 onMouseEnter={() => setPublication(true)}
                 onMouseLeave={() => setPublication(false)}
                 onClick={() => setPublication(!publication)}
@@ -270,7 +258,7 @@ export const NavBar = () => {
                   shake
                   className="me-1 hover:scale-105 cursor-pointer text-red-600"
                 />
-                &nbsp;{t("navbar.contact")}:&nbsp;9803030780
+                &nbsp;{t("navbar.contact")}:&nbsp;9855011311
               </h1>
               {/* <div className="flex w-full justify-end text-black">
                 <LanguageSelector />

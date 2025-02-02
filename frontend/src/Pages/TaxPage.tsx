@@ -13,7 +13,7 @@ export const TaxPage = () => {
           </h1>
         </div>
 
-        <div className="flex flex-row md:w-11/12  flex-wrap justify-center mx-auto  p-5 xl:p-14 ">
+        <div className="flex flex-row md:w-11/12  flex-wrap justify-center mx-auto  p-4 py-10 ">
           <div className="p-2 xl:p-5 lg:w-1/2  w-full flex flex-col gap-5">
             {/* <h1 className="lg:text-6xl sm:text-4xl text-2xl p-2 font-bold">
               संक्षिप्त परिचय

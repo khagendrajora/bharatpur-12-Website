@@ -33,9 +33,9 @@ export const News = () => {
   ];
   return (
     <>
-      <div className="py-10  font-poppin relative bg-gray-200">
+      <div className="py-10 pb-16 font-poppin relative bg-gray-200">
         <div className="bg-[url('/river2.jpg')] absolute inset-0 bg-cover bg-center opacity-10 z-0 pointer-events-none"></div>
-        <div className="flex flex-col justify-center relative  mx-auto p-5 items-center md:w-10/12 ">
+        <div className="flex flex-col justify-center relative  mx-auto p- items-center md:w-10/12 ">
           <div className="flex relative justify-center w-3/4 mb-12 items-center mx-auto z-10 ">
             <div className="flex flex-col">
               <h1 className="text-4xl font-bold">समाचार </h1>

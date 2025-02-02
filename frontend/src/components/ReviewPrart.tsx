@@ -2,7 +2,7 @@ export default function ReviewPrart() {
   return (
     <>
       <div
-        className="w-full h-auto font-poppin lg:py-10 p-3"
+        className="w-full h-auto font-poppin py-10 p-2"
         style={{
           backgroundImage: "url('/review.jpg')",
           backgroundSize: "cover",

@@ -13,7 +13,7 @@ export const NagrikPage = () => {
           </h1>
         </div>
 
-        <div className="flex flex-row md:w-11/12  flex-wrap justify-center mx-auto  p-5 xl:p-14 ">
+        <div className="flex flex-row md:w-11/12  flex-wrap justify-center mx-auto  p-4 py-10 ">
           <div className="p-2 xl:p-5 lg:w-1/2  w-full flex flex-col gap-5">
             <p className="text-gray-600 leading-10 text-justify font-normal ">
               खोकना पूर्व गाउँ विकास समिति (VDC) हो जुन छिमेकी गाविसा बुंगमती,

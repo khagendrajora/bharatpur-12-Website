@@ -52,19 +52,19 @@ export const ContactPage = () => {
             सम्पर्क
           </h1>
         </div>
-        <div className="flex  text-slate-600 flex-wrap justify-center xl:justify-e gap-x-[300px]  gap-y-10 p-10 mx-auto w-full  ">
+        <div className="flex  text-slate-600 flex-wrap justify-center  gap-x-[250px]  gap-y-10 p-10 mx-auto w-full  ">
           <div className="flex flex-col gap-12">
             <h1 className="text-4xl font-bold">
               हाम्रो&nbsp;सम्पर्कको&nbsp;लागि
             </h1>
-            <div className="flex flex-row items-center gap-5 bg-white p-5 border shadow-sm rounded-md">
+            <div className="flex flex-row items-center gap-5 xl:min-w-[500px] bg-white p-5 border shadow-sm rounded-md">
               <FontAwesomeIcon
                 icon={faLocationPin}
                 size="xl"
                 style={{ color: "#ff0000" }}
               />
-              <div className="flex flex-col ">
-                <h1 className="font-medium text-2xl">ठेगाना</h1>
+              <div className="flex flex-col gap-2">
+                <h1 className="font-semibold text-2xl">ठेगाना</h1>
                 <h1>भरतपुर महानगरपालिका कार्यालय , वडा नं-१२, चितवन </h1>
               </div>
             </div>
@@ -74,8 +74,8 @@ export const ContactPage = () => {
                 size="xl"
                 className="me-1 hover:scale-105 cursor-pointer text-red-600"
               />
-              <div className="flex flex-col ">
-                <h1 className="font-medium text-2xl">फोन&nbsp;नम्बर</h1>
+              <div className="flex flex-col gap-2 ">
+                <h1 className="font-semibold text-2xl">फोन&nbsp;नम्बर</h1>
                 <h1>‌‌+९७७-०५६-५११४६७,</h1>
               </div>
             </div>
@@ -85,8 +85,8 @@ export const ContactPage = () => {
                 size="xl"
                 className="me-1 hover:scale-105 cursor-pointer border text-red-600"
               />
-              <div className="flex flex-col ">
-                <h1 className="font-medium text-2xl">इमेल</h1>
+              <div className="flex flex-col gap-2 ">
+                <h1 className="font-semibold text-2xl">इमेल</h1>
                 <h1>info@bharatpur12.org</h1>
               </div>
             </div>

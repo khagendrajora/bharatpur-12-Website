@@ -49,7 +49,7 @@ export const NoticesPage = () => {
           {images.map((image, index) => (
             <div
               key={index}
-              className="flex gap-2 w-full  sm:w-3/4 md:w-2/5 border sm:p-5 px-1 md:py-5 "
+              className="flex gap-2 w-full  sm:w-3/4 md:w-2/5 border-2 sm:p-5 px-1 md:py-5 "
             >
               <div className="bg-[#ef4444]  p-5 w-[100px] md:h-[100px] text-white font-medium flex justify-center flex-col items-center gap-1">
                 <span>{image.day}</span>

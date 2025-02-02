@@ -11,12 +11,12 @@ export const Footer = () => {
     <>
       <div className=" bg-[#245fb9] w-full relative flex flex-col font-poppin  justify-center items-center text-white  min-h-[280px]">
         <div className="bg-[url('/footer.jpg')]  absolute inset-0 bg-cover bg-center opacity-15 z-0 pointer-events-none"></div>
-        <div className="flex relative z-10 flex-wrap lg:justify-center justify-between gap-16 2xl:gap-40 items-start p-10 w-full">
+        <div className="flex relative z-10 flex-wrap lg:justify-center justify-between gap-3 md:gap-10 lg:gap-20 2xl:gap-40 items-start p-10 w-full">
           <div className="flex flex-col text-white  text-start   bg-blue- opacity-90">
             <h1 className="font-bold text-xl">ठेगाना</h1>
             <hr className="w-[100px]" />
             <div className="flex flex-col py-5 text-sm">
-              <h1>भरतपुर-१२, भरतपुर नगरपालिका, चितवन, नेपाल </h1>
+              <h1>भरतपुर नगरपालिका-१२, चितवन, नेपाल </h1>
             </div>
           </div>
           <div className="flex flex-col text-white  text-start   bg-blue- opacity-90">
