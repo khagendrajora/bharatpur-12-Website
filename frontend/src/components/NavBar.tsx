@@ -33,6 +33,15 @@ export const NavBar = () => {
     }
   };
 
+  const moveUp = () => {
+    const move = document.getElementById("nav");
+    if (move) {
+      window.scrollTo({
+        top: move.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
   const isActive = (path: string) =>
     location.pathname === path || location.pathname.startsWith(path + "/");
 
@@ -41,7 +50,8 @@ export const NavBar = () => {
   return (
     <>
       <div
-        className={`flex w-full fixed z-50 justify-between shadow-lg bg-white `}
+        className={`flex w-full fixed z-50 justify-between shadow-lg bg-white`}
+        id="nav"
       >
         <div
           className="flex gap-2 items-center p-2 px-4 cursor-pointer"
@@ -91,7 +101,7 @@ export const NavBar = () => {
                   isActive("/") ? "text-black" : ""
                 }`}
               >
-                <li>{t("navbar.key1")}</li>
+                <li onClick={() => moveUp()}>{t("navbar.key1")}</li>
               </Link>
               <li
                 className={`hover:text-black cursor-pointer relative ${

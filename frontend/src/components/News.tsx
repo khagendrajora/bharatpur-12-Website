@@ -41,14 +41,7 @@ export const News = () => {
               <h1 className="text-4xl font-bold">समाचार </h1>
             </div>
           </div>
-          {/* <div className="flex w-full md:w-3/4 justify-end my-7">
-            <button
-              className="border-2 bg-[#245fb9] text-white hover:bg-white hover:text-[#245fb9] p-3 font-medium"
-              onClick={() => navigate("/news")}
-            >
-              थप पढ्नुहोस्
-            </button>
-          </div> */}
+
           <div className="flex justify-center flex-wrap gap-9 p-2 ">
             {images.map((image, index) => (
               <div

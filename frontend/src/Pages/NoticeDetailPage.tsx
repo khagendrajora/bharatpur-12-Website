@@ -20,7 +20,7 @@ export const NoticeDetailPage = () => {
       src: "/hero.jpg",
       alt: "Hero Image 1",
       month: "भाद्र",
-      day: "१",
+      day: "१०",
       key: "1",
       year: "२०८१",
       title: "+2 उतिर्ण विद्यार्थीहरुलाई बधाई तथा शुभकामना कार्यक्रम",

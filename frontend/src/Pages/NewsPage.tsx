@@ -7,7 +7,7 @@ export const NewsPage = () => {
       src: "/hero.jpg",
       alt: "Hero Image 1",
       month: "भाद्र",
-      day: "१",
+      day: "१०",
       key: "1",
       year: "२०८१",
       title: "+2 उतिर्ण विद्यार्थीहरुलाई बधाई तथा शुभकामना कार्यक्रम",
@@ -26,7 +26,7 @@ export const NewsPage = () => {
       alt: "Hero Image 3",
       month: "भाद्र",
       key: "3",
-      day: "१",
+      day: "१०",
       year: "२०७३",
       title: "७६ बर्ष उमेर पुगेका जेष्ठ नागरिकहरुलाई सम्मान कार्यक्रम",
     },
@@ -57,9 +57,9 @@ export const NewsPage = () => {
                   className="mx-auto h-auto min-h-[400px]  object-cover"
                 />
                 <div className="bg-red-600 p-3 absolute right-5 w-20 top-0 text-center text-white font-bold">
-                  {image.month}
-                  <br></br>
                   {image.day}
+                  <br></br>
+                  {image.month}
                 </div>
                 <div className="flex flex-col gap-5 p-6 border">
                   <p className="text-xl font-bold leading-8  scrollbar-hidden">

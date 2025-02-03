@@ -77,7 +77,7 @@ export const Footer = () => {
                     top: offsetTop,
                     behavior: "smooth",
                   });
-                }, 1000);
+                });
               }}
             >
               <li className="hover:text-black cursor-pointer">गृहपृष्ठ</li>

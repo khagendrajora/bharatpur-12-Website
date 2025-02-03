@@ -1,11 +1,53 @@
+import { useState } from "react";
+import { useNavigate } from "react-router";
+
 export const WorkDonePage = () => {
+  const navigate = useNavigate();
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const images = [
-    { src: "/hero.jpg", alt: "Hero Image 1" },
-    { src: "/1.jpg", alt: "Hero Image 2" },
-    { src: "/6.jpg", alt: "Hero Image 3" },
-    { src: "/4.jpg", alt: "Hero Image 4" },
-    { src: "/3.jpg", alt: "Hero Image 3" },
-    { src: "/7.jpg", alt: "Hero Image 4" },
+    {
+      src: "/hero.jpg",
+      alt: "Hero Image 1",
+      key: "1",
+      year: "२०८१",
+      title: "+2 उतिर्ण विद्यार्थीहरुलाई बधाई तथा शुभकामना कार्यक्रम",
+    },
+    {
+      src: "/1.jpg",
+      alt: "Hero Image 2",
+      key: "2",
+      year: "२०८१",
+      title: "+2 उतिर्ण विद्यार्थीहरुलाई बधाई तथा शुभकामना कार्यक्रम",
+    },
+    {
+      src: "/6.jpg",
+      alt: "Hero Image 3",
+      key: "3",
+      year: "२०८१",
+      title: "+2 उतिर्ण विद्यार्थीहरुलाई बधाई तथा शुभकामना कार्यक्रम",
+    },
+    {
+      src: "/4.jpg",
+      alt: "Hero Image 4",
+      key: "4",
+      year: "२०८१",
+      title: "+2 उतिर्ण विद्यार्थीहरुलाई बधाई तथा शुभकामना कार्यक्रम",
+    },
+    {
+      src: "/6.jpg",
+      alt: "Hero Image 4",
+      key: "5",
+      year: "२०८१",
+      title: "+2 उतिर्ण विद्यार्थीहरुलाई बधाई तथा शुभकामना कार्यक्रम",
+    },
+
+    {
+      src: "/7.jpg",
+      alt: "Hero Image 4",
+      key: "6",
+      year: "२०८१",
+      title: "+2 उतिर्ण विद्यार्थीहरुलाई बधाई तथा शुभकामना कार्यक्रम",
+    },
   ];
   return (
     <>
@@ -26,6 +68,9 @@ export const WorkDonePage = () => {
               <div
                 key={index}
                 className=" relative shadow-md bg-white md:w-1/2 lg:w-1/4 w-full sm:w-3/4"
+                onClick={() => navigate(`/workdetail/${image.key}`)}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
               >
                 <img
                   src={image.src}
@@ -38,14 +83,25 @@ export const WorkDonePage = () => {
                     <h1 className="font-semibold">
                       ७६ बर्ष उमेर पुगेका जेष्ठ नागरिकहरुलाई सम्मान कार्यक्रम
                     </h1>
-                    {/* <button className="border-2 border-blue-500 text-blue-500 hover:bg-[#245fb9] hover:text-white p-2 rounded-full font-medium">
-                      थप पढ्नुहोस्
-                    </button> */}
                   </div>
-                  {/* <button className="text-slate-500 text-xs">
-                  {" "}
-                  थप&nbsp;पढ्नुहोस्
-                </button> */}
+                </div>
+                <div
+                  className={`absolute bottom-0 left-0 w-full ${
+                    hoveredIndex === index ? "h-full " : "h-0 "
+                  } bg-[#0c1110] opacity-50  transition-all duration-1000 ease-in-out z-0`}
+                ></div>
+                <div
+                  className={`absolute inset-0 flex justify-center items-center z-20 transition-transform duration-1000 ${
+                    hoveredIndex === index
+                      ? "translate-y-0 "
+                      : "translate-y-1/2 opacity-0"
+                  }`}
+                >
+                  <button
+                    className={`bg-red-600 p-2 hover:bg-red-700  text-white `}
+                  >
+                    थप पढ्नुहोस्
+                  </button>
                 </div>
               </div>
             ))}
