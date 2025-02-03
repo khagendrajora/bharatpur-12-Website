@@ -20,7 +20,7 @@ export const Publication = () => {
           <div className="w-full">
             <div className="flex flex-col items-center md:items-start md:w-4/5 w-full mx-auto">
               <h1 className=" text-4xl font-bold">प्रकाशन</h1>
-              <div className="p-5 mt-7  border-4 bg-white  rounded-lg w-fit lg:min-w-[300px] max-w-[570px] flex gap-3 items-center">
+              <div className="p-5 mt-7  border-2 bg-white w-fit lg:min-w-[300px] max-w-[570px] flex gap-3 items-center">
                 <div className="p-5 bg-[#245fb9] font-bold text-center border rounded-full w-fit text-white">
                   आश्विन <br></br>१०
                 </div>
@@ -34,7 +34,7 @@ export const Publication = () => {
                 </div>
               </div>
 
-              <div className="p-5 mt-5 bg-white border-4 rounded-lg w-fit lg:min-w-[300px] max-w-[570px] flex gap-3 items-center">
+              <div className="p-5 mt-5 bg-white border-2  w-fit lg:min-w-[300px] max-w-[570px] flex gap-3 items-center">
                 <div className="p-5 bg-[#245fb9] font-bold text-center border rounded-full w-fit text-white">
                   आश्विन <br></br>१०
                 </div>
@@ -47,7 +47,7 @@ export const Publication = () => {
                   </h1>
                 </div>
               </div>
-              <div className="p-5 mt-5  bg-white border-4 rounded-lg w-fit lg:min-w-[300px] max-w-[570px] flex gap-3 items-center">
+              <div className="p-5 mt-5  bg-white border-2  w-fit lg:min-w-[300px] max-w-[570px] flex gap-3 items-center">
                 <div className="p-5 bg-[#245fb9] font-bold text-center border rounded-full w-fit text-white">
                   आश्विन <br></br>१०
                 </div>

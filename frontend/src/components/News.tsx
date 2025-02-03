@@ -56,11 +56,13 @@ export const News = () => {
                 className=" relative shadow-sm bg-white md:w-1/2 lg:w-1/4 w-full sm:w-3/4"
               >
                 <div>
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className=" mx-auto h-auto min-h-[300px] xl:min-h-[350px] max-h-[350px] lg:max-h-[340px]  object-cover"
-                  />
+                  <div className="overflow-hidden">
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="mx-auto h-auto min-h-[300px] hover:scale-125 duration-1000 xl:min-h-[350px] max-h-[350px] lg:max-h-[340px]  object-cover "
+                    />
+                  </div>
                   <div className="bg-red-600 p-3 absolute right-5 w-20 -top-4 text-center text-white font-bold">
                     {image.day}
                     <br></br>

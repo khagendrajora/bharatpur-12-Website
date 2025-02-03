@@ -2,7 +2,7 @@ export default function ReviewPrart() {
   return (
     <>
       <div
-        className="w-full h-auto font-poppin py-10 p-2"
+        className="w-full h-auto font-poppin py-14 p-2"
         style={{
           backgroundImage: "url('/review.jpg')",
           backgroundSize: "cover",
@@ -16,7 +16,7 @@ export default function ReviewPrart() {
             </h1>
           </div>
         </div>
-        <div className="flex justify-center flex-wrap mt-10 gap-10">
+        <div className="flex justify-center flex-wrap py-14 gap-10">
           <div className="flex w-full max-w-[550px] relative bg-white rounded-lg p-7 gap-7 flex-col">
             <div className="bg-[url('/bgnews.jpg')]  absolute inset-0 bg-cover bg-center opacity-50 z-0 pointer-events-none"></div>
             <p className="text-justify z-10 text-slate-500">
