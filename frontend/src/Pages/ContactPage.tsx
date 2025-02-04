@@ -52,7 +52,7 @@ export const ContactPage = () => {
             सम्पर्क
           </h1>
         </div>
-        <div className="flex  text-slate-600 flex-wrap justify-center  gap-x-[250px]  gap-y-10 p-10 mx-auto w-full  ">
+        <div className="flex  text-slate-600 flex-wrap justify-center  gap-20 2xl:gap-x-56  gap-y-10 p-10 mx-auto w-full  ">
           <div className="flex flex-col gap-12">
             <h1 className="text-4xl font-bold">
               हाम्रो&nbsp;सम्पर्कको&nbsp;लागि

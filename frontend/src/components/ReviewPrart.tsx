@@ -16,7 +16,7 @@ export default function ReviewPrart() {
             </h1>
           </div>
         </div>
-        <div className="flex justify-center flex-wrap py-14 gap-10">
+        <div className="flex justify-center flex-wrap pt-12  gap-10">
           <div className="flex w-full max-w-[550px] relative bg-white rounded-lg p-7 gap-7 flex-col">
             <div className="bg-[url('/bgnews.jpg')]  absolute inset-0 bg-cover bg-center opacity-50 z-0 pointer-events-none"></div>
             <p className="text-justify z-10 text-slate-500">

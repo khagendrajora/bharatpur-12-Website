@@ -1,7 +1,7 @@
-import { useNavigate } from "react-router";
+// import { useNavigate } from "react-router";
 
 export const PublicationPage = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const images = [
     {
       src: "/hero.jpg",
@@ -69,9 +69,9 @@ export const PublicationPage = () => {
                 <p className=" ">{image.title}</p>
                 <button
                   className="text-slate-400  hover:text-blue-500 flex flex-row gap-3"
-                  onClick={() => navigate(`/publicationdetail/${image.key}`)}
+                  // onClick={() => navigate(`/publicationdetail/${image.key}`)}
                 >
-                  थप&nbsp;पढ्नुहोस्
+                  डाउनलोड&nbsp;गर्नुहोस्
                 </button>
               </div>
             </div>

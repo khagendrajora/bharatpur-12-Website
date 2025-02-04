@@ -13,7 +13,7 @@ export const AboutUs = () => {
           </h1>
         </div>
 
-        <div className="flex flex-row md:w-11/12   flex-wrap gap-5 justify-center mx-auto my-5 p-5 xl:p-14 ">
+        <div className="flex flex-row  flex-wrap gap-5 justify-center mx-auto my-5 p-5 xl:p-14 ">
           <div className="">
             <img
               src="/bharatpur.jpg"
@@ -21,7 +21,7 @@ export const AboutUs = () => {
               className="flex mx-auto w-[600px] xl:h-[500px] object-cover"
             />
           </div>
-          <div className="p-2 xl:p-5 lg:w-1/2  w-full flex flex-col gap-5">
+          <div className="p-2 xl:p-5 2xl:w-1/2  w-full flex flex-col gap-5">
             <h1 className="sm:text-4xl text-2xl p-2 font-bold">
               संक्षिप्त परिचय
             </h1>

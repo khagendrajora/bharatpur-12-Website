@@ -8,95 +8,78 @@ export const Gallary = () => {
       src: "/hero1.jpg",
       alt: "Hero Image 2",
       title: "बृद्ध",
+      numbers: "१२८५",
       color: "bg-gradient-to-r from-blue-600 to-blue-400",
-      value: "१०%",
+      value: "१३.६५%",
     },
     {
       src: "/hero-6.jpg",
       alt: "Hero Image 1",
       title: "जेष्ठ नागरिक",
+      numbers: "८४४",
       color: "bg-gradient-to-r from-amber-600 to-amber-500",
-      value: "१०%",
+      value: "८.९७%",
     },
     {
       src: "/hero-2.jpg",
       alt: "Hero Image 3",
       title: "अधिबैसे",
+      numbers: "३४.१८",
       color: "bg-gradient-to-r from-green-500 to-green-500",
-      value: "४०%",
+      value: "३६.३२%",
     },
     {
       src: "/hero-3.jpg",
       alt: "Hero Image 1",
       title: "युवा",
-      value: "१५%",
+      value: "२४.६१%",
+      numbers: "२३१६",
       color: "bg-gradient-to-r from-pink-600 to-pink-500",
     },
     {
       src: "/hero-3.jpg",
       alt: "Hero Image 1",
       title: "बालबालिका",
-      value: "५%",
+      value: "१०.८%",
+      numbers: "१०१६",
       color: "bg-gradient-to-r from-blue-600 to-blue-500",
     },
     {
       src: "/hero-3.jpg",
       alt: "Hero Image 1",
       title: "शिशु",
-      value: "३०%",
+      value: "५.१३%",
+      numbers: "४८३",
       color: "bg-gradient-to-r from-amber-600 to-amber-500",
     },
   ];
 
   const image = [
-    // {
-    //   src: "/hero1.jpg",
-    //   alt: "Hero Image 2",
-    //   title: "बृद्ध",
-    //   color: "bg-gradient-to-r from-cyan-400 to-blue-400",
-    //   value: "१०%",
-    // },
     {
       src: "/hero-6.jpg",
       alt: "Hero Image 1",
       title: "पुरुष",
-      count: "१000",
+      count: "४९२१",
       color: "bg-white",
-      // color: "bg-gradient-to-r from-blue-600 to-cyan-400",
-      value: "१०%",
+      value: "५२.५९%",
     },
     {
       src: "/hero-2.jpg",
       alt: "Hero Image 3",
       title: "महिला",
-      // color: "bg-gradient-to-r from-amber-700 to-amber-500",
+
       color: "bg-white",
-      count: "१000",
-      value: "४०%",
+      count: "४४८९",
+      value: "४७.७%",
     },
     {
       src: "/hero-3.jpg",
       alt: "Hero Image 1",
       title: "समलैंगिक",
-      value: "१५%",
-      count: "१000",
+      value: "०.०१%",
+      count: "१",
       color: "bg-white",
-      // color: "bg-gradient-to-r from-blue-500 to-cyan-500",
     },
-    // {
-    //   src: "/hero-3.jpg",
-    //   alt: "Hero Image 1",
-    //   title: "बालबालिका",
-    //   value: "५%",
-    //   color: "bg-gradient-to-r from-cyan-500 to-blue-500",
-    // },
-    // {
-    //   src: "/hero-3.jpg",
-    //   alt: "Hero Image 1",
-    //   title: "शिशु",
-    //   value: "३०%",
-    //   color: "bg-gradient-to-r from-blue-500 to-cyan-500",
-    // },
   ];
 
   const img = [
@@ -104,50 +87,26 @@ export const Gallary = () => {
       src: "/hero1.jpg",
       alt: "Hero Image 2",
       title: "कुल जनसंख्या",
-      count: "१000",
-      // color: "bg-gradient-to-r from-amber-600 to-amber-400",
+      count: "९४११",
       color: "bg-sky-400",
-      value: "१०%",
+      value: "१००%",
     },
     {
       src: "/hero-6.jpg",
       alt: "Hero Image 1",
       title: "कुल घरधुरी",
-      count: "१000",
-      // color: "bg-gradient-to-r from-blue-600 to-cyan-500",
+      count: "२६७३",
       color: "bg-green-500",
-      value: "१०%",
+      value: "१००%",
     },
     {
       src: "/hero-2.jpg",
       alt: "Hero Image 3",
       title: "कुल घरसंख्या",
-      count: "१000",
-      // color: "bg-gradient-to-r from-pink-600 to-pink-500",
+      count: "९६५९१",
       color: "bg-blue-500",
-      value: "४०%",
+      value: "१००%",
     },
-    // {
-    //   src: "/hero-3.jpg",
-    //   alt: "Hero Image 1",
-    //   title: "युवा",
-    //   value: "१५%",
-    //   color: "bg-gradient-to-r from-blue-500 to-cyan-500",
-    // },
-    // {
-    //   src: "/hero-3.jpg",
-    //   alt: "Hero Image 1",
-    //   title: "बालबालिका",
-    //   value: "५%",
-    //   color: "bg-gradient-to-r from-cyan-500 to-blue-500",
-    // },
-    // {
-    //   src: "/hero-3.jpg",
-    //   alt: "Hero Image 1",
-    //   title: "शिशु",
-    //   value: "३०%",
-    //   color: "bg-gradient-to-r from-blue-500 to-cyan-500",
-    // },
   ];
   return (
     <>
@@ -170,7 +129,10 @@ export const Gallary = () => {
                 key={index}
                 className={`relative ${image.color} p-5 shadow-sm flex flex-col gap-4 min-w-[250px] max-w-[250px] justify-center${image.color} border-black`}
               >
-                <h1>{image.value}</h1>
+                <div className="flex justify-between">
+                  <h1>{image.value}</h1>
+                  <h1>{image.numbers}</h1>
+                </div>
                 <div className="w-full bg-zinc-800 rounded-full  h-1">
                   <div className="bg-white h-1 rounded-full w-[50%]"></div>
                 </div>

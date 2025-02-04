@@ -26,28 +26,28 @@ export const WorkDetailPage = () => {
       alt: "Hero Image 2",
       key: "2",
       year: "२०८१",
-      title: "+2 उतिर्ण विद्यार्थीहरुलाई बधाई तथा शुभकामना कार्यक्रम",
+      title: "७६ बर्ष उमेर पुगेका जेष्ठ नागरिकहरुलाई सम्मान कार्यक्रम",
     },
     {
       src: "/6.jpg",
       alt: "Hero Image 3",
       key: "3",
       year: "२०८१",
-      title: "+2 उतिर्ण विद्यार्थीहरुलाई बधाई तथा शुभकामना कार्यक्रम",
-    },
-    {
-      src: "/4.jpg",
-      alt: "Hero Image 4",
-      key: "4",
-      year: "२०८१",
-      title: "+2 उतिर्ण विद्यार्थीहरुलाई बधाई तथा शुभकामना कार्यक्रम",
+      title: "ज्येष्ठ नागरिक दिवसको शुभ अवसरमा र्याली तथा कार्यक्रम -२०८०",
     },
     {
       src: "/6.jpg",
       alt: "Hero Image 4",
       key: "5",
       year: "२०८१",
-      title: "+2 उतिर्ण विद्यार्थीहरुलाई बधाई तथा शुभकामना कार्यक्रम",
+      title: "बार्षिक समीक्षा कार्यक्रमको प्रगती प्रतिवेदन",
+    },
+    {
+      src: "/4.jpg",
+      alt: "Hero Image 4",
+      key: "4",
+      year: "२०८१",
+      title: "७६ बर्ष उमेर पुगेका जेष्ठ नागरिकहरुलाई सम्मान कार्यक्रम",
     },
 
     {
@@ -81,7 +81,7 @@ export const WorkDetailPage = () => {
                 {data.title}
               </h1>
             </div>
-            <div className="flex flex-wrap justify-center">
+            <div className="flex flex-wrap gap-5 justify-center">
               <div className="flex flex-col gap-6 md:w-1/2 p-2">
                 <div className="flex gap-6 ">
                   <div className="font-bold flex items-end text-2xl">
@@ -112,15 +112,25 @@ export const WorkDetailPage = () => {
                   allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                 ></iframe>
               </div>
-              <div>
-                <iframe
+              <div className="p-10 flex flex-col gap-10">
+                <h1 className="font-bold text-[#245fb9] text-4xl">
+                  थाप कामहरू
+                </h1>
+                <ul className="flex flex-col gap-6 font-medium">
+                  {images.map((image) => (
+                    <li className="cursor-pointer hover:underline">
+                      {image.title}
+                    </li>
+                  ))}
+                </ul>
+                {/* <iframe
                   src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61556758524668&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
                   width="340"
                   height="500"
                   style={{ border: "none", overflow: "hidden" }}
                   className="p-5 text-center overflow-hidden"
                   allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                ></iframe>
+                ></iframe> */}
               </div>
             </div>
           </>

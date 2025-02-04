@@ -61,7 +61,7 @@ export const NewsPage = () => {
                   <br></br>
                   {image.month}
                 </div>
-                <div className="flex flex-col gap-5 p-6 border">
+                <div className="flex flex-col gap-5 p-6 ">
                   <p className="text-xl font-bold leading-8  scrollbar-hidden">
                     {image.title}
                   </p>

@@ -17,21 +17,21 @@ export const WorkDonePage = () => {
       alt: "Hero Image 2",
       key: "2",
       year: "२०८१",
-      title: "+2 उतिर्ण विद्यार्थीहरुलाई बधाई तथा शुभकामना कार्यक्रम",
+      title: "७६ बर्ष उमेर पुगेका जेष्ठ नागरिकहरुलाई सम्मान कार्यक्रम",
     },
     {
       src: "/6.jpg",
       alt: "Hero Image 3",
       key: "3",
       year: "२०८१",
-      title: "+2 उतिर्ण विद्यार्थीहरुलाई बधाई तथा शुभकामना कार्यक्रम",
+      title: "ज्येष्ठ नागरिक दिवसको शुभ अवसरमा र्याली तथा कार्यक्रम -२०८०",
     },
     {
       src: "/4.jpg",
       alt: "Hero Image 4",
       key: "4",
       year: "२०८१",
-      title: "+2 उतिर्ण विद्यार्थीहरुलाई बधाई तथा शुभकामना कार्यक्रम",
+      title: "बार्षिक समीक्षा कार्यक्रमको प्रगती प्रतिवेदन",
     },
     {
       src: "/6.jpg",
@@ -46,7 +46,7 @@ export const WorkDonePage = () => {
       alt: "Hero Image 4",
       key: "6",
       year: "२०८१",
-      title: "+2 उतिर्ण विद्यार्थीहरुलाई बधाई तथा शुभकामना कार्यक्रम",
+      title: "७६ बर्ष उमेर पुगेका जेष्ठ नागरिकहरुलाई सम्मान कार्यक्रम",
     },
   ];
   return (
@@ -80,9 +80,7 @@ export const WorkDonePage = () => {
 
                 <div className=" absolute flex bottom-2  w-3/4 text-center justify-between items-center font-semibold bg-white  p-2 py-2 ">
                   <div className="text-start w-full space-y-2">
-                    <h1 className="font-semibold">
-                      ७६ बर्ष उमेर पुगेका जेष्ठ नागरिकहरुलाई सम्मान कार्यक्रम
-                    </h1>
+                    <h1 className="font-semibold">{image.title}</h1>
                   </div>
                 </div>
                 <div

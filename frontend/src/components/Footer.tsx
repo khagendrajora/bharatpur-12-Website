@@ -24,7 +24,7 @@ export const Footer = () => {
             <hr className="w-[100px]" />
             <div className="flex flex-col py-5 text-sm">
               <h1>
-                ‌‌++९७७-५६-५९७००४<br></br>
+                ‌‌+९७७-५६-५९७००४<br></br>
                 ०५६-५११४६७{" "}
               </h1>
             </div>
@@ -143,7 +143,7 @@ export const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className="text-sm bg-blue-500  p-1 w-full text-center">
+      <div className="text-sm bg-blue-500 text-white  p-1 w-full text-center">
         Copyright © २०८१ भरतपुर नगरपालिका वडा नं १२ Website by DigiSoft
         Developers
       </div>

@@ -45,7 +45,7 @@ export const ToleIntro = () => {
   // ];
   return (
     <>
-      <div className="w-full font-poppin">
+      <div className="w-full bg-gray-200  font-poppin">
         <div className="w-full relative">
           <img
             src="/hero.jpg"
@@ -75,7 +75,7 @@ export const ToleIntro = () => {
             </div>
           </div>
         </div>
-        <div className="flex w-full text-xs text-center sm:text-lg  justify-center flex-wrap mx-auto my-10 lg:w-4/5">
+        <div className="flex w-full text-xs text-center sm:text-lg  gap-5 justify-center flex-wrap mx-auto my-10 lg:w-4/5">
           <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[350px] mx-auto">
             <img src="/female.png" className="h-[300px] w-[300px] mx-auto " />
             <div className="w-3/4 max-w-[250px] -mt-10 p-3 bg-white top-40 shadow-md  justify-center items-center mx-auto left-10  ">
@@ -109,8 +109,8 @@ export const ToleIntro = () => {
             </div>
           </div>
         </div>
-        <div className="mx-auto text-center flex flex-col gap-20 my-16 lg:w-4/5">
-          <h1 className="text-center  font-bold text-4xl">कर्मचारीका</h1>
+        <div className="mx-auto text-center flex bg-zinc-100 flex-col gap-20 py-20 l">
+          <h1 className="text-center font-bold text-4xl">कर्मचारी</h1>
           <div className="flex flex-wrap gap-5 justify-center ">
             <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[350px] mx-auto">
               <img src="/female.png" className="h-[300px] w-[300px] mx-auto" />
