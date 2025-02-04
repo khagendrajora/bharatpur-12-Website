@@ -8,6 +8,7 @@ export default {
     extend: {
       screens: {
         sm: "550px",
+        xxl:"1850px"
      }, 
      colors: {
         blues:"#003893"

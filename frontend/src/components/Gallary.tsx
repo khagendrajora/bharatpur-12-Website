@@ -163,12 +163,12 @@ export const Gallary = () => {
             थप पढ्नुहोस्
           </Link>
         </div>
-        <div className="flex flex-wrap gap-14 px-5  justify-center text-white mt-10">
+        <div className="flex flex-wrap gap-14 px-5 justify-center text-white mt-10">
           {images.map((image, index) => (
             <>
               <div
                 key={index}
-                className={`relative ${image.color} p-5 shadow-sm flex  flex-col gap-4 min-w-[250px] max-w-[250px] justify-center${image.color} border-black`}
+                className={`relative ${image.color} p-5 shadow-sm flex flex-col gap-4 min-w-[250px] max-w-[250px] justify-center${image.color} border-black`}
               >
                 <h1>{image.value}</h1>
                 <div className="w-full bg-zinc-800 rounded-full  h-1">
@@ -180,12 +180,12 @@ export const Gallary = () => {
             </>
           ))}
         </div>
-        <div className="flex flex-wrap gap-14 pt-10 px-5 justify-center  text-black">
+        <div className="flex  flex-wrap gap-8 xl:gap-14 pt-10 px-5  justify-center  text-black">
           {image.map((image, index) => (
             <>
               <div
                 key={index}
-                className={`relative ${image.color} p-5 shadow-sm flex  flex-col gap-4 w-[555px]  justify-center  border-black`}
+                className={`relative ${image.color} p-5 shadow-sm flex  flex-col gap-4 w-1/4 xxl:w-[555px]  justify-center  border-black`}
               >
                 <div className="flex justify-between">
                   <h3 className="font-semibold text-xl">{image.title}</h3>
@@ -200,12 +200,12 @@ export const Gallary = () => {
           ))}
         </div>
 
-        <div className="flex flex-wrap gap-14 pt-10 px-5 justify-center text-white">
+        <div className="flex flex-wrap gap-8 xl:gap-14 pt-10 px-5 justify-center text-white">
           {img.map((image, index) => (
             <>
               <div
                 key={index}
-                className={`relative ${image.color} p-5 shadow-sm  flex  flex-col gap-4 w-[555px]  justify-center${image.color} border-black`}
+                className={`relative ${image.color} p-5 shadow-sm  flex  flex-col gap-4 w-1/4 xxl:w-[555px]  justify-center${image.color} border-black`}
               >
                 <div className="flex justify-between">
                   <h3 className="font-semibold text-xl">{image.title}</h3>
