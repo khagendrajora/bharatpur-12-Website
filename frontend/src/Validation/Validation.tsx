@@ -5,3 +5,8 @@ export const contact = yup.object({
   email: yup.string().required("इमेल आवश्यक छ"),
   message: yup.string().required("सन्देश आवश्यक छ"),
 });
+
+export const adminLogin = yup.object({
+  adminEmail: yup.string().required("इमेल आवश्यक छ"),
+  adminPwd: yup.string().required("पासवर्ड गलत छ"),
+});
