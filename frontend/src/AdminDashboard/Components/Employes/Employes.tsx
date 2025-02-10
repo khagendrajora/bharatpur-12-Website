@@ -5,9 +5,67 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, useNavigate } from "react-router";
+import { IMembers } from "./BoardMembers";
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 export const Employes = () => {
   const navigate = useNavigate();
+  const [members, setMembers] = useState<IMembers[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(
+          `https://bharatpur12.org/new/api/board-members`
+        );
+        const data = await res.json();
+        if (!res.ok) {
+          console.log(data.error);
+        } else {
+          const filterData = data.filter(
+            (item: { category: string }) => item.category === "Staff"
+          );
+          setMembers(filterData);
+        }
+      } catch (error: any) {
+        toast.error(error);
+      }
+    };
+    fetchData();
+  }, []);
+  console.log(members);
+
+  const Delete = async (id: string | undefined) => {
+    try {
+      const confirmed = window.confirm("Delete ?");
+      if (confirmed) {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          toast.error("Token Missing");
+          return;
+        }
+        // setIsButton(id || "");
+        const response = await axios.delete(
+          `https://bharatpur12.org/new/api/board-members/${id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        const data = response.data;
+        if (data.message) {
+          toast.error(data.message);
+        } else {
+          setMembers((prev) => prev?.filter((v) => v.id !== id));
+        }
+      }
+    } catch (error: any) {
+      toast.error(error.message);
+    }
+  };
   return (
     <>
       <div className="sm:ml-60 mt-20 sm:px-30 p-5">
@@ -74,94 +132,54 @@ export const Employes = () => {
               </tr>
             </thead>
             <tbody className="text-center">
-              <tr className="bg-white  border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td className=" py-4   font-semibold text-gray-900 dark:text-white">
-                  1
-                </td>
-                <td className="p-4 ">
-                  <img
-                    src="/1.jpg"
-                    className="w-16 md:w-32 max-w-full mx-auto max-h-full"
-                    alt="Apple Watch"
-                  />
-                </td>
-                <td className="  py-4 font-semibold text-gray-900 dark:text-white">
-                  <div>Khagendra</div>
-                  <br />
-                  <div>नेपाली</div>
-                </td>
+              {members &&
+                members.map((data) => (
+                  <tr className="bg-white  border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td className=" py-4   font-semibold text-gray-900 dark:text-white">
+                      {data.id}
+                    </td>
+                    <td className="p-4 ">
+                      <img
+                        src={`https://bharatpur12.org/new/api/${data.image}`}
+                        className="w-16 md:w-32 max-w-full mx-auto max-h-full"
+                        alt="Apple Watch"
+                      />
+                    </td>
+                    <td className="  py-4 font-semibold text-gray-900 dark:text-white">
+                      <div>{data.name_en}</div>
+                      <br />
+                      <div>{data.name_np}</div>
+                    </td>
 
-                <td className="py-4 font-semibold px-3  text-gray-900 dark:text-white">
-                  <div>Adhikrit</div>
-                </td>
+                    <td className="py-4 font-semibold px-3  text-gray-900 dark:text-white">
+                      <div>{data.designation_en}</div>
+                      <br />
+                      <div>{data.designation_np}</div>
+                    </td>
 
-                <td className="">9812766153</td>
-                <td className="">
-                  <FontAwesomeIcon
-                    icon={faEye}
-                    className="text-blue-600 hover:text-blue-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
-                  />
+                    <td className="">{data.phone}</td>
+                    <td className="">
+                      <FontAwesomeIcon
+                        icon={faEye}
+                        className="text-blue-600 hover:text-blue-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
+                      />
 
-                  <FontAwesomeIcon
-                    icon={faPenToSquare}
-                    className="text-green-600 hover:text-green-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
-                    onClick={() => navigate(`/admin/updateemploye`)}
-                  />
+                      <FontAwesomeIcon
+                        icon={faPenToSquare}
+                        className="text-green-600 hover:text-green-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
+                        onClick={() =>
+                          navigate(`/admin/updateemploye/${data.id}`)
+                        }
+                      />
 
-                  <FontAwesomeIcon
-                    icon={faTrash}
-                    className="text-red-600 hover:text-red-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
-                  />
-                </td>
-              </tr>
-              {/* <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
-                       <td className=" py-4 w-fit font-semibold text-gray-900 dark:text-white">
-                         1
-                       </td>
-                       <td className="p-4 ">
-                         <img
-                           src="/1.jpg"
-                           className="w-16 md:w-32  max-w-full max-h-full"
-                           alt="Apple iMac"
-                         />
-                       </td>
-                       <td className=" py-4 font-semibold text-gray-900 dark:text-white">
-                         iMac 27"
-                       </td>
-       
-                       <td className=" py-4">
-                         <a
-                           href="#"
-                           className="font-medium text-red-600 dark:text-red-500 hover:underline"
-                         >
-                           Remove
-                         </a>
-                       </td>
-                     </tr> */}
-              {/* <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
-                       <td className=" py-4 w-fit font-semibold text-gray-900 dark:text-white">
-                         1
-                       </td>
-                       <td className="p-4">
-                         <img
-                           src="/1.jpg"
-                           className="w-16 md:w-32 max-w-full max-h-full"
-                           alt="iPhone 12"
-                         />
-                       </td>
-                       <td className=" py-4 font-semibold text-gray-900 dark:text-white">
-                         IPhone 12
-                       </td>
-       
-                       <td className=" py-4">
-                         <a
-                           href="#"
-                           className="font-medium text-red-600 dark:text-red-500 hover:underline"
-                         >
-                           Remove
-                         </a>
-                       </td>
-                     </tr> */}
+                      <FontAwesomeIcon
+                        icon={faTrash}
+                        className="text-red-600 hover:text-red-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
+                        onClick={() => Delete(data.id)}
+                      />
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>

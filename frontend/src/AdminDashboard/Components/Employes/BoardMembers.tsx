@@ -4,10 +4,79 @@ import {
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router";
+import { toast } from "react-toastify";
+import axios from "axios";
+
+export interface IMembers extends Document {
+  id?: string;
+  name_en: string;
+  name_np: string;
+  designation_en: string;
+  designation_np: string;
+  phone: string;
+  category: string;
+  image: string;
+}
 
 export const BoardMembers = () => {
+  const [members, setMembers] = useState<IMembers[]>([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(
+          `https://bharatpur12.org/new/api/board-members`
+        );
+        const data = await res.json();
+        if (!res.ok) {
+          console.log(data.error);
+        } else {
+          const filterData = data.filter(
+            (item: { category: string }) => item.category === "Board Member"
+          );
+          setMembers(filterData);
+        }
+      } catch (error: any) {
+        toast.error(error);
+      }
+    };
+    fetchData();
+  }, []);
+  console.log(members);
+
+  const Delete = async (id: string | undefined) => {
+    try {
+      const confirmed = window.confirm("Delete ?");
+      if (confirmed) {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          toast.error("Token Missing");
+          return;
+        }
+        // setIsButton(id || "");
+        const response = await axios.delete(
+          `https://bharatpur12.org/new/api/board-members/${id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        const data = response.data;
+        if (data.message) {
+          toast.error(data.message);
+        } else {
+          setMembers((prev) => prev?.filter((v) => v.id !== id));
+        }
+      }
+    } catch (error: any) {
+      toast.error(error.message);
+    }
+  };
+
   return (
     <div className="sm:ml-60 mt-20 sm:px-30 p-5">
       <h1 className="font-bold text-2xl pb-10">जन&nbsp;प्रतिनिधि</h1>
@@ -59,7 +128,6 @@ export const BoardMembers = () => {
               <th scope="col" className="px-3 py-3">
                 Name
               </th>
-
               <th scope="col" className="px-3 py-3">
                 Post
               </th>
@@ -73,94 +141,52 @@ export const BoardMembers = () => {
             </tr>
           </thead>
           <tbody className="text-center">
-            <tr className="bg-white  border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
-              <td className=" py-4   font-semibold text-gray-900 dark:text-white">
-                1
-              </td>
-              <td className="p-4 ">
-                <img
-                  src="/1.jpg"
-                  className="w-16 md:w-32 max-w-full mx-auto max-h-full"
-                  alt="Apple Watch"
-                />
-              </td>
-              <td className="  py-4 font-semibold text-gray-900 dark:text-white">
-                <div>Khagendra</div>
-                <br />
-                <div>नेपाली</div>
-              </td>
+            {members &&
+              members.map((data) => (
+                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                  <td className=" py-4   font-semibold text-gray-900 dark:text-white">
+                    {data.id}
+                  </td>
+                  <td className="p-4 ">
+                    <img
+                      src={`https://bharatpur12.org/new/api/${data.image}`}
+                      className="w-16 md:w-32 max-w-full mx-auto max-h-full"
+                      alt="Image"
+                    />
+                  </td>
+                  <td className="  py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>{data.name_en}</div>
+                    <br />
+                    <div>{data.name_np}</div>
+                  </td>
 
-              <td className="py-4 font-semibold px-3  text-gray-900 dark:text-white">
-                <div>Adhikrit</div>
-              </td>
+                  <td className="py-4 font-semibold px-3  text-gray-900 dark:text-white">
+                    <div>{data.designation_en}</div>
+                    <br />
+                    <div>{data.designation_np}</div>
+                  </td>
 
-              <td className="">9812766153</td>
-              <td className="">
-                <FontAwesomeIcon
-                  icon={faEye}
-                  className="text-blue-600 hover:text-blue-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
-                />
+                  <td className="">{data.phone}</td>
+                  <td className="">
+                    <FontAwesomeIcon
+                      icon={faEye}
+                      className="text-blue-600 hover:text-blue-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
+                    />
 
-                <FontAwesomeIcon
-                  icon={faPenToSquare}
-                  className="text-green-600 hover:text-green-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
-                  onClick={() => navigate(`/admin/updatebod`)}
-                />
+                    <FontAwesomeIcon
+                      icon={faPenToSquare}
+                      className="text-green-600 hover:text-green-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
+                      onClick={() => navigate(`/admin/updatebod/${data.id}`)}
+                    />
 
-                <FontAwesomeIcon
-                  icon={faTrash}
-                  className="text-red-600 hover:text-red-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
-                />
-              </td>
-            </tr>
-            {/* <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
-                       <td className=" py-4 w-fit font-semibold text-gray-900 dark:text-white">
-                         1
-                       </td>
-                       <td className="p-4 ">
-                         <img
-                           src="/1.jpg"
-                           className="w-16 md:w-32  max-w-full max-h-full"
-                           alt="Apple iMac"
-                         />
-                       </td>
-                       <td className=" py-4 font-semibold text-gray-900 dark:text-white">
-                         iMac 27"
-                       </td>
-       
-                       <td className=" py-4">
-                         <a
-                           href="#"
-                           className="font-medium text-red-600 dark:text-red-500 hover:underline"
-                         >
-                           Remove
-                         </a>
-                       </td>
-                     </tr> */}
-            {/* <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
-                       <td className=" py-4 w-fit font-semibold text-gray-900 dark:text-white">
-                         1
-                       </td>
-                       <td className="p-4">
-                         <img
-                           src="/1.jpg"
-                           className="w-16 md:w-32 max-w-full max-h-full"
-                           alt="iPhone 12"
-                         />
-                       </td>
-                       <td className=" py-4 font-semibold text-gray-900 dark:text-white">
-                         IPhone 12
-                       </td>
-       
-                       <td className=" py-4">
-                         <a
-                           href="#"
-                           className="font-medium text-red-600 dark:text-red-500 hover:underline"
-                         >
-                           Remove
-                         </a>
-                       </td>
-                     </tr> */}
+                    <FontAwesomeIcon
+                      icon={faTrash}
+                      className="text-red-600 hover:text-red-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
+                      onClick={() => Delete(data.id)}
+                    />
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>

@@ -98,6 +98,8 @@ function App() {
             <Route path="addpublication" element={<AddPublication />} />
             <Route path="addboardmember" element={<AddBod />} />
 
+            {/* getByID */}
+
             {/* update */}
 
             <Route path="updateintro" element={<UpdateIntro />} />
@@ -105,8 +107,8 @@ function App() {
             <Route path="updatenotice" element={<UpdateNotice />} />
             <Route path="updatework" element={<UpdateWork />} />
             <Route path="updatenews" element={<UpdateNews />} />
-            <Route path="updateemploye" element={<UpdateEmploy />} />
-            <Route path="updatebod" element={<UpdateBod />} />
+            <Route path="updateemploye/:id" element={<UpdateEmploy />} />
+            <Route path="updatebod/:id" element={<UpdateBod />} />
             {/* </>
             ) : (
               ""
