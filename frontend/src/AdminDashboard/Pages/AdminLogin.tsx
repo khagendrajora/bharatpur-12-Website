@@ -8,14 +8,14 @@ export const AdminLogin = () => {
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
-      adminEmail: "",
-      adminPwd: "",
+      email: "",
+      password: "",
     },
     validationSchema: adminLogin,
     enableReinitialize: true,
     onSubmit: async (values, { resetForm }) => {
       try {
-        const res = await fetch(`${URL}/api/adminlogin`, {
+        const res = await fetch(`https://bharatpur12.org/new/api/login`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -27,7 +27,15 @@ export const AdminLogin = () => {
         if (!res.ok) {
           toast.error(data.error);
         } else {
-          navigate("/admin/admdashboard");
+          localStorage.setItem("token", data.token);
+          setTimeout(() => {
+            const token = localStorage.getItem("token");
+            if (token) {
+              navigate("/admin/dashboard");
+            } else {
+              console.log("token failed");
+            }
+          }, 2000);
 
           resetForm();
         }
@@ -36,6 +44,7 @@ export const AdminLogin = () => {
       }
     },
   });
+
   return (
     <>
       <ToastContainer theme="colored" position="top-center" />
@@ -47,29 +56,29 @@ export const AdminLogin = () => {
           <div>
             <input
               type="text"
-              name="adminEmail"
+              name="email"
               className="border shadow rounded-lg appearance-none p-3 md:w-96"
               placeholder="Admin Email"
-              value={formik.values.adminEmail}
+              value={formik.values.email}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
-            {formik.touched.adminEmail && formik.errors.adminEmail && (
-              <div className="text-red-500">{formik.errors.adminEmail}</div>
+            {formik.touched.email && formik.errors.email && (
+              <div className="text-red-500">{formik.errors.email}</div>
             )}
           </div>
           <div>
             <input
               type="password"
-              name="adminPwd"
-              value={formik.values.adminPwd}
+              name="password"
+              value={formik.values.password}
               placeholder="Password"
               className="border shadow rounded-lg appearance-none p-3 md:w-96"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
-            {formik.touched.adminPwd && formik.errors.adminPwd && (
-              <div className="text-red-500">{formik.errors.adminPwd}</div>
+            {formik.touched.password && formik.errors.password && (
+              <div className="text-red-500">{formik.errors.password}</div>
             )}
           </div>
 

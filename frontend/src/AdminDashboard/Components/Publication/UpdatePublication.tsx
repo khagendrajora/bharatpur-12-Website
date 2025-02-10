@@ -5,9 +5,7 @@ import { toast } from "react-toastify";
 import { NepaliDatePicker } from "nepali-datepicker-reactjs";
 import "nepali-datepicker-reactjs/dist/index.css";
 
-// import * as Nepali from "nepalify-react";
-
-export const AddPublication = () => {
+export const UpdatePublication = () => {
   const navigate = useNavigate();
   const [isButton, setIsButton] = React.useState(false);
 
@@ -15,21 +13,11 @@ export const AddPublication = () => {
     title_En: string;
     title_Np: string;
     date: string;
-    file: File | null;
   }>({
     title_En: "",
     title_Np: "",
     date: "",
-    file: null,
   });
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      setInputs({
-        ...inputs,
-        file: e.target.files[0], // storing the selected file
-      });
-    }
-  };
 
   const add = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,9 +27,6 @@ export const AddPublication = () => {
     formData.append("title_En", inputs.title_En);
     formData.append("title_Np", inputs.title_Np);
     formData.append("date", inputs.date);
-    if (inputs.file) {
-      formData.append("file", inputs.file);
-    }
 
     try {
       const res = await fetch("", {
@@ -57,7 +42,6 @@ export const AddPublication = () => {
           title_En: "",
           title_Np: "",
           date: "",
-          file: null,
         });
 
         setTimeout(() => {
@@ -80,7 +64,7 @@ export const AddPublication = () => {
           >
             <div className="flex flex-col gap-10 ">
               <h1 className="font-bold text-xl pb-10 text-center lg:text-2xl">
-                Add Publication
+                Update Publication
               </h1>
 
               <div className="relative z-0 w-full mb-5 group">
@@ -88,13 +72,9 @@ export const AddPublication = () => {
                   type="text"
                   name="title_En"
                   value={inputs.title_En}
-                  onChange={(e) =>
-                    setInputs({ ...inputs, title_En: e.target.value })
-                  }
                   lang="ne"
-                  id="floating_first_name"
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  placeholder=""
+                  placeholder=" "
                 />
                 <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                   Title_En
@@ -106,18 +86,14 @@ export const AddPublication = () => {
                   type="text"
                   name="title_Np"
                   value={inputs.title_Np}
-                  onChange={(e) =>
-                    setInputs({ ...inputs, title_Np: e.target.value })
-                  }
-                  className="block py-2.5 font-dev px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  lang="ne"
+                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   placeholder=" "
                 />
-                <label className="peer-focus:font-dev absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                   Title_Np
                 </label>
               </div>
-
-              {/* <div>{Nepali.unicodify(inputs.title_Np)}</div> */}
 
               <div className="relative z-10 w-full mb-5 group">
                 <NepaliDatePicker
@@ -139,7 +115,6 @@ export const AddPublication = () => {
                   id="floating_first_name"
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   placeholder=" "
-                  onChange={handleFileChange}
                 />
                 <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                   File

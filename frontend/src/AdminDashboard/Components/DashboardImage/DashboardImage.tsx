@@ -3,8 +3,8 @@ import { Link } from "react-router";
 export const DashboardImage = () => {
   return (
     <>
-      <div className="sm:ml-60 mt-20 sm:px-20 p-5">
-        <div className="pb-4 bg-white flex justify-between dark:bg-gray-900">
+      <div className="sm:ml-60 mt-20 sm:px-30 p-5">
+        <div className="pb-4 bg-white flex justify-between flex-wrap gap-10 dark:bg-gray-900">
           <div className="relative mt-1">
             <div className="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
               <svg
@@ -35,7 +35,7 @@ export const DashboardImage = () => {
               to="/admin/addhero"
               className="bg-[#245fb9] hover:bg-blue-600 px-3 p-2 rounded-lg text-white font-semibold"
             >
-              नयाँ थप्नुहोस्
+              नयाँ&nbsp;थप्नुहोस्
             </Link>
           </div>
         </div>

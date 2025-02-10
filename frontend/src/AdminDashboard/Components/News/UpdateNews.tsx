@@ -1,19 +1,17 @@
-import { NepaliDatePicker } from "nepali-datepicker-reactjs";
-import { ButtonLoader } from "../../../Utils/ButtonLoader";
-import "nepali-datepicker-reactjs/dist/index.css";
-import { useNavigate } from "react-router";
 import React from "react";
-import { toast } from "react-toastify";
-import JoditEditor from "jodit-react";
 import ReactImageUploading, { ImageListType } from "react-images-uploading";
+import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
+import { ButtonLoader } from "../../../Utils/ButtonLoader";
+import JoditEditor from "jodit-react";
+import { NepaliDatePicker } from "nepali-datepicker-reactjs";
 
-export const AddNotice = () => {
+export const UpdateNews = () => {
   const editor = React.useRef(null);
   const navigate = useNavigate();
   const [isButton, setIsButton] = React.useState(false);
   const [images, setImages] = React.useState<ImageListType>([]);
   const [featureImage, setFeatureImage] = React.useState<ImageListType>([]);
-
   const [inputs, setInputs] = React.useState<{
     title_En: string;
     title_Np: string;
@@ -35,6 +33,7 @@ export const AddNotice = () => {
   const onFeatureImage = async (imageList: ImageListType) => {
     setFeatureImage(imageList);
   };
+
   const config = React.useMemo(
     () => ({
       height: 400,
@@ -89,6 +88,7 @@ export const AddNotice = () => {
       setIsButton(false);
     }
   };
+
   return (
     <>
       <div className="sm:ml-60 mt-20 sm:px-30 p-3">
@@ -99,7 +99,7 @@ export const AddNotice = () => {
           >
             <div className="flex flex-col gap-10 ">
               <h1 className="font-bold text-xl pb-10 text-center lg:text-2xl">
-                Add Notice
+                Update News
               </h1>
 
               <div className="relative z-0 w-full mb-5 group">
@@ -166,7 +166,7 @@ export const AddNotice = () => {
                   Date
                 </label>
               </div>
-              <div className="flex gap-1">
+              <div className="flex gap-20">
                 <div className="flex">
                   <ReactImageUploading
                     value={featureImage}

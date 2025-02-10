@@ -38,8 +38,17 @@ import { AddNews } from "./AdminDashboard/Components/News/AddNews";
 import { AddNotice } from "./AdminDashboard/Components/Notice/AddNotice";
 import { AddEmploye } from "./AdminDashboard/Components/Employes/AddEmploye";
 import { AddPublication } from "./AdminDashboard/Components/Publication/AddPublication";
-
+import { BoardMembers } from "./AdminDashboard/Components/Employes/BoardMembers";
+import { AddBod } from "./AdminDashboard/Components/Employes/AddBod";
+import { UpdateIntro } from "./AdminDashboard/Components/Introduction/UpdateIntro";
+import { UpdatePublication } from "./AdminDashboard/Components/Publication/UpdatePublication";
+import { UpdateNotice } from "./AdminDashboard/Components/Notice/UpdateNotice";
+import { UpdateWork } from "./AdminDashboard/Components/Works/UpdateWork";
+import { UpdateNews } from "./AdminDashboard/Components/News/UpdateNews";
+import { UpdateEmploy } from "./AdminDashboard/Components/Employes/UpdateEmploy";
+import { UpdateBod } from "./AdminDashboard/Components/Employes/UpdateBod";
 function App() {
+  const token = localStorage.getItem("token");
   return (
     <>
       <BrowserRouter>
@@ -67,8 +76,10 @@ function App() {
             />
             <Route path="noticedetail/:key" element={<NoticeDetailPage />} />
           </Route>
+          <Route path="adminlogin" element={<AdminLogin />} />
           <Route path="admin" element={<Layout />}>
-            <Route path="login" element={<AdminLogin />} />
+            {/* {token ? ( */}
+            {/* <> */}
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="dashboardImage" element={<DashboardImage />} />
             <Route path="intro" element={<Intro />} />
@@ -77,6 +88,7 @@ function App() {
             <Route path="publication" element={<Publication />} />
             <Route path="news" element={<News />} />
             <Route path="employes" element={<Employes />} />
+            <Route path="boardmembers" element={<BoardMembers />} />
             <Route path="addhero" element={<AddHero />} />
             <Route path="addintro" element={<AddIntro />} />
             <Route path="addwork" element={<AddWork />} />
@@ -84,6 +96,21 @@ function App() {
             <Route path="addnotice" element={<AddNotice />} />
             <Route path="addemploye" element={<AddEmploye />} />
             <Route path="addpublication" element={<AddPublication />} />
+            <Route path="addboardmember" element={<AddBod />} />
+
+            {/* update */}
+
+            <Route path="updateintro" element={<UpdateIntro />} />
+            <Route path="updatepublication" element={<UpdatePublication />} />
+            <Route path="updatenotice" element={<UpdateNotice />} />
+            <Route path="updatework" element={<UpdateWork />} />
+            <Route path="updatenews" element={<UpdateNews />} />
+            <Route path="updateemploye" element={<UpdateEmploy />} />
+            <Route path="updatebod" element={<UpdateBod />} />
+            {/* </>
+            ) : (
+              ""
+            )} */}
           </Route>
         </Routes>
       </BrowserRouter>

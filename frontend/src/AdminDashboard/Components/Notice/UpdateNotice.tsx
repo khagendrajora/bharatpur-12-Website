@@ -6,14 +6,12 @@ import React from "react";
 import { toast } from "react-toastify";
 import JoditEditor from "jodit-react";
 import ReactImageUploading, { ImageListType } from "react-images-uploading";
-
-export const AddNotice = () => {
+export const UpdateNotice = () => {
   const editor = React.useRef(null);
   const navigate = useNavigate();
   const [isButton, setIsButton] = React.useState(false);
   const [images, setImages] = React.useState<ImageListType>([]);
   const [featureImage, setFeatureImage] = React.useState<ImageListType>([]);
-
   const [inputs, setInputs] = React.useState<{
     title_En: string;
     title_Np: string;
@@ -31,7 +29,6 @@ export const AddNotice = () => {
   const onImageGallaryChange = async (imageList: ImageListType) => {
     setImages(imageList);
   };
-
   const onFeatureImage = async (imageList: ImageListType) => {
     setFeatureImage(imageList);
   };
@@ -99,7 +96,7 @@ export const AddNotice = () => {
           >
             <div className="flex flex-col gap-10 ">
               <h1 className="font-bold text-xl pb-10 text-center lg:text-2xl">
-                Add Notice
+                Update Notice
               </h1>
 
               <div className="relative z-0 w-full mb-5 group">

@@ -53,8 +53,8 @@ export const AddHero = () => {
   };
   return (
     <>
-      <div className="sm:ml-60 mt-20 sm:px-30 p-5">
-        <div className="flex justify-center mx-auto w-1/3">
+      <div className="sm:ml-60 mt-20 sm:px-30 p-3">
+        <div className="flex justify-center mx-auto md:w-1/2 w-full  ">
           <form
             onSubmit={add}
             className="flex w-full justify-center gap-10 flex-col mx-auto shadow-lg rounded-lg border p-10"

@@ -61,13 +61,13 @@ export const AddEmploye = () => {
   };
   return (
     <>
-      <div className="sm:ml-60 mt-20 sm:px-30 p-5">
-        <div className="flex justify-center mx-auto w-1/3">
+      <div className="sm:ml-60 mt-20 sm:px-30 p-3">
+        <div className="flex justify-center mx-auto md:w-1/2 w-full">
           <form
             onSubmit={add}
             className="flex w-full justify-center gap-20 flex-col mx-auto shadow-lg rounded-lg border p-10"
           >
-            <div className="flex flex-col gap-16 ">
+            <div className="flex flex-col gap-10 ">
               <h1 className="font-bold text-xl pb-10 text-center lg:text-2xl">
                 Add Employe
               </h1>
@@ -76,7 +76,8 @@ export const AddEmploye = () => {
                 <input
                   type="text"
                   name="name"
-                  id="floating_first_name"
+                  value={inputs.name}
+                  lang="ne"
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   placeholder=" "
                 />
@@ -84,6 +85,7 @@ export const AddEmploye = () => {
                   Name
                 </label>
               </div>
+
               <div className="relative z-0 w-full mb-5 group">
                 <input
                   type="text"

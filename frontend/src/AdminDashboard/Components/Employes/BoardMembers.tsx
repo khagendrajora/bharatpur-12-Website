@@ -6,12 +6,12 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, useNavigate } from "react-router";
 
-export const Publication = () => {
+export const BoardMembers = () => {
   const navigate = useNavigate();
   return (
     <div className="sm:ml-60 mt-20 sm:px-30 p-5">
-      <h1 className="font-bold text-2xl pb-10">प्रकाशन</h1>
-      <div className="pb-4 bg-white flex flex-wrap gap-10 justify-between dark:bg-gray-900">
+      <h1 className="font-bold text-2xl pb-10">जन&nbsp;प्रतिनिधि</h1>
+      <div className="pb-4 bg-white flex justify-between flex-wrap gap-10 dark:bg-gray-900">
         <div className="relative mt-1">
           <div className="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
             <svg
@@ -39,7 +39,7 @@ export const Publication = () => {
         </div>
         <div>
           <Link
-            to="/admin/addpublication"
+            to="/admin/addboardmember"
             className="bg-[#245fb9] hover:bg-blue-600 px-3 p-2 rounded-lg text-white font-semibold"
           >
             नयाँ थप्नुहोस्
@@ -53,16 +53,18 @@ export const Publication = () => {
               <th scope="col" className="px-3 py-3">
                 <span>ID</span>
               </th>
-
               <th scope="col" className="px-3 py-3">
-                Title
+                Image
+              </th>
+              <th scope="col" className="px-3 py-3">
+                Name
               </th>
 
               <th scope="col" className="px-3 py-3">
-                Date
+                Post
               </th>
               <th scope="col" className="px-3 py-3">
-                File
+                Phone Number
               </th>
 
               <th scope="col" className="px-3 py-3">
@@ -75,19 +77,24 @@ export const Publication = () => {
               <td className=" py-4   font-semibold text-gray-900 dark:text-white">
                 1
               </td>
-
+              <td className="p-4 ">
+                <img
+                  src="/1.jpg"
+                  className="w-16 md:w-32 max-w-full mx-auto max-h-full"
+                  alt="Apple Watch"
+                />
+              </td>
               <td className="  py-4 font-semibold text-gray-900 dark:text-white">
-                <div>English</div>
+                <div>Khagendra</div>
                 <br />
                 <div>नेपाली</div>
               </td>
-              <td className="  py-4 font-semibold text-gray-900 dark:text-white">
-                <div>Date</div>
-                <br />
-                <div>नेपाली</div>
-              </td>
-              <td className="  py-4 font-semibold text-gray-900 dark:text-white"></td>
 
+              <td className="py-4 font-semibold px-3  text-gray-900 dark:text-white">
+                <div>Adhikrit</div>
+              </td>
+
+              <td className="">9812766153</td>
               <td className="">
                 <FontAwesomeIcon
                   icon={faEye}
@@ -97,7 +104,7 @@ export const Publication = () => {
                 <FontAwesomeIcon
                   icon={faPenToSquare}
                   className="text-green-600 hover:text-green-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
-                  onClick={() => navigate(`/admin/updatepublication`)}
+                  onClick={() => navigate(`/admin/updatebod`)}
                 />
 
                 <FontAwesomeIcon
@@ -106,6 +113,54 @@ export const Publication = () => {
                 />
               </td>
             </tr>
+            {/* <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                       <td className=" py-4 w-fit font-semibold text-gray-900 dark:text-white">
+                         1
+                       </td>
+                       <td className="p-4 ">
+                         <img
+                           src="/1.jpg"
+                           className="w-16 md:w-32  max-w-full max-h-full"
+                           alt="Apple iMac"
+                         />
+                       </td>
+                       <td className=" py-4 font-semibold text-gray-900 dark:text-white">
+                         iMac 27"
+                       </td>
+       
+                       <td className=" py-4">
+                         <a
+                           href="#"
+                           className="font-medium text-red-600 dark:text-red-500 hover:underline"
+                         >
+                           Remove
+                         </a>
+                       </td>
+                     </tr> */}
+            {/* <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                       <td className=" py-4 w-fit font-semibold text-gray-900 dark:text-white">
+                         1
+                       </td>
+                       <td className="p-4">
+                         <img
+                           src="/1.jpg"
+                           className="w-16 md:w-32 max-w-full max-h-full"
+                           alt="iPhone 12"
+                         />
+                       </td>
+                       <td className=" py-4 font-semibold text-gray-900 dark:text-white">
+                         IPhone 12
+                       </td>
+       
+                       <td className=" py-4">
+                         <a
+                           href="#"
+                           className="font-medium text-red-600 dark:text-red-500 hover:underline"
+                         >
+                           Remove
+                         </a>
+                       </td>
+                     </tr> */}
           </tbody>
         </table>
       </div>

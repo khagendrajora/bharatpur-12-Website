@@ -4,14 +4,15 @@ import {
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 export const Intro = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="sm:ml-60 mt-20 sm:px-30 p-5">
         <h1 className="font-bold text-2xl pb-10">परिचय</h1>
-        <div className="pb-4 bg-white flex justify-between dark:bg-gray-900">
+        <div className="pb-4 bg-white flex flex-wrap gap-10 justify-between dark:bg-gray-900">
           <div className="relative mt-1">
             <div className="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
               <svg
@@ -121,6 +122,7 @@ export const Intro = () => {
                   <FontAwesomeIcon
                     icon={faPenToSquare}
                     className="text-green-600 hover:text-green-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
+                    onClick={() => navigate(`/admin/updateintro`)}
                   />
 
                   <FontAwesomeIcon

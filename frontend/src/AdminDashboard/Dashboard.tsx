@@ -11,6 +11,7 @@ import { Link, useNavigate } from "react-router";
 export const Dashboard = () => {
   const [menu, setMenu] = useState<boolean>(false);
   const [side, setSide] = useState<boolean>(true);
+  const [employeMenu, setEmployeeMenu] = useState<boolean>(false);
   const navigate = useNavigate();
 
   return (
@@ -24,7 +25,7 @@ export const Dashboard = () => {
               <FontAwesomeIcon
                 icon={faBars}
                 size="2xl"
-                className="inline-flex cursor-pointer items-center  text-sm text-gray-500 rounded-lg  hover:bg-gray-100  "
+                className="inline-flex sm:hidden cursor-pointer items-center  text-sm text-gray-500 rounded-lg  hover:bg-gray-100  "
                 onClick={() => {
                   setSide(!side);
                 }}
@@ -60,7 +61,13 @@ export const Dashboard = () => {
                           </p>
                         </div>
                         <ul className="py-1">
-                          <li className="block disabled px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">
+                          <li
+                            className="block disabled px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                            onClick={() => {
+                              localStorage.removeItem("token");
+                              navigate("/");
+                            }}
+                          >
                             Logout
                           </li>
                         </ul>
@@ -179,16 +186,25 @@ export const Dashboard = () => {
                 <span className="flex-1 ms-3 whitespace-nowrap">समाचार</span>
               </Link>
             </li>
-            <li>
-              <Link
-                to="/admin/employes"
-                className="flex items-center p-2 rounded-lg group"
+            <li className=" p-2 rounded-lg group">
+              <FontAwesomeIcon icon={faNewspaper} />
+              <span
+                className="flex-1 ms-3 whitespace-nowrap cursor-pointer"
+                onClick={() => setEmployeeMenu(!employeMenu)}
               >
-                <FontAwesomeIcon icon={faNewspaper} />
-                <span className="flex-1 ms-3 whitespace-nowrap">
-                  कर्मचारीहरू
-                </span>
-              </Link>
+                कर्मचारीहरू
+              </span>
+              {employeMenu && (
+                <ul className="flex justify-end flex-col items-start px-10 p-5 gap-3">
+                  <li>
+                    <Link to="/admin/boardmembers">जन&nbsp;प्रतिनिधि</Link>
+                  </li>
+
+                  <li>
+                    <Link to="/admin/employes">कर्मचारी</Link>
+                  </li>
+                </ul>
+              )}
             </li>
           </ul>
         </div>
