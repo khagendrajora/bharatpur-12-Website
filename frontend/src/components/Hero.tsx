@@ -43,7 +43,7 @@ export const Hero = () => {
                 <img
                   src={image.src}
                   alt={image.alt}
-                  className="w-full h-screen  object-cover"
+                  className="w-full md:h-screen  h-[500px] object-cover"
                 />
               </div>
             </>
@@ -86,12 +86,28 @@ export const Hero = () => {
               className="lg:h-8"
               style={{ color: "#ffffff" }}
             />
-            नागरिक&nbsp;बडापत्र&nbsp;{" "}
+            नागरिक बडापत्र&nbsp;{" "}
             <FontAwesomeIcon
               icon={faAngleRight}
               className="border-2 rounded-full p-1 px-2"
             />
           </div>
+
+          {/* <div
+            className="bg-[#61beef] border lg:text-[16px] 2xl:text-[20px]  cursor-pointer  p-5 min-w-[100px] w-1/5  flex justify-center lg:gap-4 flex-wrap gap-2 items-center"
+            onClick={() => navigate("/nagrikpatra")}
+          >
+            <FontAwesomeIcon
+              icon={faFileCirclePlus}
+              className="lg:h-8"
+              style={{ color: "#ffffff" }}
+            />
+            सूचना
+            <FontAwesomeIcon
+              icon={faAngleRight}
+              className="border-2 rounded-full p-1 px-2"
+            />
+          </div> */}
 
           <div
             className="bg-[#a6d4ed] border lg:text-[16px] 2xl:text-[20px]  cursor-pointer p-5  w-1/5 min-w-[100px] flex justify-center lg:gap-6 flex-wrap gap-2 items-center"

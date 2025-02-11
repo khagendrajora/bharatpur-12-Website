@@ -412,7 +412,7 @@ export const NavBar = () => {
           </div>
         )}
 
-        <div className="lg:hidden p-[1px] flex items-center cursor-pointer">
+        <div className="lg:hidden p-[1px] pr-4 flex items-center cursor-pointer">
           <div onClick={() => setIsMenu(!isMenu)}>
             <FontAwesomeIcon
               icon={faBars}

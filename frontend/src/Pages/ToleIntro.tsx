@@ -150,6 +150,17 @@ export const ToleIntro = () => {
             </div>
             <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[350px] mx-auto">
               <img
+                src="/Images/Shisir Subedi.jpg"
+                className="h-[300px] w-[300px] mx-auto"
+              />
+              <div className=" w-3/4 max-w-[250px] -mt-10 p-3 bg-white top-40 shadow-md  justify-center items-center mx-auto left-10  ">
+                <h1 className="font-bold">श्री शिशिर सुवेदी</h1>
+                <h1 className=""> इन्जिनियर</h1>
+                {/* <h1 className="">९८४५१७९०९९</h1> */}
+              </div>
+            </div>
+            <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[350px] mx-auto">
+              <img
                 src="/Images/Aashish Sapkota.jpg"
                 className="h-[300px] w-[300px] mx-auto"
               />
@@ -171,7 +182,21 @@ export const ToleIntro = () => {
               </div>
             </div>
             <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[350px] mx-auto">
-              <img src="/female.png" className="h-[300px] w-[300px] mx-auto" />
+              <img
+                src="/Images/Pallavi Neupane.jpg"
+                className="h-[300px] w-[300px] mx-auto"
+              />
+              <div className=" w-3/4 max-w-[250px] -mt-10 p-3 bg-white top-40 shadow-md  justify-center items-center mx-auto left-10  ">
+                <h1 className="font-bold">श्री पल्लवी न्यौपाने</h1>
+                <h1 className="">कम्प्युटर अपरेटर</h1>
+                <h1 className="">९८४५२०४६०६</h1>
+              </div>
+            </div>
+            <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[350px] mx-auto">
+              <img
+                src="/Images/Sital Tamang.jpg"
+                className="h-[300px] w-[300px] mx-auto"
+              />
               <div className=" w-3/4 max-w-[250px] -mt-10 p-3 bg-white top-40 shadow-md  justify-center items-center mx-auto left-10  ">
                 <h1 className="font-bold">श्री शितल तमाङ</h1>
                 <h1 className=""> सहायक कम्प्युटर अपरेटर</h1>
@@ -197,14 +222,14 @@ export const ToleIntro = () => {
                 <h1 className="">९८४५११२०४६</h1>
               </div>
             </div>
-            <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[350px] mx-auto">
+            {/* <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[350px] mx-auto">
               <img src="/female.png" className="h-[300px] w-[300px] mx-auto" />
               <div className=" w-3/4 max-w-[250px] -mt-10 p-3 bg-white top-40 shadow-md  justify-center items-center mx-auto left-10  ">
                 <h1 className="font-bold">श्री मञ्जु श्रेष्ठ</h1>
                 <h1 className="">कार्यालय सहयोगी </h1>
                 <h1 className=""></h1>
               </div>
-            </div>
+            </div> */}
 
             <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[350px] mx-auto">
               <img
@@ -212,17 +237,53 @@ export const ToleIntro = () => {
                 className="h-[300px] w-[300px] mx-auto"
               />
               <div className=" w-3/4 max-w-[250px] -mt-10 p-3 bg-white top-40 shadow-md  justify-center items-center mx-auto left-10  ">
-                <h1 className="font-bold">कुशिला अर्याल</h1>
+                <h1 className="font-bold">श्री कुशिला अर्याल</h1>
                 <h1 className="">कार्यालय सहयोगी </h1>
-                <h1 className="">९८४५११२०४६</h1>
+                {/* <h1 className="">९८४५११२०४६</h1> */}
               </div>
             </div>
             <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[350px] mx-auto">
-              <img src="/female.png" className="h-[300px] w-[300px] mx-auto" />
+              <img
+                src="/Images/manju Shrestha Bhujel.jpg"
+                className="h-[300px] w-[300px] mx-auto"
+              />
               <div className=" w-3/4 max-w-[250px] -mt-10 p-3 bg-white top-40 shadow-md  justify-center items-center mx-auto left-10  ">
-                <h1 className="font-bold">श्री मञ्जु श्रेष्ठ</h1>
+                <h1 className="font-bold">श्री मञ्जु श्रेष्ठ भुजेल</h1>
                 <h1 className="">कार्यालय सहयोगी </h1>
                 <h1 className=""></h1>
+              </div>
+            </div>
+            <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[350px] mx-auto">
+              <img
+                src="/Images/Man Bahadur Darai.jpg"
+                className="h-[300px] w-[300px] mx-auto"
+              />
+              <div className=" w-3/4 max-w-[250px] -mt-10 p-3 bg-white top-40 shadow-md  justify-center items-center mx-auto left-10  ">
+                <h1 className="font-bold">श्री मान बहादुर दराई</h1>
+                <h1 className="">कार्यालय सहयोगी </h1>
+                {/* <h1 className="">९८४५११२०४६</h1> */}
+              </div>
+            </div>
+            <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[350px] mx-auto">
+              <img
+                src="/Images/Dhanapati Subedi.jpg"
+                className="h-[300px] w-[300px] mx-auto"
+              />
+              <div className=" w-3/4 max-w-[250px] -mt-10 p-3 bg-white top-40 shadow-md  justify-center items-center mx-auto left-10  ">
+                <h1 className="font-bold">श्री धनपति सुवेदी</h1>
+                <h1 className="">बिजुली मिस्त्री </h1>
+                {/* <h1 className="">९८४५११२०४६</h1> */}
+              </div>
+            </div>
+            <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[350px] mx-auto">
+              <img
+                src="/Images/Ajaya Syantan.jpg"
+                className="h-[300px] w-[300px] mx-auto"
+              />
+              <div className=" w-3/4 max-w-[250px] -mt-10 p-3 bg-white top-40 shadow-md  justify-center items-center mx-auto left-10  ">
+                <h1 className="font-bold">श्री अजय सायन्तन</h1>
+                <h1 className="">बिजुली मिस्त्री </h1>
+                {/* <h1 className="">९८४५११२०४६</h1> */}
               </div>
             </div>
           </div>
