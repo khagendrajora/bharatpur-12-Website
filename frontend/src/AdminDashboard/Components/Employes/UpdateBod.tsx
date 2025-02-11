@@ -1,17 +1,15 @@
-import React, { useEffect } from "react";
-import { ButtonLoader } from "../../../Utils/ButtonLoader";
-import { useNavigate, useParams } from "react-router";
+import React, { useEffect, useState } from "react";
+import { ButtonLoader, ImageURl } from "../../../Utils/ButtonLoader";
+import { useParams } from "react-router";
 import { toast } from "react-toastify";
-// import { IMembers } from "./BoardMembers";
 import axios from "axios";
 
 export const UpdateBod = () => {
   const params = useParams();
   const id = params.id;
-  // const [member, setMembers] = useState<IMembers>();
-  const navigate = useNavigate();
   const [isButton, setIsButton] = React.useState(false);
-  const [image, setImage] = React.useState<File | null>();
+  const [image, setImage] = React.useState<File>();
+  const [existingImage, setExistingImage] = useState<string | null>(null);
   const [inputs, setInputs] = React.useState<{
     name_en: string;
     name_np: string;
@@ -40,7 +38,6 @@ export const UpdateBod = () => {
         await axios
           .get(`https://bharatpur12.org/new/api/board-members/${id}`)
           .then(async (res) => {
-            // setMembers(res.data);
             setInputs({
               name_en: res.data.name_en || "",
               name_np: res.data.name_np || "",
@@ -49,6 +46,7 @@ export const UpdateBod = () => {
               phone: res.data.phone || "",
               category: res.data.category || "",
             });
+            setExistingImage(res.data.image);
           })
           .catch((error) => {
             toast.error(error);
@@ -62,15 +60,13 @@ export const UpdateBod = () => {
 
   const add = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    setIsButton(true);
     const formData = new FormData();
     formData.append("name_en", inputs.name_en);
     formData.append("name_np", inputs.name_np);
     formData.append("phone", inputs.phone);
     formData.append("designation_en", inputs.designation_en);
     formData.append("designation_np", inputs.designation_np);
-    formData.append("categoy", inputs.category);
+    formData.append("category", inputs.category);
     if (image) {
       formData.append("image", image);
     }
@@ -80,6 +76,10 @@ export const UpdateBod = () => {
         toast.error("Token Missing");
         return;
       }
+      setIsButton(true);
+      console.log(formData);
+      console.log(inputs);
+      console.log(image);
       const res = await fetch(
         `https://bharatpur12.org/new/api/board-members/${id}`,
         {
@@ -91,11 +91,13 @@ export const UpdateBod = () => {
         }
       );
       const data = await res.json();
+      setIsButton(false);
+      console.log(data);
       if (!res.ok) {
         toast.error(data.error);
       } else {
         toast.success(data.message);
-        setImage(null);
+
         setInputs({
           name_en: "",
           name_np: "",
@@ -104,17 +106,12 @@ export const UpdateBod = () => {
           phone: "",
           category: "",
         });
-        setTimeout(() => {
-          navigate(-1);
-        }, 2000);
       }
     } catch (error: any) {
       toast.error(error);
-    } finally {
-      setIsButton(false);
     }
   };
-  console.log(inputs);
+
   return (
     <>
       <div className="sm:ml-60 mt-20 sm:px-30 p-3">
@@ -204,7 +201,6 @@ export const UpdateBod = () => {
                     Choose Category
                   </option>
                   <option>Board Member</option>
-                  {/* <option>Staff</option> */}
                 </select>
               </div>
 
@@ -212,10 +208,10 @@ export const UpdateBod = () => {
                 <input
                   type="text"
                   name="phone"
+                  value={inputs.phone}
                   onChange={(e) =>
                     setInputs({ ...inputs, phone: e.target.value })
                   }
-                  id="floating_first_name"
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   placeholder=" "
                 />
@@ -228,13 +224,23 @@ export const UpdateBod = () => {
                   type="file"
                   name="image"
                   onChange={handleImageChange}
-                  id="floating_first_name"
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   placeholder=" "
                 />
                 <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                   Image
                 </label>
+                <div className="w-32">
+                  {typeof existingImage === "string" && !image ? (
+                    <img src={`${ImageURl}/${existingImage}`} />
+                  ) : (
+                    <img
+                      src={image ? URL.createObjectURL(image) : ""}
+                      alt="gallery"
+                      className="w-16"
+                    />
+                  )}
+                </div>
               </div>
             </div>
 

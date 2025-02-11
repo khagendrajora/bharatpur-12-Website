@@ -12,7 +12,6 @@ export const AddNotice = () => {
   const navigate = useNavigate();
   const [isButton, setIsButton] = React.useState(false);
   const [image, setImage] = React.useState<File | null>();
-  // const [featureImage, setFeatureImage] = React.useState<ImageListType>([]);
 
   const [inputs, setInputs] = React.useState<{
     title_en: string;
@@ -34,9 +33,7 @@ export const AddNotice = () => {
       setImage(file);
     }
   };
-  // const onFeatureImage = async (imageList: ImageListType) => {
-  //   setFeatureImage(imageList);
-  // };
+
   const config = React.useMemo(
     () => ({
       height: 400,
@@ -59,9 +56,6 @@ export const AddNotice = () => {
     if (image) {
       formData.append(`image`, image);
     }
-    // featureImage.forEach((image) => {
-    //   formData.append(`featureImage`, image.file as File);
-    // });
 
     try {
       const token = localStorage.getItem("token");
@@ -79,6 +73,7 @@ export const AddNotice = () => {
       const data = await res.json();
       if (!res.ok) {
         toast.error(data.error);
+        console.log(data);
       } else {
         toast.success(data.message);
         setImage(null);

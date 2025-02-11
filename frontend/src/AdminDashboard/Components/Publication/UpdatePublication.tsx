@@ -70,7 +70,6 @@ export const UpdatePublication = () => {
     if (inputs.document instanceof File) {
       formData.append("document", inputs.document);
     }
-
     try {
       const token = localStorage.getItem("token");
       if (!token) {
@@ -87,6 +86,7 @@ export const UpdatePublication = () => {
           body: formData,
         }
       );
+      console.log(formData);
       const data = await res.json();
       if (!res.ok) {
         toast.error(data.error || "failed");

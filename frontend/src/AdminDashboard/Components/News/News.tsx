@@ -87,9 +87,9 @@ export const News = () => {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
               />
             </svg>
@@ -161,8 +161,6 @@ export const News = () => {
 
                   <td className="  py-4 font-semibold text-gray-900 dark:text-white">
                     <div>{data.date}</div>
-                    {/* <br />
-                    <div>नेपाली</div> */}
                   </td>
                   <td className="py-4 font-semibold max-w-[300px] min-w-[300px] px-3  text-gray-900 dark:text-white">
                     <div>{HTMLReactParser(data.description_en)}</div>
@@ -170,13 +168,6 @@ export const News = () => {
                     <div>{HTMLReactParser(data.description_np)}</div>
                   </td>
 
-                  {/* <td className="">
-                    <img
-                      src="/1.jpg"
-                      className="w-16 md:w-32 max-w-full mx-auto max-h-full"
-                      alt="Apple Watch"
-                    />
-                  </td> */}
                   <td className="">
                     <FontAwesomeIcon
                       icon={faEye}
@@ -197,54 +188,6 @@ export const News = () => {
                   </td>
                 </tr>
               ))}
-            {/* <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
-                      <td className=" py-4 w-fit font-semibold text-gray-900 dark:text-white">
-                        1
-                      </td>
-                      <td className="p-4 ">
-                        <img
-                          src="/1.jpg"
-                          className="w-16 md:w-32  max-w-full max-h-full"
-                          alt="Apple iMac"
-                        />
-                      </td>
-                      <td className=" py-4 font-semibold text-gray-900 dark:text-white">
-                        iMac 27"
-                      </td>
-      
-                      <td className=" py-4">
-                        <a
-                          href="#"
-                          className="font-medium text-red-600 dark:text-red-500 hover:underline"
-                        >
-                          Remove
-                        </a>
-                      </td>
-                    </tr> */}
-            {/* <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
-                      <td className=" py-4 w-fit font-semibold text-gray-900 dark:text-white">
-                        1
-                      </td>
-                      <td className="p-4">
-                        <img
-                          src="/1.jpg"
-                          className="w-16 md:w-32 max-w-full max-h-full"
-                          alt="iPhone 12"
-                        />
-                      </td>
-                      <td className=" py-4 font-semibold text-gray-900 dark:text-white">
-                        IPhone 12
-                      </td>
-      
-                      <td className=" py-4">
-                        <a
-                          href="#"
-                          className="font-medium text-red-600 dark:text-red-500 hover:underline"
-                        >
-                          Remove
-                        </a>
-                      </td>
-                    </tr> */}
           </tbody>
         </table>
       </div>

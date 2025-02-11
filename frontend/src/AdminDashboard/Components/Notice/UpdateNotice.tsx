@@ -5,7 +5,6 @@ import { useNavigate, useParams } from "react-router";
 import React, { useEffect } from "react";
 import { toast } from "react-toastify";
 import JoditEditor from "jodit-react";
-// import ReactImageUploading, { ImageListType } from "react-images-uploading";
 import axios from "axios";
 
 export const UpdateNotice = () => {
@@ -15,7 +14,6 @@ export const UpdateNotice = () => {
   const navigate = useNavigate();
   const [isButton, setIsButton] = React.useState(false);
   const [image, setImage] = React.useState<File | null>();
-  // const [featureImage, setFeatureImage] = React.useState<ImageListType>([]);
   const [inputs, setInputs] = React.useState<{
     title_en: string;
     title_np: string;
@@ -36,9 +34,7 @@ export const UpdateNotice = () => {
       setImage(file);
     }
   };
-  // const onFeatureImage = async (imageList: ImageListType) => {
-  //   setFeatureImage(imageList);
-  // };
+
   const config = React.useMemo(
     () => ({
       height: 400,
@@ -210,158 +206,7 @@ export const UpdateNotice = () => {
                   Date
                 </label>
               </div>
-              {/* <div className="flex gap-1">
-                <div className="flex">
-                  <ReactImageUploading
-                    value={featureImage}
-                    onChange={onFeatureImage}
-                    maxNumber={1000}
-                    dataURLKey="data_url"
-                  >
-                    {({
-                      imageList,
-                      onImageUpload,
-                      onImageRemoveAll,
-                      onImageRemove,
-                      isDragging,
-                      dragProps,
-                    }: {
-                      imageList: ImageListType;
-                      onImageUpload: () => void;
-                      onImageRemoveAll: () => void;
-                      onImageRemove: (index: number) => void;
-                      isDragging: boolean;
-                      dragProps: React.HTMLAttributes<HTMLDivElement>;
-                    }) => (
-                      <div {...dragProps} className="upload__image-wrapper">
-                        <button
-                          style={isDragging ? { color: "red" } : undefined}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            onImageUpload();
-                          }}
-                          className="p-2 border border-gray-600 rounded-lg mb-2 items-center"
-                        >
-                          Add Feature Photo
-                        </button>
-                        &nbsp;
-                        {featureImage.length > 0 ? (
-                          <button
-                            onClick={(e) => {
-                              e.preventDefault();
-                              onImageRemoveAll();
-                            }}
-                            className="p-2 rounded-lg border"
-                          >
-                            Remove
-                          </button>
-                        ) : (
-                          ""
-                        )}
-                        <div className="flex flex-row flex-wrap gap-7 mt-5">
-                          {imageList.map((image, index) => (
-                            <div
-                              key={index}
-                              className="image-item flex flex-row w-fit"
-                            >
-                              <div>
-                                <img src={image.data_url} alt="" width="100" />
-                                <div className="image-item__btn-wrapper flex gap-x-3">
-                                  <button
-                                    onClick={(e) => {
-                                      e.preventDefault();
-                                      onImageRemove(index);
-                                    }}
-                                    className="bg-red-600 mt-1 text-xs p-1 rounded-md"
-                                  >
-                                    Remove
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </ReactImageUploading>
-                </div>
 
-                <div className="flex">
-                  <ReactImageUploading
-                    value={images}
-                    multiple
-                    onChange={onImageGallaryChange}
-                    maxNumber={1000}
-                    dataURLKey="data_url"
-                  >
-                    {({
-                      imageList,
-                      onImageUpload,
-                      onImageRemoveAll,
-                      onImageRemove,
-                      isDragging,
-                      dragProps,
-                    }: {
-                      imageList: ImageListType;
-                      onImageUpload: () => void;
-                      onImageRemoveAll: () => void;
-                      onImageRemove: (index: number) => void;
-                      isDragging: boolean;
-                      dragProps: React.HTMLAttributes<HTMLDivElement>;
-                    }) => (
-                      <div {...dragProps} className="upload__image-wrapper">
-                        <button
-                          style={isDragging ? { color: "red" } : undefined}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            onImageUpload();
-                          }}
-                          className="p-2 border border-gray-600 rounded-lg mb-2 items-center"
-                        >
-                          Add Images
-                        </button>
-                        &nbsp;
-                        {images.length > 0 ? (
-                          <button
-                            onClick={(e) => {
-                              e.preventDefault();
-                              onImageRemoveAll();
-                            }}
-                            className="p-2 rounded-lg border"
-                          >
-                            Remove
-                          </button>
-                        ) : (
-                          ""
-                        )}
-                        <div className="flex flex-row flex-wrap gap-7 mt-5">
-                          {imageList.map((image, index) => (
-                            <div
-                              key={index}
-                              className="image-item flex flex-row w-fit"
-                            >
-                              <div>
-                                <img src={image.data_url} alt="" width="100" />
-                                <div className="image-item__btn-wrapper flex gap-x-3">
-                                  <button
-                                    onClick={(e) => {
-                                      e.preventDefault();
-                                      onImageRemove(index);
-                                    }}
-                                    className="bg-red-600 mt-1 text-xs p-1 rounded-md"
-                                  >
-                                    Remove
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </ReactImageUploading>
-                </div>
-              </div> */}
               <div className="relative z-0 w-full mb-5 group">
                 <input
                   type="file"

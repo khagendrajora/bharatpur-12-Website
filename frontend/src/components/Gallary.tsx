@@ -127,7 +127,7 @@ export const Gallary = () => {
             <>
               <div
                 key={index}
-                className={`relative ${image.color} p-5 shadow-sm flex flex-col gap-4 min-w-[250px] max-w-[250px] justify-center${image.color} border-black`}
+                className={`relative ${image.color} p-5 shadow-sm flex flex-col gap-4 sm:min-w-[250px] max-w-[250px] justify-center${image.color} border-black`}
               >
                 <div className="flex justify-between">
                   <h1>{image.value}</h1>
@@ -153,9 +153,7 @@ export const Gallary = () => {
                   <h3 className="font-semibold text-xl">{image.title}</h3>
                   <h1 className="font-bold">{image.value}</h1>
                 </div>
-                {/* <div className="w-full bg-gray-500 rounded-full h-1 dark:bg-gray-700"> */}
-                {/* <div className="bg-white h-1 rounded-full w-[50%]"></div> */}
-                {/* </div> */}
+
                 <span className="font-bold">{image.count}</span>
               </div>
             </>

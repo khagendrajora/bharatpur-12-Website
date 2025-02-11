@@ -39,7 +39,7 @@ export const AddEmploye = () => {
     formData.append("phone", inputs.phone);
     formData.append("designation_en", inputs.designation_en);
     formData.append("designation_np", inputs.designation_np);
-    formData.append("categoy", inputs.category);
+    formData.append("category", inputs.category);
     if (image) {
       formData.append("image", image);
     }

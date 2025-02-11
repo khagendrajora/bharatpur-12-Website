@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { ButtonLoader } from "../../../Utils/ButtonLoader";
+import React, { useEffect, useState } from "react";
+import { ButtonLoader, ImageURl } from "../../../Utils/ButtonLoader";
 import { useNavigate, useParams } from "react-router";
 import { toast } from "react-toastify";
 import axios from "axios";
@@ -9,7 +9,8 @@ export const UpdateEmploy = () => {
   const id = params.id;
   const navigate = useNavigate();
   const [isButton, setIsButton] = React.useState(false);
-  const [image, setImage] = React.useState<File | null>();
+  const [image, setImage] = React.useState<File>();
+  const [existingImage, setExistingImage] = useState<string | null>(null);
   const [inputs, setInputs] = React.useState<{
     name_en: string;
     name_np: string;
@@ -46,7 +47,7 @@ export const UpdateEmploy = () => {
               phone: res.data.phone || "",
               category: res.data.category || "",
             });
-            setImage(res.data.image);
+            setExistingImage(res.data.image);
           })
           .catch((error) => {
             toast.error(error);
@@ -93,7 +94,7 @@ export const UpdateEmploy = () => {
         toast.error(data.error);
       } else {
         toast.success(data.message);
-        setImage(null);
+
         setInputs({
           name_en: "",
           name_np: "",
@@ -209,6 +210,7 @@ export const UpdateEmploy = () => {
                 <input
                   type="text"
                   name="phone"
+                  value={inputs.phone}
                   onChange={(e) =>
                     setInputs({ ...inputs, phone: e.target.value })
                   }
@@ -231,6 +233,17 @@ export const UpdateEmploy = () => {
                 <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                   Image
                 </label>
+                <div className="w-32">
+                  {typeof existingImage === "string" && !image ? (
+                    <img src={`${ImageURl}/${existingImage}`} />
+                  ) : (
+                    <img
+                      src={image ? URL.createObjectURL(image) : ""}
+                      alt="gallery"
+                      className="w-16"
+                    />
+                  )}
+                </div>
               </div>
             </div>
 

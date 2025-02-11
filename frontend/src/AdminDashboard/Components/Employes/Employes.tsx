@@ -9,6 +9,7 @@ import { IMembers } from "./BoardMembers";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { ImageURl } from "../../../Utils/ButtonLoader";
 
 export const Employes = () => {
   const navigate = useNavigate();
@@ -82,9 +83,9 @@ export const Employes = () => {
               >
                 <path
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
                 />
               </svg>
@@ -140,7 +141,7 @@ export const Employes = () => {
                     </td>
                     <td className="p-4 ">
                       <img
-                        src={`https://bharatpur12.org/new/api/${data.image}`}
+                        src={`${ImageURl}/${data.image}`}
                         className="w-16 md:w-32 max-w-full mx-auto max-h-full"
                         alt="Apple Watch"
                       />
