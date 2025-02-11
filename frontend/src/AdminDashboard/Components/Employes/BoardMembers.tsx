@@ -149,7 +149,7 @@ export const BoardMembers = () => {
                   </td>
                   <td className="p-4 ">
                     <img
-                      src={`https://bharatpur12.org/new/api/${data.image}`}
+                      src={`https://bharatpur12.org/new/storage/app/public/${data.image}`}
                       className="w-16 md:w-32 max-w-full mx-auto max-h-full"
                       alt="Image"
                     />
@@ -163,7 +163,7 @@ export const BoardMembers = () => {
                   <td className="py-4 font-semibold px-3  text-gray-900 dark:text-white">
                     <div>{data.designation_en}</div>
                     <br />
-                    <div>(data.designation_np)</div>
+                    <div>{data.designation_np}</div>
                   </td>
 
                   <td className="">{data.phone}</td>

@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import JoditEditor from "jodit-react";
 // import ReactImageUploading, { ImageListType } from "react-images-uploading";
 import axios from "axios";
+
 export const UpdateNotice = () => {
   const params = useParams();
   const id = params.id;

@@ -15,11 +15,12 @@ import { useNavigate } from "react-router";
 export const Hero = () => {
   const navigate = useNavigate();
   const images = [
-    { src: "/bharatpur.jpg", alt: "Hero Image 2" },
-    { src: "/hero.jpg", alt: "Hero Image 1" },
-    { src: "/6.jpg", alt: "Hero Image 3" },
-    { src: "/hero-3.jpg", alt: "Hero Image 1" },
-    { src: "/hero-6.jpg", alt: "Hero Image 2" },
+    { src: "/Images/hero.jpg", alt: "Hero Image 2" },
+    { src: "/Images/hero1.jpg", alt: "Hero Image 1" },
+    { src: "/Images/hero2.jpg", alt: "Hero Image 3" },
+
+    { src: "/Images/hero3.jpg", alt: "Hero Image 1" },
+    // { src: "/hero-6.jpg", alt: "Hero Image 2" },
     // { src: "/hero-7.jpg", alt: "Hero Image 3" },
     // { src: "/hero-8.jpg", alt: "Hero Image 1" },
   ];

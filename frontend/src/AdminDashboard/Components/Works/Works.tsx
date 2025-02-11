@@ -8,7 +8,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { toast } from "react-toastify";
-
+import HTMLReactParser from "html-react-parser";
 export interface IWork extends Document {
   id?: string;
   title_en: string;
@@ -27,15 +27,16 @@ export const Works = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`https://bharatpur12.org/new/api/information`);
+        const res = await fetch(`https://bharatpur12.org/new/api/our-works`);
         const data = await res.json();
         if (!res.ok) {
-          console.log(data.error);
+          console.log(data.errors);
         } else {
           // const filterData = data.filter(
           //   (item: { category: string }) => item.category === "Board Member"
           // );
           setInfo(data);
+          console.log(data);
         }
       } catch (error: any) {
         toast.error(error);
@@ -147,9 +148,9 @@ export const Works = () => {
                     </td>
                     <td className="p-4 ">
                       <img
-                        src={`https://bharatpur12.org/new/api/${data.main_image}`}
+                        src={`https://bharatpur12.org/new/storage/app/public/${data.main_image}`}
                         className="w-16 md:w-32 max-w-full mx-auto max-h-full"
-                        alt="Apple Watch"
+                        alt="Image"
                       />
                     </td>
                     <td className="  py-4 font-semibold text-gray-900 dark:text-white">
@@ -159,16 +160,16 @@ export const Works = () => {
                     </td>
 
                     <td className="py-4 font-semibold max-w-[300px] min-w-[300px] px-3  text-gray-900 dark:text-white">
-                      <div>{data.description_en}</div>
+                      <div>{HTMLReactParser(data.description_en)}</div>
                       <br />
-                      <div>{data.description_np}</div>
+                      <div>{HTMLReactParser(data.description_np)}</div>
                     </td>
 
                     <td className="">
                       <img
-                        src={`https://bharatpur12.org/new/api/${data.feature_image}`}
+                        src={`https://bharatpur12.org/new/storage/app/public/${data.feature_image}`}
                         className="w-16 md:w-32 max-w-full mx-auto max-h-full"
-                        alt="Apple Watch"
+                        alt="Image"
                       />
                     </td>
                     <td className="">

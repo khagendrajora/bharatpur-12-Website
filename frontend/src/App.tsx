@@ -103,7 +103,10 @@ function App() {
             {/* update */}
 
             <Route path="updateintro" element={<UpdateIntro />} />
-            <Route path="updatepublication" element={<UpdatePublication />} />
+            <Route
+              path="updatepublication/:id"
+              element={<UpdatePublication />}
+            />
             <Route path="updatenotice/:id" element={<UpdateNotice />} />
             <Route path="updatework/:id" element={<UpdateWork />} />
             <Route path="updatenews" element={<UpdateNews />} />

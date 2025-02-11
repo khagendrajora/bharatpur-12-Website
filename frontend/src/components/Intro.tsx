@@ -7,35 +7,35 @@ export const Intro = () => {
   const navigate = useNavigate();
   const images = [
     {
-      src: "/lekhrajpanta.jpg",
+      src: "/Images/Lekhraj Pant.jpg",
       alt: "Hero Image 1",
       name: "लेख राज पन्त",
       post: "अध्यक्ष",
       number: "९८५५०५६४३८",
     },
+    // {
+    //   src: "/female.png",
+    //   alt: "Hero Image 2",
+    //   name: "जमुना ढुंगाना ",
+    //   post: "महिला सदस्य",
+    //   number: "९८४९०४६२६१",
+    // },
+    // {
+    //   src: "/female.png",
+    //   alt: "Hero Image 3",
+    //   name: "	मिरा नेपाली ",
+    //   post: "द. महिला सदस्य",
+    //   number: "९७४८४२९८९०",
+    // },
     {
-      src: "/female.png",
-      alt: "Hero Image 2",
-      name: "जमुना ढुंगाना ",
-      post: "महिला सदस्य",
-      number: "९८४९०४६२६१",
-    },
-    {
-      src: "/female.png",
-      alt: "Hero Image 3",
-      name: "	मिरा नेपाली ",
-      post: "द. महिला सदस्य",
-      number: "९७४८४२९८९०",
-    },
-    {
-      src: "/male.png",
+      src: "/Images/bir bahadur syantan.jpg",
       alt: "Hero Image 4",
       name: "	बिर बहादुर स्याङतान",
       post: "सदस्य",
       number: "९८४५०८६०९८",
     },
     {
-      src: "/male.png",
+      src: "/Images/sanjay kumar thapa.jpg",
       alt: "Hero Image 4",
       name: "संजय कुमार थापा",
       post: "सदस्य",

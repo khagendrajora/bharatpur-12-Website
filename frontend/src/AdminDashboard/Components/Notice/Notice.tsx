@@ -17,7 +17,6 @@ export interface INotice extends Document {
   description_en: string;
   description_np: string;
   date: string;
-
   image: string;
 }
 

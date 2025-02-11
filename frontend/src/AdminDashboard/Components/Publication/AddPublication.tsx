@@ -4,7 +4,6 @@ import React from "react";
 import { toast } from "react-toastify";
 import { NepaliDatePicker } from "nepali-datepicker-reactjs";
 import "nepali-datepicker-reactjs/dist/index.css";
-
 // import * as Nepali from "nepalify-react";
 
 export const AddPublication = () => {
@@ -12,21 +11,21 @@ export const AddPublication = () => {
   const [isButton, setIsButton] = React.useState(false);
 
   const [inputs, setInputs] = React.useState<{
-    title_En: string;
-    title_Np: string;
-    date: string;
-    file: File | null;
+    title_en: string;
+    title_np: string;
+    publication_date: string;
+    document: File | null;
   }>({
-    title_En: "",
-    title_Np: "",
-    date: "",
-    file: null,
+    title_en: "",
+    title_np: "",
+    publication_date: "",
+    document: null,
   });
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       setInputs({
         ...inputs,
-        file: e.target.files[0], // storing the selected file
+        document: e.target.files[0], // storing the selected file
       });
     }
   };
@@ -36,28 +35,37 @@ export const AddPublication = () => {
 
     setIsButton(true);
     const formData = new FormData();
-    formData.append("title_En", inputs.title_En);
-    formData.append("title_Np", inputs.title_Np);
-    formData.append("date", inputs.date);
-    if (inputs.file) {
-      formData.append("file", inputs.file);
+    formData.append("title_en", inputs.title_en);
+    formData.append("title_np", inputs.title_np);
+    formData.append("publication_date", inputs.publication_date);
+    if (inputs.document) {
+      formData.append("document", inputs.document);
     }
 
     try {
-      const res = await fetch("", {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        toast.error("Token Missing");
+        return;
+      }
+      const res = await fetch("https://bharatpur12.org/new/api/publications", {
         method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
         body: formData,
       });
       const data = await res.json();
       if (!res.ok) {
         toast.error(data.error);
+        console.log(data);
       } else {
         toast.success(data.message);
         setInputs({
-          title_En: "",
-          title_Np: "",
-          date: "",
-          file: null,
+          title_en: "",
+          title_np: "",
+          publication_date: "",
+          document: null,
         });
 
         setTimeout(() => {
@@ -86,13 +94,11 @@ export const AddPublication = () => {
               <div className="relative z-0 w-full mb-5 group">
                 <input
                   type="text"
-                  name="title_En"
-                  value={inputs.title_En}
+                  name="title_en"
+                  value={inputs.title_en}
                   onChange={(e) =>
-                    setInputs({ ...inputs, title_En: e.target.value })
+                    setInputs({ ...inputs, title_en: e.target.value })
                   }
-                  lang="ne"
-                  id="floating_first_name"
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   placeholder=""
                 />
@@ -102,28 +108,26 @@ export const AddPublication = () => {
               </div>
 
               <div className="relative z-0 w-full mb-5 group">
+                <label className="">Title_Np</label>
                 <input
                   type="text"
-                  name="title_Np"
-                  value={inputs.title_Np}
+                  name="title_np"
+                  value={inputs.title_np}
                   onChange={(e) =>
-                    setInputs({ ...inputs, title_Np: e.target.value })
+                    setInputs({ ...inputs, title_np: e.target.value })
                   }
-                  className="block py-2.5 font-dev px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  className="block py-2.5 font-dev px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600  focus:outline-none focus:ring-0 "
                   placeholder=" "
                 />
-                <label className="peer-focus:font-dev absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                  Title_Np
-                </label>
               </div>
 
               {/* <div>{Nepali.unicodify(inputs.title_Np)}</div> */}
 
               <div className="relative z-10 w-full mb-5 group">
                 <NepaliDatePicker
-                  value={inputs.date}
+                  value={inputs.publication_date}
                   onChange={(value: string) =>
-                    setInputs({ ...inputs, date: value })
+                    setInputs({ ...inputs, publication_date: value })
                   }
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   placeholder=" "
@@ -136,7 +140,6 @@ export const AddPublication = () => {
                 <input
                   type="file"
                   name="date"
-                  id="floating_first_name"
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   placeholder=" "
                   onChange={handleFileChange}
