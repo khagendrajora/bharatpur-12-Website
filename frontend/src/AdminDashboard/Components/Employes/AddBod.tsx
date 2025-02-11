@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 
 export const AddBod = () => {
   const navigate = useNavigate();
+
   const [isButton, setIsButton] = React.useState(false);
   const [image, setImage] = React.useState<File | null>(null);
   const [inputs, setInputs] = React.useState<{
@@ -17,6 +18,7 @@ export const AddBod = () => {
   }>({
     name_en: "",
     name_np: "",
+
     designation_en: "",
     designation_np: "",
     phone: "",
@@ -38,7 +40,7 @@ export const AddBod = () => {
     formData.append("phone", inputs.phone);
     formData.append("designation_en", inputs.designation_en);
     formData.append("designation_np", inputs.designation_np);
-    formData.append("categoy", inputs.category);
+    formData.append("category", inputs.category);
     if (image) {
       formData.append("image", image);
     }
@@ -115,7 +117,10 @@ export const AddBod = () => {
                   name="name_np"
                   value={inputs.name_np}
                   onChange={(e) =>
-                    setInputs({ ...inputs, name_np: e.target.value })
+                    setInputs({
+                      ...inputs,
+                      name_np: e.target.value,
+                    })
                   }
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   placeholder=" "
@@ -124,6 +129,7 @@ export const AddBod = () => {
                   Name_Np
                 </label>
               </div>
+
               <div className="relative z-0 w-full mb-5 group">
                 <input
                   type="text"
@@ -132,7 +138,6 @@ export const AddBod = () => {
                   onChange={(e) =>
                     setInputs({ ...inputs, designation_en: e.target.value })
                   }
-                  id="floating_first_name"
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   placeholder=" "
                 />
@@ -140,6 +145,7 @@ export const AddBod = () => {
                   Position_En
                 </label>
               </div>
+
               <div className="relative z-0 w-full mb-5 group">
                 <input
                   type="text"
@@ -148,7 +154,6 @@ export const AddBod = () => {
                   onChange={(e) =>
                     setInputs({ ...inputs, designation_np: e.target.value })
                   }
-                  id="floating_first_name"
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   placeholder=" "
                 />
@@ -171,7 +176,6 @@ export const AddBod = () => {
                     Choose Category
                   </option>
                   <option>Board Member</option>
-                  {/* <option>Staff</option> */}
                 </select>
               </div>
 
