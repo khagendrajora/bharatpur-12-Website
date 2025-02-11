@@ -1,6 +1,6 @@
-import { ButtonLoader } from "../../../Utils/ButtonLoader";
+import { ButtonLoader, ImageURl } from "../../../Utils/ButtonLoader";
 import { useNavigate, useParams } from "react-router";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { NepaliDatePicker } from "nepali-datepicker-reactjs";
 import "nepali-datepicker-reactjs/dist/index.css";
@@ -11,6 +11,7 @@ export const UpdatePublication = () => {
   const [isButton, setIsButton] = React.useState(false);
   const params = useParams();
   const id = params.id;
+  const [document, setDocument] = useState<File | null>();
   const [inputs, setInputs] = React.useState<{
     title_en: string;
     title_np: string;
@@ -24,7 +25,7 @@ export const UpdatePublication = () => {
   });
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
+    if (e.target.files && e.target.files.length > 0) {
       setInputs({
         ...inputs,
         document: e.target.files[0],
@@ -38,11 +39,13 @@ export const UpdatePublication = () => {
         await axios
           .get(`https://bharatpur12.org/new/api/publications/${id}`)
           .then(async (res) => {
+            const { title_en, title_np, publication_date, document } = res.data;
+            setDocument(document);
             setInputs({
-              title_en: res.data.title_en || "",
-              title_np: res.data.title_np || "",
-              publication_date: res.data.publication_date || "",
-              document: res.data.document,
+              title_en: title_en || "",
+              title_np: title_np || "",
+              publication_date: publication_date || "",
+              document: null,
             });
           })
           .catch((error) => {
@@ -54,6 +57,7 @@ export const UpdatePublication = () => {
     };
     fetchData();
   }, [id]);
+  console.log(document);
 
   const add = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -63,7 +67,7 @@ export const UpdatePublication = () => {
     formData.append("title_En", inputs.title_en);
     formData.append("title_Np", inputs.title_np);
     formData.append("date", inputs.publication_date);
-    if (inputs.document) {
+    if (inputs.document instanceof File) {
       formData.append("document", inputs.document);
     }
 
@@ -85,7 +89,8 @@ export const UpdatePublication = () => {
       );
       const data = await res.json();
       if (!res.ok) {
-        toast.error(data.error);
+        toast.error(data.error || "failed");
+        console.log(data);
       } else {
         toast.success(data.message);
         setInputs({
@@ -100,7 +105,7 @@ export const UpdatePublication = () => {
         }, 2000);
       }
     } catch (error: any) {
-      toast.error(error);
+      toast.error(error || "error occured");
     } finally {
       setIsButton(false);
     }
@@ -174,6 +179,16 @@ export const UpdatePublication = () => {
                 <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                   File
                 </label>
+                {typeof document === "string" && (
+                  <a
+                    href={`${ImageURl}/${document}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600"
+                  >
+                    View Current File
+                  </a>
+                )}
               </div>
             </div>
 

@@ -7,6 +7,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 export const Dashboard = () => {
   const [menu, setMenu] = useState<boolean>(false);
@@ -14,6 +15,35 @@ export const Dashboard = () => {
   const [employeMenu, setEmployeeMenu] = useState<boolean>(false);
   const navigate = useNavigate();
 
+  const Logout = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        toast.error("Token Missing");
+        return;
+      }
+      const res = await fetch(`https://bharatpur12.org/new/api/logout`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        toast.error(data.error);
+        console.log(data);
+      } else {
+        toast.success(data.message);
+        console.log("logout successful");
+        localStorage.removeItem("token");
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
+      }
+    } catch (error: any) {
+      toast.error(error);
+    }
+  };
   return (
     <>
       <div
@@ -63,10 +93,7 @@ export const Dashboard = () => {
                         <ul className="py-1">
                           <li
                             className="block disabled px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                            onClick={() => {
-                              localStorage.removeItem("token");
-                              navigate("/");
-                            }}
+                            onClick={Logout}
                           >
                             Logout
                           </li>

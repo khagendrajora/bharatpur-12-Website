@@ -4,10 +4,76 @@ import {
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router";
+import { toast } from "react-toastify";
+import { ImageURl } from "../../../Utils/ButtonLoader";
+import axios from "axios";
+import HTMLReactParser from "html-react-parser/lib/index";
+
+export interface IIntro extends Document {
+  id?: string;
+  title_en: string;
+  title_np: string;
+  description_en: string;
+  description_np: string;
+  feature_image: string;
+  slider_images: string[];
+  main_image: string;
+}
 
 export const Intro = () => {
+  const [info, setInfo] = useState<IIntro | null>();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(`https://bharatpur12.org/new/api/about-us
+  `);
+        const data = await res.json();
+        if (!res.ok) {
+          console.log(data);
+        } else {
+          setInfo(data);
+        }
+      } catch (error: any) {
+        toast.error(error);
+      }
+    };
+    fetchData();
+  }, [info]);
+  console.log(info);
+
+  const Delete = async () => {
+    try {
+      const confirmed = window.confirm("Delete ?");
+      if (confirmed) {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          toast.error("Token Missing");
+          return;
+        }
+        // setIsButton(id || "");
+        const response = await axios.delete(
+          `https://bharatpur12.org/new/api/about-us`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        const data = response.data;
+        if (data.message) {
+          toast.error(data.message);
+        } else {
+          setInfo(null);
+        }
+      }
+    } catch (error: any) {
+      toast.error(error.message);
+    }
+  };
   return (
     <>
       <div className="sm:ml-60 mt-20 sm:px-30 p-5">
@@ -55,7 +121,10 @@ export const Intro = () => {
                   <span>ID</span>
                 </th>
                 <th scope="col" className="px-3 py-3">
-                  FetureImage
+                  Feture Image
+                </th>
+                <th scope="col" className="px-3 py-3">
+                  Main Image
                 </th>
                 <th scope="col" className="px-3 py-3">
                   Title
@@ -74,111 +143,69 @@ export const Intro = () => {
               </tr>
             </thead>
             <tbody className="text-center">
-              <tr className="bg-white  border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td className=" py-4   font-semibold text-gray-900 dark:text-white">
-                  1
-                </td>
-                <td className="p-4 ">
-                  <img
-                    src="/1.jpg"
-                    className="w-16 md:w-32 max-w-full mx-auto max-h-full"
-                    alt="Apple Watch"
-                  />
-                </td>
-                <td className="  py-4 font-semibold text-gray-900 dark:text-white">
-                  <div>English</div>
-                  <br />
-                  <div>नेपाली</div>
-                </td>
+              {info && (
+                <>
+                  <tr className="bg-white  border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td className=" py-4   font-semibold text-gray-900 dark:text-white">
+                      {info.id}
+                    </td>
+                    <td className="p-4 ">
+                      <img
+                        src={`${ImageURl}/${info.feature_image}`}
+                        className="w-16 md:w-32 max-w-full mx-auto max-h-full"
+                        alt="Image"
+                      />
+                    </td>
+                    <td className="p-4 ">
+                      <img
+                        src={`${ImageURl}/${info.feature_image} `}
+                        className="w-16 md:w-32 max-w-full mx-auto max-h-full"
+                        alt="Image"
+                      />
+                    </td>
+                    <td className="  py-4 font-semibold text-gray-900 dark:text-white">
+                      <div>{info.title_en}</div>
+                      <br />
+                      <div>{info.title_np}</div>
+                    </td>
 
-                <td className="py-4 font-semibold max-w-[300px] min-w-[300px] px-3  text-gray-900 dark:text-white">
-                  <div>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Ullam excepturi soluta, error omnis nobis nam nulla
-                    inventore ipsum exercitationem qui quas cum! Tempora quam ad
-                    amet quo dicta nisi deserunt.
-                  </div>
-                  <br />
-                  <div>
-                    उल्लाम अपवाद समाधान, त्रुटि सबै नोबिस नाम नुल्ला ipsum
-                    exercitationem qui quas cum आविष्कार गर्नुहोस्! टेम्पोरा
-                    क्वाम विज्ञापन
-                  </div>
-                </td>
+                    <td className="py-4 font-semibold max-w-[300px] min-w-[300px] px-3  text-gray-900 dark:text-white">
+                      <div>{HTMLReactParser(info.description_en)}</div>
+                      <br />
+                      <div>{HTMLReactParser(info.description_np)}</div>
+                    </td>
 
-                <td className="">
-                  <img
-                    src="/1.jpg"
-                    className="w-16 md:w-32 max-w-full mx-auto max-h-full"
-                    alt="Apple Watch"
-                  />
-                </td>
-                <td className="">
-                  <FontAwesomeIcon
-                    icon={faEye}
-                    className="text-blue-600 hover:text-blue-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
-                  />
+                    <td className="">
+                      {info.slider_images.length > 0 &&
+                        info.slider_images.map((s) => (
+                          <img
+                            src={`${ImageURl}/${s}`}
+                            className="w-16 md:w-32 max-w-full mx-auto max-h-full"
+                            alt="Apple Watch"
+                          />
+                        ))}
+                    </td>
+                    <td className="">
+                      <FontAwesomeIcon
+                        icon={faEye}
+                        className="text-blue-600 hover:text-blue-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
+                      />
 
-                  <FontAwesomeIcon
-                    icon={faPenToSquare}
-                    className="text-green-600 hover:text-green-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
-                    onClick={() => navigate(`/admin/updateintro`)}
-                  />
+                      <FontAwesomeIcon
+                        icon={faPenToSquare}
+                        className="text-green-600 hover:text-green-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
+                        onClick={() => navigate(`/admin/updateintro/:id`)}
+                      />
 
-                  <FontAwesomeIcon
-                    icon={faTrash}
-                    className="text-red-600 hover:text-red-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
-                  />
-                </td>
-              </tr>
-              {/* <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td className=" py-4 w-fit font-semibold text-gray-900 dark:text-white">
-                  1
-                </td>
-                <td className="p-4 ">
-                  <img
-                    src="/1.jpg"
-                    className="w-16 md:w-32  max-w-full max-h-full"
-                    alt="Apple iMac"
-                  />
-                </td>
-                <td className=" py-4 font-semibold text-gray-900 dark:text-white">
-                  iMac 27"
-                </td>
-
-                <td className=" py-4">
-                  <a
-                    href="#"
-                    className="font-medium text-red-600 dark:text-red-500 hover:underline"
-                  >
-                    Remove
-                  </a>
-                </td>
-              </tr> */}
-              {/* <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td className=" py-4 w-fit font-semibold text-gray-900 dark:text-white">
-                  1
-                </td>
-                <td className="p-4">
-                  <img
-                    src="/1.jpg"
-                    className="w-16 md:w-32 max-w-full max-h-full"
-                    alt="iPhone 12"
-                  />
-                </td>
-                <td className=" py-4 font-semibold text-gray-900 dark:text-white">
-                  IPhone 12
-                </td>
-
-                <td className=" py-4">
-                  <a
-                    href="#"
-                    className="font-medium text-red-600 dark:text-red-500 hover:underline"
-                  >
-                    Remove
-                  </a>
-                </td>
-              </tr> */}
+                      <FontAwesomeIcon
+                        icon={faTrash}
+                        className="text-red-600 hover:text-red-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
+                        onClick={() => Delete()}
+                      />
+                    </td>
+                  </tr>
+                </>
+              )}
             </tbody>
           </table>
         </div>

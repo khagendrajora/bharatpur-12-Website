@@ -1,5 +1,5 @@
 import React from "react";
-import ReactImageUploading, { ImageListType } from "react-images-uploading";
+
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { ButtonLoader } from "../../../Utils/ButtonLoader";
@@ -10,29 +10,27 @@ export const AddNews = () => {
   const editor = React.useRef(null);
   const navigate = useNavigate();
   const [isButton, setIsButton] = React.useState(false);
-  const [images, setImages] = React.useState<ImageListType>([]);
-  const [featureImage, setFeatureImage] = React.useState<ImageListType>([]);
+  const [image, setImage] = React.useState<File | null>();
 
   const [inputs, setInputs] = React.useState<{
-    title_En: string;
-    title_Np: string;
+    title_en: string;
+    title_np: string;
     date: string;
-    description_En: string;
-    description_Np: string;
+    description_en: string;
+    description_np: string;
   }>({
-    title_En: "",
-    title_Np: "",
+    title_en: "",
+    title_np: "",
     date: "",
-    description_En: "",
-    description_Np: "",
+    description_en: "",
+    description_np: "",
   });
 
-  const onImageGallaryChange = async (imageList: ImageListType) => {
-    setImages(imageList);
-  };
-
-  const onFeatureImage = async (imageList: ImageListType) => {
-    setFeatureImage(imageList);
+  const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setImage(file);
+    }
   };
 
   const config = React.useMemo(
@@ -48,22 +46,27 @@ export const AddNews = () => {
 
     setIsButton(true);
     const formData = new FormData();
-    formData.append("title_En", inputs.title_En);
-    formData.append("title_Np", inputs.title_Np);
+    formData.append("title_en", inputs.title_en);
+    formData.append("title_np", inputs.title_np);
     formData.append("date", inputs.date);
-    formData.append("description_En", inputs.description_En);
-    formData.append("description_Np", inputs.description_Np);
+    formData.append("description_en", inputs.description_en);
+    formData.append("description_np", inputs.description_np);
 
-    images.forEach((image) => {
-      formData.append(`images`, image.file as File);
-    });
-    featureImage.forEach((image) => {
-      formData.append(`featureImage`, image.file as File);
-    });
+    if (image) {
+      formData.append(`image`, image);
+    }
 
     try {
-      const res = await fetch("", {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        toast.error("Token Missing");
+        return;
+      }
+      const res = await fetch("https://bharatpur12.org/new/api/samachar", {
         method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
         body: formData,
       });
       const data = await res.json();
@@ -72,12 +75,13 @@ export const AddNews = () => {
       } else {
         toast.success(data.message);
         setInputs({
-          title_En: "",
-          title_Np: "",
+          title_en: "",
+          title_np: "",
           date: "",
-          description_En: "",
-          description_Np: "",
+          description_en: "",
+          description_np: "",
         });
+        setImage(null);
 
         setTimeout(() => {
           navigate(-1);
@@ -105,9 +109,11 @@ export const AddNews = () => {
               <div className="relative z-0 w-full mb-5 group">
                 <input
                   type="text"
-                  name="title_En"
-                  value={inputs.title_En}
-                  lang="ne"
+                  name="title_en"
+                  value={inputs.title_en}
+                  onChange={(e) =>
+                    setInputs({ ...inputs, title_en: e.target.value })
+                  }
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   placeholder=" "
                 />
@@ -119,9 +125,11 @@ export const AddNews = () => {
               <div className="relative z-0 w-full mb-5 group">
                 <input
                   type="text"
-                  name="title_Np"
-                  value={inputs.title_Np}
-                  lang="ne"
+                  name="title_np"
+                  value={inputs.title_np}
+                  onChange={(e) =>
+                    setInputs({ ...inputs, title_np: e.target.value })
+                  }
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   placeholder=" "
                 />
@@ -134,10 +142,10 @@ export const AddNews = () => {
                 <label className="font-medium">Description_En</label>
                 <JoditEditor
                   ref={editor}
-                  value={inputs.description_En}
+                  value={inputs.description_en}
                   config={config}
                   onChange={(content) => {
-                    setInputs({ ...inputs, description_En: content });
+                    setInputs({ ...inputs, description_en: content });
                   }}
                 />
               </div>
@@ -145,10 +153,10 @@ export const AddNews = () => {
                 <label className="font-medium">Description_Np</label>
                 <JoditEditor
                   ref={editor}
-                  value={inputs.description_Np}
+                  value={inputs.description_np}
                   config={config}
                   onChange={(content) => {
-                    setInputs({ ...inputs, description_Np: content });
+                    setInputs({ ...inputs, description_np: content });
                   }}
                 />
               </div>
@@ -166,157 +174,17 @@ export const AddNews = () => {
                   Date
                 </label>
               </div>
-              <div className="flex gap-20">
-                <div className="flex">
-                  <ReactImageUploading
-                    value={featureImage}
-                    onChange={onFeatureImage}
-                    maxNumber={1000}
-                    dataURLKey="data_url"
-                  >
-                    {({
-                      imageList,
-                      onImageUpload,
-                      onImageRemoveAll,
-                      onImageRemove,
-                      isDragging,
-                      dragProps,
-                    }: {
-                      imageList: ImageListType;
-                      onImageUpload: () => void;
-                      onImageRemoveAll: () => void;
-                      onImageRemove: (index: number) => void;
-                      isDragging: boolean;
-                      dragProps: React.HTMLAttributes<HTMLDivElement>;
-                    }) => (
-                      <div {...dragProps} className="upload__image-wrapper">
-                        <button
-                          style={isDragging ? { color: "red" } : undefined}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            onImageUpload();
-                          }}
-                          className="p-2 border border-gray-600 rounded-lg mb-2 items-center"
-                        >
-                          Add Feature Photo
-                        </button>
-                        &nbsp;
-                        {featureImage.length > 0 ? (
-                          <button
-                            onClick={(e) => {
-                              e.preventDefault();
-                              onImageRemoveAll();
-                            }}
-                            className="p-2 rounded-lg border"
-                          >
-                            Remove
-                          </button>
-                        ) : (
-                          ""
-                        )}
-                        <div className="flex flex-row flex-wrap gap-7 mt-5">
-                          {imageList.map((image, index) => (
-                            <div
-                              key={index}
-                              className="image-item flex flex-row w-fit"
-                            >
-                              <div>
-                                <img src={image.data_url} alt="" width="100" />
-                                <div className="image-item__btn-wrapper flex gap-x-3">
-                                  <button
-                                    onClick={(e) => {
-                                      e.preventDefault();
-                                      onImageRemove(index);
-                                    }}
-                                    className="bg-red-600 mt-1 text-xs p-1 rounded-md"
-                                  >
-                                    Remove
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </ReactImageUploading>
-                </div>
-
-                <div className="flex">
-                  <ReactImageUploading
-                    value={images}
-                    multiple
-                    onChange={onImageGallaryChange}
-                    maxNumber={1000}
-                    dataURLKey="data_url"
-                  >
-                    {({
-                      imageList,
-                      onImageUpload,
-                      onImageRemoveAll,
-                      onImageRemove,
-                      isDragging,
-                      dragProps,
-                    }: {
-                      imageList: ImageListType;
-                      onImageUpload: () => void;
-                      onImageRemoveAll: () => void;
-                      onImageRemove: (index: number) => void;
-                      isDragging: boolean;
-                      dragProps: React.HTMLAttributes<HTMLDivElement>;
-                    }) => (
-                      <div {...dragProps} className="upload__image-wrapper">
-                        <button
-                          style={isDragging ? { color: "red" } : undefined}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            onImageUpload();
-                          }}
-                          className="p-2 border border-gray-600 rounded-lg mb-2 items-center"
-                        >
-                          Add Images
-                        </button>
-                        &nbsp;
-                        {images.length > 0 ? (
-                          <button
-                            onClick={(e) => {
-                              e.preventDefault();
-                              onImageRemoveAll();
-                            }}
-                            className="p-2 rounded-lg border"
-                          >
-                            Remove
-                          </button>
-                        ) : (
-                          ""
-                        )}
-                        <div className="flex flex-row flex-wrap gap-7 mt-5">
-                          {imageList.map((image, index) => (
-                            <div
-                              key={index}
-                              className="image-item flex flex-row w-fit"
-                            >
-                              <div>
-                                <img src={image.data_url} alt="" width="100" />
-                                <div className="image-item__btn-wrapper flex gap-x-3">
-                                  <button
-                                    onClick={(e) => {
-                                      e.preventDefault();
-                                      onImageRemove(index);
-                                    }}
-                                    className="bg-red-600 mt-1 text-xs p-1 rounded-md"
-                                  >
-                                    Remove
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </ReactImageUploading>
-                </div>
+              <div className="relative z-0 w-full mb-5 group">
+                <input
+                  type="file"
+                  name="image"
+                  onChange={handleImageChange}
+                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0  "
+                  placeholder=" "
+                />
+                <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4   peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                  Image
+                </label>
               </div>
             </div>
 

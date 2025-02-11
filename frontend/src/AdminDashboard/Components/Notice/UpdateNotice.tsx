@@ -107,8 +107,9 @@ export const UpdateNotice = () => {
       const data = await res.json();
       if (!res.ok) {
         toast.error(data.error);
+        console.log("failed");
       } else {
-        toast.success(data.message);
+        console.log("success");
         setInputs({
           title_en: "",
           title_np: "",

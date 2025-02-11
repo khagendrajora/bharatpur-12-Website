@@ -14,7 +14,6 @@ export interface IPublication extends Document {
   title_en: string;
   title_np: string;
   publication_date: string;
-  description_np: string;
   document: string;
 }
 
@@ -32,9 +31,6 @@ export const Publication = () => {
         if (!res.ok) {
           console.log(data.error);
         } else {
-          // const filterData = data.filter(
-          //   (item: { category: string }) => item.category === "Board Member"
-          // );
           setInfo(data);
         }
       } catch (error: any) {
@@ -89,9 +85,9 @@ export const Publication = () => {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
               />
             </svg>
@@ -138,8 +134,11 @@ export const Publication = () => {
           </thead>
           <tbody className="text-center">
             {info &&
-              info.map((data) => (
-                <tr className="bg-white  border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+              info.map((data, key) => (
+                <tr
+                  key={key}
+                  className="bg-white  border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
+                >
                   <td className=" py-4   font-semibold text-gray-900 dark:text-white">
                     {data.id}
                   </td>
