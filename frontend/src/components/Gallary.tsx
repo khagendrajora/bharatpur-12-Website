@@ -147,9 +147,9 @@ export const Gallary = () => {
             <>
               <div
                 key={index}
-                className={`relative ${image.color} p-5 shadow-sm flex  flex-col gap-4 w-1/4 xxl:w-[555px]  justify-center  border-black`}
+                className={`relative ${image.color} p-5 w-full shadow-sm flex  flex-col gap-4 lg:w-1/4 xxl:w-[555px]  justify-center  border-black`}
               >
-                <div className="flex justify-between">
+                <div className="flex justify-between flex-wrap">
                   <h3 className="font-semibold text-xl">{image.title}</h3>
                   <h1 className="font-bold">{image.value}</h1>
                 </div>
@@ -167,9 +167,9 @@ export const Gallary = () => {
             <>
               <div
                 key={index}
-                className={`relative ${image.color} p-5 shadow-sm  flex  flex-col gap-4 w-1/4 xxl:w-[555px]  justify-center${image.color} border-black`}
+                className={`relative ${image.color} p-5 shadow-sm w-full  flex  flex-col gap-4 lg:w-1/4 xxl:w-[555px]  justify-center${image.color} border-black`}
               >
-                <div className="flex justify-between">
+                <div className="flex justify-between flex-wrap">
                   <h3 className="font-semibold text-xl">{image.title}</h3>
                   <h1 className="">{image.value}</h1>
                 </div>
