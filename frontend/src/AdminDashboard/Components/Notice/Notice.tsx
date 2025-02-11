@@ -4,10 +4,78 @@ import {
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router";
+import { toast } from "react-toastify";
+import HTMLReactParser from "html-react-parser";
+
+export interface INotice extends Document {
+  id?: string;
+  title_en: string;
+  title_np: string;
+  description_en: string;
+  description_np: string;
+  date: string;
+
+  image: string;
+}
 
 export const Notice = () => {
+  const [info, setInfo] = useState<INotice[]>([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(`https://bharatpur12.org/new/api/information`);
+        const data = await res.json();
+        if (!res.ok) {
+          console.log(data.error);
+        } else {
+          // const filterData = data.filter(
+          //   (item: { category: string }) => item.category === "Board Member"
+          // );
+          setInfo(data);
+        }
+      } catch (error: any) {
+        toast.error(error);
+      }
+    };
+    fetchData();
+  }, []);
+  console.log(info);
+
+  const Delete = async (id: string | undefined) => {
+    try {
+      const confirmed = window.confirm("Delete ?");
+      if (confirmed) {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          toast.error("Token Missing");
+          return;
+        }
+        // setIsButton(id || "");
+        const response = await axios.delete(
+          `https://bharatpur12.org/new/api/information/${id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        const data = response.data;
+        if (data.message) {
+          toast.error(data.message);
+        } else {
+          setInfo((prev) => prev?.filter((v) => v.id !== id));
+        }
+      }
+    } catch (error: any) {
+      toast.error(error.message);
+    }
+  };
+
   return (
     <div className="sm:ml-60 mt-20 sm:px-30 p-5">
       <h1 className="font-bold text-2xl pb-10">सूचना</h1>
@@ -53,9 +121,9 @@ export const Notice = () => {
               <th scope="col" className="px-3 py-3">
                 <span>ID</span>
               </th>
-              <th scope="col" className="px-3 py-3">
+              {/* <th scope="col" className="px-3 py-3">
                 Feature&nbsp;Image
-              </th>
+              </th> */}
               <th scope="col" className="px-3 py-3">
                 Title
               </th>
@@ -67,7 +135,7 @@ export const Notice = () => {
               </th>
 
               <th scope="col" className="px-3 py-3">
-                Images
+                Image
               </th>
               <th scope="col" className="px-3 py-3">
                 Action
@@ -75,115 +143,63 @@ export const Notice = () => {
             </tr>
           </thead>
           <tbody className="text-center">
-            <tr className="bg-white  border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
-              <td className=" py-4   font-semibold text-gray-900 dark:text-white">
-                1
-              </td>
-              <td className="p-4 ">
-                <img
-                  src="/1.jpg"
-                  className="w-16 md:w-32 max-w-full mx-auto max-h-full"
-                  alt="Apple Watch"
-                />
-              </td>
-              <td className="  py-4 font-semibold text-gray-900 dark:text-white">
-                <div>English</div>
-                <br />
-                <div>नेपाली</div>
-              </td>
-              <td className="  py-4 font-semibold text-gray-900 dark:text-white">
-                <div>Date</div>
-                <br />
-                <div>नेपाली</div>
-              </td>
-              <td className="py-4 font-semibold max-w-[300px] min-w-[300px] px-3  text-gray-900 dark:text-white">
-                <div>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Ullam excepturi soluta, error omnis nobis nam nulla inventore
-                  ipsum exercitationem qui quas cum! Tempora quam ad amet quo
-                  dicta nisi deserunt.
-                </div>
-                <br />
-                <div>
-                  उल्लाम अपवाद समाधान, त्रुटि सबै नोबिस नाम नुल्ला ipsum
-                  exercitationem qui quas cum आविष्कार गर्नुहोस्! टेम्पोरा क्वाम
-                  विज्ञापन
-                </div>
-              </td>
+            {info &&
+              info.map((data) => (
+                <tr className="bg-white  border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                  <td className=" py-4   font-semibold text-gray-900 dark:text-white">
+                    {data.id}
+                  </td>
 
-              <td className="">
-                <img
-                  src="/1.jpg"
-                  className="w-16 md:w-32 max-w-full mx-auto max-h-full"
-                  alt="Apple Watch"
-                />
-              </td>
-              <td className="">
-                <FontAwesomeIcon
-                  icon={faEye}
-                  className="text-blue-600 hover:text-blue-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
-                />
+                  <td className="  py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>{data.title_en}</div>
+                    <br />
+                    <div>{data.title_np}</div>
+                  </td>
+                  <td className="  py-4 font-semibold text-gray-900 dark:text-white">
+                    <div>{data.date}</div>
+                    {/* <br /> */}
+                    {/* <div>नेपाली</div> */}
+                  </td>
+                  <td className="py-4 font-semibold max-w-[300px] min-w-[300px] px-3  text-gray-900 dark:text-white">
+                    <div>{HTMLReactParser(data.description_en)}</div>
+                    <br />
+                    <div>{HTMLReactParser(data.description_np)}</div>
+                  </td>
 
-                <FontAwesomeIcon
-                  icon={faPenToSquare}
-                  className="text-green-600 hover:text-green-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
-                  onClick={() => navigate(`/admin/updatenotice`)}
-                />
+                  {/* <td className="">
+                    <img
+                      src="/1.jpg"
+                      className="w-16 md:w-32 max-w-full mx-auto max-h-full"
+                      alt="Apple Watch"
+                    />
+                  </td> */}
+                  <td className="p-4 ">
+                    <img
+                      src={`https://bharatpur12.org/new/api/${data.image}`}
+                      className="w-16 md:w-32 max-w-full mx-auto max-h-full"
+                      alt="Image"
+                    />
+                  </td>
+                  <td className="">
+                    <FontAwesomeIcon
+                      icon={faEye}
+                      className="text-blue-600 hover:text-blue-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
+                    />
 
-                <FontAwesomeIcon
-                  icon={faTrash}
-                  className="text-red-600 hover:text-red-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
-                />
-              </td>
-            </tr>
-            {/* <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
-                    <td className=" py-4 w-fit font-semibold text-gray-900 dark:text-white">
-                      1
-                    </td>
-                    <td className="p-4 ">
-                      <img
-                        src="/1.jpg"
-                        className="w-16 md:w-32  max-w-full max-h-full"
-                        alt="Apple iMac"
-                      />
-                    </td>
-                    <td className=" py-4 font-semibold text-gray-900 dark:text-white">
-                      iMac 27"
-                    </td>
-    
-                    <td className=" py-4">
-                      <a
-                        href="#"
-                        className="font-medium text-red-600 dark:text-red-500 hover:underline"
-                      >
-                        Remove
-                      </a>
-                    </td>
-                  </tr> */}
-            {/* <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
-                    <td className=" py-4 w-fit font-semibold text-gray-900 dark:text-white">
-                      1
-                    </td>
-                    <td className="p-4">
-                      <img
-                        src="/1.jpg"
-                        className="w-16 md:w-32 max-w-full max-h-full"
-                        alt="iPhone 12"
-                      />
-                    </td>
-                    <td className=" py-4 font-semibold text-gray-900 dark:text-white">
-                      IPhone 12
-                    </td>
-    
-                    <td className=" py-4">
-                      <a
-                        href="#"
-                        className="font-medium text-red-600 dark:text-red-500 hover:underline"
-                      >
-                        Remove
-                      </a>
-                    </td>
-                  </tr> */}
+                    <FontAwesomeIcon
+                      icon={faPenToSquare}
+                      className="text-green-600 hover:text-green-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
+                      onClick={() => navigate(`/admin/updatenotice/${data.id}`)}
+                    />
+
+                    <FontAwesomeIcon
+                      icon={faTrash}
+                      className="text-red-600 hover:text-red-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
+                      onClick={() => Delete(data.id)}
+                    />
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>

@@ -48,7 +48,7 @@ import { UpdateNews } from "./AdminDashboard/Components/News/UpdateNews";
 import { UpdateEmploy } from "./AdminDashboard/Components/Employes/UpdateEmploy";
 import { UpdateBod } from "./AdminDashboard/Components/Employes/UpdateBod";
 function App() {
-  const token = localStorage.getItem("token");
+  // const token = localStorage.getItem("token");s
   return (
     <>
       <BrowserRouter>
@@ -104,8 +104,8 @@ function App() {
 
             <Route path="updateintro" element={<UpdateIntro />} />
             <Route path="updatepublication" element={<UpdatePublication />} />
-            <Route path="updatenotice" element={<UpdateNotice />} />
-            <Route path="updatework" element={<UpdateWork />} />
+            <Route path="updatenotice/:id" element={<UpdateNotice />} />
+            <Route path="updatework/:id" element={<UpdateWork />} />
             <Route path="updatenews" element={<UpdateNews />} />
             <Route path="updateemploye/:id" element={<UpdateEmploy />} />
             <Route path="updatebod/:id" element={<UpdateBod />} />

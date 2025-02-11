@@ -163,7 +163,7 @@ export const BoardMembers = () => {
                   <td className="py-4 font-semibold px-3  text-gray-900 dark:text-white">
                     <div>{data.designation_en}</div>
                     <br />
-                    <div>{data.designation_np}</div>
+                    <div>(data.designation_np)</div>
                   </td>
 
                   <td className="">{data.phone}</td>
