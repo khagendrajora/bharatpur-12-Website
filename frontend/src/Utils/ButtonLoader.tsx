@@ -1,7 +1,7 @@
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export const ImageURl = "https://bharatpur12.org/new/storage/app/public";
+export const ImageURl = "https://bharatpur12.org/new/public/storage/";
 export const ButtonLoader = () => {
   return (
     <>

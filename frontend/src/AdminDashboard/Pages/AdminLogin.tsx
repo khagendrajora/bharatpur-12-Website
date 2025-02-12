@@ -40,7 +40,7 @@ export const AdminLogin = () => {
             } else {
               console.log("token failed");
             }
-          }, 1000);
+          }, 2000);
 
           resetForm();
         }
@@ -53,10 +53,10 @@ export const AdminLogin = () => {
   return (
     <>
       <ToastContainer theme="colored" position="top-center" />
-      <div className="flex flex-col items-center justify-center min-h-screen  ">
+      <div className="flex flex-col items-center p-10 justify-center h-screen  ">
         <form
           onSubmit={formik.handleSubmit}
-          className="flex flex-col gap-y-5 shadow-xl p-20 rounded-md "
+          className="flex flex-col gap-y-5 border shadow-xl p-10 md:p-20 rounded-md "
         >
           <div
             className="flex gap-5 items-center flex-col  px-4 cursor-pointer"

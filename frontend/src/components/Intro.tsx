@@ -13,20 +13,7 @@ export const Intro = () => {
       post: "अध्यक्ष",
       number: "९८५५०५६४३८",
     },
-    // {
-    //   src: "/female.png",
-    //   alt: "Hero Image 2",
-    //   name: "जमुना ढुंगाना ",
-    //   post: "महिला सदस्य",
-    //   number: "९८४९०४६२६१",
-    // },
-    // {
-    //   src: "/female.png",
-    //   alt: "Hero Image 3",
-    //   name: "	मिरा नेपाली ",
-    //   post: "द. महिला सदस्य",
-    //   number: "९७४८४२९८९०",
-    // },
+
     {
       src: "/Images/bir bahadur syantan.jpg",
       alt: "Hero Image 4",

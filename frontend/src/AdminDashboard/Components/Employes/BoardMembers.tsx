@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { ImageURl } from "../../../Utils/ButtonLoader";
 
 export interface IMembers extends Document {
   id?: string;
@@ -149,7 +150,7 @@ export const BoardMembers = () => {
                   </td>
                   <td className="p-4 ">
                     <img
-                      src={`https://bharatpur12.org/new/storage/app/public/${data.image}`}
+                      src={`${ImageURl}/${data.image}`}
                       className="w-16 md:w-32 max-w-full mx-auto max-h-full"
                       alt="Image"
                     />

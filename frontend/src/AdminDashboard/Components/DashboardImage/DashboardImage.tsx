@@ -1,6 +1,35 @@
 import { Link } from "react-router";
+import { ImageURl } from "../../../Utils/ButtonLoader";
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+
+export interface ISlider extends Document {
+  id?: string;
+  title: string;
+  image: string;
+}
 
 export const DashboardImage = () => {
+  const [info, setInfo] = useState<ISlider[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(
+          `https://bharatpur12.org/new/api/slider-images`
+        );
+        const data = await res.json();
+        if (!res.ok) {
+          console.log(data.error);
+        } else {
+          setInfo(data);
+        }
+      } catch (error: any) {
+        toast.error(error);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <>
       <div className="sm:ml-60 mt-20 sm:px-30 p-5">
@@ -16,9 +45,9 @@ export const DashboardImage = () => {
               >
                 <path
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
                 />
               </svg>
@@ -56,69 +85,30 @@ export const DashboardImage = () => {
               </tr>
             </thead>
             <tbody>
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td className="p-4">
-                  <img
-                    src="/1.jpg"
-                    className="w-16 md:w-32 max-w-full max-h-full"
-                    alt="Apple Watch"
-                  />
-                </td>
-                <td className="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                  Apple Watch
-                </td>
+              {info &&
+                info.map((item) => (
+                  <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td className="p-4">
+                      <img
+                        src={`${ImageURl}/${item.image}`}
+                        className="w-16 md:w-32 max-w-full max-h-full"
+                        alt="Apple Watch"
+                      />
+                    </td>
+                    <td className="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                      Apple Watch
+                    </td>
 
-                <td className="px-6 py-4">
-                  <a
-                    href="#"
-                    className="font-medium text-red-600 dark:text-red-500 hover:underline"
-                  >
-                    Remove
-                  </a>
-                </td>
-              </tr>
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td className="p-4">
-                  <img
-                    src="/1.jpg"
-                    className="w-16 md:w-32 max-w-full max-h-full"
-                    alt="Apple iMac"
-                  />
-                </td>
-                <td className="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                  iMac 27"
-                </td>
-
-                <td className="px-6 py-4">
-                  <a
-                    href="#"
-                    className="font-medium text-red-600 dark:text-red-500 hover:underline"
-                  >
-                    Remove
-                  </a>
-                </td>
-              </tr>
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td className="p-4">
-                  <img
-                    src="/1.jpg"
-                    className="w-16 md:w-32 max-w-full max-h-full"
-                    alt="iPhone 12"
-                  />
-                </td>
-                <td className="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                  IPhone 12
-                </td>
-
-                <td className="px-6 py-4">
-                  <a
-                    href="#"
-                    className="font-medium text-red-600 dark:text-red-500 hover:underline"
-                  >
-                    Remove
-                  </a>
-                </td>
-              </tr>
+                    <td className="px-6 py-4">
+                      <a
+                        href="#"
+                        className="font-medium text-red-600 dark:text-red-500 hover:underline"
+                      >
+                        Remove
+                      </a>
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>
