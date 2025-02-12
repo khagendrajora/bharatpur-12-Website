@@ -47,6 +47,7 @@ import { UpdateWork } from "./AdminDashboard/Components/Works/UpdateWork";
 import { UpdateNews } from "./AdminDashboard/Components/News/UpdateNews";
 import { UpdateEmploy } from "./AdminDashboard/Components/Employes/UpdateEmploy";
 import { UpdateBod } from "./AdminDashboard/Components/Employes/UpdateBod";
+import { DashboardData } from "./AdminDashboard/Components/DashboardData";
 function App() {
   // const token = localStorage.getItem("token");s
   return (
@@ -81,6 +82,7 @@ function App() {
             {/* {token ? ( */}
             {/* <> */}
             <Route path="dashboard" element={<Dashboard />} />
+            <Route path="dashboarddata" element={<DashboardData />} />
             <Route path="dashboardImage" element={<DashboardImage />} />
             <Route path="intro" element={<Intro />} />
             <Route path="works" element={<Works />} />

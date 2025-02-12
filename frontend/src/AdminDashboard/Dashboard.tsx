@@ -76,7 +76,7 @@ export const Dashboard = () => {
                   <button className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600">
                     <img
                       className="w-8 h-8 rounded-full relative"
-                      src="/logo2.jpeg"
+                      src="/Digisoftlogo.jpg"
                       alt="user photo"
                       onClick={() => {
                         setMenu(!menu);
@@ -115,7 +115,7 @@ export const Dashboard = () => {
           side ? "w-60" : "w-0"
         } border-gray-200 sm:translate-x-0 `}
       >
-        <div className="h-full px-3 py-20 pb-4 overflow-y-auto bg-[#2e3e4e] text-white ">
+        <div className="h-full px-3 py-20 pb-4 overflow-y-auto bg-[#2e3e4e] text-white">
           <ul className="space-y-2 font-medium">
             <li>
               <a href="#" className="flex items-center p-2  rounded-lg   group">

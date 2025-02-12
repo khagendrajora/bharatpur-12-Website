@@ -3,9 +3,12 @@ import { useFormik } from "formik";
 import { useNavigate } from "react-router";
 import { adminLogin } from "../../Validation/Validation";
 import "react-toastify/dist/ReactToastify.css";
+import { useState } from "react";
+import { ButtonLoader } from "../../Utils/ButtonLoader";
 
 export const AdminLogin = () => {
   const navigate = useNavigate();
+  const [isButton, setIsButton] = useState<boolean>(false);
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -15,6 +18,7 @@ export const AdminLogin = () => {
     enableReinitialize: true,
     onSubmit: async (values, { resetForm }) => {
       try {
+        setIsButton(true);
         const res = await fetch(`https://bharatpur12.org/new/api/login`, {
           method: "POST",
           headers: {
@@ -31,11 +35,12 @@ export const AdminLogin = () => {
           setTimeout(() => {
             const token = localStorage.getItem("token");
             if (token) {
-              navigate("/admin/dashboard");
+              setIsButton(false);
+              navigate("/admin/dashboarddata");
             } else {
               console.log("token failed");
             }
-          }, 2000);
+          }, 1000);
 
           resetForm();
         }
@@ -53,6 +58,15 @@ export const AdminLogin = () => {
           onSubmit={formik.handleSubmit}
           className="flex flex-col gap-y-5 shadow-xl p-20 rounded-md "
         >
+          <div
+            className="flex gap-5 items-center flex-col  px-4 cursor-pointer"
+            onClick={() => navigate("/")}
+          >
+            <img src="/logo1.jpeg" alt="logo" className="w-[200px] h-auto" />
+            <h1 className="text-xs flex justifu-center flex-col gap-3">
+              <img src="/logoname.png" className="w-[200px]  " />
+            </h1>
+          </div>
           <div>
             <input
               type="text"
@@ -87,7 +101,7 @@ export const AdminLogin = () => {
               type="submit"
               className="bg-blue-600 text-white p-3 rounded-xl w-full"
             >
-              Login
+              Login {isButton ? <ButtonLoader /> : ""}
             </button>
           </div>
           {/* <div className="flex gap-3 items-center">
