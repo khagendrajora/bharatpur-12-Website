@@ -51,7 +51,9 @@ export const Dashboard = () => {
   return (
     <>
       {isButton ? (
-        <ButtonLoader />
+        <div className="fixed inset-0 flex items-center justify-center bg-white">
+          <ButtonLoader />
+        </div>
       ) : (
         <>
           <div
