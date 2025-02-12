@@ -21,36 +21,40 @@ export const WardIntro = () => {
             <img
               src="/bharatpur.jpg"
               alt="logo"
-              className="flex mx-auto p-10 xxl:p-20 xxl:h-full h-[500px] object-cover"
+              className="flex mx-auto p-10  xxl:h-full h-[500px] object-cover"
             />
           </div>
           <div className="lg:w-1/2 flex flex-col w-full">
             <div className="p-2 xl:p-5 mt-5 w-full flex flex-col gap-5">
-              <h1 className="text-4xl px-4 font-bold">वडा नं.१२ को विवरण</h1>
+              <h1 className="text-4xl px-4 font-bold">
+                भरतपुर महानगरपालिका वडा नं. १२ को विवरण
+              </h1>
               <div className="text-gray-600 px-4 leading-9 w-full   text-justify">
-                खोकना पूर्व गाउँ विकास समिति (VDC) हो जुन छिमेकी गाविसा बुंगमती,
-                छाम्पी, दुकुछाप र सानिबुसँग गाभिएर नेपालको बागमती अञ्चलको
-                ललितपुर जिल्लाको कार्यविनायक नगरपालिका गठन गरिएको छ। 1991 को
-                नेपाली जनगणना को समयमा, खोकना 4258 को जनसंख्या 699 व्यक्तिगत
-                घरहरु मा बसोबास थियो। 2011 को नेपाली जनगणना अनुसार, 1056
-                व्यक्तिगत घरहरु मा बसोबास गर्ने 4927 को जनसंख्या थियो।. खोकना,
-                एउटा परम्परागत र सानो नेवारी गाउँ, जुन काठमाण्डौबाट करिब ८
-                किलोमिटर दक्षिणमा (पाटनको बाहिरी भागमा) पर्छ। खोकना
-                प्राचीनकालदेखि नै तोरीको तेल उत्पादनका लागि प्रख्यात छ । राणा
-                प्रधानमन्त्री चन्द्र शमशेरको पालामा सन् १९११ मा विद्युतले जलाउने
-                नेपालको पहिलो सहर पनि थियो ।
+                पवित्र नारायणी नदी किनार तथा प्रसिद्ध धार्मिकस्थल देवघाटधामको
+                काखमा अवस्थित भरतपुर महानगरपालिका ऐतिहासिक, सामाजिक, आर्थिक,
+                राजनीतिक, धार्मिक तथा सांस्कृतिक आदि रूपले मुलुककै अग्रणी नगरीको
+                रूपमा आफ्नो पहिचान बनाएको छ । वि.सं. २०३५ सालमा तत्कालीन भरतपुर
+                गाउँ पञ्चायत र नारायणगढ गाउँ पञ्चायतलाई मिलाई भरतपुर नगर
+                पञ्चायतको रूपमा रही २०४८ साल देखि भरतपुर नगरपालिकाको रूपमा
+                संचालित भएकोमा नेपाल सरकार मन्त्रिपरिषदको मिति २०७१।०८।१६ को
+                निर्णयले यस भरतपुर नगरपालिकालाई आसपासका पाँच गा.बि.स. मगंलपुर
+                ,फुलबारी , गीतानगर , शिवनगर र पटिहानी समावेश गरि भरतपुर उप–
+                महानगरपालिकामा स्तरोन्नती गरिएको थियो . यसै गरि नेपाल सरकार
+                मन्त्रिपरिषदको मिति २०७३ ।११ ।२७ को निर्णयले यस भरतपुर उप
+                -महानगरपालिका मा नारायणी नगरपालिका , चित्रबन नगरपालिका र कविलास
+                गा.बि .स समेत थप गरि भरतपुर महानगरपालिकामा स्तरोन्नती भएको छ ।
               </div>
             </div>
           </div>
-          <div className="flex flex-col p-2 overflow-auto text-black gap-4 mt-20 mb-10 md:w-full ">
-            <div className="flex flex-col  mx-auto gap-10">
+          <div className="flex flex-col p-2 overflow-auto text-black gap-4 mt-10 w-full ">
+            <div className="flex flex-col w-full  ">
               <h1 className="font-bold mx-auto xl:mx-0  text-2xl">
                 महत्वपूर्ण&nbsp;स्थानहरुः
               </h1>
-              <div className="">
-                <div className={`flex flex-wrap `}>
+              <div className="w-full">
+                <div className={`flex flex-wrap py-10 `}>
                   <button
-                    className={`px-10 p-1  sm:w-1/2 xl:w-1/4  border text-lg ${
+                    className={`md:px-10 p-2 sm:w-1/2 xl:w-1/4  border md:text-lg text-sm ${
                       table === "table1" ? "bg-sky-500 text-white" : "bg-white"
                     }
                       `}
@@ -59,7 +63,7 @@ export const WardIntro = () => {
                     विद्यालयहरु
                   </button>
                   <button
-                    className={`px-10 p-1 min-w-[200px]  sm:w-1/2 xl:w-1/4 border text-lg  ${
+                    className={`md:px-10 p-2 md:min-w-[200px]  sm:w-1/2 xl:w-1/4 border  md:text-lg text-sm  ${
                       table === "table2" ? "bg-sky-500 text-white" : "bg-white"
                     }
                       `}
@@ -68,7 +72,7 @@ export const WardIntro = () => {
                     अस्पतालहरूको&nbsp;नाम
                   </button>
                   <button
-                    className={`px-10 p-1 min-w-[200px]  sm:w-1/2 xl:w-1/4 border text-lg  ${
+                    className={`md:px-10 p-2 md:min-w-[200px]  sm:w-1/2 xl:w-1/4 border md:text-lg text-sm  ${
                       table === "table3" ? "bg-sky-500 text-white" : "bg-white"
                     }
                       `}
@@ -77,7 +81,7 @@ export const WardIntro = () => {
                     पर्यटकीय&nbsp;स्थलहरु
                   </button>
                   <button
-                    className={`px-10 p-1 min-w-[200px]   sm:w-1/2 xl:w-1/4 border text-lg  ${
+                    className={`md:px-10  p-2 md:min-w-[200px]   sm:w-1/2 xl:w-1/4 border md:text-lg text-sm  ${
                       table === "table4" ? "bg-sky-500 text-white" : "bg-white"
                     }
                       `}
@@ -87,62 +91,60 @@ export const WardIntro = () => {
                   </button>
                 </div>
                 {table === "table1" && (
-                  <div className="overflow-y-auto w-full">
-                    <table className=" text-xs  border ">
-                      <thead className="font-normal text-start border">
-                        <tr className="border text-start">
-                          <th className="font-normal text-start p-4">क्र.स</th>
-                          <th className="font-normal text-start p-4">
-                            विद्यालयको&nbsp;नाम
-                          </th>
-                          <th className="font-normal text-start p-4">
-                            प्रधानाध्यापकको नाम
-                          </th>
-                          <th className="font-normal text-start p-4">
-                            फोन/मोबाइल&nbsp;नं
-                          </th>
-                          <th className="font-normal text-start p-4">
-                            नगरपालिकामा&nbsp;दर्ता&nbsp;भएको/नभएको&nbsp;कैफियत
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr className="text-start">
-                          <td className="font-normal p-4">१</td>
-                          <td className="font-normal p-4">
-                            श्री&nbsp;जनजागृति&nbsp;माध्यमिक&nbsp;विद्यालय
-                          </td>
-                          <td className="font-normal p-4">
-                            श्री रामबहादुर थापा
-                          </td>
-                          <td className="font-normal p-4">०५६-५२७००१</td>
-                          <td className="font-normal p-4">निजी</td>
-                        </tr>
-                        <tr className="text-start">
-                          <td className="font-normal p-4">२</td>
-                          <td className="font-normal p-4">
-                            श्री&nbsp;जनप्रकाश&nbsp;आधारभूत&nbsp;विद्यालय
-                          </td>
-                          <td className="font-normal p-4">
-                            श्रीमती सिता अधिकारी
-                          </td>
-                          <td className="font-normal  p-4">०५६-५२७००२</td>
-                          <td className="font-normal  p-4">निजी</td>
-                        </tr>
-                        <tr className="text-start">
-                          <td className="font-normal  p-4">३</td>
-                          <td className="font-normal  p-4">
-                            जनकल्याण&nbsp;पराथमिक&nbsp;विद्यालय
-                          </td>
-                          <td className="font-normal  p-4">
-                            श्री&nbsp;गोविन्द प&nbsp;रसाद&nbsp;पाण्डे
-                          </td>
-                          <td className="font-normal  p-4">०५६-५२७००२</td>
-                          <td className="font-normal  p-4">निजी</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
+                  // <div className="overflow-y-auto min-w-full">
+                  <table className="min-w-full text-xs  border ">
+                    <thead className="font-normal text-start border">
+                      <tr className="border text-start">
+                        <th className="font-normal text-start p-4">क्र.स</th>
+                        <th className="font-normal text-start p-4">
+                          विद्यालयको&nbsp;नाम
+                        </th>
+                        <th className="font-normal text-start p-4">
+                          प्रधानाध्यापकको नाम
+                        </th>
+                        <th className="font-normal text-start p-4">
+                          फोन/मोबाइल&nbsp;नं
+                        </th>
+                        <th className="font-normal text-start p-4">
+                          नगरपालिकामा&nbsp;दर्ता&nbsp;भएको/नभएको&nbsp;कैफियत
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="text-start">
+                        <td className="font-normal p-4">१</td>
+                        <td className="font-normal p-4">
+                          श्री&nbsp;जनजागृति&nbsp;माध्यमिक&nbsp;विद्यालय
+                        </td>
+                        <td className="font-normal p-4">श्री रामबहादुर थापा</td>
+                        <td className="font-normal p-4">०५६-५२७००१</td>
+                        <td className="font-normal p-4">निजी</td>
+                      </tr>
+                      <tr className="text-start">
+                        <td className="font-normal p-4">२</td>
+                        <td className="font-normal p-4">
+                          श्री&nbsp;जनप्रकाश&nbsp;आधारभूत&nbsp;विद्यालय
+                        </td>
+                        <td className="font-normal p-4">
+                          श्रीमती सिता अधिकारी
+                        </td>
+                        <td className="font-normal  p-4">०५६-५२७००२</td>
+                        <td className="font-normal  p-4">निजी</td>
+                      </tr>
+                      <tr className="text-start">
+                        <td className="font-normal  p-4">३</td>
+                        <td className="font-normal  p-4">
+                          जनकल्याण&nbsp;पराथमिक&nbsp;विद्यालय
+                        </td>
+                        <td className="font-normal  p-4">
+                          श्री&nbsp;गोविन्द प&nbsp;रसाद&nbsp;पाण्डे
+                        </td>
+                        <td className="font-normal  p-4">०५६-५२७००२</td>
+                        <td className="font-normal  p-4">निजी</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  // </div>
                 )}
 
                 {table === "table2" && (
