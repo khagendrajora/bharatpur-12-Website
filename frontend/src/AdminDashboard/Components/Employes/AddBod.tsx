@@ -5,7 +5,22 @@ import { toast } from "react-toastify";
 
 export const AddBod = () => {
   const navigate = useNavigate();
+  // const [formData, setFormData] = useState({
+  //   name: "",
+  // });
 
+  // const handleChange = (e: any, type: any) => {
+  //   let value = e.target.value;
+
+  //   if (type === "nepali") {
+  //     setFormData((prev) => ({
+  //       ...prev,
+  //       name: value.replace(/[^\u0900-\u097F\s]/g, ""),
+  //     }));
+  //   } else {
+  //     setFormData((prev) => ({ ...prev, name: value }));
+  //   }
+  // };
   const [isButton, setIsButton] = React.useState(false);
   const [image, setImage] = React.useState<File | null>(null);
   const [inputs, setInputs] = React.useState<{
@@ -24,6 +39,111 @@ export const AddBod = () => {
     phone: "",
     category: "",
   });
+
+  // const convertToNepali = (english: string) => {
+  //   const englishToNepaliMap:{[key]} = {
+  //     a: "अ",
+  //     b: "ब",
+  //     c: "स",
+  //     d: "द",
+  //     e: "इ",
+  //     f: "फ",
+  //     g: "ग",
+  //     h: "ह",
+  //     i: "इ",
+  //     j: "ज",
+  //     k: "क",
+  //     l: "ल",
+  //     m: "म",
+  //     n: "न",
+  //     o: "ओ",
+  //     p: "प",
+  //     q: "क",
+  //     r: "र",
+  //     s: "स",
+  //     t: "त",
+  //     u: "उ",
+  //     v: "व",
+  //     w: "व",
+  //     x: "क",
+  //     y: "य",
+  //     z: "ज",
+  //     A: "आ",
+  //     B: "भ",
+  //     C: "च",
+  //     D: "ढ",
+  //     E: "ई",
+  //     F: "फ़",
+  //     G: "घ",
+  //     H: "ह",
+  //     I: "ई",
+  //     J: "झ",
+  //     K: "ख",
+  //     L: "ल",
+  //     M: "म्",
+  //     N: "ण",
+  //     O: "ओ",
+  //     P: "फ",
+  //     Q: "क",
+  //     R: "ऱ",
+  //     S: "श",
+  //     T: "ठ",
+  //     U: "ऊ",
+  //     V: "व",
+  //     W: "व",
+  //     X: "क्ष",
+  //     Y: "य",
+  //     Z: "ज़",
+  //     "1": "१",
+  //     "2": "२",
+  //     "3": "३",
+  //     "4": "४",
+  //     "5": "५",
+  //     "6": "६",
+  //     "7": "७",
+  //     "8": "८",
+  //     "9": "९",
+  //     "0": "०",
+  //     "!": "!",
+  //     "@": "@",
+  //     "#": "#",
+  //     $: "₹",
+  //     "%": "%",
+  //     "^": "^",
+  //     "&": "&",
+  //     "*": "*",
+  //     "(": "(",
+  //     ")": ")",
+  //     _: "_",
+  //     "+": "+",
+  //     "=": "=",
+  //     "-": "—",
+  //     "/": "।",
+  //     ",": " ",
+  //     ".": "।",
+  //     ":": ":",
+  //     ";": ";",
+  //     "'": "’",
+  //     '"': "“",
+  //     "<": "‹",
+  //     ">": "›",
+  //     "?": "?",
+  //     "\\": "\\",
+  //     "|": "|",
+  //     "{": "{",
+  //     "}": "}",
+  //     "[": "[",
+  //     "]": "]",
+  //     "`": "ऽ",
+  //     "~": "~",
+  //     " ": " ",
+  //     // Add more mappings if needed for additional characters like `@`, `#`, `+`, etc.
+  //   };
+  //   return english
+  //     .split("")
+  //     .map((char) => englishToNepaliMap[char] || char)
+  //     .join("");
+  // };
 
   const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -84,6 +204,7 @@ export const AddBod = () => {
       setIsButton(false);
     }
   };
+
   return (
     <>
       <div className="sm:ml-60 mt-20 sm:px-30 p-3">
@@ -129,6 +250,17 @@ export const AddBod = () => {
                   Name_Np
                 </label>
               </div>
+
+              {/* <input
+                className="nepali_name"
+                name="name"
+                value={formData.name}
+                onChange={(e) => handleChange(e, "nepali")}
+                placeholder="नेपाली नाम प्रविष्ट गर्नुहोस्"
+                style={{
+                  color: "black !important",
+                }}
+              /> */}
 
               <div className="relative z-0 w-full mb-5 group">
                 <input
