@@ -17,7 +17,12 @@ i18next
         translation: {
           navbar: {
             name: "Bharatpur Nagarpalika",
-            contact: "Contact",
+            contact: {
+              key: "Contact",
+              subKey: {
+                key1: "9855011311",
+              },
+            },
             key1: "Home",
             key2: {
               key: "About us",
@@ -45,6 +50,7 @@ i18next
               },
             },
             key6: "Contact",
+
             key7: "Profile",
           },
         },
@@ -53,7 +59,12 @@ i18next
         translation: {
           navbar: {
             name: "भरतपुर नगरपालिका",
-            contact: "सम्पर्क",
+            contact: {
+              key: "सम्पर्क",
+              subKey: {
+                key1: "९८५५०११३११",
+              },
+            },
             key1: "गृहपृष्ठ",
             key2: {
               key: "हाम्रो बारेमा",
@@ -82,6 +93,7 @@ i18next
               },
             },
             key6: "सम्पर्क",
+
             key7: "प्रोफाइल",
           },
         },

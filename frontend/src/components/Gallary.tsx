@@ -134,7 +134,9 @@ export const Gallary = () => {
                   <h1>{image.numbers}</h1>
                 </div>
                 <div className="w-full bg-zinc-800 rounded-full  h-1">
-                  <div className="bg-white h-1 rounded-full w-[50%]"></div>
+                  <div className="bg-slate-500 h-1 z-0 rounded-full ">
+                    <div className="bg-white w-[50%] h-1 z-50"></div>
+                  </div>
                 </div>
                 <h3>{image.title}</h3>
                 <span>(६० बर्ष देखि ७० बर्ष)</span>

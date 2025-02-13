@@ -23,6 +23,10 @@
     }
 }
 
+.ql-editor img {
+    max-width: 50%;
+    height: auto;
+}
 
 @tailwind base;
 @tailwind components;

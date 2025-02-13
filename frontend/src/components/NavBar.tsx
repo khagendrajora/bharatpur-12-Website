@@ -251,6 +251,14 @@ export const NavBar = () => {
                   {t("navbar.key6")}
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/adminlogin"
+                  className="hover:text-black cursor-pointer"
+                >
+                  Login
+                </Link>
+              </li>
               <button>
                 <Link
                   to="http://103.233.58.102/report"
@@ -268,11 +276,9 @@ export const NavBar = () => {
                   shake
                   className="me-1 hover:scale-105 cursor-pointer text-red-600"
                 />
-                &nbsp;{t("navbar.contact")}:&nbsp;9855011311
+                &nbsp;{t("navbar.contact.key")}:&nbsp;
+                {t("navbar.contact.subKey.key1")}
               </h1>
-              {/* <div className="flex w-full justify-end text-black">
-                <LanguageSelector />
-              </div> */}
             </div>
           </div>
         </div>
@@ -422,47 +428,6 @@ export const NavBar = () => {
           </div>
         </div>
       </div>
-      {/* <div className="flex flex-col w-full">
-          <div className=" bg-blue-500  text-white border-t-2 shadow-md flex justify-between w-full"></div>
-          <div className="bg-[#504a48] text-white">
-            <div className="flex justify-center">
-              <div className="p-1 w-11/12 z-0">
-                <div className="flex items-center gap-3">
-                  <span className="text-sm font-bold z-0">News</span>
-                  <div className="marquee-container w-11/12">
-                    <span className="marquee cursor-pointer">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Rem dolor modi odit eius, deleniti voluptati
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> */}
-      {/* </div> */}
-      {/* <style>
-        {`
-
-           .marquee-container {
-            overflow: hidden; 
-            white-space: nowrap;
-            position: relative; 
-          }
-            .marquee { 
-            display: inline-block;
-            animation: marqueeAnimation 20s linear infinite;
-        } 
-          @keyframes marqueeAnimation {
-            0% {
-              transform: translateX(-100%); 
-            }
-            100% {
-              transform: translateX(100%); 
-            }
-          }
-        `}
-      </style> */}
     </>
   );
 };

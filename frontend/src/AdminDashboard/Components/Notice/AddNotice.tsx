@@ -2,17 +2,22 @@ import { NepaliDatePicker } from "nepali-datepicker-reactjs";
 import { ButtonLoader } from "../../../Utils/ButtonLoader";
 import "nepali-datepicker-reactjs/dist/index.css";
 import { useNavigate } from "react-router";
-import React from "react";
+import React, { useState } from "react";
 import { toast } from "react-toastify";
 import JoditEditor from "jodit-react";
-// import ReactImageUploading, { ImageListType } from "react-images-uploading";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 export const AddNotice = () => {
   const editor = React.useRef(null);
   const navigate = useNavigate();
   const [isButton, setIsButton] = React.useState(false);
   const [image, setImage] = React.useState<File | null>();
+  const [editors, setEditors] = useState("");
 
+  const handleChange = (html: string) => {
+    setEditors(html);
+  };
   const [inputs, setInputs] = React.useState<{
     title_en: string;
     title_np: string;
@@ -151,7 +156,6 @@ export const AddNotice = () => {
 
   const add = async (e: React.FormEvent) => {
     e.preventDefault();
-
     setIsButton(true);
     const formData = new FormData();
     formData.append("title_en", inputs.title_en);
@@ -214,6 +218,13 @@ export const AddNotice = () => {
               <h1 className="font-bold text-xl pb-10 text-center lg:text-2xl">
                 Add Notice
               </h1>
+
+              <ReactQuill
+                theme="snow"
+                value={editors}
+                onChange={handleChange}
+                // modules={AddNotice.modules}
+              />
 
               <div className="relative z-0 w-full mb-5 group">
                 <input

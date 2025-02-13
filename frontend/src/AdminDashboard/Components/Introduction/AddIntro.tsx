@@ -2,9 +2,13 @@ import React from "react";
 import ReactImageUploading, { ImageListType } from "react-images-uploading";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
-import { ButtonLoader } from "../../../Utils/ButtonLoader";
+import {
+  ButtonLoader,
+  englishToNepaliMap,
+  modules,
+} from "../../../Utils/ButtonLoader";
 import JoditEditor from "jodit-react";
-// import debounce from "lodash.debounce";
+import ReactQuill from "react-quill";
 
 export const AddIntro = () => {
   const editor = React.useRef(null);
@@ -13,7 +17,7 @@ export const AddIntro = () => {
   const [slider_images, setImages] = React.useState<ImageListType>([]);
   const [feature_image, setFeatureImage] = React.useState<File | null>();
   const [main_image, setMainImage] = React.useState<File | null>();
-  // const [description_Np, setDescription_Np] = React.useState<string>("");
+
   const [inputs, setInputs] = React.useState<{
     title_en: string;
     title_np: string;
@@ -34,127 +38,33 @@ export const AddIntro = () => {
     []
   );
 
-  const convertToNepali = (english: string, title: string) => {
-    const englishToNepaliMap: { [key: string]: string } = {
-      a: "अ",
-      b: "ब",
-      c: "स",
-      d: "द",
-      e: "इ",
-      f: "फ",
-      g: "ग",
-      h: "ह",
-      i: "इ",
-      j: "ज",
-      k: "क",
-      l: "ल",
-      m: "म",
-      n: "न",
-      o: "ओ",
-      p: "प",
-      q: "क",
-      r: "र",
-      s: "स",
-      t: "त",
-      u: "उ",
-      v: "व",
-      w: "व",
-      x: "क",
-      y: "य",
-      z: "ज",
-      A: "आ",
-      B: "भ",
-      C: "च",
-      D: "ढ",
-      E: "ई",
-      F: "फ़",
-      G: "घ",
-      H: "ह",
-      I: "ई",
-      J: "झ",
-      K: "ख",
-      L: "ल",
-      M: "म्",
-      N: "ण",
-      O: "ओ",
-      P: "फ",
-      Q: "क",
-      R: "ऱ",
-      S: "श",
-      T: "ठ",
-      U: "ऊ",
-      V: "व",
-      W: "व",
-      X: "क्ष",
-      Y: "य",
-      Z: "ज़",
-      "1": "१",
-      "2": "२",
-      "3": "३",
-      "4": "४",
-      "5": "५",
-      "6": "६",
-      "7": "७",
-      "8": "८",
-      "9": "९",
-      "0": "०",
-      "!": "!",
-      "@": "@",
-      "#": "#",
-      $: "₹",
-      "%": "%",
-      "^": "^",
-      "&": "&",
-      "*": "*",
-      "(": "(",
-      ")": ")",
-      _: "_",
-      "+": "+",
-      "=": "=",
-      "-": "—",
-      "/": "।",
-      ",": " ",
-      ".": "।",
-      ":": ":",
-      ";": ";",
-      "'": "’",
-      '"': "“",
-      "<": "‹",
-      ">": "›",
-      "?": "?",
-      "\\": "\\",
-      "|": "|",
-      "{": "{",
-      "}": "}",
-      "[": "[",
-      "]": "]",
-      "`": "ऽ",
-      "~": "~",
-      " ": " ",
-    };
-    const nepaliText = english
+  const convertToNepali = (english: string) => {
+    return english
       .split("")
       .map((char) => englishToNepaliMap[char] || char)
       .join("");
-    if (title === "title") {
-      setInputs({ ...inputs, title_np: nepaliText });
-    }
-    // if (title === "description") {
-    //   setInputs({ ...inputs, description_np: nepaliText });
-    // }
   };
 
-  // const debouncedConvertToNepali = useCallback(
-  //   debounce((text) => {
-  //     convertToNepali(text, "description");
-  //     setInputs({ ...inputs, description_np: text });
-  //   }, 100),
-  //   []
-  // );
+  const HandleTitle = (title: string) => {
+    const title_np = convertToNepali(title);
+    setInputs({ ...inputs, title_np: title_np });
+  };
 
-  // useEffect(() => {
-  //   convertToNepali(description_Np, "description");
-  // }, [description_Np]);
+  const handleChange = (html: string) => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+    const traverseNodes = (node: ChildNode) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        node.textContent = convertToNepali(node.textContent || "");
+      } else if (node.childNodes.length) {
+        node.childNodes.forEach(traverseNodes);
+      }
+    };
+
+    doc.body.childNodes.forEach(traverseNodes);
+
+    setInputs({ ...inputs, description_np: doc.body.innerHTML });
+  };
 
   const onImageGallaryChange = async (imageList: ImageListType) => {
     setImages(imageList);
@@ -265,7 +175,7 @@ export const AddIntro = () => {
                   type="text"
                   name="title_np"
                   value={inputs.title_np}
-                  onChange={(e) => convertToNepali(e.target.value, "title")}
+                  onChange={(e) => HandleTitle(e.target.value)}
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   placeholder=" "
                 />
@@ -286,13 +196,12 @@ export const AddIntro = () => {
               </div>
               <div className="flex flex-col gap-5 w-full pb-5 ">
                 <label className="font-medium">विवरण</label>
-                <JoditEditor
-                  ref={editor}
+
+                <ReactQuill
+                  theme="snow"
                   value={inputs.description_np}
-                  config={config}
-                  onChange={(content) => {
-                    setInputs({ ...inputs, description_np: content });
-                  }}
+                  onChange={handleChange}
+                  modules={modules}
                 />
               </div>
             </div>

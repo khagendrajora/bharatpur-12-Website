@@ -30,6 +30,7 @@ export const AdminLogin = () => {
 
         if (!res.ok) {
           toast.error(data.error);
+          setIsButton(false);
         } else {
           localStorage.setItem("token", data.token);
           setTimeout(() => {
@@ -41,11 +42,12 @@ export const AdminLogin = () => {
               console.log("token failed");
             }
           }, 2000);
-
           resetForm();
         }
       } catch (error: any) {
-        toast.error(error);
+        toast.error("Serer Error 500");
+      } finally {
+        setIsButton(false);
       }
     },
   });
