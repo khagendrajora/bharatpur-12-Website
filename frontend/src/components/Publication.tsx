@@ -1,24 +1,13 @@
 export const Publication = () => {
   return (
     <>
-      {/* <div className="relative h-[500px]"> */}
-      {/* <div className="absolute inset-0 bg-[url('/hill.jpg')] bg-cover bg-center text-center bg-fixed opacity-20"></div> */}
-      {/* <div className="relative z-10 flex items-center h-1/2 justify-center ">
-          <div className="text-xl sm:text-3xl md:text-5xl text-center font-bold font-mono p-2 bg-gradient-to-r from-red-600 to-blue-900  text-transparent bg-clip-text">
-            भरतपुर
-            <br /> <br />
-            अन्वेषण गर्नुहोस्, अनुभव गर्नुहोस्, रमाइलो गर्नुहोस्
-          </div>
-        </div> */}
-      {/* </div> */}
-
       <div
         className=" flex flex-wrap font-poppin justify-between bg-zinc-100 w-full"
         id="publication"
       >
         <div className="py-14 w-full md:w-2/5">
           <div className="w-full">
-            <div className="flex flex-col items-center md:items-start md:w-4/5 w-full mx-auto">
+            <div className="flex flex-col items-center md:items-start md:w-4/5 px-2 sm:px-0 w-full mx-auto">
               <h1 className=" text-4xl font-bold">प्रकाशन</h1>
               <div className="p-5 mt-7  border-2 bg-white w-fit lg:min-w-[300px] max-w-[570px] flex gap-3 items-center">
                 <div className="p-5 bg-[#245fb9] font-bold text-center border rounded-full w-fit text-white">

@@ -15,6 +15,14 @@ export const Intro = () => {
     },
 
     {
+      src: "/Images/Bisnu maya aacharya.jpg",
+      alt: "Hero Image 4",
+      name: " श्री बिष्णु माया आचार्य",
+      post: "वडा सचिव",
+      number: "९८४६५७०५२०",
+    },
+
+    {
       src: "/Images/bir bahadur syantan.jpg",
       alt: "Hero Image 4",
       name: "	बिर बहादुर स्याङतान",
@@ -42,7 +50,7 @@ export const Intro = () => {
       <div className="bg-white py-20 md:py-0">
         <div className=" flex justify-center mx-auto lg:w-3/4 w-11/12 md:my-14 ">
           <div className="flex flex-wrap justify-center  gap-10">
-            <div className="flex flex-col gap-5 md:w-1/2">
+            <div className="flex flex-col gap-5 md:w-2/5 xl:w-1/2">
               <div className="font-bold text-4xl">संक्षिप्त परिचय</div>
               <div className="text-justify text-gray-500 font-normal font-poppin text-[16px] leading-8">
                 पवित्र नारायणी नदी किनार तथा प्रसिद्ध धार्मिकस्थल देवघाटधामको
@@ -68,7 +76,7 @@ export const Intro = () => {
                 </button>
               </div>
             </div>
-            <div className="slider-containers  w-[300px]">
+            <div className="slider-containers  md:w-[380px] w-[300px]">
               <Slider {...settings}>
                 {images.map((image, index) => (
                   <>
@@ -76,10 +84,10 @@ export const Intro = () => {
                       <img
                         src={image.src}
                         alt={image.alt}
-                        className="h-[300px] w-full object-cover"
+                        className="h-[450px] w-full object-cover"
                       />
 
-                      <div className=" z-10 text-center space-y-1 absolute bottom-1 left-7 rounded-lg bg-white p-3 w-3/4 ">
+                      <div className=" z-10 text-center space-y-1 absolute bottom-1 right-0 rounded-l bg-white p-3 w-3/4 ">
                         <h1 className="font-semibold">श्री {image.name}</h1>
                         <h1 className="font-normal text-slate-500 text-xs">
                           {image.post}

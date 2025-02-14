@@ -2,13 +2,13 @@ export default function ReviewPrart() {
   return (
     <>
       <div
-        className="w-full h-auto font-poppin py-14 p-2"
+        className="w-full h-auto font-poppin py-16 p-2"
         style={{
           backgroundImage: "url('/review.jpg')",
           backgroundSize: "cover",
         }}
       >
-        <div className="w-full text-center text-slate-500">
+        <div className="w-full text-center  text-slate-500">
           <div className="">
             <h1>जनताको सुझाव</h1>
             <h1 className="font-medium text-black text-3xl">
@@ -16,8 +16,8 @@ export default function ReviewPrart() {
             </h1>
           </div>
         </div>
-        <div className="flex justify-center flex-wrap pt-12  gap-10">
-          <div className="flex w-full max-w-[550px] relative bg-white rounded-lg p-7 gap-7 flex-col">
+        <div className="flex justify-center flex-wrap pt-16  gap-10">
+          <div className="flex w-full max-w-[600px] relative bg-white rounded-lg p-10 gap-7 flex-col">
             <div className="bg-[url('/bgnews.jpg')]  absolute inset-0 bg-cover bg-center opacity-50 z-0 pointer-events-none"></div>
             <p className="text-justify z-10 text-slate-500">
               भरतपुर नगरपालिका वडा नं ७ वडा कार्यालयमा सेवा लिन आउँदा मलाई एकदम
@@ -36,7 +36,7 @@ export default function ReviewPrart() {
               </div>
             </div>
           </div>
-          <div className="flex w-full bg-white relative max-w-[550px] rounded-lg p-7 gap-7 flex-col">
+          <div className="flex w-full bg-white relative max-w-[600px] rounded-lg p-10 gap-7 flex-col">
             <div className="bg-[url('/bgnews.jpg')]  absolute inset-0 bg-cover bg-center opacity-50 z-0 pointer-events-none"></div>
             <p className="text-justify text-slate-500 relative z-10">
               भरतपुर नगरपालिका वडा नं ७ वडा कार्यालयमा सेवा लिन आउँदा मलाई एकदम

@@ -28,17 +28,25 @@ export const BoardMembers = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(
+        const res = await axios.get(
           `https://bharatpur12.org/new/api/board-members`
         );
-        const data = await res.json();
-        if (!res.ok) {
-          console.log(data.error);
-        } else {
+        if (res.status === 200 && res.data) {
+          const data = res.data;
           const filterData = data.filter(
             (item: { category: string }) => item.category === "Board Member"
           );
+          // const data = res.data;
+          // if (!res.data) {
+          //   console.log(data.error);
+          // } else {
+          //   const filterData = data.filter(
+          //     (item: { category: string }) => item.category === "Board Member"
+          //   );
           setMembers(filterData);
+        } else {
+          console.log("Error:", res.data.error || "No data available");
+          toast.error("Error: No data available");
         }
       } catch (error: any) {
         toast.error(error);

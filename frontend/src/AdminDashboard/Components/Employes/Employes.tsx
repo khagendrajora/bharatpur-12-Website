@@ -18,17 +18,21 @@ export const Employes = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(
+        const res = await axios.get(
           `https://bharatpur12.org/new/api/board-members`
         );
-        const data = await res.json();
-        if (!res.ok) {
-          console.log(data.error);
-        } else {
+        // const data = await res.json();
+        if (res.status === 200 && res.data) {
+          // console.log(data.error);
+          const data = res.data;
+          // } else {
           const filterData = data.filter(
             (item: { category: string }) => item.category === "Staff"
           );
           setMembers(filterData);
+        } else {
+          console.log("Error:", res.data.error || "No data available");
+          toast.error("Error: No data available");
         }
       } catch (error: any) {
         toast.error(error);
