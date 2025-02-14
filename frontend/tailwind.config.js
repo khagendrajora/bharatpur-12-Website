@@ -17,7 +17,6 @@ export default {
        title: ["Saira Condensed", "serif"],
        gov: ["Saira Condensed", "serif"],
        poppin: ["Poppins", "serif"],
-      
        dev: ["Noto Sans Devanagari", "sans-serif"],
        
      }

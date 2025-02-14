@@ -35,7 +35,7 @@ export const Hero = () => {
         <Slider {...settings}>
           {images.map((image, index) => (
             <>
-              <div className="w-full hover:scale-125 duration-1000" key={index}>
+              <div className="w-full" key={index}>
                 <img
                   src={image.src}
                   alt={image.alt}
@@ -82,7 +82,7 @@ export const Hero = () => {
               className="lg:h-8"
               style={{ color: "#ffffff" }}
             />
-            नागरिक बडापत्र&nbsp;{" "}
+            नागरिक&nbsp;बडापत्र{" "}
             <FontAwesomeIcon
               icon={faAngleRight}
               className="border-2 rounded-full p-1 px-2"
@@ -101,11 +101,11 @@ export const Hero = () => {
             />
           </div>
           <div
-            className="bg-[#a6d4ed] border lg:text-[16px] 2xl:text-[20px] w-1/3 cursor-pointer p-5  sm:w-1/5 sm:min-w-[100px] flex sm:hidden justify-center lg:gap-6 flex-wrap gap-2 items-center"
-            onClick={() => navigate("/budget")}
+            className="bg-[#85bfde] border lg:text-[16px] 2xl:text-[20px] w-1/3 cursor-pointer p-5  sm:w-1/5 sm:min-w-[100px] flex sm:hidden justify-center lg:gap-6 flex-wrap gap-2 items-center"
+            onClick={() => navigate("/news")}
           >
             <FontAwesomeIcon icon={faSackDollar} className="lg:h-8" />
-            बार्षिक&nbsp;बजेट
+            समाचार
             <FontAwesomeIcon
               icon={faAngleRight}
               className="border-2 rounded-full p-1 px-2"

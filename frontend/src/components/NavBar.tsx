@@ -183,17 +183,6 @@ export const NavBar = () => {
                         </li>
                       </Link>
                       <hr />
-                      {/* <Link to="" className="hover:bg-gray-100 p-3">
-                        <li className="cursor-pointer">
-                          {t("navbar.key5.subKey.key3")}
-                        </li>
-                      </Link> */}
-                      {/* <hr /> */}
-                      {/* <Link to="/videos" className="hover:bg-gray-100 p-3">
-                        <li className="cursor-pointer">
-                          {t("navbar.key5.subKey.key4")}
-                        </li>
-                      </Link> */}
                     </ul>
                   </div>
                 )}
@@ -251,14 +240,14 @@ export const NavBar = () => {
                   {t("navbar.key6")}
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   to="/adminlogin"
                   className="hover:text-black cursor-pointer"
                 >
                   Login
                 </Link>
-              </li>
+              </li> */}
               <button>
                 <Link
                   to="http://103.233.58.102/report"
@@ -414,6 +403,14 @@ export const NavBar = () => {
               <Link to="/contact" className="hover:text-black cursor-pointer">
                 सम्पर्क
               </Link>
+              {/* <li>
+                <Link
+                  to="/adminlogin"
+                  className="hover:text-black cursor-pointer"
+                >
+                  Login
+                </Link>
+              </li> */}
             </ul>
           </div>
         )}

@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { PAgeLayout } from "./Layout/PageLayout";
 import { LandingPage } from "./Pages/LandingPage";
@@ -48,12 +48,18 @@ import { UpdateNews } from "./AdminDashboard/Components/News/UpdateNews";
 import { UpdateEmploy } from "./AdminDashboard/Components/Employes/UpdateEmploy";
 import { UpdateBod } from "./AdminDashboard/Components/Employes/UpdateBod";
 import { DashboardData } from "./AdminDashboard/Components/DashboardData";
-// import { PrivateRoute } from "./Validation/PrivateRoute";
+import { useEffect } from "react";
 
 function App() {
+  useEffect(() => {
+    if (!window.location.hash) {
+      window.location.replace(`/#${window.location.pathname}`);
+    }
+  }, []);
+
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="" element={<PAgeLayout />}>
             <Route index element={<LandingPage />} />
@@ -104,7 +110,6 @@ function App() {
             {/* getByID */}
 
             {/* update */}
-
             <Route path="updateintro/:id" element={<UpdateIntro />} />
             <Route
               path="updatepublication/:id"
@@ -118,7 +123,7 @@ function App() {
           </Route>
           {/* </Route> */}
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }
