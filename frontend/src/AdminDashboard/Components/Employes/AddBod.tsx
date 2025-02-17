@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router";
-import { ButtonLoader } from "../../../Utils/ButtonLoader";
+import { ButtonLoader, convertToNepali } from "../../../Utils/ButtonLoader";
 import { toast } from "react-toastify";
 
 export const AddBod = () => {
@@ -23,243 +23,12 @@ export const AddBod = () => {
     category: "",
   });
 
-  const convertToNepali = (english: string, title: string) => {
-    const englishToNepaliMap: { [key: string]: string } = {
-      a: "अ",
-      b: "ब",
-      c: "स",
-      d: "द",
-      e: "इ",
-      f: "फ",
-      g: "ग",
-      h: "ह",
-      i: "इ",
-      j: "ज",
-      k: "क",
-      l: "ल",
-      m: "म",
-      n: "न",
-      o: "ओ",
-      p: "प",
-      q: "क",
-      r: "र",
-      s: "स",
-      t: "त",
-      u: "उ",
-      v: "व",
-      w: "व",
-      x: "क",
-      y: "य",
-      z: "ज",
-      A: "आ",
-      B: "भ",
-      C: "च",
-      D: "ढ",
-      E: "ई",
-      F: "फ़",
-      G: "घ",
-      H: "ह",
-      I: "ई",
-      J: "झ",
-      K: "ख",
-      L: "ल",
-      M: "म्",
-      N: "ण",
-      O: "ओ",
-      P: "फ",
-      Q: "क",
-      R: "ऱ",
-      S: "श",
-      T: "ठ",
-      U: "ऊ",
-      V: "व",
-      W: "व",
-      X: "क्ष",
-      Y: "य",
-      Z: "ज़",
-
-      // Independent Vowels
-      // a: "अ",
-      // aa: "आ",
-      // i: "इ",
-      // ii: "ई",
-      // u: "उ",
-      // uu: "ऊ",
-      // e: "ए",
-      // ai: "ऐ",
-      // o: "ओ",
-      // au: "औ",
-
-      // Dependent Vowel Signs (Matras)
-      "shift+a": "ा", // 'shift + a' key
-      "shift+i": "ि", // 'shift + i' key
-      "shift+ii": "ी", // 'shift + I' key
-      "shift+u": "ु", // 'shift + u' key
-      "shift+uu": "ू", // 'shift + U' key
-      "shift+e": "े", // 'shift + e' key
-      "shift+ai": "ै", // 'shift + ai' key
-      "shift+o": "ो", // 'shift + o' key
-      "shift+au": "ौ", // 'shift + au' key
-
-      // Other symbols and punctuation
-      "!": "!",
-      "@": "@",
-      "#": "#",
-      $: "₹",
-      "%": "%",
-      "^": "^",
-      "&": "&",
-      "*": "*",
-      "(": "(",
-      ")": ")",
-      _: "_",
-      "+": "+",
-      "=": "=",
-      "-": "—",
-      "/": "।",
-      ",": " ",
-      ".": "।",
-      ":": ":",
-      ";": ";",
-      "'": "’",
-      '"': "“",
-      "<": "‹",
-      ">": "›",
-      "?": "?",
-      "\\": "\\",
-      "|": "|",
-      "{": "{",
-      "}": "}",
-      "[": "[",
-      "]": "]",
-      "`": "ऽ",
-      "~": "~",
-      " ": " ",
-
-      // Numbers
-      "1": "१",
-      "2": "२",
-      "3": "३",
-      "4": "४",
-      "5": "५",
-      "6": "६",
-      "7": "७",
-      "8": "८",
-      "9": "९",
-      "0": "०",
-
-      // Special signs
-      "shift+n": "ं", // Chandrabindu
-      "shift+;": "ः", // Visarga
-      "shift+m": "ँ", // Anusvara
-    };
-
-    // const englishToNepaliMap: { [key: string]: string } = {
-    //   a: "अ",
-    //   b: "ब",
-    //   c: "स",
-    //   d: "द",
-    //   e: "इ",
-    //   f: "फ",
-    //   g: "ग",
-    //   h: "ह",
-    //   i: "इ",
-    //   j: "ज",
-    //   k: "क",
-    //   l: "ल",
-    //   m: "म",
-    //   n: "न",
-    //   o: "ओ",
-    //   p: "प",
-    //   q: "क",
-    //   r: "र",
-    //   s: "स",
-    //   t: "त",
-    //   u: "उ",
-    //   v: "व",
-    //   w: "व",
-    //   x: "क",
-    //   y: "य",
-    //   z: "ज",
-    //   A: "आ",
-    //   B: "भ",
-    //   C: "च",
-    //   D: "ढ",
-    //   E: "ई",
-    //   F: "फ़",
-    //   G: "घ",
-    //   H: "ह",
-    //   I: "ई",
-    //   J: "झ",
-    //   K: "ख",
-    //   L: "ल",
-    //   M: "म्",
-    //   N: "ण",
-    //   O: "ओ",
-    //   P: "फ",
-    //   Q: "क",
-    //   R: "ऱ",
-    //   S: "श",
-    //   T: "ठ",
-    //   U: "ऊ",
-    //   V: "व",
-    //   W: "व",
-    //   X: "क्ष",
-    //   Y: "य",
-    //   Z: "ज़",
-    //   "1": "१",
-    //   "2": "२",
-    //   "3": "३",
-    //   "4": "४",
-    //   "5": "५",
-    //   "6": "६",
-    //   "7": "७",
-    //   "8": "८",
-    //   "9": "९",
-    //   "0": "०",
-    //   "!": "!",
-    //   "@": "@",
-    //   "#": "#",
-    //   $: "₹",
-    //   "%": "%",
-    //   "^": "^",
-    //   "&": "&",
-    //   "*": "*",
-    //   "(": "(",
-    //   ")": ")",
-    //   _: "_",
-    //   "+": "+",
-    //   "=": "=",
-    //   "-": "—",
-    //   "/": "।",
-    //   ",": " ",
-    //   ".": "।",
-    //   ":": ":",
-    //   ";": ";",
-    //   "'": "’",
-    //   '"': "“",
-    //   "<": "‹",
-    //   ">": "›",
-    //   "?": "?",
-    //   "\\": "\\",
-    //   "|": "|",
-    //   "{": "{",
-    //   "}": "}",
-    //   "[": "[",
-    //   "]": "]",
-    //   "`": "ऽ",
-    //   "~": "~",
-    //   " ": " ",
-    // };
-    const nepaliText = english
-      .split("")
-      .map((char) => englishToNepaliMap[char] || char)
-      .join("");
-    if (title === "title") {
-      setInputs({ ...inputs, name_np: nepaliText });
-    }
-    if (title === "position") {
-      setInputs({ ...inputs, designation_np: nepaliText });
+  const HandleTitle = (title: string, text: string) => {
+    const name_np = convertToNepali(title);
+    if (text === "title") {
+      setInputs({ ...inputs, name_np: name_np });
+    } else {
+      setInputs({ ...inputs, designation_np: name_np });
     }
   };
 
@@ -331,11 +100,11 @@ export const AddBod = () => {
             onSubmit={add}
             className="flex w-full justify-center gap-20 flex-col mx-auto border md:p-10 p-2"
           >
-            <div className="flex flex-col gap-10 ">
+            <div className="flex flex-col gap-16 ">
               <h1 className="font-bold text-xl pb-10 text-center lg:text-2xl">
                 Add Board Member
               </h1>
-              <div className="flex flex-wrap gap-5 md:gap-10 ">
+              <div className="flex flex-wrap gap-16 ">
                 <div className="relative z-0 w-full md:w-2/5 mb-5 group">
                   <input
                     type="text"
@@ -356,7 +125,7 @@ export const AddBod = () => {
                     type="text"
                     name="name_np"
                     value={inputs.name_np}
-                    onChange={(e) => convertToNepali(e.target.value, "title")}
+                    onChange={(e) => HandleTitle(e.target.value, "title")}
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                     placeholder=" "
                   />
@@ -365,7 +134,7 @@ export const AddBod = () => {
                   </label>
                 </div>
               </div>
-              <div className="flex flex-wrap gap-5 md:gap-10 ">
+              <div className="flex flex-wrap gap-16  ">
                 <div className="relative z-0 w-full md:w-2/5 mb-5 group">
                   <input
                     type="text"
@@ -387,12 +156,7 @@ export const AddBod = () => {
                     type="text"
                     name="desigination_np"
                     value={inputs.designation_np}
-                    // onChange={(e) =>
-                    //   setInputs({ ...inputs, designation_np: e.target.value })
-                    // }
-                    onChange={(e) =>
-                      convertToNepali(e.target.value, "position")
-                    }
+                    onChange={(e) => HandleTitle(e.target.value, "position")}
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                     placeholder=" "
                   />
@@ -401,7 +165,7 @@ export const AddBod = () => {
                   </label>
                 </div>
               </div>
-              <div className="flex flex-wrap gap-5 md:gap-10 ">
+              <div className="flex flex-wrap gap-16 ">
                 <div className="relative z-0 w-full md:w-2/5 mb-5 group">
                   <select
                     name="category"
@@ -450,8 +214,8 @@ export const AddBod = () => {
               </div>
             </div>
 
-            <div>
-              <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <div className="flex justify-center  w-full ">
+              <button className="text-white font-medium bg-blue-700 hover:bg-blue-800  text-lg w-full lg:w-1/4  p-3 text-center">
                 Submit {isButton ? <ButtonLoader /> : ""}
               </button>
             </div>

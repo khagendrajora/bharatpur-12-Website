@@ -42,7 +42,7 @@ export const Intro = () => {
       }
     };
     fetchData();
-  }, [info]);
+  }, []);
   console.log(info);
 
   const Delete = async () => {

@@ -151,8 +151,8 @@ export const AddHero = () => {
                 </ImageUploading>
               </div>
             </div>
-            <div>
-              <button className="text-white bg-blue-700 hover:bg-blue-800  font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+            <div className="flex justify-center  w-full ">
+              <button className="text-white font-medium bg-blue-700 hover:bg-blue-800  text-lg w-full lg:w-1/4  p-3 text-center">
                 Submit {isButton ? <ButtonLoader /> : ""}
               </button>
             </div>

@@ -49,6 +49,7 @@ import { UpdateEmploy } from "./AdminDashboard/Components/Employes/UpdateEmploy"
 import { UpdateBod } from "./AdminDashboard/Components/Employes/UpdateBod";
 import { DashboardData } from "./AdminDashboard/Components/DashboardData";
 import { useEffect } from "react";
+import { PrivateRoute } from "./Validation/PrivateRoute";
 
 function App() {
   useEffect(() => {
@@ -87,41 +88,41 @@ function App() {
           </Route>
           <Route path="adminlogin" element={<AdminLogin />} />
           <Route path="admin" element={<Layout />}>
-            {/* <Route element={<PrivateRoute />}> */}
-            <Route path="dashboard" element={<Dashboard />} />
-            <Route path="dashboarddata" element={<DashboardData />} />
-            <Route path="dashboardImage" element={<DashboardImage />} />
-            <Route path="intro" element={<Intro />} />
-            <Route path="works" element={<Works />} />
-            <Route path="notice" element={<Notice />} />
-            <Route path="publication" element={<Publication />} />
-            <Route path="news" element={<News />} />
-            <Route path="employes" element={<Employes />} />
-            <Route path="boardmembers" element={<BoardMembers />} />
-            <Route path="addhero" element={<AddHero />} />
-            <Route path="addintro" element={<AddIntro />} />
-            <Route path="addwork" element={<AddWork />} />
-            <Route path="addnews" element={<AddNews />} />
-            <Route path="addnotice" element={<AddNotice />} />
-            <Route path="addemploye" element={<AddEmploye />} />
-            <Route path="addpublication" element={<AddPublication />} />
-            <Route path="addboardmember" element={<AddBod />} />
+            <Route element={<PrivateRoute />}>
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="dashboarddata" element={<DashboardData />} />
+              <Route path="dashboardImage" element={<DashboardImage />} />
+              <Route path="intro" element={<Intro />} />
+              <Route path="works" element={<Works />} />
+              <Route path="notice" element={<Notice />} />
+              <Route path="publication" element={<Publication />} />
+              <Route path="news" element={<News />} />
+              <Route path="employes" element={<Employes />} />
+              <Route path="boardmembers" element={<BoardMembers />} />
+              <Route path="addhero" element={<AddHero />} />
+              <Route path="addintro" element={<AddIntro />} />
+              <Route path="addwork" element={<AddWork />} />
+              <Route path="addnews" element={<AddNews />} />
+              <Route path="addnotice" element={<AddNotice />} />
+              <Route path="addemploye" element={<AddEmploye />} />
+              <Route path="addpublication" element={<AddPublication />} />
+              <Route path="addboardmember" element={<AddBod />} />
 
-            {/* getByID */}
+              {/* getByID */}
 
-            {/* update */}
-            <Route path="updateintro/:id" element={<UpdateIntro />} />
-            <Route
-              path="updatepublication/:id"
-              element={<UpdatePublication />}
-            />
-            <Route path="updatenotice/:id" element={<UpdateNotice />} />
-            <Route path="updatework/:id" element={<UpdateWork />} />
-            <Route path="updatenews/:id" element={<UpdateNews />} />
-            <Route path="updateemploye/:id" element={<UpdateEmploy />} />
-            <Route path="updatebod/:id" element={<UpdateBod />} />
+              {/* update */}
+              <Route path="updateintro/:id" element={<UpdateIntro />} />
+              <Route
+                path="updatepublication/:id"
+                element={<UpdatePublication />}
+              />
+              <Route path="updatenotice/:id" element={<UpdateNotice />} />
+              <Route path="updatework/:id" element={<UpdateWork />} />
+              <Route path="updatenews/:id" element={<UpdateNews />} />
+              <Route path="updateemploye/:id" element={<UpdateEmploy />} />
+              <Route path="updatebod/:id" element={<UpdateBod />} />
+            </Route>
           </Route>
-          {/* </Route> */}
         </Routes>
       </HashRouter>
     </>

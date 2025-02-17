@@ -1,4 +1,4 @@
-import { ButtonLoader } from "../../../Utils/ButtonLoader";
+import { ButtonLoader, convertToNepali } from "../../../Utils/ButtonLoader";
 import { useNavigate } from "react-router";
 import React from "react";
 import { toast } from "react-toastify";
@@ -20,119 +20,17 @@ export const AddPublication = () => {
     publication_date: "",
     document: null,
   });
+
+  const HandleTitle = (title: string) => {
+    const title_np = convertToNepali(title);
+    setInputs({ ...inputs, title_np: title_np });
+  };
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       setInputs({
         ...inputs,
         document: e.target.files[0],
       });
-    }
-  };
-
-  const convertToNepali = (english: string, title: string) => {
-    const englishToNepaliMap: { [key: string]: string } = {
-      a: "अ",
-      b: "ब",
-      c: "स",
-      d: "द",
-      e: "इ",
-      f: "फ",
-      g: "ग",
-      h: "ह",
-      i: "इ",
-      j: "ज",
-      k: "क",
-      l: "ल",
-      m: "म",
-      n: "न",
-      o: "ओ",
-      p: "प",
-      q: "क",
-      r: "र",
-      s: "स",
-      t: "त",
-      u: "उ",
-      v: "व",
-      w: "व",
-      x: "क",
-      y: "य",
-      z: "ज",
-      A: "आ",
-      B: "भ",
-      C: "च",
-      D: "ढ",
-      E: "ई",
-      F: "फ़",
-      G: "घ",
-      H: "ह",
-      I: "ई",
-      J: "झ",
-      K: "ख",
-      L: "ल",
-      M: "म्",
-      N: "ण",
-      O: "ओ",
-      P: "फ",
-      Q: "क",
-      R: "ऱ",
-      S: "श",
-      T: "ठ",
-      U: "ऊ",
-      V: "व",
-      W: "व",
-      X: "क्ष",
-      Y: "य",
-      Z: "ज़",
-      "1": "१",
-      "2": "२",
-      "3": "३",
-      "4": "४",
-      "5": "५",
-      "6": "६",
-      "7": "७",
-      "8": "८",
-      "9": "९",
-      "0": "०",
-      "!": "!",
-      "@": "@",
-      "#": "#",
-      $: "₹",
-      "%": "%",
-      "^": "^",
-      "&": "&",
-      "*": "*",
-      "(": "(",
-      ")": ")",
-      _: "_",
-      "+": "+",
-      "=": "=",
-      "-": "—",
-      "/": "।",
-      ",": " ",
-      ".": "।",
-      ":": ":",
-      ";": ";",
-      "'": "’",
-      '"': "“",
-      "<": "‹",
-      ">": "›",
-      "?": "?",
-      "\\": "\\",
-      "|": "|",
-      "{": "{",
-      "}": "}",
-      "[": "[",
-      "]": "]",
-      "`": "ऽ",
-      "~": "~",
-      " ": " ",
-    };
-    const nepaliText = english
-      .split("")
-      .map((char) => englishToNepaliMap[char] || char)
-      .join("");
-    if (title === "title") {
-      setInputs({ ...inputs, title_np: nepaliText });
     }
   };
 
@@ -192,7 +90,7 @@ export const AddPublication = () => {
             onSubmit={add}
             className="flex w-full justify-center gap-20 flex-col mx-auto   border md:p-10 p-2"
           >
-            <div className="flex flex-col gap-5 md:gap-10 ">
+            <div className="flex flex-col gap-16  ">
               <h1 className="font-bold text-xl pb-10 text-center lg:text-2xl">
                 Add Publication
               </h1>
@@ -218,7 +116,7 @@ export const AddPublication = () => {
                   type="text"
                   name="title_np"
                   value={inputs.title_np}
-                  onChange={(e) => convertToNepali(e.target.value, "title")}
+                  onChange={(e) => HandleTitle(e.target.value)}
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   placeholder=" "
                 />
@@ -227,8 +125,6 @@ export const AddPublication = () => {
                 </label>
               </div>
 
-              {/* <div>{Nepali.unicodify(inputs.title_Np)}</div> */}
-
               <div className="relative z-10 w-full mb-5 group">
                 <NepaliDatePicker
                   value={inputs.publication_date}
@@ -236,7 +132,6 @@ export const AddPublication = () => {
                     setInputs({ ...inputs, publication_date: value })
                   }
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  placeholder=" "
                 />
                 <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                   Date
@@ -255,9 +150,8 @@ export const AddPublication = () => {
                 </label>
               </div>
             </div>
-
-            <div>
-              <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <div className="flex justify-center  w-full ">
+              <button className="text-white font-medium bg-blue-700 hover:bg-blue-800  text-lg w-full lg:w-1/4  p-3 text-center">
                 Submit {isButton ? <ButtonLoader /> : ""}
               </button>
             </div>
