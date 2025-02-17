@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import HTMLReactParser from "html-react-parser";
+import { ImageURl } from "../../../Utils/ButtonLoader";
 export interface IWork extends Document {
   id?: string;
   title_en: string;
@@ -148,7 +149,7 @@ export const Works = () => {
                     </td>
                     <td className="p-4 ">
                       <img
-                        src={`https://bharatpur12.org/new/storage/app/public/${data.main_image}`}
+                        src={`${ImageURl}/${data.main_image}`}
                         className="w-16 md:w-32 max-w-full mx-auto max-h-full"
                         alt="Image"
                       />
@@ -167,7 +168,7 @@ export const Works = () => {
 
                     <td className="">
                       <img
-                        src={`https://bharatpur12.org/new/storage/app/public/${data.feature_image}`}
+                        src={`${ImageURl}/${data.feature_image}`}
                         className="w-16 md:w-32 max-w-full mx-auto max-h-full"
                         alt="Image"
                       />

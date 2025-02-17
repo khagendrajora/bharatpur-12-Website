@@ -13,14 +13,16 @@ export const AddEmploye = () => {
     designation_en: string;
     designation_np: string;
     phone: string;
-    category: string;
+    type: string;
+    employee_id: string;
   }>({
     name_en: "",
     name_np: "",
     designation_en: "",
     designation_np: "",
     phone: "",
-    category: "",
+    type: "",
+    employee_id: "",
   });
 
   const HandleTitle = (title: string, text: string) => {
@@ -41,7 +43,6 @@ export const AddEmploye = () => {
 
   const add = async (e: React.FormEvent) => {
     e.preventDefault();
-
     setIsButton(true);
     const formData = new FormData();
     formData.append("name_en", inputs.name_en);
@@ -49,7 +50,8 @@ export const AddEmploye = () => {
     formData.append("phone", inputs.phone);
     formData.append("designation_en", inputs.designation_en);
     formData.append("designation_np", inputs.designation_np);
-    formData.append("category", inputs.category);
+    formData.append("employee_id", inputs.employee_id);
+    formData.append("type", inputs.type);
     if (image) {
       formData.append("image", image);
     }
@@ -79,7 +81,8 @@ export const AddEmploye = () => {
           designation_en: "",
           designation_np: "",
           phone: "",
-          category: "",
+          type: "",
+          employee_id: "",
         });
         setImage(null);
         setTimeout(() => {
@@ -164,14 +167,29 @@ export const AddEmploye = () => {
                     पद
                   </label>
                 </div>
+                <div className="relative z-0 w-full md:w-2/5 mb-5 group">
+                  <input
+                    type="text"
+                    name="employee_id"
+                    value={inputs.employee_id}
+                    onChange={(e) =>
+                      setInputs({ ...inputs, employee_id: e.target.value })
+                    }
+                    className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" "
+                  />
+                  <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                    Employee Id
+                  </label>
+                </div>
               </div>
               <div className="flex flex-wrap gap-16 ">
                 <div className="relative z-0 w-full md:w-2/5 mb-5 group">
                   <select
-                    name="category"
-                    value={inputs.category}
+                    name="type"
+                    value={inputs.type}
                     onChange={(e) =>
-                      setInputs({ ...inputs, category: e.target.value })
+                      setInputs({ ...inputs, type: e.target.value })
                     }
                     id="floating_first_name"
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
@@ -186,8 +204,9 @@ export const AddEmploye = () => {
 
                 <div className="relative z-0 w-full md:w-2/5 mb-5 group">
                   <input
-                    type="number"
+                    type="text"
                     name="phone"
+                    value={inputs.phone}
                     onChange={(e) =>
                       setInputs({ ...inputs, phone: e.target.value })
                     }
