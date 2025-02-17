@@ -1,7 +1,13 @@
-// import { useNavigate } from "react-router";
+import { useEffect } from "react";
 
 export const PublicationPage = () => {
-  // const navigate = useNavigate();
+  const offsetTop = 0;
+  useEffect(() => {
+    window.scrollTo({
+      top: offsetTop,
+      behavior: "smooth",
+    });
+  }, []);
   const images = [
     {
       src: "/hero.jpg",

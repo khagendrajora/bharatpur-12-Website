@@ -1,6 +1,14 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router";
 
 export const NewsPage = () => {
+  const offsetTop = 0;
+  useEffect(() => {
+    window.scrollTo({
+      top: offsetTop,
+      behavior: "smooth",
+    });
+  }, []);
   const navigate = useNavigate();
   const images = [
     {
