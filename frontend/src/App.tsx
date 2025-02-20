@@ -67,7 +67,6 @@ function App() {
         <Routes>
           <Route path="" element={<PAgeLayout />}>
             <Route index element={<LandingPage />} />
-
             <Route path="aboutus" element={<AboutUs />} />
             <Route path="wardintro" element={<WardIntro />} />
             <Route path="toleintro" element={<ToleIntro />} />

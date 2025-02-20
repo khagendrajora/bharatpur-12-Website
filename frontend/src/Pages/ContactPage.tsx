@@ -65,7 +65,9 @@ export const ContactPage = () => {
               />
               <div className="flex flex-col gap-2">
                 <h1 className="font-semibold text-2xl">ठेगाना</h1>
-                <h1>भरतपुर महानगरपालिका कार्यालय , वडा नं-१२, चितवन </h1>
+                <h1>
+                  राइनो ताल रोड, नौरंगे-१२, भरतपुर महानगरपालिका, चितवन, नेपाल.{" "}
+                </h1>
               </div>
             </div>
             <div className="flex flex-row items-center gap-5 bg-white border p-5 shadow-sm rounded-md">
@@ -76,7 +78,7 @@ export const ContactPage = () => {
               />
               <div className="flex flex-col gap-2 ">
                 <h1 className="font-semibold text-2xl">फोन&nbsp;नम्बर</h1>
-                <h1>‌‌+९७७-०५६-५११४६७,</h1>
+                <h1>०५६-५९०४९६</h1>
               </div>
             </div>
             <div className="flex flex-row items-center gap-5 border bg-white p-5 shadow-sm rounded-md">
@@ -93,7 +95,7 @@ export const ContactPage = () => {
           </div>
           <div className="w-full h-auto md:w-1/2 pe-2">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d172278.0772515662!2d84.24107640614274!3d27.65827846608394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3994fb37e078d531%3A0x973f22922ea702f7!2sBharatpur%2044200!5e1!3m2!1sen!2snp!4v1737023516357!5m2!1sen!2snp"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.391187862288!2d84.4566756!3d27.674301899999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3994e5b408dc2ea1%3A0x9b43e267424dd98a!2sBharatpur%20Ward%20No%2012%20Office!5e0!3m2!1sen!2snp!4v1740046830497!5m2!1sen!2snp"
               style={{
                 width: "100%",
                 height: "100%",
