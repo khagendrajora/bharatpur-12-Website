@@ -12,6 +12,7 @@ import { ImageURl } from "../../../Utils/ButtonLoader";
 
 export interface IMembers extends Document {
   id?: string;
+  employee_id: string;
   name_en: string;
   name_np: string;
   designation_en: string;
@@ -36,13 +37,7 @@ export const BoardMembers = () => {
           const filterData = data.filter(
             (item: { category: string }) => item.category === "Board Member"
           );
-          // const data = res.data;
-          // if (!res.data) {
-          //   console.log(data.error);
-          // } else {
-          //   const filterData = data.filter(
-          //     (item: { category: string }) => item.category === "Board Member"
-          //   );
+
           setMembers(filterData);
         } else {
           console.log("Error:", res.data.error || "No data available");
@@ -54,7 +49,6 @@ export const BoardMembers = () => {
     };
     fetchData();
   }, []);
-  console.log(members);
 
   const Delete = async (id: string | undefined) => {
     try {
@@ -65,7 +59,7 @@ export const BoardMembers = () => {
           toast.error("Token Missing");
           return;
         }
-        // setIsButton(id || "");
+
         const response = await axios.delete(
           `https://bharatpur12.org/new/api/board-members/${id}`,
           {
@@ -154,7 +148,7 @@ export const BoardMembers = () => {
               members.map((data) => (
                 <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
                   <td className=" py-4   font-semibold text-gray-900 dark:text-white">
-                    {data.id}
+                    {data.employee_id}
                   </td>
                   <td className="p-4 ">
                     <img
