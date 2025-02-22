@@ -7,12 +7,13 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { LanguageSelector } from "../LanguageSelector";
 import { Link, useLocation, useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
 
 export const NavBar = () => {
+  const menuRef = useRef<HTMLDivElement>(null);
   const [isMenu, setIsMenu] = useState(false);
   const [aboutUsMenu, setAboutUsMenu] = useState(false);
   const [newsMenu, setNewsMenu] = useState(false);
@@ -22,6 +23,18 @@ export const NavBar = () => {
   const [publicationSmall, setPublicationSmall] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleClickOutsideMenu = (event: any) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenu(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutsideMenu);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutsideMenu);
+    };
+  }, []);
 
   const works = () => {
     const work = document.getElementById("works");
@@ -46,6 +59,10 @@ export const NavBar = () => {
     location.pathname === path || location.pathname.startsWith(path + "/");
 
   const { t } = useTranslation();
+
+  useEffect(() => {
+    setIsMenu(false);
+  }, [location.pathname]);
 
   return (
     <>
@@ -273,6 +290,7 @@ export const NavBar = () => {
         </div>
         {isMenu && (
           <div
+            ref={menuRef}
             className={` absolute lg:hidden  bg-blue-500 ps-8 p-2 w-1/3 min-w-[200px]  z-10 top-[1px] left-0 t transition-all overflow-hidden duration-5000 ease-linear ${
               isMenu ? "w-1/3 min-w-[200px]" : "w-0"
             }`}
@@ -334,7 +352,7 @@ export const NavBar = () => {
 
               <li
                 className="hover:text-black cursor-pointer flex justify-between items-center"
-                onClick={() => setPublicationSmall(!newsMenuSmall)}
+                onClick={() => setPublicationSmall(!publicationSmall)}
               >
                 स्रोत
                 <FontAwesomeIcon
@@ -415,7 +433,7 @@ export const NavBar = () => {
           </div>
         )}
 
-        <div className="lg:hidden p-[1px] pr-4 flex items-center cursor-pointer">
+        <div className="lg:hidden p-[1px] pr-4 flex items-center transition duration-1000 cursor-pointer">
           <div onClick={() => setIsMenu(!isMenu)}>
             <FontAwesomeIcon
               icon={faBars}
