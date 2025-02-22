@@ -16,17 +16,16 @@ export const Footer = () => {
             <h1 className="font-bold text-xl">ठेगाना</h1>
             <hr className="w-[100px]" />
             <div className="flex flex-col py-5 text-sm">
-              <h1>भरतपुर नगरपालिका-१२, चितवन, नेपाल </h1>
+              <h1>
+                राइनो ताल रोड, नौरंगे-१२, भरतपुर महानगरपालिका, चितवन, नेपाल.
+              </h1>
             </div>
           </div>
           <div className="flex flex-col text-white  text-start   bg-blue- opacity-90">
             <h1 className="font-bold text-xl">सम्पर्क</h1>
             <hr className="w-[100px]" />
             <div className="flex flex-col py-5 text-sm">
-              <h1>
-                ‌‌+९७७-५६-५९७००४<br></br>
-                ०५६-५११४६७{" "}
-              </h1>
+              <h1>०५६-५९०४९६</h1>
             </div>
           </div>
           <div className="flex flex-col text-white  text-start gap-3  bg-blue- opacity-90">
