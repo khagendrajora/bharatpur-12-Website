@@ -41,19 +41,6 @@ export const ToleIntro = () => {
           </div>
         </div>
         <div className="flex w-full text-xs text-center sm:text-lg gap-5  justify-center flex-wrap mx-auto my-10 ">
-          <div className="w-11/12  md:w-1/3 lg:w-1/4 flex-col flex max-w-[350px] mx-auto">
-            <img
-              src="/Images/Bisnu maya aacharya.jpg"
-              className="h-[300px] w-[300px] mx-auto"
-            />
-            <div className=" w-3/4 max-w-[250px] -mt-10 p-3 bg-white top-40 shadow-md  justify-center items-center mx-auto left-10  ">
-              <h1 className="font-bold">
-                श्री&nbsp;बिष्णु&nbsp;माया&nbsp;आचार्य
-              </h1>
-              <h1 className="">वडा&nbsp;सचिव</h1>
-              <h1 className="">९८४६५७०५२०</h1>
-            </div>
-          </div>
           <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[350px] mx-auto">
             <img
               src="/Images/jamuna dhungana.jpg"
@@ -106,6 +93,17 @@ export const ToleIntro = () => {
         <div className="mx-auto text-center flex bg-zinc-100 flex-col gap-20 py-20 ">
           <h1 className="text-center font-bold text-4xl">कर्मचारी</h1>
           <div className="flex flex-wrap gap-10 justify-center ">
+            <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[350px] mx-auto">
+              <img
+                src="/Images/Bisnu maya aacharya.jpg"
+                className="h-[300px] w-[300px] mx-auto"
+              />
+              <div className=" w-3/4 max-w-[250px] -mt-10 p-3 bg-white top-40 shadow-md  justify-center items-center mx-auto left-10  ">
+                <h1 className="font-bold">श्री बिष्णु माया आचार्य</h1>
+                <h1 className=""> वडा सचिव</h1>
+                <h1 className="">९८४६५७०५२०</h1>
+              </div>
+            </div>
             <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[350px] mx-auto">
               <img src="/female.png" className="h-[300px] w-[300px] mx-auto" />
               <div className=" w-3/4 max-w-[250px] -mt-10 p-3 bg-white top-40 shadow-md  justify-center items-center mx-auto left-10  ">

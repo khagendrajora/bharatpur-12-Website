@@ -13,14 +13,28 @@ export const Intro = () => {
       post: "अध्यक्ष",
       number: "९८५५०५६४३८",
     },
-
     {
-      src: "/Images/Bisnu maya aacharya.jpg",
+      src: "/Images/jamuna dhungana.jpg",
       alt: "Hero Image 4",
-      name: " श्री बिष्णु माया आचार्य",
-      post: "वडा सचिव",
-      number: "९८४६५७०५२०",
+      name: "जमुना ढुंगाना ",
+      post: "महिला सदस्य",
+      number: "९८४९०४६२६१",
     },
+    {
+      src: "/Images/mira nepali.jpg",
+      alt: "Hero Image 4",
+      name: "मिरा नेपाली ",
+      post: " द. महिला सदस्य",
+      number: "९७४८४२९८९०",
+    },
+
+    // {
+    //   src: "/Images/Bisnu maya aacharya.jpg",
+    //   alt: "Hero Image 4",
+    //   name: " श्री बिष्णु माया आचार्य",
+    //   post: "वडा सचिव",
+    //   number: "९८४६५७०५२०",
+    // },
 
     {
       src: "/Images/bir bahadur syantan.jpg",
