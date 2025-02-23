@@ -19,7 +19,6 @@ export interface IPublication extends Document {
 
 export const Publication = () => {
   const navigate = useNavigate();
-  // const [isButton, setIsButton] = React.useState(false);
   const [info, setInfo] = useState<IPublication[]>([]);
 
   useEffect(() => {
@@ -39,7 +38,6 @@ export const Publication = () => {
     };
     fetchData();
   }, []);
-  console.log(info);
 
   const Delete = async (id: string | undefined) => {
     try {
@@ -50,7 +48,7 @@ export const Publication = () => {
           toast.error("Token Missing");
           return;
         }
-        // setIsButton(id || "");
+
         const response = await axios.delete(
           `https://bharatpur12.org/new/api/publications/${id}`,
           {

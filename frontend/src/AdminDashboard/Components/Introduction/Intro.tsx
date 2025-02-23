@@ -145,8 +145,8 @@ export const Intro = () => {
             <tbody className="text-center">
               {info && (
                 <>
-                  <tr className="bg-white  border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
-                    <td className=" py-4   font-semibold text-gray-900 dark:text-white">
+                  <tr className="bg-white  border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600 h-[150px]">
+                    <td className=" py-4 font-semibold text-gray-900 dark:text-white">
                       {info.id}
                     </td>
                     <td className="p-4 ">
@@ -169,21 +169,25 @@ export const Intro = () => {
                       <div>{info.title_np}</div>
                     </td>
 
-                    <td className="py-4 font-semibold max-w-[300px] min-w-[300px] px-3  text-gray-900 dark:text-white">
-                      <div>{HTMLReactParser(info.description_en)}</div>
+                    <td className="py-4 font-semibold max-w-[300px] min-w-[300px] px-3 h-full overflow-auto text-gray-900   dark:text-white">
+                      <div className="overflow-auto max-h-[100px]">
+                        {HTMLReactParser(info.description_en)}
+                      </div>
                       <br />
-                      <div>{HTMLReactParser(info.description_np)}</div>
+                      <div className="overflow-auto max-h-[100px]">
+                        {HTMLReactParser(info.description_np)}
+                      </div>
                     </td>
 
                     <td className="">
-                      {info.slider_images.length > 0 &&
+                      {/* {info.slider_images.length > 0 &&
                         info.slider_images.map((s) => (
                           <img
                             src={`${ImageURl}/${s}`}
                             className="w-16 md:w-32 max-w-full mx-auto max-h-full"
                             alt="Apple Watch"
                           />
-                        ))}
+                        ))} */}
                     </td>
                     <td className="">
                       <FontAwesomeIcon
