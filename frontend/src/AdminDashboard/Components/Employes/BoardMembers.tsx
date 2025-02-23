@@ -37,7 +37,7 @@ export const BoardMembers = () => {
           const filterData = data.filter(
             (item: { category: string }) => item.category === "Board Member"
           );
-
+          console.log(res.data);
           setMembers(filterData);
         } else {
           console.log("Error:", res.data.error || "No data available");

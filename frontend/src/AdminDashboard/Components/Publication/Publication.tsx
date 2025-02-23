@@ -15,6 +15,7 @@ export interface IPublication extends Document {
   title_np: string;
   publication_date: string;
   document: string;
+  image: string;
 }
 
 export const Publication = () => {
