@@ -1,7 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import { INews } from "../AdminDashboard/Components/News/News";
+import axios from "axios";
+import { ImageURl } from "../Utils/ButtonLoader";
+import HTMLReactParser from "html-react-parser/lib/index";
 
 export const NewsPage = () => {
+  const [info, setInfo] = useState<INews[] | []>([]);
   const offsetTop = 0;
   useEffect(() => {
     window.scrollTo({
@@ -10,35 +15,46 @@ export const NewsPage = () => {
     });
   }, []);
   const navigate = useNavigate();
-  const images = [
-    {
-      src: "/hero.jpg",
-      alt: "Hero Image 1",
-      month: "भाद्र",
-      day: "१०",
-      key: "1",
-      year: "२०८१",
-      title: "+2 उतिर्ण विद्यार्थीहरुलाई बधाई तथा शुभकामना कार्यक्रम",
-    },
-    {
-      src: "/hero.jpg",
-      alt: "Hero Image 2",
-      month: "आश्विन",
-      key: "2",
-      day: "१०",
-      year: "२०८१",
-      title: "ज्येष्ठ नागरिक दिवसको शुभ अवसरमा र्याली तथा कार्यक्रम -२०८०",
-    },
-    {
-      src: "/hero.jpg",
-      alt: "Hero Image 3",
-      month: "भाद्र",
-      key: "3",
-      day: "१०",
-      year: "२०७३",
-      title: "७६ बर्ष उमेर पुगेका जेष्ठ नागरिकहरुलाई सम्मान कार्यक्रम",
-    },
-  ];
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `https://bharatpur12.org/new/api/samachar`
+        );
+        console.log(response.data);
+        const sortData = response.data.sort(
+          (a: any, b: any) =>
+            new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+        );
+        const latestData = sortData.slice(0, 3);
+        setInfo(latestData);
+      } catch (error: any) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const convertToNepaliNumbers = (number: any) => {
+    const nepaliDigits = ["०", "१", "२", "३", "४", "५", "६", "७", "८", "९"];
+    return number
+      .toString()
+      .split("")
+      .map((digit: any) => nepaliDigits[parseInt(digit)])
+      .join("");
+  };
+
+  const formatNepaliDate = (dateString: any) => {
+    const [year, month, day] = dateString.split("-");
+
+    return {
+      year: convertToNepaliNumbers(year),
+      month: convertToNepaliNumbers(month),
+      day: convertToNepaliNumbers(day),
+    };
+  };
+
   return (
     <>
       <div className="w-full flex flex-col font-poppin">
@@ -53,37 +69,42 @@ export const NewsPage = () => {
           </h1>
         </div>
         <div className="flex justify-center flex-wrap gap-7 py-10 ">
-          {images.map((image, index) => (
-            <>
-              <div
-                key={index}
-                className="relative shadow-md rounded-lg bg-white md:w-1/2 max-w-[350px] lg:w-1/4 w-full sm:w-3/4"
-              >
-                <img
-                  src="/hero.jpg"
-                  alt="logo"
-                  className="mx-auto h-auto min-h-[400px]  object-cover"
-                />
-                <div className="bg-red-600 p-3 absolute right-5 w-20 top-0 text-center text-white font-bold">
-                  {image.day}
-                  <br></br>
-                  {image.month}
-                </div>
-                <div className="flex flex-col gap-5 p-6 ">
-                  <p className="text-xl font-bold leading-8  scrollbar-hidden">
-                    {image.title}
-                  </p>
-                  <hr />
-                  <button
-                    className="text-slate-400 p-2 hover:text-blue-600 flex flex-row gap-3 items-center"
-                    onClick={() => navigate(`/newsdetail/${image.key}`)}
-                  >
-                    थप&nbsp;पढ्नुहोस्
-                  </button>
-                </div>
-              </div>
-            </>
-          ))}
+          {info.length > 0
+            ? info.map((info, i) => {
+                const { year, month, day } = formatNepaliDate(info.date);
+                return (
+                  <>
+                    <div
+                      key={i}
+                      className="relative shadow-md rounded-lg bg-white md:w-1/2 max-w-[350px] lg:w-1/4 w-full sm:w-3/4"
+                    >
+                      <img
+                        src={`${ImageURl}/${info.image}`}
+                        alt="logo"
+                        className="mx-auto h-auto min-h-[400px]  object-cover"
+                      />
+                      <div className="bg-red-600 p-3 absolute right-5 w-20 top-0 text-center text-white font-bold">
+                        {year}
+                        <br></br>
+                        {month}-{day}
+                      </div>
+                      <div className="flex flex-col gap-5 p-6 ">
+                        <p className="text-xl font-bold leading-8  scrollbar-hidden">
+                          {HTMLReactParser(info.title_np)}
+                        </p>
+                        <hr />
+                        <button
+                          className="text-slate-400 p-2 hover:text-blue-600 flex flex-row gap-3 items-center"
+                          onClick={() => navigate(`/newsdetail/${info.id}`)}
+                        >
+                          थप&nbsp;पढ्नुहोस्
+                        </button>
+                      </div>
+                    </div>
+                  </>
+                );
+              })
+            : ""}
         </div>
       </div>
     </>

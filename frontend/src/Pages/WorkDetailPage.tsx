@@ -13,6 +13,15 @@ export const WorkDetailPage = () => {
   const params = useParams();
   const key = params.key;
   const [data, setData] = useState<IWork | null>(null);
+
+  const offsetTop = 0;
+  useEffect(() => {
+    window.scrollTo({
+      top: offsetTop,
+      behavior: "smooth",
+    });
+  }, []);
+
   const images = [
     {
       src: "/hero.jpg",

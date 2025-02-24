@@ -49,52 +49,7 @@ export const Intro = () => {
     };
     fetchData();
   }, []);
-  // const images = [
-  //   {
-  //     src: "/Images/Lekhraj Pant.jpg",
-  //     alt: "Hero Image 1",
-  //     name: "लेख राज पन्त",
-  //     post: "अध्यक्ष",
-  //     number: "९८५५०५६४३८",
-  //   },
-  //   {
-  //     src: "/Images/jamuna dhungana.jpg",
-  //     alt: "Hero Image 4",
-  //     name: "जमुना ढुंगाना ",
-  //     post: "महिला सदस्य",
-  //     number: "९८४९०४६२६१",
-  //   },
-  //   {
-  //     src: "/Images/mira nepali.jpg",
-  //     alt: "Hero Image 4",
-  //     name: "मिरा नेपाली ",
-  //     post: " द. महिला सदस्य",
-  //     number: "९७४८४२९८९०",
-  //   },
 
-  //   // {
-  //   //   src: "/Images/Bisnu maya aacharya.jpg",
-  //   //   alt: "Hero Image 4",
-  //   //   name: " श्री बिष्णु माया आचार्य",
-  //   //   post: "वडा सचिव",
-  //   //   number: "९८४६५७०५२०",
-  //   // },
-
-  //   {
-  //     src: "/Images/bir bahadur syantan.jpg",
-  //     alt: "Hero Image 4",
-  //     name: "	बिर बहादुर स्याङतान",
-  //     post: "सदस्य",
-  //     number: "९८४५०८६०९८",
-  //   },
-  //   {
-  //     src: "/Images/sanjay kumar thapa.jpg",
-  //     alt: "Hero Image 4",
-  //     name: "संजय कुमार थापा",
-  //     post: "सदस्य",
-  //     number: "९८५५०५४७१७",
-  //   },
-  // ];
   const settings = {
     dots: true,
     infinite: true,
@@ -111,7 +66,9 @@ export const Intro = () => {
             <div className="flex flex-col gap-5 md:w-2/5 xl:w-1/2">
               {intro && (
                 <div>
-                  <div className="font-bold text-4xl">{intro.title_np}</div>
+                  <div className="font-bold text-4xl">
+                    {HTMLReactParser(intro.title_np)}
+                  </div>
                   <div className="text-justify text-gray-500 py-5 font-normal font-poppin text-[16px] leading-8">
                     {HTMLReactParser(intro.description_np)}
                   </div>

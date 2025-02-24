@@ -24,6 +24,14 @@ export const Notice = () => {
   const [info, setInfo] = useState<INotice[]>([]);
   const navigate = useNavigate();
 
+  const offsetTop = 0;
+  useEffect(() => {
+    window.scrollTo({
+      top: offsetTop,
+      behavior: "smooth",
+    });
+  }, []);
+
   useEffect(() => {
     const fetchData = async () => {
       try {

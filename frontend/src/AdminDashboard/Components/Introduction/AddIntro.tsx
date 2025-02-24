@@ -2,9 +2,9 @@ import React from "react";
 import ReactImageUploading, { ImageListType } from "react-images-uploading";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
-import { ButtonLoader, convertToNepali } from "../../../Utils/ButtonLoader";
+import { ButtonLoader } from "../../../Utils/ButtonLoader";
 import JoditEditor from "jodit-react";
-import ReactQuill from "react-quill";
+// import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
 export const AddIntro = () => {
@@ -35,25 +35,25 @@ export const AddIntro = () => {
     []
   );
 
-  const HandleTitle = (title: string) => {
-    const title_np = convertToNepali(title);
-    setInputs({ ...inputs, title_np: title_np });
-  };
+  // const HandleTitle = (title: string) => {
+  //   const title_np = convertToNepali(title);
+  //   setInputs({ ...inputs, title_np: title_np });
+  // };
 
-  const handleChange = (html: string) => {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, "text/html");
+  // const handleChange = (html: string) => {
+  //   const parser = new DOMParser();
+  //   const doc = parser.parseFromString(html, "text/html");
 
-    const traverseNodes = (node: ChildNode) => {
-      if (node.nodeType === Node.TEXT_NODE) {
-        node.textContent = convertToNepali(node.textContent || "");
-      } else if (node.childNodes.length) {
-        node.childNodes.forEach(traverseNodes);
-      }
-    };
-    doc.body.childNodes.forEach(traverseNodes);
-    setInputs({ ...inputs, description_np: doc.body.innerHTML });
-  };
+  //   const traverseNodes = (node: ChildNode) => {
+  //     if (node.nodeType === Node.TEXT_NODE) {
+  //       node.textContent = convertToNepali(node.textContent || "");
+  //     } else if (node.childNodes.length) {
+  //       node.childNodes.forEach(traverseNodes);
+  //     }
+  //   };
+  //   doc.body.childNodes.forEach(traverseNodes);
+  //   setInputs({ ...inputs, description_np: doc.body.innerHTML });
+  // };
 
   const onImageGallaryChange = async (imageList: ImageListType) => {
     setImages(imageList);
@@ -146,7 +146,17 @@ export const AddIntro = () => {
 
               <div className=" z-0 w-full mb-5 group">
                 <label className="">Title</label>
-                <input
+
+                <JoditEditor
+                  ref={editor}
+                  value={inputs.title_en}
+                  config={config}
+                  onChange={(content) => {
+                    setInputs({ ...inputs, title_en: content });
+                  }}
+                />
+
+                {/* <input
                   type="text"
                   value={inputs.title_en}
                   onChange={(e) =>
@@ -155,18 +165,26 @@ export const AddIntro = () => {
                   name="title_en"
                   className="block py-2.5 px-0 w-full text-sm text-black border-0 border-b-2  focus:outline-none "
                   placeholder=" "
-                />
+                /> */}
               </div>
               <div className="relative z-0 w-full mb-5 group">
                 <label className="">शीर्षक</label>
-                <input
+                <JoditEditor
+                  ref={editor}
+                  value={inputs.title_np}
+                  config={config}
+                  onChange={(content) => {
+                    setInputs({ ...inputs, title_np: content });
+                  }}
+                />
+                {/* <input
                   type="text"
                   name="title_np"
                   value={inputs.title_np}
                   onChange={(e) => HandleTitle(e.target.value)}
                   className=" py-2.5 px-0 w-full text-sm text-black border-0 border-b-2  focus:outline-none"
                   placeholder=" "
-                />
+                /> */}
               </div>
               <div className="flex flex-col gap-5 w-full pb-5 ">
                 <label className="font-medium text-xl">Description</label>
@@ -181,12 +199,19 @@ export const AddIntro = () => {
               </div>
               <div className="flex flex-col gap-5 w-full pb-5 ">
                 <label className="font-bold text-xl">विवरण</label>
-
-                <ReactQuill
+                <JoditEditor
+                  ref={editor}
+                  value={inputs.description_np}
+                  config={config}
+                  onChange={(content) => {
+                    setInputs({ ...inputs, description_np: content });
+                  }}
+                />
+                {/* <ReactQuill
                   theme="snow"
                   value={inputs.description_np}
                   onChange={handleChange}
-                />
+                /> */}
               </div>
             </div>
 

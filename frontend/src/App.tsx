@@ -21,8 +21,8 @@ import { TaxPage } from "./Pages/TaxPage";
 import { NagrikPage } from "./Pages/NagrikPage";
 import { NewsDetailPage } from "./Pages/NewsDetailPage";
 import { WorkDetailPage } from "./Pages/WorkDetailPage";
-import { PublicationDetailPage } from "./Pages/PublicationDetailPage";
-import { NoticeDetailPage } from "./Pages/NoticeDetailPage";
+// import { PublicationDetailPage } from "./Pages/PublicationDetailPage";
+// import { NoticeDetailPage } from "./Pages/NoticeDetailPage";
 import { Dashboard } from "./AdminDashboard/Dashboard";
 import { AdminLogin } from "./AdminDashboard/Pages/AdminLogin";
 import { Layout } from "./AdminDashboard/Layout/Layout";
@@ -82,11 +82,11 @@ function App() {
             <Route path="contact" element={<ContactPage />} />
             <Route path="/newsdetail/:key" element={<NewsDetailPage />} />
             <Route path="workdetail/:key" element={<WorkDetailPage />} />
-            <Route
+            {/* <Route
               path="publicationdetail/:key"
               element={<PublicationDetailPage />}
-            />
-            <Route path="noticedetail/:key" element={<NoticeDetailPage />} />
+            /> */}
+            {/* <Route path="noticedetail/:key" element={<NoticeDetailPage />} /> */}
           </Route>
           <Route path="adminlogin" element={<AdminLogin />} />
           <Route path="admin" element={<Layout />}>

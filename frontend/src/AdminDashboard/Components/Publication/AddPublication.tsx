@@ -1,11 +1,13 @@
-import { ButtonLoader, convertToNepali } from "../../../Utils/ButtonLoader";
+import { ButtonLoader } from "../../../Utils/ButtonLoader";
 import { useNavigate } from "react-router";
 import React from "react";
 import { toast } from "react-toastify";
 import { NepaliDatePicker } from "nepali-datepicker-reactjs";
 import "nepali-datepicker-reactjs/dist/index.css";
+import JoditEditor from "jodit-react";
 
 export const AddPublication = () => {
+  const editor = React.useRef(null);
   const navigate = useNavigate();
   const [isButton, setIsButton] = React.useState(false);
 
@@ -21,10 +23,18 @@ export const AddPublication = () => {
     document: null,
   });
 
-  const HandleTitle = (title: string) => {
-    const title_np = convertToNepali(title);
-    setInputs({ ...inputs, title_np: title_np });
-  };
+  const config = React.useMemo(
+    () => ({
+      height: 400,
+      toolbarSticky: false,
+    }),
+    []
+  );
+
+  // const HandleTitle = (title: string) => {
+  //   const title_np = convertToNepali(title);
+  //   setInputs({ ...inputs, title_np: title_np });
+  // };
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       setInputs({
@@ -97,7 +107,17 @@ export const AddPublication = () => {
 
               <div className="relative z-0 w-full mb-5 group">
                 <label className="">Title</label>
-                <input
+
+                <JoditEditor
+                  ref={editor}
+                  value={inputs.title_en}
+                  config={config}
+                  onChange={(content) => {
+                    setInputs({ ...inputs, title_en: content });
+                  }}
+                />
+
+                {/* <input
                   type="text"
                   name="title_en"
                   value={inputs.title_en}
@@ -106,18 +126,27 @@ export const AddPublication = () => {
                   }
                   className="block py-2.5 px-0 w-full text-sm text-black border-0 border-b-2 border-gray-300 focus:outline-none "
                   placeholder=""
-                />
+                /> */}
               </div>
 
               <div className="relative z-0 w-full mb-5 group">
                 <label className="">शीर्षक</label>
-                <input
+                {/* <input
                   type="text"
                   name="title_np"
                   value={inputs.title_np}
                   onChange={(e) => HandleTitle(e.target.value)}
                   className="block py-2.5 px-0 w-full text-sm text-black border-0 border-b-2 border-gray-300  focus:outline-none"
                   placeholder=" "
+                /> */}
+
+                <JoditEditor
+                  ref={editor}
+                  value={inputs.title_np}
+                  config={config}
+                  onChange={(content) => {
+                    setInputs({ ...inputs, title_np: content });
+                  }}
                 />
               </div>
 

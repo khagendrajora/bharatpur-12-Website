@@ -23,6 +23,13 @@ export interface IMembers extends Document {
 }
 
 export const BoardMembers = () => {
+  const offsetTop = 0;
+  useEffect(() => {
+    window.scrollTo({
+      top: offsetTop,
+      behavior: "smooth",
+    });
+  }, []);
   const [members, setMembers] = useState<IMembers[]>([]);
   const navigate = useNavigate();
 

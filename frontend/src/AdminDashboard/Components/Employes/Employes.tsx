@@ -15,6 +15,14 @@ export const Employes = () => {
   const navigate = useNavigate();
   const [members, setMembers] = useState<IMembers[]>([]);
 
+  const offsetTop = 0;
+  useEffect(() => {
+    window.scrollTo({
+      top: offsetTop,
+      behavior: "smooth",
+    });
+  }, []);
+
   useEffect(() => {
     const fetchData = async () => {
       try {

@@ -10,6 +10,13 @@ export interface ISlider extends Document {
 }
 
 export const DashboardImage = () => {
+  const offsetTop = 0;
+  useEffect(() => {
+    window.scrollTo({
+      top: offsetTop,
+      behavior: "smooth",
+    });
+  }, []);
   const [info, setInfo] = useState<ISlider[]>([]);
 
   useEffect(() => {

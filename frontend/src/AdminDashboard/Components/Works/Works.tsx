@@ -25,6 +25,14 @@ export const Works = () => {
   const [info, setInfo] = useState<IWork[]>([]);
   const navigate = useNavigate();
 
+  const offsetTop = 0;
+  useEffect(() => {
+    window.scrollTo({
+      top: offsetTop,
+      behavior: "smooth",
+    });
+  }, []);
+
   useEffect(() => {
     const fetchData = async () => {
       try {

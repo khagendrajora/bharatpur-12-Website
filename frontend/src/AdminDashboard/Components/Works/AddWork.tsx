@@ -49,112 +49,112 @@ export const AddWork = () => {
     []
   );
 
-  const convertToNepali = (english: string, title: string) => {
-    const englishToNepaliMap: { [key: string]: string } = {
-      a: "अ",
-      b: "ब",
-      c: "स",
-      d: "द",
-      e: "इ",
-      f: "फ",
-      g: "ग",
-      h: "ह",
-      i: "इ",
-      j: "ज",
-      k: "क",
-      l: "ल",
-      m: "म",
-      n: "न",
-      o: "ओ",
-      p: "प",
-      q: "क",
-      r: "र",
-      s: "स",
-      t: "त",
-      u: "उ",
-      v: "व",
-      w: "व",
-      x: "क",
-      y: "य",
-      z: "ज",
-      A: "आ",
-      B: "भ",
-      C: "च",
-      D: "ढ",
-      E: "ई",
-      F: "फ़",
-      G: "घ",
-      H: "ह",
-      I: "ई",
-      J: "झ",
-      K: "ख",
-      L: "ल",
-      M: "म्",
-      N: "ण",
-      O: "ओ",
-      P: "फ",
-      Q: "क",
-      R: "ऱ",
-      S: "श",
-      T: "ठ",
-      U: "ऊ",
-      V: "व",
-      W: "व",
-      X: "क्ष",
-      Y: "य",
-      Z: "ज़",
-      "1": "१",
-      "2": "२",
-      "3": "३",
-      "4": "४",
-      "5": "५",
-      "6": "६",
-      "7": "७",
-      "8": "८",
-      "9": "९",
-      "0": "०",
-      "!": "!",
-      "@": "@",
-      "#": "#",
-      $: "₹",
-      "%": "%",
-      "^": "^",
-      "&": "&",
-      "*": "*",
-      "(": "(",
-      ")": ")",
-      _: "_",
-      "+": "+",
-      "=": "=",
-      "-": "—",
-      "/": "।",
-      ",": " ",
-      ".": "।",
-      ":": ":",
-      ";": ";",
-      "'": "’",
-      '"': "“",
-      "<": "‹",
-      ">": "›",
-      "?": "?",
-      "\\": "\\",
-      "|": "|",
-      "{": "{",
-      "}": "}",
-      "[": "[",
-      "]": "]",
-      "`": "ऽ",
-      "~": "~",
-      " ": " ",
-    };
-    const nepaliText = english
-      .split("")
-      .map((char) => englishToNepaliMap[char] || char)
-      .join("");
-    if (title === "title") {
-      setInputs({ ...inputs, title_np: nepaliText });
-    }
-  };
+  // const convertToNepali = (english: string, title: string) => {
+  //   const englishToNepaliMap: { [key: string]: string } = {
+  //     a: "अ",
+  //     b: "ब",
+  //     c: "स",
+  //     d: "द",
+  //     e: "इ",
+  //     f: "फ",
+  //     g: "ग",
+  //     h: "ह",
+  //     i: "इ",
+  //     j: "ज",
+  //     k: "क",
+  //     l: "ल",
+  //     m: "म",
+  //     n: "न",
+  //     o: "ओ",
+  //     p: "प",
+  //     q: "क",
+  //     r: "र",
+  //     s: "स",
+  //     t: "त",
+  //     u: "उ",
+  //     v: "व",
+  //     w: "व",
+  //     x: "क",
+  //     y: "य",
+  //     z: "ज",
+  //     A: "आ",
+  //     B: "भ",
+  //     C: "च",
+  //     D: "ढ",
+  //     E: "ई",
+  //     F: "फ़",
+  //     G: "घ",
+  //     H: "ह",
+  //     I: "ई",
+  //     J: "झ",
+  //     K: "ख",
+  //     L: "ल",
+  //     M: "म्",
+  //     N: "ण",
+  //     O: "ओ",
+  //     P: "फ",
+  //     Q: "क",
+  //     R: "ऱ",
+  //     S: "श",
+  //     T: "ठ",
+  //     U: "ऊ",
+  //     V: "व",
+  //     W: "व",
+  //     X: "क्ष",
+  //     Y: "य",
+  //     Z: "ज़",
+  //     "1": "१",
+  //     "2": "२",
+  //     "3": "३",
+  //     "4": "४",
+  //     "5": "५",
+  //     "6": "६",
+  //     "7": "७",
+  //     "8": "८",
+  //     "9": "९",
+  //     "0": "०",
+  //     "!": "!",
+  //     "@": "@",
+  //     "#": "#",
+  //     $: "₹",
+  //     "%": "%",
+  //     "^": "^",
+  //     "&": "&",
+  //     "*": "*",
+  //     "(": "(",
+  //     ")": ")",
+  //     _: "_",
+  //     "+": "+",
+  //     "=": "=",
+  //     "-": "—",
+  //     "/": "।",
+  //     ",": " ",
+  //     ".": "।",
+  //     ":": ":",
+  //     ";": ";",
+  //     "'": "’",
+  //     '"': "“",
+  //     "<": "‹",
+  //     ">": "›",
+  //     "?": "?",
+  //     "\\": "\\",
+  //     "|": "|",
+  //     "{": "{",
+  //     "}": "}",
+  //     "[": "[",
+  //     "]": "]",
+  //     "`": "ऽ",
+  //     "~": "~",
+  //     " ": " ",
+  //   };
+  //   const nepaliText = english
+  //     .split("")
+  //     .map((char) => englishToNepaliMap[char] || char)
+  //     .join("");
+  //   if (title === "title") {
+  //     setInputs({ ...inputs, title_np: nepaliText });
+  //   }
+  // };
 
   const add = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -223,7 +223,15 @@ export const AddWork = () => {
 
               <div className="relative z-0 w-full mb-5 group">
                 <label className="">Title</label>
-                <input
+                <JoditEditor
+                  ref={editor}
+                  value={inputs.title_en}
+                  config={config}
+                  onChange={(content) => {
+                    setInputs({ ...inputs, title_en: content });
+                  }}
+                />
+                {/* <input
                   type="text"
                   name="title_en"
                   value={inputs.title_en}
@@ -232,18 +240,26 @@ export const AddWork = () => {
                   }
                   className="block py-2.5 px-0 w-full text-sm text-black border-0 border-b-2 border-gray-300  focus:outline-none"
                   placeholder=" "
-                />
+                /> */}
               </div>
               <div className="relative z-0 w-full mb-5 group">
                 <label className="">शीर्षक</label>
-                <input
+                <JoditEditor
+                  ref={editor}
+                  value={inputs.title_np}
+                  config={config}
+                  onChange={(content) => {
+                    setInputs({ ...inputs, title_np: content });
+                  }}
+                />
+                {/* <input
                   type="text"
                   name="title_np"
                   value={inputs.title_np}
                   onChange={(e) => convertToNepali(e.target.value, "title")}
                   className="block py-2.5 px-0 w-full text-sm text-black border-0 border-b-2 border-gray-300 focus:outline-none"
                   placeholder=" "
-                />
+                /> */}
               </div>
 
               <div className="flex flex-col gap-5 w-full pb-5 ">

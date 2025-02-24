@@ -24,6 +24,15 @@ export interface INews extends Document {
 export const News = () => {
   const [info, setInfo] = useState<INews[]>([]);
   const navigate = useNavigate();
+
+  const offsetTop = 0;
+  useEffect(() => {
+    window.scrollTo({
+      top: offsetTop,
+      behavior: "smooth",
+    });
+  }, []);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -154,9 +163,9 @@ export const News = () => {
                     />
                   </td>
                   <td className="  py-4 font-semibold text-gray-900 dark:text-white">
-                    <div>{data.title_en}</div>
+                    <div>{HTMLReactParser(data.title_en)}</div>
                     <br />
-                    <div>{data.title_np}</div>
+                    <div>{HTMLReactParser(data.title_np)}</div>
                   </td>
 
                   <td className="  py-4 font-semibold text-gray-900 dark:text-white">

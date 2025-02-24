@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
-import { ButtonLoader, convertToNepali } from "../../../Utils/ButtonLoader";
+import { ButtonLoader } from "../../../Utils/ButtonLoader";
 import JoditEditor from "jodit-react";
 import { NepaliDatePicker } from "nepali-datepicker-reactjs";
 import "nepali-datepicker-reactjs/dist/index.css";
-import ReactQuill from "react-quill";
+// import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
 export const AddNews = () => {
@@ -28,25 +28,26 @@ export const AddNews = () => {
     description_np: "",
   });
 
-  const HandleTitle = (title: string) => {
-    const title_np = convertToNepali(title);
-    setInputs({ ...inputs, title_np: title_np });
-  };
-  const handleChange = (html: string) => {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, "text/html");
-    const traverseNodes = (node: ChildNode) => {
-      if (node.nodeType === Node.TEXT_NODE) {
-        node.textContent = convertToNepali(node.textContent || "");
-      } else if (node.childNodes.length) {
-        node.childNodes.forEach(traverseNodes);
-      }
-    };
+  // const HandleTitle = (title: string) => {
+  //   const title_np = convertToNepali(title);
+  //   setInputs({ ...inputs, title_np: title_np });
+  // };
 
-    doc.body.childNodes.forEach(traverseNodes);
+  // const handleChange = (html: string) => {
+  //   const parser = new DOMParser();
+  //   const doc = parser.parseFromString(html, "text/html");
+  //   const traverseNodes = (node: ChildNode) => {
+  //     if (node.nodeType === Node.TEXT_NODE) {
+  //       node.textContent = convertToNepali(node.textContent || "");
+  //     } else if (node.childNodes.length) {
+  //       node.childNodes.forEach(traverseNodes);
+  //     }
+  //   };
 
-    setInputs({ ...inputs, description_np: doc.body.innerHTML });
-  };
+  //   doc.body.childNodes.forEach(traverseNodes);
+
+  //   setInputs({ ...inputs, description_np: doc.body.innerHTML });
+  // };
 
   const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -130,28 +131,38 @@ export const AddNews = () => {
 
               <div className="relative z-0 w-full mb-5 group">
                 <label className="">Title</label>
-                <input
-                  type="text"
+                <JoditEditor
+                  ref={editor}
                   name="title_en"
                   value={inputs.title_en}
+                  config={config}
                   onChange={(e) => {
-                    setInputs({ ...inputs, title_en: e.target.value });
+                    setInputs({ ...inputs, title_en: e });
                   }}
                   className=" py-2.5 px-0 w-full text-sm text-black border-b-2 focus:outline-none"
-                  placeholder=" "
                 />
               </div>
 
               <div className=" z-0 w-full mb-5 group">
                 <label className="">शीर्षक</label>
-                <input
+                <JoditEditor
+                  ref={editor}
+                  name="title_np"
+                  value={inputs.title_np}
+                  config={config}
+                  onChange={(e) => {
+                    setInputs({ ...inputs, title_np: e });
+                  }}
+                  className=" py-2.5 px-0 w-full text-sm text-black border-b-2 focus:outline-none"
+                />
+                {/* <input
                   type="text"
                   name="title_np"
                   value={inputs.title_np}
                   onChange={(e) => HandleTitle(e.target.value)}
                   className=" py-2.5 px-0 w-full text-sm border-0 border-b-2 border-gray-300  dark:text-white dark:border-gray-600 focus:outline-none"
                   placeholder=" "
-                />
+                /> */}
               </div>
 
               <div className="flex flex-col gap-5 w-full pb-5 ">
@@ -167,11 +178,19 @@ export const AddNews = () => {
               </div>
               <div className="flex flex-col gap-5  w-full pb-5 ">
                 <label className="font-bold text-xl">विवरण</label>
-                <ReactQuill
+                <JoditEditor
+                  ref={editor}
+                  value={inputs.description_np}
+                  config={config}
+                  onChange={(content) => {
+                    setInputs({ ...inputs, description_np: content });
+                  }}
+                />
+                {/* <ReactQuill
                   theme="snow"
                   value={inputs.description_np}
                   onChange={handleChange}
-                />
+                /> */}
               </div>
 
               <div className="relative z-10 w-full mt-32 md:mt-24 mb-5 group">

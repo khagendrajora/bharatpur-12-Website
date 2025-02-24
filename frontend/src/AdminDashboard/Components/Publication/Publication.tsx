@@ -22,6 +22,14 @@ export const Publication = () => {
   const navigate = useNavigate();
   const [info, setInfo] = useState<IPublication[]>([]);
 
+  const offsetTop = 0;
+  useEffect(() => {
+    window.scrollTo({
+      top: offsetTop,
+      behavior: "smooth",
+    });
+  }, []);
+
   useEffect(() => {
     const fetchData = async () => {
       try {

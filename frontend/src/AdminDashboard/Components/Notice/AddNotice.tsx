@@ -1,9 +1,9 @@
-import { ButtonLoader, convertToNepali } from "../../../Utils/ButtonLoader";
+import { ButtonLoader } from "../../../Utils/ButtonLoader";
 import { useNavigate } from "react-router";
 import React from "react";
 import { toast } from "react-toastify";
 import JoditEditor from "jodit-react";
-import ReactQuill from "react-quill";
+// import ReactQuill from "react-quill";
 import { NepaliDatePicker } from "nepali-datepicker-reactjs";
 import "nepali-datepicker-reactjs/dist/index.css";
 
@@ -42,24 +42,24 @@ export const AddNotice = () => {
     []
   );
 
-  const HandleTitle = (title: string) => {
-    const title_np = convertToNepali(title);
-    setInputs({ ...inputs, title_np: title_np });
-  };
-  const handleChange = (html: string) => {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, "text/html");
+  // const HandleTitle = (title: string) => {
+  //   const title_np = convertToNepali(title);
+  //   setInputs({ ...inputs, title_np: title_np });
+  // };
+  // const handleChange = (html: string) => {
+  //   const parser = new DOMParser();
+  //   const doc = parser.parseFromString(html, "text/html");
 
-    const traverseNodes = (node: ChildNode) => {
-      if (node.nodeType === Node.TEXT_NODE) {
-        node.textContent = convertToNepali(node.textContent || "");
-      } else if (node.childNodes.length) {
-        node.childNodes.forEach(traverseNodes);
-      }
-    };
-    doc.body.childNodes.forEach(traverseNodes);
-    setInputs({ ...inputs, description_np: doc.body.innerHTML });
-  };
+  //   const traverseNodes = (node: ChildNode) => {
+  //     if (node.nodeType === Node.TEXT_NODE) {
+  //       node.textContent = convertToNepali(node.textContent || "");
+  //     } else if (node.childNodes.length) {
+  //       node.childNodes.forEach(traverseNodes);
+  //     }
+  //   };
+  //   doc.body.childNodes.forEach(traverseNodes);
+  //   setInputs({ ...inputs, description_np: doc.body.innerHTML });
+  // };
 
   const add = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -128,7 +128,15 @@ export const AddNotice = () => {
 
               <div className="relative z-0 w-full mb-5 group">
                 <label className="">Title</label>
-                <input
+                <JoditEditor
+                  ref={editor}
+                  value={inputs.title_en}
+                  config={config}
+                  onChange={(content) => {
+                    setInputs({ ...inputs, title_en: content });
+                  }}
+                />
+                {/* <input
                   type="text"
                   name="title_en"
                   value={inputs.title_en}
@@ -137,18 +145,27 @@ export const AddNotice = () => {
                   }
                   className="block py-2.5 px-0 w-full text-sm text-black border-0 border-b-2 border-gray-300 focus:outline-none"
                   placeholder=" "
-                />
+                /> */}
               </div>
 
               <div className="relative z-0 w-full mb-5 group">
                 <label className="">शीर्षक</label>
-                <input
+                {/* <input
                   type="text"
                   name="title_np"
                   value={inputs.title_np}
                   onChange={(e) => HandleTitle(e.target.value)}
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 border-0 border-b-2 border-gray-300 focus:outline-none"
                   placeholder=" "
+                /> */}
+
+                <JoditEditor
+                  ref={editor}
+                  value={inputs.title_np}
+                  config={config}
+                  onChange={(content) => {
+                    setInputs({ ...inputs, title_np: content });
+                  }}
                 />
               </div>
 
@@ -165,9 +182,18 @@ export const AddNotice = () => {
               </div>
               <div className="flex flex-col gap-5 w-full pb-5 ">
                 <label className="font-bold text-bold">विवरण</label>
-                <ReactQuill
+                {/* <ReactQuill
                   value={inputs.description_np}
                   onChange={handleChange}
+                /> */}
+
+                <JoditEditor
+                  ref={editor}
+                  value={inputs.description_np}
+                  config={config}
+                  onChange={(content) => {
+                    setInputs({ ...inputs, description_np: content });
+                  }}
                 />
               </div>
 

@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { ButtonLoader, convertToNepali } from "../../../Utils/ButtonLoader";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 
 export const AddEmploye = () => {
+  const offsetTop = 0;
+  useEffect(() => {
+    window.scrollTo({
+      top: offsetTop,
+      behavior: "smooth",
+    });
+  }, []);
   const navigate = useNavigate();
   const [isButton, setIsButton] = React.useState(false);
   const [image, setImage] = React.useState<File | null>(null);
