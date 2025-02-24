@@ -16,11 +16,25 @@ export const Publication = () => {
   };
 
   const formatNepaliDate = (dateString: any) => {
+    const nepaliMonths = [
+      "बैशाख",
+      "जेष्ठ",
+      "असार",
+      "श्रावण",
+      "भाद्र",
+      "अशोज",
+      "कार्तिक",
+      "मंसिर",
+      "पुष",
+      "माघ",
+      "फाल्गुन",
+      "चैत",
+    ];
     const [year, month, day] = dateString.split("-");
 
     return {
       year: convertToNepaliNumbers(year),
-      month: convertToNepaliNumbers(month),
+      month: nepaliMonths[parseInt(month) - 1],
       day: convertToNepaliNumbers(day),
     };
   };
@@ -56,7 +70,7 @@ export const Publication = () => {
               <h1 className=" text-4xl font-bold">प्रकाशन</h1>
               {info.length > 0
                 ? info.map((info, i) => {
-                    const { year, month, day } = formatNepaliDate(
+                    const { month, day } = formatNepaliDate(
                       info.publication_date
                     );
                     return (
@@ -65,9 +79,9 @@ export const Publication = () => {
                         className="p-5 mt-7  border-2 bg-white w-fit lg:min-w-[300px] max-w-[570px] flex gap-3 items-center"
                       >
                         <div className="p-5 bg-[#245fb9] font-bold text-center border rounded-full w-fit text-white">
-                          {year}
+                          {day}
                           <br></br>
-                          {month}-{day}
+                          {month}
                         </div>
                         <div className="flex flex-col gap-1">
                           <h1 className="font-bold lg:text-xl">

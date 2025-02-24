@@ -194,11 +194,11 @@ export const NavBar = () => {
                         </li>
                       </Link>
                       <hr />
-                      <Link to="" className="hover:bg-gray-100 p-3">
+                      {/* <Link to="" className="hover:bg-gray-100 p-3">
                         <li className="cursor-pointer">
                           {t("navbar.key4.subKey.key2")}
                         </li>
-                      </Link>
+                      </Link> */}
                       <hr />
                     </ul>
                   </div>
@@ -372,9 +372,9 @@ export const NavBar = () => {
                         प्रकाशन
                       </Link>
 
-                      <Link to="" className="cursor-pointer hover:text-black">
+                      {/* <Link to="" className="cursor-pointer hover:text-black">
                         प्रतिवेदन
-                      </Link>
+                      </Link> */}
                     </ul>
                   </div>
                 )}

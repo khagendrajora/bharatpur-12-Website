@@ -46,11 +46,25 @@ export const NewsPage = () => {
   };
 
   const formatNepaliDate = (dateString: any) => {
+    const nepaliMonths = [
+      "बैशाख",
+      "जेष्ठ",
+      "असार",
+      "श्रावण",
+      "भाद्र",
+      "अशोज",
+      "कार्तिक",
+      "मंसिर",
+      "पुष",
+      "माघ",
+      "फाल्गुन",
+      "चैत",
+    ];
     const [year, month, day] = dateString.split("-");
 
     return {
       year: convertToNepaliNumbers(year),
-      month: convertToNepaliNumbers(month),
+      month: nepaliMonths[parseInt(month) - 1],
       day: convertToNepaliNumbers(day),
     };
   };
@@ -84,9 +98,11 @@ export const NewsPage = () => {
                         className="mx-auto h-auto min-h-[400px]  object-cover"
                       />
                       <div className="bg-red-600 p-3 absolute right-5 w-20 top-0 text-center text-white font-bold">
-                        {year}
+                        {day}
                         <br></br>
-                        {month}-{day}
+                        {month}
+                        <br></br>
+                        {year}
                       </div>
                       <div className="flex flex-col gap-5 p-6 ">
                         <p className="text-xl font-bold leading-8  scrollbar-hidden">

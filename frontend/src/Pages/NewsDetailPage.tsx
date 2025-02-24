@@ -43,11 +43,25 @@ export const NewsDetailPage = () => {
   };
 
   const formatNepaliDate = (dateString: any) => {
+    const nepaliMonths = [
+      "बैशाख",
+      "जेष्ठ",
+      "असार",
+      "श्रावण",
+      "भाद्र",
+      "अशोज",
+      "कार्तिक",
+      "मंसिर",
+      "पुष",
+      "माघ",
+      "फाल्गुन",
+      "चैत",
+    ];
     const [year, month, day] = dateString.split("-");
 
     return {
       year: convertToNepaliNumbers(year),
-      month: convertToNepaliNumbers(month),
+      month: nepaliMonths[parseInt(month) - 1],
       day: convertToNepaliNumbers(day),
     };
   };
@@ -68,7 +82,7 @@ export const NewsDetailPage = () => {
                 alt="hero"
                 className="w-full h-[400px]  object-cover"
               />
-              <h1 className="absolute inset-0 font-bold justify-center items-center flex text-white text-center  text-shadow text-xl md:text-3xl ">
+              <h1 className="absolute inset-0 font-bold justify-center items-center flex text-white text-center  text-shadow text-xl md:text-4xl ">
                 {HTMLReactParser(info.title_np)}
               </h1>
             </div>
@@ -76,11 +90,13 @@ export const NewsDetailPage = () => {
               <div className="flex flex-col gap-6 md:w-1/2 p-2">
                 <div className="flex gap-6 ">
                   <div className="bg-red-600 p-3 w-20 text-center text-white font-bold">
-                    {year}
+                    {day}
                     <br></br>
-                    {month}-{day}
+                    {month}
+                    <br></br>
+                    {year}
                   </div>
-                  <div className="font-bold flex items-end text-2xl">
+                  <div className="font-bold flex items-end text-5xl">
                     {HTMLReactParser(info.title_np)}
                   </div>
                 </div>

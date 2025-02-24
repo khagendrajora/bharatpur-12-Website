@@ -16,11 +16,25 @@ export const PublicationPage = () => {
   };
 
   const formatNepaliDate = (dateString: any) => {
+    const nepaliMonths = [
+      "बैशाख",
+      "जेष्ठ",
+      "असार",
+      "श्रावण",
+      "भाद्र",
+      "अशोज",
+      "कार्तिक",
+      "मंसिर",
+      "पुष",
+      "माघ",
+      "फाल्गुन",
+      "चैत",
+    ];
     const [year, month, day] = dateString.split("-");
 
     return {
       year: convertToNepaliNumbers(year),
-      month: convertToNepaliNumbers(month),
+      month: nepaliMonths[parseInt(month) - 1],
       day: convertToNepaliNumbers(day),
     };
   };
@@ -44,7 +58,7 @@ export const PublicationPage = () => {
           (a: any, b: any) =>
             new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
         );
-        // const latestData = sortData.slice(0, 3);
+
         setInfo(sortData);
       } catch (error: any) {
         console.log(error);
@@ -116,11 +130,12 @@ export const PublicationPage = () => {
                     key={i}
                     className="flex gap-2 w-full  sm:w-3/4 md:w-2/5  border-2 sm:p-5 px-1 "
                   >
-                    <div className="bg-[#ef4444]  p-5 w-[100px] md:h-[100px] text-white font-medium flex justify-center flex-col items-center gap-1">
-                      <span>
-                        {month}-{day}
-                      </span>
-                      <span>{year}</span>
+                    <div className="bg-[#ef4444] text-center p-5 w-[100px] md:h-[100px] text-white font-medium flex justify-center flex-col items-center gap-1">
+                      {day}
+                      <br></br>
+                      {month}
+                      <br></br>
+                      {year}
                     </div>
                     <div className="flex flex-col h-full justify-between p-3 gap-3">
                       <p className=" ">{info.title_np}</p>

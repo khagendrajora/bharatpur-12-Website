@@ -27,6 +27,7 @@ export const News = () => {
     fetchData();
   }, []);
   const navigate = useNavigate();
+
   const convertToNepaliNumbers = (number: any) => {
     const nepaliDigits = ["०", "१", "२", "३", "४", "५", "६", "७", "८", "९"];
     return number
@@ -37,43 +38,29 @@ export const News = () => {
   };
 
   const formatNepaliDate = (dateString: any) => {
+    const nepaliMonths = [
+      "बैशाख",
+      "जेष्ठ",
+      "असार",
+      "श्रावण",
+      "भाद्र",
+      "अशोज",
+      "कार्तिक",
+      "मंसिर",
+      "पुष",
+      "माघ",
+      "फाल्गुन",
+      "चैत",
+    ];
     const [year, month, day] = dateString.split("-");
 
     return {
       year: convertToNepaliNumbers(year),
-      month: convertToNepaliNumbers(month),
+      month: nepaliMonths[parseInt(month) - 1],
       day: convertToNepaliNumbers(day),
     };
   };
-  // const images = [
-  //   {
-  //     src: "/hero.jpg",
-  //     alt: "Hero Image 1",
-  //     month: "भाद्र",
-  //     day: "१०",
-  //     key: "1",
-  //     year: "२०८१",
-  //     title: "+2 उतिर्ण विद्यार्थीहरुलाई बधाई तथा शुभकामना कार्यक्रम  ",
-  //   },
-  //   {
-  //     src: "/bharatpur.jpg",
-  //     alt: "Hero Image 2",
-  //     month: "आश्विन",
-  //     day: "१०",
-  //     key: "2",
-  //     year: "२०८१",
-  //     title: "ज्येष्ठ नागरिक दिवसको शुभ अवसरमा र्याली तथा कार्यक्रम -२०८०",
-  //   },
-  //   {
-  //     src: "/FlagNepal.gif",
-  //     alt: "Hero Image 3",
-  //     month: "भाद्र",
-  //     key: "3",
-  //     day: "१०",
-  //     year: "२०७३",
-  //     title: "७६ बर्ष उमेर पुगेका जेष्ठ नागरिकहरुलाई सम्मान कार्यक्रम",
-  //   },
-  // ];
+
   return (
     <>
       <div className="py-10 pb-16 font-poppin relative bg-gray-200">
@@ -88,7 +75,7 @@ export const News = () => {
           <div className="flex justify-center flex-wrap gap-9 p-2 ">
             {info.length > 0
               ? info.map((info, i) => {
-                  const { year, month, day } = formatNepaliDate(info.date);
+                  const { month, day } = formatNepaliDate(info.date);
                   return (
                     <div
                       key={i}
@@ -103,9 +90,9 @@ export const News = () => {
                           />
                         </div>
                         <div className="bg-red-600 p-3 absolute right-5 w-20 -top-4 text-center text-white font-bold">
-                          {year}
+                          {day}
                           <br></br>
-                          {month}-{day}
+                          {month}
                         </div>
                       </div>
                       <div className="flex flex-col  gap-2 2xl:p-6 p-3  ">

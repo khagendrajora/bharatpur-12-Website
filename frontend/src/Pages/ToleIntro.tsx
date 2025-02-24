@@ -40,7 +40,7 @@ export const ToleIntro = () => {
             </div>
           </div>
         </div>
-        <div className="flex w-full text-xs text-center sm:text-lg gap-y-3 justify-center flex-wrap mx-auto my-10 ">
+        <div className="flex w-full xl:w-3/4 text-xs text-center sm:text-lg gap-y-3 justify-center flex-wrap mx-auto my-10 ">
           <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[300px] mx-auto">
             <img
               src="/Images/jamuna dhungana.jpg"
@@ -63,7 +63,7 @@ export const ToleIntro = () => {
               <h1 className="">९७४८४२९८९०</h1>
             </div>
           </div>
-          <div className="w-11/12 lg:w-1/4 md:w-1/3  flex flex-col max-w-[350px] mx-auto">
+          <div className="w-11/12 lg:w-1/4 md:w-1/3  flex flex-col max-w-[300px] mx-auto">
             <img
               src="/Images/bir bahadur syantan.jpg"
               className="h-[300px] w-[300px] mx-auto"
@@ -76,7 +76,7 @@ export const ToleIntro = () => {
               <h1 className="">९८४५०८६०९८</h1>
             </div>
           </div>
-          <div className="w-11/12  lg:w-1/4 md:w-1/3  flex flex-col max-w-[350px] mx-auto ">
+          <div className="w-11/12  lg:w-1/4 md:w-1/3  flex flex-col max-w-[300px] mx-auto ">
             <img
               src="/Images/sanjay kumar thapa.jpg"
               className="h-[300px] w-[300px] mx-auto"
@@ -107,7 +107,7 @@ export const ToleIntro = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-wrap gap-y-5 justify-center ">
+          <div className="flex flex-wrap gap-y-5 w-3/4 mx-auto justify-center ">
             <div className="w-11/12 lg:w-1/4 md:w-1/3 flex-col flex max-w-[350px] mx-auto">
               <img src="/female.png" className="h-[300px] w-[300px] mx-auto" />
               <div className=" w-3/4 max-w-[250px] -mt-10 p-3 bg-white top-40 shadow-md  justify-center items-center mx-auto left-10  ">

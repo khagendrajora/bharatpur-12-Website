@@ -122,9 +122,7 @@ export const WorkDetailPage = () => {
                 ></iframe>
               </div>
               <div className="p-10 flex flex-col gap-10">
-                <h1 className="font-bold text-[#245fb9] text-4xl">
-                  थाप कामहरू
-                </h1>
+                <h1 className="font-bold text-[#245fb9] text-4xl">थप कामहरू</h1>
                 <ul className="flex flex-col gap-6 font-medium">
                   {images.map((image) => (
                     <li className="cursor-pointer hover:underline">
