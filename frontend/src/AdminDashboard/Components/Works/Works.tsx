@@ -163,9 +163,9 @@ export const Works = () => {
                       />
                     </td>
                     <td className="  py-4 font-semibold text-gray-900 dark:text-white">
-                      <div>{data.title_en}</div>
+                      <div>{HTMLReactParser(data.title_en)}</div>
                       <br />
-                      <div>{data.title_np}</div>
+                      <div>{HTMLReactParser(data.title_np)}</div>
                     </td>
 
                     <td className="py-4 font-semibold max-w-[300px] min-w-[300px] px-3  text-gray-900 dark:text-white">

@@ -24,20 +24,9 @@ export const ComplainPage = () => {
 
         <div className="flex flex-row md:w-11/12  flex-wrap justify-center mx-auto  py-10 p-4 ">
           <div className="p-2 xl:p-5 lg:w-1/2  w-full flex flex-col gap-5">
-            <p className="text-gray-600 leading-10 text-justify font-normal ">
-              खोकना पूर्व गाउँ विकास समिति (VDC) हो जुन छिमेकी गाविसा बुंगमती,
-              छाम्पी, दुकुछाप र सानिबुसँग गाभिएर नेपालको बागमती अञ्चलको ललितपुर
-              जिल्लाको कार्यविनायक नगरपालिका गठन गरिएको छ। 1991 को नेपाली जनगणना
-              को समयमा, खोकना 4258 को जनसंख्या 699 व्यक्तिगत घरहरु मा बसोबास
-              थियो। 2011 को नेपाली जनगणना अनुसार, 1056 व्यक्तिगत घरहरु मा बसोबास
-              गर्ने 4927 को जनसंख्या थियो।. खोकना, एउटा परम्परागत र सानो नेवारी
-              गाउँ, जुन काठमाण्डौबाट करिब ८ किलोमिटर दक्षिणमा (पाटनको बाहिरी
-              भागमा) पर्छ। खोकना प्राचीनकालदेखि नै तोरीको तेल उत्पादनका लागि
-              प्रख्यात छ । राणा प्रधानमन्त्री चन्द्र शमशेरको पालामा सन् १९११ मा
-              विद्युतले जलाउने नेपालको पहिलो सहर पनि थियो ।
-            </p>
+            <p className="text-gray-600 leading-10 text-justify font-normal"></p>
           </div>
-          <div
+          {/* <div
             style={{
               overflow: "hidden",
               margin: "0 50px",
@@ -51,7 +40,7 @@ export const ComplainPage = () => {
               style={{ border: "none", overflow: "hidden" }}
               allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
             ></iframe>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

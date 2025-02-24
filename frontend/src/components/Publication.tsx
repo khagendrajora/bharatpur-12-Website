@@ -101,39 +101,10 @@ export const Publication = () => {
                     );
                   })
                 : ""}
-
-              {/* <div className="p-5 mt-5 bg-white border-2  w-fit lg:min-w-[300px] max-w-[570px] flex gap-3 items-center">
-                <div className="p-5 bg-[#245fb9] font-bold text-center border rounded-full w-fit text-white">
-                  आश्विन <br></br>१०
-                </div>
-                <div className="flex flex-col gap-1">
-                  <h1 className="font-bold lg:text-xl">
-                    वार्षिक प्रगति समीक्षाको प्रतिवेदन (आ.व. ०७२।७३)
-                  </h1>
-                  <h1 className="cursor-pointer flex  items-center gap-3 text-slate-500 hover:text-blue-500">
-                    डाउनलोड गर्नुहोस्
-                  </h1>
-                </div>
-              </div> */}
-              {/* <div className="p-5 mt-5  bg-white border-2  w-fit lg:min-w-[300px] max-w-[570px] flex gap-3 items-center">
-                <div className="p-5 bg-[#245fb9] font-bold text-center border rounded-full w-fit text-white">
-                  आश्विन <br></br>१०
-                </div>
-                <div className="flex flex-col gap-1">
-                  <h1 className="font-bold lg:text-xl">
-                    वार्षिक प्रगति समीक्षाको प्रतिवेदन (आ.व. ०७२।७३)
-                  </h1>
-                  <h1 className="cursor-pointer flex  items-center gap-3 text-slate-500 hover:text-blue-500">
-                    डाउनलोड गर्नुहोस्
-                  </h1>
-                </div>
-              </div> */}
             </div>
           </div>
         </div>
         <div className="w-full h-auto md:w-3/5">
-          {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.391187862288!2d84.4566756!3d27.674301899999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3994e5b408dc2ea1%3A0x9b43e267424dd98a!2sBharatpur%20Ward%20No%2012%20Office!5e0!3m2!1sen!2snp!4v1740046830497!5m2!1sen!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> */}
-
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.391187862288!2d84.4566756!3d27.674301899999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3994e5b408dc2ea1%3A0x9b43e267424dd98a!2sBharatpur%20Ward%20No%2012%20Office!5e0!3m2!1sen!2snp!4v1740046830497!5m2!1sen!2snp"
             style={{

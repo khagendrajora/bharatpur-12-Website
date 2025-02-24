@@ -98,7 +98,6 @@ export const WardIntro = () => {
                   </button>
                 </div>
                 {table === "table1" && (
-                  // <div className="overflow-y-auto min-w-full">
                   <table className="min-w-full text-xs  border ">
                     <thead className="font-normal text-start border">
                       <tr className="border text-start">

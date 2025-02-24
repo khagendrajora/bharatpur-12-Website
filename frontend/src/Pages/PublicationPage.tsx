@@ -67,44 +67,6 @@ export const PublicationPage = () => {
     fetchData();
   }, []);
 
-  // const images = [
-  //   {
-  //     src: "/hero.jpg",
-  //     alt: "Hero Image 1",
-  //     month: "आश्विन",
-  //     day: "१०",
-  //     year: "२०८१",
-  //     key: "1",
-  //     title: "वार्षिक प्रगति समीक्षाको प्रतिवेदन (आ.व. ०७२।७३)",
-  //   },
-  //   {
-  //     src: "/hero.jpg",
-  //     alt: "Hero Image 2",
-  //     month: "आश्विन",
-  //     day: "१०",
-  //     year: "२०६२",
-  //     key: "2",
-  //     title: "वार्षिक प्रगति समीक्षाको प्रतिवेदन (आ.व. ०७२।७३)",
-  //   },
-  //   {
-  //     src: "/hero.jpg",
-  //     alt: "Hero Image 3",
-  //     month: "भाद्र",
-  //     day: "१०",
-  //     year: "२०७१",
-  //     key: "3",
-  //     title: "वार्षिक प्रगति समीक्षाको प्रतिवेदन (आ.व. ०७२।७३)",
-  //   },
-  //   {
-  //     src: "/hero.jpg",
-  //     alt: "Hero Image 3",
-  //     month: "भाद्र",
-  //     day: "१०",
-  //     year: "२०७१",
-  //     key: "4",
-  //     title: "वार्षिक प्रगति समीक्षाको प्रतिवेदन (आ.व. ०७२।७३)",
-  //   },
-  // ];
   return (
     <>
       <div className="w-full font-poppin">

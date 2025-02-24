@@ -2,17 +2,20 @@ import React from "react";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { ButtonLoader } from "../../../Utils/ButtonLoader";
-// import JoditEditor from "jodit-react";
+import JoditEditor from "jodit-react";
 import { NepaliDatePicker } from "nepali-datepicker-reactjs";
 import "nepali-datepicker-reactjs/dist/index.css";
 // import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+// import "react-quill/dist/quill.snow.css";
 // import HTMLReactParser from "html-react-parser/lib/index";
 import DOMPurify from "dompurify";
-import ReactQuill from "react-quill";
+// import ReactQuill from "react-quill";
+// import RichTextEditor from "rich-text-editor";
+// import { CKEditor } from "@ckeditor/ckeditor5-react";
+// import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 export const AddNews = () => {
-  // const editor = React.useRef(null);
+  const editor = React.useRef(null);
   const navigate = useNavigate();
   const [isButton, setIsButton] = React.useState(false);
   const [image, setImage] = React.useState<File | null>();
@@ -59,13 +62,13 @@ export const AddNews = () => {
     }
   };
 
-  // const config = React.useMemo(
-  //   () => ({
-  //     height: 400,
-  //     toolbarSticky: false,
-  //   }),
-  //   []
-  // );
+  const config = React.useMemo(
+    () => ({
+      height: 400,
+      toolbarSticky: false,
+    }),
+    []
+  );
 
   const add = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -140,7 +143,7 @@ export const AddNews = () => {
 
               <div className="relative z-0 w-full mb-5 group">
                 <label className="">Title</label>
-                {/* <JoditEditor
+                <JoditEditor
                   ref={editor}
                   name="title_en"
                   value={inputs.title_en}
@@ -149,19 +152,12 @@ export const AddNews = () => {
                     setInputs({ ...inputs, title_en: e });
                   }}
                   className=" py-2.5 px-0 w-full text-sm text-black border-b-2 focus:outline-none"
-                /> */}
-                <ReactQuill
-                  theme="snow"
-                  value={inputs.title_en}
-                  onChange={(content) => {
-                    setInputs({ ...inputs, title_en: content });
-                  }}
                 />
               </div>
 
               <div className=" z-0 w-full mb-5 group">
                 <label className="">शीर्षक</label>
-                {/* <JoditEditor
+                <JoditEditor
                   ref={editor}
                   name="title_np"
                   value={inputs.title_np}
@@ -170,39 +166,15 @@ export const AddNews = () => {
                     setInputs({ ...inputs, title_np: e });
                   }}
                   className=" py-2.5 px-0 w-full text-sm text-black border-b-2 focus:outline-none"
-                /> */}
-                {/* <input
-                  type="text"
-                  name="title_np"
-                  value={inputs.title_np}
-                  onChange={(e) => HandleTitle(e.target.value)}
-                  className=" py-2.5 px-0 w-full text-sm border-0 border-b-2 border-gray-300  dark:text-white dark:border-gray-600 focus:outline-none"
-                  placeholder=" "
-                /> */}
-
-                <ReactQuill
-                  theme="snow"
-                  value={inputs.title_np}
-                  onChange={(content) => {
-                    setInputs({ ...inputs, title_np: content });
-                  }}
                 />
               </div>
 
               <div className="flex flex-col gap-5 w-full pb-5 ">
                 <label className="font-medium text-xl">Description</label>
-                {/* <JoditEditor
+                <JoditEditor
                   ref={editor}
                   value={inputs.description_en}
                   config={config}
-                  onChange={(content) => {
-                    setInputs({ ...inputs, description_en: content });
-                  }}
-                /> */}
-
-                <ReactQuill
-                  theme="snow"
-                  value={inputs.description_en}
                   onChange={(content) => {
                     setInputs({ ...inputs, description_en: content });
                   }}
@@ -210,17 +182,10 @@ export const AddNews = () => {
               </div>
               <div className="flex flex-col gap-5  w-full pb-5 ">
                 <label className="font-bold text-xl">विवरण</label>
-                {/* <JoditEditor
+                <JoditEditor
                   ref={editor}
                   value={inputs.description_np}
                   config={config}
-                  onChange={(content) => {
-                    setInputs({ ...inputs, description_np: content });
-                  }}
-                /> */}
-                <ReactQuill
-                  theme="snow"
-                  value={inputs.description_np}
                   onChange={(content) => {
                     setInputs({ ...inputs, description_np: content });
                   }}

@@ -65,21 +65,21 @@ export const News = () => {
     <>
       <div className="py-10 pb-16 font-poppin relative bg-gray-200">
         <div className="bg-[url('/river2.jpg')] absolute inset-0 bg-cover bg-center opacity-10 z-0 pointer-events-none"></div>
-        <div className="flex flex-col justify-center relative  mx-auto p- items-center md:w-10/12 ">
+        <div className="flex flex-col justify-center relative  mx-auto  items-center md:w-full w-11/12 ">
           <div className="flex relative justify-center w-3/4 mb-12 items-center mx-auto z-10 ">
             <div className="flex flex-col">
               <h1 className="text-4xl font-bold">समाचार </h1>
             </div>
           </div>
 
-          <div className="flex justify-center flex-wrap gap-9 p-2 ">
+          <div className="flex justify-center flex-wrap gap-9 w-full p-2 ">
             {info.length > 0
               ? info.map((info, i) => {
                   const { month, day } = formatNepaliDate(info.date);
                   return (
                     <div
                       key={i}
-                      className=" relative shadow-sm bg-white min-w-[350px] md:w-1/2 lg:w-1/4 w-full sm:w-3/4"
+                      className=" relative shadow-sm bg-white w-full md:w-1/2 lg:w-1/4 min-w-[300px] max-w-[400px] sm:w-3/4"
                     >
                       <div>
                         <div className="overflow-hidden">

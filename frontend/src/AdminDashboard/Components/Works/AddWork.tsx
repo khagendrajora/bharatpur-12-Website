@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { ButtonLoader } from "../../../Utils/ButtonLoader";
 import JoditEditor from "jodit-react";
+import DOMPurify from "dompurify";
 
 export const AddWork = () => {
   const editor = React.useRef(null);
@@ -161,10 +162,16 @@ export const AddWork = () => {
 
     setIsButton(true);
     const formData = new FormData();
-    formData.append("title_en", inputs.title_en);
-    formData.append("title_np", inputs.title_np);
-    formData.append("description_en", inputs.description_en);
-    formData.append("description_np", inputs.description_np);
+    formData.append("title_en", DOMPurify.sanitize(inputs.title_en));
+    formData.append("title_np", DOMPurify.sanitize(inputs.title_np));
+    formData.append(
+      "description_en",
+      DOMPurify.sanitize(inputs.description_en)
+    );
+    formData.append(
+      "description_np",
+      DOMPurify.sanitize(inputs.description_np)
+    );
     if (main_image) {
       formData.append(`main_image`, main_image);
     }
@@ -225,6 +232,7 @@ export const AddWork = () => {
                 <label className="">Title</label>
                 <JoditEditor
                   ref={editor}
+                  name="title_en"
                   value={inputs.title_en}
                   config={config}
                   onChange={(content) => {
@@ -246,6 +254,7 @@ export const AddWork = () => {
                 <label className="">शीर्षक</label>
                 <JoditEditor
                   ref={editor}
+                  name="title_np"
                   value={inputs.title_np}
                   config={config}
                   onChange={(content) => {
