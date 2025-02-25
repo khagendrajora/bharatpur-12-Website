@@ -91,11 +91,15 @@ export const ComplainPage = () => {
           </h1>
         </div>
 
-        <div className="flex flex-row md:w-11/12 my-10 flex-wrap justify-center mx-auto border p-10  ">
+        <h1 className="w-full text-3xl underline 2xl:text-5xl text-center py-20">
+          {" "}
+          उजुरी पेश गर्नको लागि तल दिएको विवरणभरि आफ्नो उजुरी पेश गर्नुहोस्।
+        </h1>
+        <div className="flex flex-row w-11/12 lg:w-1/2 2xl:w-1/3 rounded-xl my-10 flex-wrap justify-center mx-auto border p-10  ">
           {/* <div className="p-2 xl:p-5 lg:w-1/2  w-full flex flex-col gap-5"> */}
           <form onSubmit={add} className="w-full flex flex-col gap-10">
             <div className="z-0 w-full  mb-5 group">
-              <label className="">उजुरी गर्ने को नाम</label>
+              <label className="text-xl font-bold">उजुरी गर्ने को नाम</label>
               <input
                 type="text"
                 name="name"
@@ -107,7 +111,7 @@ export const ComplainPage = () => {
               />
             </div>
             <div className="z-0 w-full mb-5 group">
-              <label className="">उजरी गर्ने को ठेगाना</label>
+              <label className="text-xl font-bold">उजरी गर्ने को ठेगाना</label>
               <input
                 type="text"
                 name="address"
@@ -121,7 +125,9 @@ export const ComplainPage = () => {
               />
             </div>
             <div className="z-0 w-full mb-5 group">
-              <label className="">उजुरी गर्ने को सम्पर्क नम्बर</label>
+              <label className="text-xl font-bold">
+                उजुरी गर्ने को सम्पर्क नम्बर
+              </label>
               <input
                 type="text"
                 name="contact"
@@ -136,7 +142,7 @@ export const ComplainPage = () => {
             </div>
 
             <div className=" z-0 w-full mb-5 group">
-              <label className="">उजुरीको विषय</label>
+              <label className="text-xl font-bold">उजुरीको विषय</label>
               <input
                 type="text"
                 name="complain"
@@ -151,7 +157,7 @@ export const ComplainPage = () => {
             </div>
 
             <div className=" z-0 w-full mb-5 group">
-              <label className="">उजुरी को संक्षिप्त</label>
+              <label className="text-xl font-bold">उजुरी को संक्षिप्त</label>
               <textarea
                 name="complain_title"
                 value={inputs.complain}
@@ -165,7 +171,9 @@ export const ComplainPage = () => {
             </div>
 
             <div className="z-0 w-full mb-5 group">
-              <label className="">उजुरी पर्ने व्यक्ति वा सांगस्ता को नाम</label>
+              <label className="text-xl font-bold">
+                उजुरी पर्ने व्यक्ति वा सांगस्ता को नाम
+              </label>
               <input
                 type="text"
                 name="complain_to"
@@ -179,7 +187,7 @@ export const ComplainPage = () => {
               />
             </div>
 
-            <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <button className="text-white text-xl bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
               पेश गर्नुहोस् {isButton ? <ButtonLoader /> : ""}
             </button>
           </form>
