@@ -237,6 +237,15 @@ export const Dashboard = () => {
                     </span>
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/admin/complainpage"
+                    className="flex items-center p-2 rounded-lg group"
+                  >
+                    <FontAwesomeIcon icon={faNewspaper} />
+                    <span className="flex-1 ms-3 whitespace-nowrap">उजुरी</span>
+                  </Link>
+                </li>
                 <li className=" p-2 rounded-lg group">
                   <FontAwesomeIcon icon={faNewspaper} />
                   <span

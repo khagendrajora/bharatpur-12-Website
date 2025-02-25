@@ -1,8 +1,4 @@
-import {
-  faEye,
-  faPenToSquare,
-  faTrash,
-} from "@fortawesome/free-solid-svg-icons";
+import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -182,10 +178,10 @@ export const Works = () => {
                       />
                     </td>
                     <td className="">
-                      <FontAwesomeIcon
+                      {/* <FontAwesomeIcon
                         icon={faEye}
                         className="text-blue-600 hover:text-blue-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
-                      />
+                      /> */}
 
                       <FontAwesomeIcon
                         icon={faPenToSquare}

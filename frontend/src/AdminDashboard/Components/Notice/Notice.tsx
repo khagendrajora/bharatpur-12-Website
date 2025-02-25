@@ -1,8 +1,4 @@
-import {
-  faEye,
-  faPenToSquare,
-  faTrash,
-} from "@fortawesome/free-solid-svg-icons";
+import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -122,9 +118,9 @@ export const Notice = () => {
         </div>
       </div>
       <div className="relative overflow-x-auto text-center shadow-md sm:rounded-lg">
-        <table className="w-full text-sm text-center  border text-gray-500 dark:text-gray-400">
+        <table className="w-full text-sm text-center  border text-gray-500 dark:text-gray-400 ">
           <thead className="text-xs text-gray-700 uppercase bg-gray-300 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
+            <tr className="h-10">
               <th scope="col" className="px-3 py-3">
                 <span>ID</span>
               </th>
@@ -152,34 +148,31 @@ export const Notice = () => {
           <tbody className="text-center">
             {info &&
               info.map((data) => (
-                <tr className="bg-white  border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <tr className="bg-white h-[100px] border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
                   <td className=" py-4   font-semibold text-gray-900 dark:text-white">
                     {data.id}
                   </td>
 
                   <td className="  py-4 font-semibold text-gray-900 dark:text-white">
-                    <div>{data.title_en}</div>
+                    <div>{HTMLReactParser(data.title_en)}</div>
                     <br />
-                    <div>{data.title_np}</div>
+                    <div>{HTMLReactParser(data.title_np)}</div>
                   </td>
                   <td className="  py-4 font-semibold text-gray-900 dark:text-white">
                     <div>{data.date}</div>
                     {/* <br /> */}
                     {/* <div>नेपाली</div> */}
                   </td>
-                  <td className="py-4 font-semibold max-w-[300px] min-w-[300px] px-3  text-gray-900 dark:text-white">
-                    <div>{HTMLReactParser(data.description_en)}</div>
+                  <td className="py-4 font-semibold max-w-[300px] min-w-[300px] px-3 overflow-auto h-[20px] text-gray-900 dark:text-white">
+                    <div className=" mb-10 max-h-[100px]">
+                      {HTMLReactParser(data.description_en)}
+                    </div>
                     <br />
-                    <div>{HTMLReactParser(data.description_np)}</div>
+                    <div className=" max-h-[100px]">
+                      {HTMLReactParser(data.description_np)}
+                    </div>
                   </td>
 
-                  {/* <td className="">
-                    <img
-                      src="/1.jpg"
-                      className="w-16 md:w-32 max-w-full mx-auto max-h-full"
-                      alt="Apple Watch"
-                    />
-                  </td> */}
                   <td className="p-4 ">
                     <img
                       src={`https://bharatpur12.org/new/api/${data.image}`}
@@ -188,10 +181,10 @@ export const Notice = () => {
                     />
                   </td>
                   <td className="">
-                    <FontAwesomeIcon
+                    {/* <FontAwesomeIcon
                       icon={faEye}
                       className="text-blue-600 hover:text-blue-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
-                    />
+                    /> */}
 
                     <FontAwesomeIcon
                       icon={faPenToSquare}

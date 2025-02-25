@@ -52,6 +52,7 @@ import { UpdateBod } from "./AdminDashboard/Components/Employes/UpdateBod";
 import { DashboardData } from "./AdminDashboard/Components/DashboardData";
 import { useEffect } from "react";
 import { PrivateRoute } from "./Validation/PrivateRoute";
+import { Complain } from "./AdminDashboard/Components/Complain/Complain";
 
 function App() {
   useEffect(() => {
@@ -109,6 +110,7 @@ function App() {
               <Route path="addemploye" element={<AddEmploye />} />
               <Route path="addpublication" element={<AddPublication />} />
               <Route path="addboardmember" element={<AddBod />} />
+              <Route path="complainpage" element={<Complain />} />
 
               {/* getByID */}
 

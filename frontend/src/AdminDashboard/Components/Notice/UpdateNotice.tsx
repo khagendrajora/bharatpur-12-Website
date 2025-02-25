@@ -1,12 +1,12 @@
 import { NepaliDatePicker } from "nepali-datepicker-reactjs";
-import { ButtonLoader, convertToNepali } from "../../../Utils/ButtonLoader";
+import { ButtonLoader } from "../../../Utils/ButtonLoader";
 import "nepali-datepicker-reactjs/dist/index.css";
 import { useNavigate, useParams } from "react-router";
 import React, { useEffect } from "react";
 import { toast } from "react-toastify";
 import JoditEditor from "jodit-react";
 import axios from "axios";
-import ReactQuill from "react-quill";
+// import ReactQuill from "react-quill";
 
 export const UpdateNotice = () => {
   const params = useParams();
@@ -29,24 +29,24 @@ export const UpdateNotice = () => {
     description_np: "",
   });
 
-  const HandleTitle = (title: string) => {
-    const title_np = convertToNepali(title);
-    setInputs({ ...inputs, title_np: title_np });
-  };
-  const handleChange = (html: string) => {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, "text/html");
+  // const HandleTitle = (title: string) => {
+  //   const title_np = convertToNepali(title);
+  //   setInputs({ ...inputs, title_np: title_np });
+  // };
+  // const handleChange = (html: string) => {
+  //   const parser = new DOMParser();
+  //   const doc = parser.parseFromString(html, "text/html");
 
-    const traverseNodes = (node: ChildNode) => {
-      if (node.nodeType === Node.TEXT_NODE) {
-        node.textContent = convertToNepali(node.textContent || "");
-      } else if (node.childNodes.length) {
-        node.childNodes.forEach(traverseNodes);
-      }
-    };
-    doc.body.childNodes.forEach(traverseNodes);
-    setInputs({ ...inputs, description_np: doc.body.innerHTML });
-  };
+  //   const traverseNodes = (node: ChildNode) => {
+  //     if (node.nodeType === Node.TEXT_NODE) {
+  //       node.textContent = convertToNepali(node.textContent || "");
+  //     } else if (node.childNodes.length) {
+  //       node.childNodes.forEach(traverseNodes);
+  //     }
+  //   };
+  //   doc.body.childNodes.forEach(traverseNodes);
+  //   setInputs({ ...inputs, description_np: doc.body.innerHTML });
+  // };
 
   const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -158,8 +158,9 @@ export const UpdateNotice = () => {
                 Update Notice
               </h1>
 
-              <div className="relative z-0 w-full mb-5 group">
-                <input
+              <div className=" z-0 w-full mb-5 group">
+                <label className="">Title</label>
+                {/* <input
                   type="text"
                   name="title_en"
                   value={inputs.title_en}
@@ -168,24 +169,36 @@ export const UpdateNotice = () => {
                   }
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   placeholder=" "
+                /> */}
+                <JoditEditor
+                  ref={editor}
+                  value={inputs.title_en}
+                  config={config}
+                  onChange={(content) => {
+                    setInputs({ ...inputs, title_en: content });
+                  }}
                 />
-                <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                  Title
-                </label>
               </div>
 
-              <div className="relative z-0 w-full mb-5 group">
-                <input
+              <div className=" z-0 w-full mb-5 group">
+                {/* <input
                   type="text"
                   name="title_np"
                   value={inputs.title_np}
                   onChange={(e) => HandleTitle(e.target.value)}
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   placeholder=" "
+                /> */}
+                <label className="">शीर्षक</label>
+
+                <JoditEditor
+                  ref={editor}
+                  value={inputs.title_np}
+                  config={config}
+                  onChange={(content) => {
+                    setInputs({ ...inputs, title_np: content });
+                  }}
                 />
-                <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                  शीर्षक
-                </label>
               </div>
 
               <div className="flex flex-col gap-5 w-full pb-5 ">
@@ -201,9 +214,18 @@ export const UpdateNotice = () => {
               </div>
               <div className="flex flex-col gap-5 w-full pb-5 ">
                 <label className="font-bold text-xl">विवरण</label>
-                <ReactQuill
+                {/* <ReactQuill
                   value={inputs.description_np}
                   onChange={handleChange}
+                /> */}
+
+                <JoditEditor
+                  ref={editor}
+                  value={inputs.description_np}
+                  config={config}
+                  onChange={(content) => {
+                    setInputs({ ...inputs, description_np: content });
+                  }}
                 />
               </div>
 

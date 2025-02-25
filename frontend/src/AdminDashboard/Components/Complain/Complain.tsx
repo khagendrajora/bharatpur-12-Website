@@ -1,39 +1,40 @@
-import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "axios";
+// import { faEye } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router";
 import { toast } from "react-toastify";
-import { ImageURl } from "../../../Utils/ButtonLoader";
-import HTMLReactParser from "html-react-parser/lib/index";
 
-export interface INews extends Document {
+export interface IComplain extends Document {
   id?: string;
-  title_en: string;
-  title_np: string;
-  description_en: string;
-  description_np: string;
-  date: string;
-  image: string;
+  name: string;
+  complain: string;
+  complain_to: string;
+  complain_title: string;
+  contact: string;
+  address: string;
 }
 
-export const News = () => {
-  const [info, setInfo] = useState<INews[]>([]);
-  const navigate = useNavigate();
-
-  const offsetTop = 0;
-  useEffect(() => {
-    window.scrollTo({
-      top: offsetTop,
-      behavior: "smooth",
-    });
-  }, []);
+export const Complain = () => {
+  const [info, setInfo] = useState<IComplain[] | []>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`https://bharatpur12.org/new/api/samachar
-  `);
+        const token = localStorage.getItem("token");
+        if (!token) {
+          toast.error("Token Missing");
+          return;
+        }
+        const res = await fetch(
+          `https://bharatpur12.org/new/api/get/complaints
+            
+      `,
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         const data = await res.json();
         if (!res.ok) {
           console.log(data.error);
@@ -47,39 +48,9 @@ export const News = () => {
     fetchData();
   }, []);
   console.log(info);
-
-  const Delete = async (id: string | undefined) => {
-    try {
-      const confirmed = window.confirm("Delete ?");
-      if (confirmed) {
-        const token = localStorage.getItem("token");
-        if (!token) {
-          toast.error("Token Missing");
-          return;
-        }
-        // setIsButton(id || "");
-        const response = await axios.delete(
-          `https://bharatpur12.org/new/api/samachar/${id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        const data = response.data;
-        if (data.message) {
-          toast.error(data.message);
-        } else {
-          setInfo((prev) => prev?.filter((v) => v.id !== id));
-        }
-      }
-    } catch (error: any) {
-      toast.error(error.message);
-    }
-  };
   return (
     <div className="sm:ml-60 mt-20 sm:px-30 p-5">
-      <h1 className="font-bold text-2xl pb-10">समाचार</h1>
+      <h1 className="font-bold text-2xl pb-10">उजुरी</h1>
       <div className="pb-4 bg-white flex flex-wrap gap-10 justify-between dark:bg-gray-900">
         <div className="relative mt-1">
           <div className="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -106,14 +77,14 @@ export const News = () => {
             placeholder="Search for items"
           />
         </div>
-        <div>
+        {/* <div>
           <Link
             to="/admin/addnews"
             className="bg-[#245fb9]  hover:bg-blue-600 px-3 p-2 rounded-lg text-white font-semibold"
           >
             नयाँ थप्नुहोस्
           </Link>
-        </div>
+        </div> */}
       </div>
       <div className="relative overflow-x-auto text-center shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-center  border text-gray-500 dark:text-gray-400">
@@ -123,25 +94,27 @@ export const News = () => {
                 <span>ID</span>
               </th>
               <th scope="col" className="px-3 py-3">
-                Image
+                Name
               </th>
               <th scope="col" className="px-3 py-3">
-                Title
-              </th>
-
-              <th scope="col" className="px-3 py-3">
-                Date
+                Address
               </th>
               <th scope="col" className="px-3 py-3">
-                Description
+                Contact
+              </th>
+              <th scope="col" className="px-3 py-3">
+                Complain Title
+              </th>
+              <th scope="col" className="px-3 py-3">
+                Complain
+              </th>
+              <th scope="col" className="px-3 py-3">
+                Complain To
               </th>
 
               {/* <th scope="col" className="px-3 py-3">
-                Images
-              </th> */}
-              <th scope="col" className="px-3 py-3">
                 Action
-              </th>
+              </th> */}
             </tr>
           </thead>
           <tbody className="text-center">
@@ -151,46 +124,42 @@ export const News = () => {
                   <td className=" py-4   font-semibold text-gray-900 dark:text-white">
                     {data.id}
                   </td>
-                  <td className="p-4 ">
-                    <img
-                      src={`${ImageURl}/${data.image} `}
-                      className="w-16 md:w-32 max-w-full mx-auto max-h-full"
-                      alt="Image"
-                    />
-                  </td>
+                  <td className="p-4 ">{data.name}</td>
                   <td className="  py-4 font-semibold text-gray-900 dark:text-white">
-                    <div>{HTMLReactParser(data.title_en)}</div>
-                    <br />
-                    <div>{HTMLReactParser(data.title_np)}</div>
+                    <div>{data.address}</div>
                   </td>
 
                   <td className="  py-4 font-semibold text-gray-900 dark:text-white">
-                    <div>{data.date}</div>
+                    <div>{data.contact}</div>
                   </td>
                   <td className="py-4 font-semibold max-w-[300px] min-w-[300px] px-3  text-gray-900 dark:text-white">
-                    <div>{HTMLReactParser(data.description_en)}</div>
-                    <br />
-                    <div>{HTMLReactParser(data.description_np)}</div>
+                    <div>{data.complain_title}</div>
+                  </td>
+                  <td className="py-4 font-semibold max-w-[300px] min-w-[300px] px-3  text-gray-900 dark:text-white">
+                    <div>{data.complain}</div>
+                  </td>
+                  <td className="py-4 font-semibold max-w-[300px] min-w-[300px] px-3  text-gray-900 dark:text-white">
+                    <div>{data.complain_to}</div>
                   </td>
 
-                  <td className="">
-                    {/* <FontAwesomeIcon
+                  {/* <td className="">
+                    <FontAwesomeIcon
                       icon={faEye}
                       className="text-blue-600 hover:text-blue-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
                     /> */}
 
-                    <FontAwesomeIcon
+                  {/* <FontAwesomeIcon
                       icon={faPenToSquare}
                       className="text-green-600 hover:text-green-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
                       onClick={() => navigate(`/admin/updatenews/${data.id}`)}
-                    />
-
+                    /> */}
+                  {/* 
                     <FontAwesomeIcon
                       icon={faTrash}
                       className="text-red-600 hover:text-red-700 bg-gray-100 border p-2 mx-2 rounded cursor-pointer"
                       onClick={() => Delete(data.id)}
-                    />
-                  </td>
+                    /> */}
+                  {/* </td> */}
                 </tr>
               ))}
           </tbody>
