@@ -21,7 +21,7 @@ export const Intro = () => {
           `https://bharatpur12.org/new/api/about-us`
         );
         console.log(response.data);
-        // const latestData = response.data.slice(0, 2);
+
         setIntro(response.data);
       } catch (error: any) {
         console.log(error);
