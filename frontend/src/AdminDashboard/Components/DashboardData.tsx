@@ -1,4 +1,9 @@
-import { Link } from "react-router";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router";
+import { IPublication } from "./Publication/Publication";
+import { toast } from "react-toastify";
+import { INotice } from "./Notice/Notice";
+import { INews } from "./News/News";
 
 export const DashboardData = () => {
   const images = [
@@ -9,6 +14,7 @@ export const DashboardData = () => {
       numbers: "१२८५",
       color: "bg-gradient-to-r from-blue-600 to-blue-400",
       value: "१३.६५%",
+      range: " ५५ बर्ष देखि ६५ बर्ष",
     },
     {
       src: "/hero-6.jpg",
@@ -17,6 +23,7 @@ export const DashboardData = () => {
       numbers: "८४४",
       color: "bg-gradient-to-r from-amber-600 to-amber-500",
       value: "८.९७%",
+      range: "६५ बर्ष माथि",
     },
     {
       src: "/hero-2.jpg",
@@ -25,6 +32,7 @@ export const DashboardData = () => {
       numbers: "३४.१८",
       color: "bg-gradient-to-r from-green-500 to-green-500",
       value: "३६.३२%",
+      range: " ३३ बर्ष देखि ५४ बर्ष",
     },
     {
       src: "/hero-3.jpg",
@@ -33,6 +41,7 @@ export const DashboardData = () => {
       value: "२४.६१%",
       numbers: "२३१६",
       color: "bg-gradient-to-r from-pink-600 to-pink-500",
+      range: " १७ बर्ष देखि ३२ बर्ष",
     },
     {
       src: "/hero-3.jpg",
@@ -41,6 +50,7 @@ export const DashboardData = () => {
       value: "१०.८%",
       numbers: "१०१६",
       color: "bg-gradient-to-r from-blue-600 to-blue-500",
+      range: " ६  बर्ष देखि १६  बर्ष",
     },
     {
       src: "/hero-3.jpg",
@@ -49,34 +59,7 @@ export const DashboardData = () => {
       value: "५.१३%",
       numbers: "४८३",
       color: "bg-gradient-to-r from-amber-600 to-amber-500",
-    },
-  ];
-
-  const image = [
-    {
-      src: "/hero-6.jpg",
-      alt: "Hero Image 1",
-      title: "प्रकाशन",
-      count: "४",
-      color: "bg-white",
-      //   value: "५२.५९%",
-    },
-    {
-      src: "/hero-2.jpg",
-      alt: "Hero Image 3",
-      title: "सूचना",
-
-      color: "bg-white",
-      count: "८",
-      //   value: "४७.७%",
-    },
-    {
-      src: "/hero-3.jpg",
-      alt: "Hero Image 1",
-      title: "समाचार",
-      //   value: "०.०१%",
-      count: "१",
-      color: "bg-white",
+      range: " ०  बर्ष देखि ५  बर्ष",
     },
   ];
 
@@ -106,6 +89,66 @@ export const DashboardData = () => {
       value: "१००%",
     },
   ];
+
+  const navigate = useNavigate();
+  const [info, setInfo] = useState<IPublication[]>([]);
+  const [notice, setNotice] = useState<INotice[]>([]);
+  const [news, setNews] = useState<INews[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(`https://bharatpur12.org/new/api/publications
+`);
+        const data = await res.json();
+        if (!res.ok) {
+          console.log(data.error);
+        } else {
+          setInfo(data);
+        }
+      } catch (error: any) {
+        toast.error(error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(`https://bharatpur12.org/new/api/information`);
+        const data = await res.json();
+        if (!res.ok) {
+          console.log(data.error);
+        } else {
+          // const filterData = data.filter(
+          //   (item: { category: string }) => item.category === "Board Member"
+          // );
+          setNotice(data);
+        }
+      } catch (error: any) {
+        toast.error(error);
+      }
+    };
+    fetchData();
+  }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(`https://bharatpur12.org/new/api/samachar
+  `);
+        const data = await res.json();
+        if (!res.ok) {
+          console.log(data.error);
+        } else {
+          setNews(data);
+        }
+      } catch (error: any) {
+        toast.error(error);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <>
       <div className="sm:ml-60 mt-20 sm:px-30 p-2">
@@ -119,7 +162,7 @@ export const DashboardData = () => {
               थप पढ्नुहोस्
             </Link>
           </div>
-          <div className="flex flex-wrap gap-10  justify-center md:justify-between text-white mt-5">
+          <div className="flex flex-wrap gap-5 mx-auto lg:w-11/12 justify-start  text-white mt-5">
             {images.map((image, index) => (
               <>
                 <div
@@ -130,39 +173,66 @@ export const DashboardData = () => {
                     <h1>{image.value}</h1>
                     <h1>{image.numbers}</h1>
                   </div>
-                  <div className="w-full bg-zinc-800 rounded-full  h-1">
+                  {/* <div className="w-full bg-zinc-800 rounded-full  h-1">
                     <div className="bg-white h-1 rounded-full w-[50%]"></div>
-                  </div>
+                  </div> */}
                   <h3>{image.title}</h3>
-                  <span>(६० बर्ष देखि ७० बर्ष)</span>
+                  <span>{image.range}</span>
                 </div>
               </>
             ))}
           </div>
-          <div className="flex  flex-wrap gap-8 xl:gap-10 pt-10  justify-center md:justify-between  text-black">
-            {image.map((image, index) => (
+          <div className="flex  flex-wrap gap-8 xl:gap-10 pt-10 mx-auto lg:w-11/12  justify-start  text-black">
+            {info && (
               <>
                 <div
-                  key={index}
-                  className={`relative ${image.color} p-5 w-full shadow-sm flex border flex-col gap-4 lg:w-1/4 xxl:w-[500px]  justify-center  border-black`}
+                  className={`relative  p-5 w-full shadow-sm flex border flex-col gap-4 lg:w-1/4   justify-center cursor-pointer  border-black`}
+                  onClick={() => navigate("/admin/publication")}
                 >
                   <div className="flex justify-between flex-wrap">
-                    <h3 className="font-semibold text-xl">{image.title}</h3>
-                    {/* <h1 className="font-bold">{image.value}</h1> */}
+                    <h3 className="font-semibold text-xl">प्रकाशन</h3>
                   </div>
 
-                  <span className="font-bold">{image.count}</span>
+                  <span className="font-bold">{info.length}</span>
                 </div>
               </>
-            ))}
+            )}
+            {notice && (
+              <>
+                <div
+                  className={`relative  p-5 w-full shadow-sm flex border flex-col cursor-pointer  gap-4 lg:w-1/4   justify-center  border-black`}
+                  onClick={() => navigate("/admin/notice")}
+                >
+                  <div className="flex justify-between flex-wrap">
+                    <h3 className="font-semibold text-xl">सूचना</h3>
+                  </div>
+
+                  <span className="font-bold">{notice.length}</span>
+                </div>
+              </>
+            )}
+            {news && (
+              <>
+                <div
+                  className={`relative  p-5 w-full shadow-sm cursor-pointer  flex border flex-col gap-4 lg:w-1/4   justify-center  border-black`}
+                  onClick={() => navigate("/admin/news")}
+                >
+                  <div className="flex justify-between flex-wrap">
+                    <h3 className="font-semibold text-xl">समाचार</h3>
+                  </div>
+
+                  <span className="font-bold">{news.length}</span>
+                </div>
+              </>
+            )}
           </div>
 
-          <div className="flex flex-wrap gap-8 xl:gap-10 pt-10 justify-center md:justify-between text-white">
+          <div className="flex flex-wrap gap-8 xl:gap-10 pt-10 justify-start w-11/12 mx-auto text-white">
             {img.map((image, index) => (
               <>
                 <div
                   key={index}
-                  className={`relative ${image.color} p-5 shadow-sm w-full  flex  flex-col gap-4 lg:w-1/4 xxl:w-[500px]  justify-center${image.color} border-black`}
+                  className={`relative ${image.color} p-5 shadow-sm w-full  flex  flex-col gap-4 lg:w-1/4   justify-center${image.color} border-black`}
                 >
                   <div className="flex justify-between flex-wrap">
                     <h3 className="font-semibold text-xl">{image.title}</h3>

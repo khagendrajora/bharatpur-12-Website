@@ -11,6 +11,7 @@ export const Gallary = () => {
       numbers: "१२८५",
       color: "bg-gradient-to-r from-blue-600 to-blue-400",
       value: "१३.६५%",
+      range: " ५५ बर्ष देखि ६५ बर्ष",
     },
     {
       src: "/hero-6.jpg",
@@ -19,6 +20,7 @@ export const Gallary = () => {
       numbers: "८४४",
       color: "bg-gradient-to-r from-amber-600 to-amber-500",
       value: "८.९७%",
+      range: "६५ बर्ष माथि",
     },
     {
       src: "/hero-2.jpg",
@@ -27,6 +29,7 @@ export const Gallary = () => {
       numbers: "३४.१८",
       color: "bg-gradient-to-r from-green-500 to-green-500",
       value: "३६.३२%",
+      range: " ३३ बर्ष देखि ५४ बर्ष",
     },
     {
       src: "/hero-3.jpg",
@@ -35,6 +38,7 @@ export const Gallary = () => {
       value: "२४.६१%",
       numbers: "२३१६",
       color: "bg-gradient-to-r from-pink-600 to-pink-500",
+      range: " १७ बर्ष देखि ३२ बर्ष",
     },
     {
       src: "/hero-3.jpg",
@@ -43,6 +47,7 @@ export const Gallary = () => {
       value: "१०.८%",
       numbers: "१०१६",
       color: "bg-gradient-to-r from-blue-600 to-blue-500",
+      range: " ६  बर्ष देखि १६  बर्ष",
     },
     {
       src: "/hero-3.jpg",
@@ -51,6 +56,7 @@ export const Gallary = () => {
       value: "५.१३%",
       numbers: "४८३",
       color: "bg-gradient-to-r from-amber-600 to-amber-500",
+      range: " ०  बर्ष देखि ५  बर्ष",
     },
   ];
 
@@ -139,7 +145,7 @@ export const Gallary = () => {
                   </div>
                 </div> */}
                 <h3>{image.title}</h3>
-                <span>(६० बर्ष देखि ७० बर्ष)</span>
+                <span>{image.range}</span>
               </div>
             </>
           ))}

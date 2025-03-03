@@ -53,6 +53,9 @@ import { DashboardData } from "./AdminDashboard/Components/DashboardData";
 import { useEffect } from "react";
 import { PrivateRoute } from "./Validation/PrivateRoute";
 import { Complain } from "./AdminDashboard/Components/Complain/Complain";
+import { Users } from "./AdminDashboard/Components/Users/Users";
+import { AddUsers } from "./AdminDashboard/Components/Users/AddUsers";
+import { PhotoesPage } from "./Pages/PhotoesPage";
 
 function App() {
   useEffect(() => {
@@ -83,6 +86,7 @@ function App() {
             <Route path="contact" element={<ContactPage />} />
             <Route path="/newsdetail/:key" element={<NewsDetailPage />} />
             <Route path="workdetail/:key" element={<WorkDetailPage />} />
+            <Route path="photoes" element={<PhotoesPage />} />
             {/* <Route
               path="publicationdetail/:key"
               element={<PublicationDetailPage />}
@@ -111,6 +115,8 @@ function App() {
               <Route path="addpublication" element={<AddPublication />} />
               <Route path="addboardmember" element={<AddBod />} />
               <Route path="complainpage" element={<Complain />} />
+              <Route path="users" element={<Users />} />
+              <Route path="addusers" element={<AddUsers />} />
 
               {/* getByID */}
 

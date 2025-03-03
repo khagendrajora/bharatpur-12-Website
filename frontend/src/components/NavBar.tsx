@@ -237,17 +237,17 @@ export const NavBar = () => {
                         </li>
                       </Link>
                       <hr />
-                      <Link to="" className="hover:bg-gray-100 p-3">
+                      <Link to="/photoes" className="hover:bg-gray-100 p-3">
                         <li className="cursor-pointer">
                           {t("navbar.key5.subKey.key3")}
                         </li>
                       </Link>
                       <hr />
-                      <Link to="/videos" className="hover:bg-gray-100 p-3">
+                      {/* <Link to="/videos" className="hover:bg-gray-100 p-3">
                         <li className="cursor-pointer">
                           {t("navbar.key5.subKey.key4")}
                         </li>
-                      </Link>
+                      </Link> */}
                     </ul>
                   </div>
                 )}
@@ -408,7 +408,10 @@ export const NavBar = () => {
                       >
                         समाचार
                       </Link>
-                      <Link to="" className="cursor-pointer hover:text-black">
+                      <Link
+                        to="/photoes"
+                        className="cursor-pointer hover:text-black"
+                      >
                         फोटो
                       </Link>
                       <Link to="" className="cursor-pointer hover:text-black">

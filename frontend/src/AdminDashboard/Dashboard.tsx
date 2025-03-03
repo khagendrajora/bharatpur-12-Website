@@ -102,11 +102,11 @@ export const Dashboard = () => {
 
                         {menu && (
                           <div className="z-50 absolute px-5 my-4 right-1 top-10 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600">
-                            <div className="px-4 py-3">
+                            {/* <div className="px-4 py-3">
                               <p className="text-sm text-gray-900 dark:text-white">
                                 Profile
                               </p>
-                            </div>
+                            </div> */}
                             <ul className="py-1">
                               <li
                                 className="block disabled px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
@@ -126,13 +126,13 @@ export const Dashboard = () => {
           </div>
 
           <aside
-            className={`absolute  top-0 left-0 h-full w-60 z-10 bg[#2e3e4e]  transition-transform  ${
+            className={`absolute h-screen  top-0 left-0 w-60 z-10 bg[#2e3e4e]  transition-transform  ${
               side ? "-translate-x-full" : "translate-x-0"
             }  border-r  ${
               side ? "w-60" : "w-0"
             } border-gray-200 sm:translate-x-0 `}
           >
-            <div className="h-full px-3 py-20 pb-4 overflow-y-auto bg-[#2e3e4e] text-white">
+            <div className="h-screen px-3 scrollbar-hidden py-20 pb-4 overflow-y-auto bg-[#2e3e4e] text-white">
               <ul className="space-y-2 font-medium">
                 <li>
                   <Link
@@ -265,6 +265,15 @@ export const Dashboard = () => {
                       </li>
                     </ul>
                   )}
+                </li>
+                <li className=" p-2 rounded-lg group">
+                  <FontAwesomeIcon icon={faNewspaper} />
+                  <span
+                    className="flex-1 ms-3 whitespace-nowrap cursor-pointer"
+                    onClick={() => navigate("/admin/users")}
+                  >
+                    प्रयोगकर्ताहरू
+                  </span>
                 </li>
               </ul>
             </div>
